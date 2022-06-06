@@ -14,11 +14,11 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-group = 'stm'
-version = '0.01'
+group = 'com.david.stm'
+version = '0.01-ALPHA'
 
 java {
-    archivesBaseName = 'spacetechmod'
+    archivesBaseName = 'stm'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
@@ -83,7 +83,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'spacetechmod'
 
             mods {
-                spacetechmod {
+                stm {
                     source sourceSets.main
                 }
             }

@@ -21,7 +21,7 @@ modId = "spacetechmod" #mandatory
 # see the associated build.gradle script for how to populate this completely automatically during a build
 version = "${file.jarVersion}" #mandatory
 # A display name for the mod
-displayName = "Spacetechmod" #mandatory
+displayName = "Space Tech Mod" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -31,7 +31,7 @@ displayName = "Spacetechmod" #mandatory
 # A text field displayed in the mod UI
 #credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
-#authors="Love, Cheese and small house plants" #optional
+#authors="David & Nathan" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
 A mod for minecraft
@@ -39,7 +39,7 @@ A mod for minecraft
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.spacetechmod]] #optional
 # the modid of the dependency
-modId = "forge" #mandatory
+modId = "spacetechmod" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 mandatory = true #mandatory
 # The version range of the dependency
