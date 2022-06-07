@@ -1,5 +1,7 @@
 {
   "item.spacetechmod.titanium_ingot": "Titanium Ingot",
   "item.spacetechmod.raw_titanium": "Raw Titanium",
-  "block.spacetechmod.titanium_block": "Block of Titanium"
+  "block.spacetechmod.titanium_block": "Block of Titanium",
+  "block.spacetechmod.titanium_ore": "Titanium Ore",
+  "block.spacetechmod.titanium_ore_deepslate": "Deepslate Titanium Ore"
 }
