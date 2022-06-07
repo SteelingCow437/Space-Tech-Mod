@@ -1,5 +1,6 @@
 package com.net.david.spacetechmod;
 
+import com.net.david.spacetechmod.block.ModBlocks;
 import com.net.david.spacetechmod.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -31,8 +32,9 @@ public class Spacetechmod {
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         eventBus.addListener(this::setup);
-        ModItems.register(eventBus);
 
+        ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
