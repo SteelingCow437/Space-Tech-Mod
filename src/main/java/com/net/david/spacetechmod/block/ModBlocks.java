@@ -1,6 +1,7 @@
 package com.net.david.spacetechmod.block;
 
 import com.net.david.spacetechmod.Spacetechmod;
+import com.net.david.spacetechmod.item.ModCreativeModeTab;
 import com.net.david.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -39,15 +40,15 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+                    .strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(4f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+                    .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
     public static final RegistryObject<Block> TITANIUM_ORE_DEEPSLATE = registerBlock("titanium_ore_deepslate",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(5f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+                    .strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
 
 
