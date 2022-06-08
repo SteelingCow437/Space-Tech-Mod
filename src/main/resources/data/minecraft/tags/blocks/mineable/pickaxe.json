@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "spacetechmod:titanium_block",
+    "spacetechmod:titanium_ore",
+    "spacetechmod:titanium_ore_deepslate"
+  ]
+}
