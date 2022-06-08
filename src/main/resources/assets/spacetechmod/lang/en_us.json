@@ -12,5 +12,9 @@
   "item.spacetechmod.titanium_axe": "Titanium Axe",
   "item.spacetechmod.titanium_shovel": "Titanium Shovel",
   "item.spacetechmod.titanium_hoe": "Titanium Hoe",
-  "block.spacetechmod.raw_titanium_block": "Block of Raw Titanium"
+  "block.spacetechmod.raw_titanium_block": "Block of Raw Titanium",
+  "item.spacetechmod.titanium_helmet": "Titanium Helmet",
+  "item.spacetechmod.titanium_chestplate": "Titanium Chestplate",
+  "item.spacetechmod.titanium_leggings": "Titanium Leggings",
+  "item.spacetechmod.titanium_boots": "Titanium Boots"
 }

@@ -1,6 +1,7 @@
 package com.net.david.spacetechmod.item;
 
 import com.net.david.spacetechmod.Spacetechmod;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -41,6 +42,21 @@ public class ModItems {
             () -> new HoeItem(ModTiers.TITANIUM, -2, 0f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
+    public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.HEAD, 0f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.CHEST, 0f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.LEGS, 0f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET, 0f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
 }
 
