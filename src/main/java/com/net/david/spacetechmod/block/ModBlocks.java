@@ -36,7 +36,7 @@ public class ModBlocks {
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
-    //Register blocks below this line PLEASE!
+    //Register blocks below this line
     //The stuff above is just to declare the block class
 
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
@@ -51,6 +51,9 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
+    public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(7f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
 
 }

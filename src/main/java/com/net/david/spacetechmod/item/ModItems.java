@@ -15,7 +15,7 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
-    //Declare all items below this comment
+    //Declare all items below this line
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
@@ -26,19 +26,19 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe",
-            () -> new PickaxeItem(ModTiers.TITANIUM, 0, -3f,
+            () -> new PickaxeItem(ModTiers.TITANIUM, 1, -2.8f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",
-            () -> new AxeItem(ModTiers.TITANIUM, 5, -3f,
+            () -> new AxeItem(ModTiers.TITANIUM, 6, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel",
-            () -> new ShovelItem(ModTiers.TITANIUM, 0, -2.5f,
+            () -> new ShovelItem(ModTiers.TITANIUM, 2, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe",
-            () -> new HoeItem(ModTiers.TITANIUM, 0, 0.5f,
+            () -> new HoeItem(ModTiers.TITANIUM, -2, 0f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
 

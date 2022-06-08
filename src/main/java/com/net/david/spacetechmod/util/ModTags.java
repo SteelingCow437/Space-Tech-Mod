@@ -11,7 +11,6 @@ import net.minecraftforge.common.Tags;
 
 public class ModTags {
     public static class Blocks {
-        public static final TagKey<Block> TEST_ITEM = tag("test_item");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
@@ -22,7 +21,6 @@ public class ModTags {
         }
 
     }
-
     public static class Items {
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
@@ -30,6 +28,9 @@ public class ModTags {
         private static TagKey<Item> forgeTag(String name) {
             return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
+        //Declare all new tags below this line please, for formatting purposes
+
+
 
     }
 
