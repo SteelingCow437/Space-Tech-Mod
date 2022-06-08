@@ -5,5 +5,11 @@
   "block.spacetechmod.titanium_ore": "Titanium Ore",
   "block.spacetechmod.titanium_ore_deepslate": "Deepslate Titanium Ore",
   "itemGroup.STM_ITEMS": "STM Items",
-  "itemGroup.STM_BLOCKS": "STM Blocks"
+  "itemGroup.STM_BLOCKS": "STM Blocks",
+  "itemGroup.STM_TOOLS": "STM Tools",
+  "item.spacetechmod.titanium_sword": "Titanium Sword",
+  "item.spacetechmod.titanium_pickaxe": "Titanium Pickaxe",
+  "item.spacetechmod.titanium_axe": "Titanium Axe",
+  "item.spacetechmod.titanium_shovel": "Titanium Shovel",
+  "item.spacetechmod.titanium_hoe": "Titanium Hoe"
 }

@@ -1,8 +1,7 @@
 package com.net.david.spacetechmod.item;
 
 import com.net.david.spacetechmod.Spacetechmod;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,8 +18,29 @@ public class ModItems {
     //Declare all items below this comment
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
     public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword",
+            () -> new SwordItem(ModTiers.TITANIUM, 4, -2.4f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe",
+            () -> new PickaxeItem(ModTiers.TITANIUM, 0, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",
+            () -> new AxeItem(ModTiers.TITANIUM, 5, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel",
+            () -> new ShovelItem(ModTiers.TITANIUM, 0, -2.5f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe",
+            () -> new HoeItem(ModTiers.TITANIUM, 0, 0.5f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
 
 }
+

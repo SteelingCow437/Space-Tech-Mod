@@ -17,7 +17,12 @@ public class ModCreativeModeTab {
             return new ItemStack(ModItems.TITANIUM_INGOT.get());
         }
     };
-
+    public static final CreativeModeTab STM_TOOLS = new CreativeModeTab("STM_TOOLS") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.TITANIUM_SWORD.get());
+        }
+    };
 
 
 
