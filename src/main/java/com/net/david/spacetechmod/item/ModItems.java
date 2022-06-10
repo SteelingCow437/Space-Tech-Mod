@@ -43,19 +43,19 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.HEAD, 0f,
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.CHEST, 0f,
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.CHEST,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.LEGS, 0f,
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.LEGS,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET, 0f,
+            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
 }
