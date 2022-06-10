@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "## ",
+    "#* ",
+    " * "
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:titanium_ingot"
+    },
+    "*": {
+      "item": "minecraft:stick"
+    }
+
+  },
+  "result": {
+    "item": "spacetechmod:titanium_axe"
+  }
+}
