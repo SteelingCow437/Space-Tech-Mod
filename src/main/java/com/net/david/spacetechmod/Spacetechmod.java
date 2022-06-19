@@ -60,6 +60,8 @@ public class Spacetechmod {
                     Items.DRAGON_BREATH, ModPotions.LEAN_4.get()));
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_4.get(),
                     ModItems.RAW_TITANIUM.get(), ModPotions.LEAN_5.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_5.get(),
+                    ModItems.TITANIUM_AXE.get(), ModPotions.WARDEN_AWAY.get()));
 
 
             //And above this line

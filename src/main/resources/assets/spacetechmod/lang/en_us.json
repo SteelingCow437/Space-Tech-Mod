@@ -36,5 +36,9 @@
   "item.minecraft.potion.effect.lean_5": "Liquid Prion Disease",
   "item.minecraft.splash_potion.effect.lean_5": "Throwable Liquid Prion Disease",
   "item.minecraft.lingering_potion.effect.lean_5": "Cloud Of Prion Disease",
-  "item.minecraft.tipped_arrow.effect.lean_5": "Arrow Soaked In Liquid Prion Disease"
+  "item.minecraft.tipped_arrow.effect.lean_5": "Arrow Soaked In Liquid Prion Disease",
+  "item.minecraft.potion.effect.anti_warden": "Anti-Warden Potion",
+  "item.minecraft.splash_potion.effect.anti_warden": "Anti-Warden Splash Potion",
+  "item.minecraft.lingering_potion.effect.anti_warden": "Anti-Warden Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.anti_warden": "Anti-Warden Arrow"
 }
