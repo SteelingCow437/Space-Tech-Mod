@@ -16,5 +16,10 @@
   "item.spacetechmod.titanium_helmet": "Titanium Helmet",
   "item.spacetechmod.titanium_chestplate": "Titanium Chestplate",
   "item.spacetechmod.titanium_leggings": "Titanium Leggings",
-  "item.spacetechmod.titanium_boots": "Titanium Boots"
+  "item.spacetechmod.titanium_boots": "Titanium Boots",
+  "item.minecraft.potion.effect.lean": "Lean",
+  "item.minecraft.splash_potion.effect.lean": "Splash of Lean",
+  "item.minecraft.lingering_potion.effect.lean": "Lingering Bottle O' Lean",
+  "item.minecraft.tipped_arrow.effect.lean": "Arrow Soaked In Lean"
+
 }

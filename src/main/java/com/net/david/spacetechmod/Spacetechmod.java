@@ -2,9 +2,14 @@ package com.net.david.spacetechmod;
 
 import com.net.david.spacetechmod.block.ModBlocks;
 import com.net.david.spacetechmod.item.ModItems;
+import com.net.david.spacetechmod.potion.ModPotions;
+import com.net.david.spacetechmod.util.BetterBrewingRecipe;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,16 +38,25 @@ public class Spacetechmod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         eventBus.addListener(this::setup);
 
+        // Register the eventbus for all of the items and such
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModPotions.register(eventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-    }
+        event.enqueueWork(() -> {
+            //declare all potion recipes under this line
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
+                    Items.FERMENTED_SPIDER_EYE, ModPotions.LEAN.get()));
 
+
+
+            //And above this line
+        });
+
+    }
 }
