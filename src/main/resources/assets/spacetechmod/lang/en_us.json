@@ -20,6 +20,21 @@
   "item.minecraft.potion.effect.lean": "Lean",
   "item.minecraft.splash_potion.effect.lean": "Splash of Lean",
   "item.minecraft.lingering_potion.effect.lean": "Lingering Bottle O' Lean",
-  "item.minecraft.tipped_arrow.effect.lean": "Arrow Soaked In Lean"
-
+  "item.minecraft.tipped_arrow.effect.lean": "Arrow Soaked In Lean",
+  "item.minecraft.potion.effect.lean_2": "Tent In A Bottle",
+  "item.minecraft.splash_potion.effect.lean_2": "Throwable Tent In A Bottle",
+  "item.minecraft.lingering_potion.effect.lean_2": "Lingering Tent In A Bottle",
+  "item.minecraft.tipped_arrow.effect.lean_2": "Arrow With A Tent On The Tip",
+  "item.minecraft.potion.effect.lean_3": "Lean 3",
+  "item.minecraft.splash_potion.effect.lean_3": "Splash Of Lean 3",
+  "item.minecraft.lingering_potion.effect.lean_3": "Lingering Bottle O' Lean 3",
+  "item.minecraft.tipped_arrow.effect.lean_3": "Arrow Soaked In Lean 3",
+  "item.minecraft.potion.effect.lean_4": "Lean 4",
+  "item.minecraft.splash_potion.effect.lean_4": "Splash Of Lean 4",
+  "item.minecraft.lingering_potion.effect.lean_4": "Lingering Bottle O' Lean 4",
+  "item.minecraft.tipped_arrow.effect.lean_4": "Arrow Soaked In Lean 4",
+  "item.minecraft.potion.effect.lean_5": "Liquid Prion Disease",
+  "item.minecraft.splash_potion.effect.lean_5": "Throwable Liquid Prion Disease",
+  "item.minecraft.lingering_potion.effect.lean_5": "Cloud Of Prion Disease",
+  "item.minecraft.tipped_arrow.effect.lean_5": "Arrow Soaked In Liquid Prion Disease"
 }

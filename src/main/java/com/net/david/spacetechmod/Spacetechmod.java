@@ -52,7 +52,14 @@ public class Spacetechmod {
             //declare all potion recipes under this line
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
                     Items.FERMENTED_SPIDER_EYE, ModPotions.LEAN.get()));
-
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN.get(),
+                    Items.PUFFERFISH, ModPotions.LEAN_2.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_2.get(),
+                    Items.GHAST_TEAR, ModPotions.LEAN_3.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_3.get(),
+                    Items.DRAGON_BREATH, ModPotions.LEAN_4.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_4.get(),
+                    ModItems.RAW_TITANIUM.get(), ModPotions.LEAN_5.get()));
 
 
             //And above this line
