@@ -53,7 +53,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(7f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
-
+                    .strength(.5f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
 }
