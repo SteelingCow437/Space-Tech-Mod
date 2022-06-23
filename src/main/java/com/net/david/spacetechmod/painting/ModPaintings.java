@@ -18,6 +18,9 @@ public class ModPaintings {
     public static final RegistryObject<Motive> MORBIUS =
             PAINTING_MOTIVES.register("morbius", () -> new Motive(64, 96));
 
+    public static final RegistryObject<Motive> SAULGOODMAN =
+            PAINTING_MOTIVES.register("saulgoodman", () -> new Motive(48, 64));
+
 
 
 

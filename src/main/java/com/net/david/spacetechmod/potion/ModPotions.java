@@ -22,11 +22,7 @@ public class ModPotions {
     //Register all potions below this line!
     public static final RegistryObject<Potion> LEAN_2 = POTIONS.register("lean_2",
             () -> new Potion(new MobEffectInstance(MobEffects.BLINDNESS, 600, 4),
-                    new MobEffectInstance(MobEffects.HARM, 600, 50)));
-
-    public static final RegistryObject<Potion> WARDEN_AWAY = POTIONS.register("anti_warden",
-            () -> new Potion(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 6000, 9),
-                    new MobEffectInstance(MobEffects.HEAL, 6000, 199)));
+                    new MobEffectInstance(MobEffects.HARM, 600, 4)));
 
 
 

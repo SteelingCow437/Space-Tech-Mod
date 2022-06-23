@@ -54,8 +54,6 @@ public class Spacetechmod {
             //declare all potion recipes under this line
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
                     ModItems.LEAN.get(), ModPotions.LEAN_2.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_2.get(),
-                    ModItems.TITANIUM_AXE.get(), ModPotions.WARDEN_AWAY.get()));
 
 
             //And above this line

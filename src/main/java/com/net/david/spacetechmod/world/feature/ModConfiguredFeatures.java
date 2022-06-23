@@ -26,7 +26,7 @@ public class ModConfiguredFeatures {
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE_DEEPSLATE.get().defaultBlockState()));
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> TITANIUM_ORE = FeatureUtils.register("titanium_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORE, 6));
+            Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORE, 5));
                                                                     //rarity of the veins
 
 
