@@ -23,7 +23,12 @@ public class ModCreativeModeTab {
             return new ItemStack(ModItems.TITANIUM_SWORD.get());
         }
     };
-
+    public static final CreativeModeTab STM_FOODS = new CreativeModeTab("STM_FOODS") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.LEAN.get());
+        }
+    };
 
 
 }

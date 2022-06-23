@@ -2,6 +2,7 @@ package com.net.david.spacetechmod;
 
 import com.net.david.spacetechmod.block.ModBlocks;
 import com.net.david.spacetechmod.item.ModItems;
+import com.net.david.spacetechmod.painting.ModPaintings;
 import com.net.david.spacetechmod.potion.ModPotions;
 import com.net.david.spacetechmod.util.BetterBrewingRecipe;
 import net.minecraft.world.item.Items;
@@ -42,6 +43,7 @@ public class Spacetechmod {
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModPotions.register(eventBus);
+        ModPaintings.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -51,16 +53,8 @@ public class Spacetechmod {
         event.enqueueWork(() -> {
             //declare all potion recipes under this line
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
-                    Items.FERMENTED_SPIDER_EYE, ModPotions.LEAN.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN.get(),
-                    Items.PUFFERFISH, ModPotions.LEAN_2.get()));
+                    ModItems.LEAN.get(), ModPotions.LEAN_2.get()));
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_2.get(),
-                    Items.GHAST_TEAR, ModPotions.LEAN_3.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_3.get(),
-                    Items.DRAGON_BREATH, ModPotions.LEAN_4.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_4.get(),
-                    ModItems.RAW_TITANIUM.get(), ModPotions.LEAN_5.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.LEAN_5.get(),
                     ModItems.TITANIUM_AXE.get(), ModPotions.WARDEN_AWAY.get()));
 
 

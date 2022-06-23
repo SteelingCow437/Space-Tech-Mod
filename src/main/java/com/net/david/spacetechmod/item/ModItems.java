@@ -23,7 +23,7 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
     public static final RegistryObject<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword",
-            () -> new SwordItem(ModTiers.TITANIUM, 4, -2.4f,
+            () -> new SwordItem(ModTiers.TITANIUM, 3, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe",
@@ -31,11 +31,11 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",
-            () -> new AxeItem(ModTiers.TITANIUM, 6, -3f,
+            () -> new AxeItem(ModTiers.TITANIUM, 5, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel",
-            () -> new ShovelItem(ModTiers.TITANIUM, 2, -3f,
+            () -> new ShovelItem(ModTiers.TITANIUM, 1, -3f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe",
@@ -57,6 +57,7 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
             () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
-
+    public static final RegistryObject<Item> LEAN = ITEMS.register( "lean",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.LEAN)));
 }
 
