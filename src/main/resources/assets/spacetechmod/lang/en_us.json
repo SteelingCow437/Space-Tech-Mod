@@ -26,5 +26,10 @@
   "item.minecraft.splash_potion.effect.anti_warden": "Anti-Warden Splash Potion",
   "item.minecraft.lingering_potion.effect.anti_warden": "Anti-Warden Lingering Potion",
   "item.minecraft.tipped_arrow.effect.anti_warden": "Anti-Warden Arrow",
-  "item.spacetechmod.lean": "Lean"
+  "item.spacetechmod.lean": "Lean",
+  "item.spacetechmod.copper_sword": "Copper Sword",
+  "item.spacetechmod.copper_pickaxe": "Copper Pickaxe",
+  "item.spacetechmod.copper_axe": "Copper Axe",
+  "item.spacetechmod.copper_shovel": "Copper Shovel",
+  "item.spacetechmod.copper_hoe": "Copper Hoe"
 }

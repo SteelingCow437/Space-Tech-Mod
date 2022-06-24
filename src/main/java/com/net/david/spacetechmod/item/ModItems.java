@@ -17,6 +17,8 @@ public class ModItems {
     }
 
     //Declare all items below this line
+
+    //begin of titanium stuff
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
@@ -57,7 +59,33 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
             () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+    //end of titanium stuff
+
+    //begin of foodstuffs
     public static final RegistryObject<Item> LEAN = ITEMS.register( "lean",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.LEAN)));
+    //end of foodstuffs
+
+
+    //begin of copper stuff
+    public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword",
+            () -> new SwordItem(ModTiers.COPPER, 3, -2.4f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
+            () -> new PickaxeItem(ModTiers.COPPER, 2, -2.8f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe",
+            () -> new AxeItem(ModTiers.COPPER, 7, -3.15f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
+            () -> new ShovelItem(ModTiers.COPPER, 2, -3f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
+            () -> new HoeItem(ModTiers.COPPER, -1, -1.5f,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 }
 
