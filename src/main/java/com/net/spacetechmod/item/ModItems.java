@@ -90,5 +90,20 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
             () -> new HoeItem(ModTiers.COPPER, -1, -1.5f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
+            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.CHEST,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings",
+            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots",
+            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 }
 

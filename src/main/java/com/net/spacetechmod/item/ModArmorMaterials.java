@@ -6,12 +6,21 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    TITANIUM("titanium", 20, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON,
-            1.0F, 0.1F, () -> Ingredient.of(ModItems.TITANIUM_INGOT.get()));
+    TITANIUM("titanium", 20, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.TITANIUM_INGOT.get());
+    }),
+    COPPER("copper", 17, new int[]{1, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.COPPER_INGOT);
+    });
+
+
+
+
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
