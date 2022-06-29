@@ -1,4 +1,4 @@
-package com.net.david.spacetechmod.world.feature;
+package com.net.spacetechmod.world.feature;
 
 import net.minecraft.world.level.levelgen.placement.*;
 

@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.potion;
+package com.net.spacetechmod.potion;
 
-import com.net.david.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

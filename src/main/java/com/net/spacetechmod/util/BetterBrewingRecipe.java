@@ -1,4 +1,4 @@
-package com.net.david.spacetechmod.util;
+package com.net.spacetechmod.util;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;

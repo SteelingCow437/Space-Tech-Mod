@@ -1,8 +1,8 @@
-package com.net.david.spacetechmod.world;
+package com.net.spacetechmod.world;
 
 
-import com.net.david.spacetechmod.Spacetechmod;
-import com.net.david.spacetechmod.world.feature.gen.ModOreGeneration;
+import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.world.feature.gen.ModOreGeneration;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

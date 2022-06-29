@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.item;
+package com.net.spacetechmod.item;
 
-import com.net.david.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 

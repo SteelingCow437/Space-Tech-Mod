@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.item;
+package com.net.spacetechmod.item;
 
-import com.net.david.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;

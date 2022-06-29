@@ -1,6 +1,7 @@
-package com.net.david.spacetechmod.world.feature.gen;
+package com.net.spacetechmod.world.feature.gen;
 
-import com.net.david.spacetechmod.world.feature.ModPlacedFeatures;
+import com.net.spacetechmod.world.feature.ModPlacedFeatures;
+import com.net.spacetechmod.world.feature.ModPlacedFeatures;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;

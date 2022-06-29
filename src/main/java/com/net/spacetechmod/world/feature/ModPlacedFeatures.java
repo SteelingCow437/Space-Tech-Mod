@@ -1,4 +1,4 @@
-package com.net.david.spacetechmod.world.feature;
+package com.net.spacetechmod.world.feature;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.PlacementUtils;

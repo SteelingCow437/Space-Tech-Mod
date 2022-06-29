@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.painting;
+package com.net.spacetechmod.painting;
 
-import com.net.david.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.world.entity.decoration.Motive;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

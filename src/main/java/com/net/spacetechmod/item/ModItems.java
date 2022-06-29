@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.item;
+package com.net.spacetechmod.item;
 
-import com.net.david.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;

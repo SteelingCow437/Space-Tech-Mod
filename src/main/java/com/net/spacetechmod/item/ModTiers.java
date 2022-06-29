@@ -1,4 +1,4 @@
-package com.net.david.spacetechmod.item;
+package com.net.spacetechmod.item;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;

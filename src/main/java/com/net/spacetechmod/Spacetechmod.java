@@ -1,10 +1,10 @@
-package com.net.david.spacetechmod;
+package com.net.spacetechmod;
 
-import com.net.david.spacetechmod.block.ModBlocks;
-import com.net.david.spacetechmod.item.ModItems;
-import com.net.david.spacetechmod.painting.ModPaintings;
-import com.net.david.spacetechmod.potion.ModPotions;
-import com.net.david.spacetechmod.util.BetterBrewingRecipe;
+import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.painting.ModPaintings;
+import com.net.spacetechmod.potion.ModPotions;
+import com.net.spacetechmod.util.BetterBrewingRecipe;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;

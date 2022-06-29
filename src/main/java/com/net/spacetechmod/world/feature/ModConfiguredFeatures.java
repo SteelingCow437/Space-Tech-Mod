@@ -1,6 +1,6 @@
-package com.net.david.spacetechmod.world.feature;
+package com.net.spacetechmod.world.feature;
 
-import com.net.david.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
