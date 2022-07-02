@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "spacetechmod:item/copper_sword"
+  }
+}

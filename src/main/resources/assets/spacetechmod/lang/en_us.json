@@ -32,5 +32,9 @@
   "item.spacetechmod.copper_axe": "Copper Axe",
   "item.spacetechmod.copper_shovel": "Copper Shovel",
   "item.spacetechmod.copper_hoe": "Copper Hoe",
-  "item.spacetechmod.baguette": "Baguette"
+  "item.spacetechmod.baguette": "Baguette",
+  "item.spacetechmod.copper_helmet": "Copper Helmet",
+  "item.spacetechmod.copper_chestplate": "Copper Chestplate",
+  "item.spacetechmod.copper_leggings": "Copper Leggings",
+  "item.spacetechmod.copper_boots": "Copper Boots"
 }
