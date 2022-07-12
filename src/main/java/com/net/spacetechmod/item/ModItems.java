@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -91,19 +92,19 @@ public class ModItems {
             () -> new HoeItem(ModTiers.COPPER, -1, -1.5f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
     public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
-            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.HEAD,
+            () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.CHEST,
+            () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.CHEST,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings",
-            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.LEGS,
+            () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.LEGS,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots",
-            () -> new ArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.FEET,
+            () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 }
 

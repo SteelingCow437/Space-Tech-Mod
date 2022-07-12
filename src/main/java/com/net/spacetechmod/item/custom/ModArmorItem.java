@@ -16,6 +16,7 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
+                    //Copper Armor Effect
                     .put(ModArmorMaterials.COPPER,
                             new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1)).build();
 
@@ -27,7 +28,9 @@ public class ModArmorItem extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if(!world.isClientSide()) {
             if(hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+                if(hasCorrectArmorOn(ModArmorMaterials.COPPER, player) && world.isThundering()){
+                    evaluateArmorEffects(player);
+                }
             }
         }
     }
