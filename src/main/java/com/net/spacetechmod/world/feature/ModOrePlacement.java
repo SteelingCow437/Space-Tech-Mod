@@ -5,7 +5,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 import java.util.List;
 
 public class ModOrePlacement {
-    //dont touch this file it just defines ore generation for modded ores
+    //don't touch this file it just defines ore generation for modded ores
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());
     }

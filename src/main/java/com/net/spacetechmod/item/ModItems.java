@@ -46,19 +46,19 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.HEAD,
+            () -> new ModArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.CHEST,
+            () -> new ModArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.CHEST,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.LEGS,
+            () -> new ModArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.LEGS,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 
     public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
-            () -> new ArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
+            () -> new ModArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
     //end of titanium stuff
 
@@ -91,6 +91,7 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
             () -> new HoeItem(ModTiers.COPPER, -1, -1.5f,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
     public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));

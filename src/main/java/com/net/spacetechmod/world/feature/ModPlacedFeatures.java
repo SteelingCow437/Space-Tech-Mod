@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 public class ModPlacedFeatures {
         //declare ore vein rules below this line!
     public static final Holder<PlacedFeature> TITANIUM_ORE_PLACED = PlacementUtils.register("titanium_ore_placed",
-            ModConfiguredFeatures.TITANIUM_ORE, ModOrePlacement.commonOrePlacement(10, //VeinsPerChunk
+            ModConfiguredFeatures.TITANIUM_ORE, ModOrePlacement.commonOrePlacement(12, //VeinsPerChunk
                     HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(120))));
                 //           Ore has equal chance of spawning everywhere            min ore height                           max ore height
 
