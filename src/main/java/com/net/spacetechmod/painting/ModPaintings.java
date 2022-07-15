@@ -24,6 +24,9 @@ public class ModPaintings {
     public static final RegistryObject<Motive> POOP =
             PAINTING_MOTIVES.register("poop", () -> new Motive(64, 64));
 
+    public static final RegistryObject<Motive> TROLL =
+            PAINTING_MOTIVES.register("troll", () -> new Motive(64, 64));
+
 
 
 
