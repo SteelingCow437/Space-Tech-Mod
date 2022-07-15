@@ -51,6 +51,12 @@ public class ModArmorItem extends ArmorItem {
                 if(hasSameSetOfArmorOn(ModArmorMaterials.COPPER, player) && world.isThundering()) {
                     copperArmor(player);
                 }
+                if(hasSameSetOfArmorOn(ModArmorMaterials.TURTLE, player) && player.isUnderWater()) {
+                    turtleMasterArmorInWater(player);
+                }
+                if(hasSameSetOfArmorOn(ModArmorMaterials.TURTLE, player) && !player.isUnderWater()) {
+                    turtleMasterArmorOnLand(player);
+                }
             }
         }
     }
@@ -61,9 +67,17 @@ public class ModArmorItem extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1));
     }
 
+    private void turtleMasterArmorInWater(Player player) {
+        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 200, 0));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
+    }
 
+    private void turtleMasterArmorOnLand(Player player) {
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1));
+    }
 
-
-
-  }
+}
 

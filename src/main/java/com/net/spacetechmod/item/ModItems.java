@@ -107,5 +107,28 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+    //end of copper stuff
+
+    //begin of turtle master stuff
+
+    public static final RegistryObject<Item> AQUAMARINE = ITEMS.register("aquamarine",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    public static final RegistryObject<Item> TURTLE_MASTER_HELMET = ITEMS.register("turtle_master_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.TURTLE, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TURTLE_MASTER_CHESTPLATE = ITEMS.register("turtle_master_chestplate",
+            () -> new ModArmorItem(ModArmorMaterials.TURTLE, EquipmentSlot.CHEST,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TURTLE_MASTER_LEGGINGS = ITEMS.register("turtle_master_leggings",
+            () -> new ModArmorItem(ModArmorMaterials.TURTLE, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> TURTLE_MASTER_BOOTS = ITEMS.register("turtle_master_boots",
+            () -> new ModArmorItem(ModArmorMaterials.TURTLE, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+    //end of turtle master stuff
 }
 

@@ -51,4 +51,8 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
+    public static final RegistryObject<Block> AQUAMARINE_ORE = registerBlock("aquamarine_ore",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
+
 }

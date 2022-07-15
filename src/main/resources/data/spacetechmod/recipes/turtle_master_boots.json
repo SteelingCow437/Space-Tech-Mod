@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "# #",
+    "* *"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:turtle_helmet"
+    },
+    "*": {
+      "item": "spacetechmod:aquamarine"
+    }
+  },
+  "result": {
+    "item": "spacetechmod:turtle_master_boots"
+  }
+}

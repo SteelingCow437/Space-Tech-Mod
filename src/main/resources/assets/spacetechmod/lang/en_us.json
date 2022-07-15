@@ -36,5 +36,11 @@
   "item.spacetechmod.copper_helmet": "Copper Helmet",
   "item.spacetechmod.copper_chestplate": "Copper Chestplate",
   "item.spacetechmod.copper_leggings": "Copper Leggings",
-  "item.spacetechmod.copper_boots": "Copper Boots"
+  "item.spacetechmod.copper_boots": "Copper Boots",
+  "item.spacetechmod.aquamarine": "Aquamarine",
+  "item.spacetechmod.turtle_master_helmet": "Helmet of the Turtle Master",
+  "item.spacetechmod.turtle_master_chestplate": "Breastplate of the Turtle Master",
+  "item.spacetechmod.turtle_master_leggings": "Leggings of the Turtle Master",
+  "item.spacetechmod.turtle_master_boots": "Boots of the Turtle Master",
+  "item.spacetechmod.aquamarine_ore": "Aquamarine Ore"
 }

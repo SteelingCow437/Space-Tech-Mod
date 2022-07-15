@@ -11,11 +11,15 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    TITANIUM("titanium", 20, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
+    TITANIUM("titanium", 78, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
         return Ingredient.of(ModItems.TITANIUM_INGOT.get());
     }),
-    COPPER("copper", 17, new int[]{1, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
+    COPPER("copper", 29, new int[]{1, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT);
+    }),
+
+    TURTLE("turtle_master", 156, new int[]{4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> {
+        return Ingredient.of(ModItems.AQUAMARINE.get());
     });
 
 
