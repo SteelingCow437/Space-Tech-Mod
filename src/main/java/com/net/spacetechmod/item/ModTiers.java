@@ -10,7 +10,7 @@ public class ModTiers {
             2f, 15, BlockTags.NEEDS_DIAMOND_TOOL,
             () -> Ingredient.of(ModItems.TITANIUM_INGOT.get()));
 
-    public static final ForgeTier COPPER = new ForgeTier(2, 200, 5f,
+    public static final ForgeTier COPPER = new ForgeTier(2, 240, 5f,
             1f, 8, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(Items.COPPER_INGOT));
 
