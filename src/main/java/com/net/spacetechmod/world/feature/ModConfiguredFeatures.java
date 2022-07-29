@@ -1,32 +1,47 @@
 package com.net.spacetechmod.world.feature;
 
+import com.google.common.base.Suppliers;
+import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 
 public class ModConfiguredFeatures {
-    //define ore veins (normal and deepslate) below this line!
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TITANIUM_ORE = List.of(
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
+            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Spacetechmod.MOD_ID);
+
+    public static void register(IEventBus eventBus) {
+        CONFIGURED_FEATURES.register(eventBus);
+    }
+
+    //declare ore veins
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_TITANIUM_ORE = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE_DEEPSLATE.get().defaultBlockState()));
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE_DEEPSLATE.get().defaultBlockState())));
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_AQUAMARINE_ORE = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.AQUAMARINE_ORE.get().defaultBlockState())));
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> TITANIUM_ORE = FeatureUtils.register("titanium_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORE, 5));
-                                                                    //Vein size
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_AQUAMARINE_ORE = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.AQUAMARINE_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.AQUAMARINE_ORE.get().defaultBlockState()));
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> AQUAMARINE_ORE = FeatureUtils.register("aquamarine_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_AQUAMARINE_ORE, 4));
-                                                                    //Vein size
 
+    //register ore veins
+    public static final RegistryObject<ConfiguredFeature<?, ?>> TITANIUM_ORE = CONFIGURED_FEATURES.register("titanium_ore",() ->
+            new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORE.get(), 5)));
+                                                                                                         //Vein size
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> AQUAMARINE_ORE = CONFIGURED_FEATURES.register("aquamarine_ore",() ->
+            new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_AQUAMARINE_ORE.get(), 3)));
+                                                                                                           //Vein size
 
 }
