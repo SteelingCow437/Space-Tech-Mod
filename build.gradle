@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'com.david.stm'
-version = '41.0.0.49'
+version = '41.0.0.53'
 
 java {
     archivesBaseName = 'stm'
@@ -170,9 +170,9 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.19-41.1.0'
 
     // compile against the JEI API but do not include it at runtime
-    //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
+    //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") uncomment me when JEI gets 1.19 support
     // at runtime, use the full JEI jar
-    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") uncomment me when JEI gets 1.19 support
 }
 
 
