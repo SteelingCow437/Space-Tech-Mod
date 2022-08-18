@@ -6,6 +6,7 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
+import com.net.spacetechmod.world.dimension.ModDimensions;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
 import com.net.spacetechmod.world.feature.ModPlacedFeatures;
 import net.minecraft.world.item.alchemy.Potions;
@@ -39,6 +40,7 @@ public class Spacetechmod {
         ModEffects.register(eventBus);
         ModPlacedFeatures.register(eventBus);
         ModConfiguredFeatures.register(eventBus);
+        ModDimensions.register();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
