@@ -1,6 +1,7 @@
 package com.net.spacetechmod.potion;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.effect.ModEffects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,6 +24,9 @@ public class ModPotions {
     public static final RegistryObject<Potion> LEAN_2 = POTIONS.register("lean_2",
             () -> new Potion(new MobEffectInstance(MobEffects.BLINDNESS, 600, 4),
                     new MobEffectInstance(MobEffects.HARM, 600, 4)));
+
+    public static final RegistryObject<Potion> OIL = POTIONS.register("oil",
+            () -> new Potion(new MobEffectInstance(ModEffects.OILEFFECT.get(), 600, 0)));
 
 
 

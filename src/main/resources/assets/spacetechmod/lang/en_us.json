@@ -22,10 +22,6 @@
   "item.minecraft.splash_potion.effect.lean_2": "Throwable Liquid Prion Disease",
   "item.minecraft.lingering_potion.effect.lean_2": "Cloud Of Prion Disease",
   "item.minecraft.tipped_arrow.effect.lean_2": "Arrow Soaked In Liquid Prion Disease",
-  "item.minecraft.potion.effect.anti_warden": "Anti-Warden Potion",
-  "item.minecraft.splash_potion.effect.anti_warden": "Anti-Warden Splash Potion",
-  "item.minecraft.lingering_potion.effect.anti_warden": "Anti-Warden Lingering Potion",
-  "item.minecraft.tipped_arrow.effect.anti_warden": "Anti-Warden Arrow",
   "item.spacetechmod.lean": "Lean",
   "item.spacetechmod.copper_sword": "Copper Sword",
   "item.spacetechmod.copper_pickaxe": "Copper Pickaxe",
@@ -42,5 +38,10 @@
   "item.spacetechmod.turtle_master_chestplate": "Breastplate of the Turtle Master",
   "item.spacetechmod.turtle_master_leggings": "Leggings of the Turtle Master",
   "item.spacetechmod.turtle_master_boots": "Boots of the Turtle Master",
-  "block.spacetechmod.aquamarine_ore": "Aquamarine Ore"
+  "block.spacetechmod.aquamarine_ore": "Aquamarine Ore",
+  "effect.spacetechmod.oileffect": "Covered In Oil",
+  "item.minecraft.potion.effect.oil": "Bottle Of Oil",
+  "item.minecraft.splash_potion.effect.oil": "Throwable Bottle Of Oil",
+  "item.minecraft.lingering_potion.effect.oil": "Oil Slick",
+  "item.minecraft.tipped_arrow.effect.oil": "Arrow Coated In Oil"
 }

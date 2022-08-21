@@ -9,6 +9,7 @@ import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
 import com.net.spacetechmod.world.feature.ModPlacedFeatures;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -51,6 +52,9 @@ public class Spacetechmod {
             //declare all potion recipes under this line
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
                     ModItems.LEAN.get(), ModPotions.LEAN_2.get()));
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
+                            Items.WHEAT, ModPotions.OIL.get()));
 
 
             //And above this line
