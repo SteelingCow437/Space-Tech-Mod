@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.custom.STMPortalBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -57,5 +58,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> AQUAMARINE_ORE = registerBlock("aquamarine_ore",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
+
+    public static final RegistryObject<Block> SDIM_PORTAL = registerBLockWithoutBlockItem("sdim_portal",
+            STMPortalBlock::new);
+
+
+
+    private static <T extends Block> RegistryObject<T> registerBLockWithoutBlockItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
+    }
 
 }

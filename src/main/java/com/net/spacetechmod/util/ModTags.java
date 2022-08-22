@@ -19,7 +19,9 @@ public class ModTags {
         private static TagKey<Block> forgeTag(String name) {
             return BlockTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
-
+        //block tags here
+        public static final TagKey<Block> PORTAL_FRAME_BLOCKS
+                = tag("portal_frame_blocks");
     }
     public static class Items {
         private static TagKey<Item> tag(String name) {
@@ -28,7 +30,7 @@ public class ModTags {
         private static TagKey<Item> forgeTag(String name) {
             return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
-        //Declare all new tags below this line please, for formatting purposes
+        //item tags here
 
 
 
