@@ -132,12 +132,12 @@ public class ModTeleporter implements ITeleporter {
             }
         }
 
-        BlockState kaupenPortal = ModBlocks.SDIM_PORTAL.get().defaultBlockState().setValue(STMPortalBlock.AXIS, axis);
+        BlockState sdimPortal = ModBlocks.SDIM_PORTAL.get().defaultBlockState().setValue(STMPortalBlock.AXIS, axis);
 
         for(int j2 = 0; j2 < 2; ++j2) {
             for(int l2 = 0; l2 < 3; ++l2) {
                 mutablePos.setWithOffset(blockpos, j2 * direction.getStepX(), l2, j2 * direction.getStepZ());
-                this.level.setBlock(mutablePos, kaupenPortal, 18);
+                this.level.setBlock(mutablePos, sdimPortal, 18);
             }
         }
 

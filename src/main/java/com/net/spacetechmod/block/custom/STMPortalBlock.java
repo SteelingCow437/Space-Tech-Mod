@@ -34,7 +34,6 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class STMPortalBlock extends Block {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
@@ -122,18 +121,16 @@ public class STMPortalBlock extends Block {
                     entity.portalEntrancePos = pos.immutable();
                 }
                 Level entityWorld = entity.level;
-                if(entityWorld != null) {
-                    MinecraftServer minecraftserver = entityWorld.getServer();
-                    ResourceKey<Level> destination = entity.level.dimension() == ModDimensions.SDIM_KEY
-                            ? Level.OVERWORLD : ModDimensions.SDIM_KEY;
-                    if(minecraftserver != null) {
-                        ServerLevel destinationWorld = minecraftserver.getLevel(destination);
-                        if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
-                            entity.level.getProfiler().push("sdim_portal");
-                            entity.setPortalCooldown();
-                            entity.changeDimension(destinationWorld, new ModTeleporter(destinationWorld));
-                            entity.level.getProfiler().pop();
-                        }
+                MinecraftServer minecraftserver = entityWorld.getServer();
+                ResourceKey<Level> destination = entity.level.dimension() == ModDimensions.SDIM_KEY
+                        ? Level.OVERWORLD : ModDimensions.SDIM_KEY;
+                if(minecraftserver != null) {
+                    ServerLevel destinationWorld = minecraftserver.getLevel(destination);
+                    if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
+                        entity.level.getProfiler().push("sdim_portal");
+                        entity.setPortalCooldown();
+                        entity.changeDimension(destinationWorld, new ModTeleporter(destinationWorld));
+                        entity.level.getProfiler().pop();
                     }
                 }
             }

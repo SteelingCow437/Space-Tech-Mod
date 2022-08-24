@@ -2,7 +2,6 @@ package com.net.spacetechmod.potion;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.effect.ModEffects;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;

@@ -1,16 +1,14 @@
 package com.net.spacetechmod.world.feature;
 
-import com.net.spacetechmod.Spacetechmod;
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
+import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
