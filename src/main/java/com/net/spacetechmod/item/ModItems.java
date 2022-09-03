@@ -131,6 +131,10 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
     //end of turtle master stuff
 
+    //begin of steel stuff
+
+    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
 
 }

@@ -19,8 +19,6 @@ public class ModTags {
             return BlockTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
         //block tags here
-        public static final TagKey<Block> PORTAL_FRAME_BLOCKS
-                = tag("portal_frame_blocks");
     }
     public static class Items {
         private static TagKey<Item> tag(String name) {

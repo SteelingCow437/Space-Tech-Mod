@@ -13,11 +13,6 @@ public class ModPOIs {
     public static final DeferredRegister<PoiType> POI
             = DeferredRegister.create(ForgeRegistries.POI_TYPES, Spacetechmod.MOD_ID);
 
-    public static final RegistryObject<PoiType> SDIM_PORTAL =
-            POI.register("sdim_portal", () -> new PoiType(
-                    ImmutableSet.copyOf(ModBlocks.SDIM_PORTAL.get().getStateDefinition().getPossibleStates()),
-                    0, 1));
-
     public static void register(IEventBus eventBus) {
         POI.register(eventBus);
     }
