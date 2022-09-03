@@ -1,7 +1,6 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.custom.STMPortalBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -58,8 +57,6 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
-    public static final RegistryObject<Block> SDIM_PORTAL = registerBLockWithoutBlockItem("sdim_portal",
-            STMPortalBlock::new);
 
 
 
