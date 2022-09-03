@@ -1,7 +1,6 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.item.custom.CatalystItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -132,9 +131,6 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
     //end of turtle master stuff
 
-    //beginning of sculk stuff
-
-    public static final RegistryObject<Item> ECHO = ITEMS.register("echo", CatalystItem::new);
 
 
 }
