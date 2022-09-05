@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.screen.AlloyFurnaceMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -64,7 +65,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
             @Override
             public int getCount() {
-                return 0;
+                return 3;
             }
         };
     }
@@ -77,7 +78,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-        return null;
+        return new AlloyFurnaceMenu(id, inventory, this, this.data);
     }
 
     @Override
