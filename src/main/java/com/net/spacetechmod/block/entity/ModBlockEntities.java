@@ -1,12 +1,10 @@
 package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -16,9 +14,6 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register(eventBus);
     }
 
-    //public static final RegistryObject<BlockEntityType<AlloyFurnaceBlockEntity>> ALLOY_FURNACE =
-            //BLOCK_ENTITIES.register("alloy_furnace", () ->
-                    //BlockEntityType.Builder.of(AlloyFurnaceBlockEntity::new,
-                            //ModBlocks.ALLOY_FURNACE.get()).build(null));
+
 
 }

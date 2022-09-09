@@ -58,14 +58,5 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
     // machines
-    //public static final RegistryObject<Block> ALLOY_FURNACE = registerBlock("alloy_furnace",
-            //() -> new AlloyFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    //.strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
-
-
-
-    private static <T extends Block> RegistryObject<T> registerBLockWithoutBlockItem(String name, Supplier<T> block) {
-        return BLOCKS.register(name, block);
-    }
 
 }

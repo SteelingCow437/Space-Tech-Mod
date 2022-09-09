@@ -1,7 +1,7 @@
 package com.net.spacetechmod.block.entity;
 
 import com.google.common.collect.Maps;
-import com.net.spacetechmod.block.custom.ModAbstractFurnaceBlock;
+// import com.net.spacetechmod.block.custom.ModAbstractFurnaceBlock;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
@@ -26,6 +26,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -230,7 +231,7 @@ public abstract class ModAbstractFurnaceBlockEntity extends BaseContainerBlockEn
 
         if (flag != entity.isBurning()) {
             flag1 = true;
-            state = state.setValue(ModAbstractFurnaceBlock.LIT, Boolean.valueOf(entity.isBurning()));
+            state = state.setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(entity.isBurning()));
             level.setBlock(pos, state, 3);
         }
 
