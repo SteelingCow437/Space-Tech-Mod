@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'com.david.stm'
-version = '43.0.0.66'
+version = '43.0.0.67'
 
 java {
     archivesBaseName = 'stm'
@@ -167,12 +167,12 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.2'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.24'
 
     // compile against the JEI API but do not include it at runtime
-    //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") uncomment me when JEI gets 1.19 support
+    //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") TO DO: make JEI work soon
     // at runtime, use the full JEI jar
-    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") uncomment me when JEI gets 1.19 support
+    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") TO DO: Make JEI work
 }
 
 

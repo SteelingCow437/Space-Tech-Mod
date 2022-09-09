@@ -6,8 +6,6 @@ import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
-import com.net.spacetechmod.screen.AlloyFurnaceScreen;
-import com.net.spacetechmod.screen.ModMenuTypes;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
@@ -49,7 +47,6 @@ public class Spacetechmod {
         ModConfiguredFeatures.register(eventBus);
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModMenuTypes.register(eventBus);
 
 
         // Register ourselves for server and other game events we are interested in
@@ -71,13 +68,11 @@ public class Spacetechmod {
 
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in teh class annotated with @SubscribeEvent
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenuTypes.ALLOY_FURNACE_MENU.get(), AlloyFurnaceScreen::new);
-        }
+        //insert subscribe event stuff here
+
     }
 
 
