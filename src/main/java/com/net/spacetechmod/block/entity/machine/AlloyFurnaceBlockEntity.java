@@ -200,11 +200,11 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
         return Component.literal("Alloy Furnace");
     }
 
-    public static void addFuel(SimpleContainer inventory, ItemStackHandler handler) {
-        if(inventory.getItem(0).is(Items.COAL) && fuelTime < 2) {
+    public static void addFuel(SimpleContainer inventory, ItemStackHandler handler, AlloyFurnaceBlockEntity entity) {
+        if(inventory.getItem(0).is(Items.COAL) && fuelTime < 2 && hasRecipe(entity)) {
             fuelTime += 200;
             handler.extractItem(0, 1, false);
-        } else if(inventory.getItem(0).is(Items.CHARCOAL) && fuelTime < 2) {
+        } else if(inventory.getItem(0).is(Items.CHARCOAL) && fuelTime < 2 && hasRecipe(entity)) {
             fuelTime += 200;
             handler.extractItem(0, 1, false);
         }

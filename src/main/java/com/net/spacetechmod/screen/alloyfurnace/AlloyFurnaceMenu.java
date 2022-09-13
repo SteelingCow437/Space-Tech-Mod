@@ -24,7 +24,7 @@ public class AlloyFurnaceMenu extends AbstractContainerMenu {
 
     public AlloyFurnaceMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.ALLOY_FURNACE_MENU.get(), id);
-        checkContainerSize(inv, 3);
+        checkContainerSize(inv, 4);
         blockEntity = (AlloyFurnaceBlockEntity) entity;
         this.level = inv.player.level;
         this.data = data;
