@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.custom.AlloyFurnaceBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -58,5 +59,8 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
     // machines
+    public static final RegistryObject<Block> ALLOY_FURNACE = registerBlock("alloy_furnace",
+            () -> new AlloyFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
 
 }
