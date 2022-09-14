@@ -60,6 +60,7 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
     //end of titanium stuff
 
     //begin of foodstuffs
@@ -147,8 +148,23 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
+    //plates n' wires
+
     public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
+    public static final RegistryObject<Item> COPPER_PLATE = ITEMS.register("copper_plate",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    public static final RegistryObject<Item> TITANIUM_PLATE = ITEMS.register("titanium_plate",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    public static final RegistryObject<Item> COPPER_WIRING = ITEMS.register("copper_wiring",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    //circuits
+
+    public static final RegistryObject<Item> BASIC_CIRCUIT = ITEMS.register("basic_circuit",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 }
 
