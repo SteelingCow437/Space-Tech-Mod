@@ -166,7 +166,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
         if(hasRecipe(pEntity)) {
             pEntity.itemHandler.extractItem(1, 1, false);
             pEntity.itemHandler.extractItem(2, 1, false);
-            pEntity.itemHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem().getItem(),
+            pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem().getItem(),
                     pEntity.itemHandler.getStackInSlot(4).getCount() + 1));
 
             pEntity.resetProgress();

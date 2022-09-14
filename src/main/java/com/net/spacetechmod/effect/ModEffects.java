@@ -16,6 +16,8 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> OILEFFECT = MOB_EFFECTS.register("oileffect",
             () -> new OilEffect(MobEffectCategory.NEUTRAL, 0));
 
+    public static final RegistryObject<MobEffect> ANTIDOTE_EFFECT = MOB_EFFECTS.register("antidote_effect",
+            () -> new AntidoteEffect(MobEffectCategory.NEUTRAL, 0));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

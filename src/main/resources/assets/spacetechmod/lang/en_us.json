@@ -50,5 +50,9 @@
   "block.spacetechmod.burner_press": "Burner Press",
   "item.spacetechmod.blank_stamp": "Blank Stamp",
   "item.spacetechmod.plate_stamp": "Plate Stamp",
-  "item.spacetechmod.wire_stamp": "Wire Stamp"
+  "item.spacetechmod.wire_stamp": "Wire Stamp",
+  "item.minecraft.potion.effect.antidote_effect": "The Antidote",
+  "item.minecraft.splash_potion.effect.antidote_effect": "The Throwable Antidote",
+  "item.minecraft.lingering_potion.effect.antidote_effect": "The Inhalable Antidote",
+  "item.minecraft.tipped_arrow.effect.antidote_effect": "Arrow Soaked In The Antidote"
 }

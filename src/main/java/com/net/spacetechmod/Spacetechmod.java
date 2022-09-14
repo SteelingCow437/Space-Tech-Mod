@@ -62,7 +62,7 @@ public class Spacetechmod {
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             //declare all potion recipes under this line
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.HARMING,
                     ModItems.LEAN.get(), ModPotions.LEAN_2.get()));
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,

@@ -69,6 +69,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> BAGUETTE = ITEMS.register("baguette",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.BAGUETTE)));
+
+    public static final RegistryObject<Item> ANTIDOTE = ITEMS.register("antidote",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.ANTIDOTE)));
     //end of foodstuffs
 
 
