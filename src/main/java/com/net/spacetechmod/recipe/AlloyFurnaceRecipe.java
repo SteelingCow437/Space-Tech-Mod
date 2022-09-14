@@ -11,8 +11,6 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.crafting.DifferenceIngredient;
-import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import org.jetbrains.annotations.Nullable;
 
 public class AlloyFurnaceRecipe implements Recipe<SimpleContainer> {

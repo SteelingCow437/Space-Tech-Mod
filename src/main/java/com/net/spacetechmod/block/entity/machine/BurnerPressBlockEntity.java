@@ -1,9 +1,10 @@
 package com.net.spacetechmod.block.entity.machine;
 
-
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.recipe.AlloyFurnaceRecipe;
+import com.net.spacetechmod.recipe.PressRecipe;
 import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceMenu;
+import com.net.spacetechmod.screen.burnerpress.BurnerPressMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -25,8 +26,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+public class BurnerPressBlockEntity extends BlockEntity implements MenuProvider {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -48,9 +49,9 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
         if(!itemHandler.getStackInSlot(2).isEmpty()) {
             stack = itemHandler.getStackInSlot(2);
         }
-            else {
-                stack = itemHandler.getStackInSlot(1);
-            }
+        else {
+            stack = itemHandler.getStackInSlot(1);
+        }
         return stack;
     }
 
@@ -61,18 +62,18 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     }
 
     protected final ContainerData data;
-    private static int alloyFuelTime = 0;
-    private int alloyProgress = 0;
-    private int maxAlloyProgress = 200;
+    private static int burnerPressFuelTime = 0;
+    private int burnerPressProgress = 0;
+    private int maxBurnerPressProgress = 40;
 
-    public AlloyFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ALLOY_FURNACE.get(), pos, state);
+    public BurnerPressBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BURNER_PRESS.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
                 return switch(index) {
-                    case 0 -> AlloyFurnaceBlockEntity.this.alloyProgress;
-                    case 1 -> AlloyFurnaceBlockEntity.this.maxAlloyProgress;
+                    case 0 -> BurnerPressBlockEntity.this.burnerPressProgress;
+                    case 1 -> BurnerPressBlockEntity.this.maxBurnerPressProgress;
                     default -> 0;
                 };
             }
@@ -80,14 +81,14 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
             @Override
             public void set(int index, int value) {
                 switch(index) {
-                    case 0 -> AlloyFurnaceBlockEntity.this.alloyProgress = value;
-                    case 1 -> AlloyFurnaceBlockEntity.this.maxAlloyProgress = value;
+                    case 0 -> BurnerPressBlockEntity.this.burnerPressProgress = value;
+                    case 1 -> BurnerPressBlockEntity.this.maxBurnerPressProgress = value;
                 }
             }
 
             @Override
             public int getCount() {
-                return 3;
+                return 4;
             }
 
         };
@@ -97,7 +98,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-        return new AlloyFurnaceMenu(id, inventory, this, this.data);
+        return new BurnerPressMenu(id, inventory, this, this.data);
     }
 
     @Override
@@ -108,7 +109,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
-        nbt.putInt("alloy.progress", this.alloyProgress);
+        nbt.putInt("press.progress", this.burnerPressProgress);
         super.saveAdditional(nbt);
     }
 
@@ -116,7 +117,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        alloyProgress = nbt.getInt("alloy_furnace.progress");
+        burnerPressProgress = nbt.getInt("burner_press.progress");
     }
 
     public void drops() {
@@ -128,17 +129,17 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, AlloyFurnaceBlockEntity pEntity) {
+    public static void tick(Level level, BlockPos pos, BlockState state, BurnerPressBlockEntity pEntity) {
         if(!level.isClientSide()) {
             return;
         }
 
         if(hasRecipe(pEntity) && hasFuel(pEntity)) {
-            pEntity.alloyProgress++;
-            pEntity.alloyFuelTime--;
+            pEntity.burnerPressProgress++;
+            pEntity.burnerPressFuelTime--;
             setChanged(level, pos, state);
 
-            if(pEntity.alloyProgress >= pEntity.maxAlloyProgress) {
+            if(pEntity.burnerPressProgress >= pEntity.maxBurnerPressProgress) {
                 craftItem(pEntity);
             }
             else {
@@ -151,20 +152,19 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private void resetProgress() {
-        this.alloyProgress = 0;
+        this.burnerPressProgress = 0;
     }
 
-    public static void craftItem(AlloyFurnaceBlockEntity pEntity) {
+    public static void craftItem(BurnerPressBlockEntity pEntity) {
         Level level = pEntity.level;
         SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
         for(int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
         }
-        Optional<AlloyFurnaceRecipe> recipe = level.getRecipeManager()
-                .getRecipeFor(AlloyFurnaceRecipe.Type.INSTANCE, inventory, level);
+        Optional<PressRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(PressRecipe.Type.INSTANCE, inventory, level);
 
         if(hasRecipe(pEntity)) {
-            pEntity.itemHandler.extractItem(1, 1, false);
             pEntity.itemHandler.extractItem(2, 1, false);
             pEntity.itemHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem().getItem(),
                     pEntity.itemHandler.getStackInSlot(4).getCount() + 1));
@@ -174,15 +174,15 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
     }
 
-    private static boolean hasRecipe(AlloyFurnaceBlockEntity entity) {
+    private static boolean hasRecipe(BurnerPressBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for(int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<AlloyFurnaceRecipe> recipe = level.getRecipeManager()
-                .getRecipeFor(AlloyFurnaceRecipe.Type.INSTANCE, inventory, level);
+        Optional<PressRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(PressRecipe.Type.INSTANCE, inventory, level);
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory);
 
@@ -198,21 +198,22 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Alloy Furnace");
+        return Component.literal("Burner Press");
     }
 
-    public static void addFuel(SimpleContainer inventory, ItemStackHandler handler, AlloyFurnaceBlockEntity entity) {
-        if(inventory.getItem(0).is(Items.COAL) && alloyFuelTime < 2 && hasRecipe(entity)) {
-            alloyFuelTime += 200;
+    public static void addFuel(SimpleContainer inventory, ItemStackHandler handler, BurnerPressBlockEntity entity) {
+        if(inventory.getItem(0).is(Items.COAL) && burnerPressFuelTime < 2 && hasRecipe(entity)) {
+            burnerPressFuelTime += 200;
             handler.extractItem(0, 1, false);
-        } else if(inventory.getItem(0).is(Items.CHARCOAL) && alloyFuelTime < 2 && hasRecipe(entity)) {
-            alloyFuelTime += 200;
+        } else if(inventory.getItem(0).is(Items.CHARCOAL) && burnerPressFuelTime < 2 && hasRecipe(entity)) {
+            burnerPressFuelTime += 200;
             handler.extractItem(0, 1, false);
         }
     }
 
     public static boolean hasFuel(BlockEntity entity) {
-        return alloyFuelTime > 0;
+        return burnerPressFuelTime > 0;
     }
-}
 
+
+}

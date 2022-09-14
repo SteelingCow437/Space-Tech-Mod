@@ -14,6 +14,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<AlloyFurnaceRecipe>> ALLOYING_SERIALIZER =
             SERIALIZERS.register("alloying", () -> AlloyFurnaceRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<PressRecipe>> PRESSING_SERIALIZER =
+            SERIALIZERS.register("pressing", () -> PressRecipe.Serializer.INSTANCE);
+
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
     }

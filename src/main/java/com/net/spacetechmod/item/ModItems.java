@@ -131,11 +131,24 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
     //end of turtle master stuff
 
+    //stamps
+
+    public static final RegistryObject<Item> BLANK_STAMP = ITEMS.register("blank_stamp",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    public static final RegistryObject<Item> PLATE_STAMP = ITEMS.register("plate_stamp",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    public static final RegistryObject<Item> WIRE_STAMP = ITEMS.register("wire_stamp",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
     //begin of steel stuff
 
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
+    public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
 }
 

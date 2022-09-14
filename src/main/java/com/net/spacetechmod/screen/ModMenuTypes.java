@@ -2,6 +2,7 @@ package com.net.spacetechmod.screen;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceMenu;
+import com.net.spacetechmod.screen.burnerpress.BurnerPressMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -18,6 +19,9 @@ public class ModMenuTypes {
 
     public static final RegistryObject<MenuType<AlloyFurnaceMenu>> ALLOY_FURNACE_MENU =
             registerMenuType(AlloyFurnaceMenu::new, "alloy_furnace_menu");
+
+    public static final RegistryObject<MenuType<BurnerPressMenu>> BURNER_PRESS_MENU =
+            registerMenuType(BurnerPressMenu::new, "burner_press_menu");
 
 
 

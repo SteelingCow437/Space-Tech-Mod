@@ -8,6 +8,7 @@
   "itemGroup.STM_BLOCKS": "STM Blocks",
   "itemGroup.STM_TOOLS": "STM Tools",
   "itemGroup.STM_FOODS": "STM Foods",
+  "itemGroup.STM_MACHINES": "STM Machines",
   "item.spacetechmod.titanium_sword": "Titanium Sword",
   "item.spacetechmod.titanium_pickaxe": "Titanium Pickaxe",
   "item.spacetechmod.titanium_axe": "Titanium Axe",
@@ -44,5 +45,10 @@
   "item.minecraft.splash_potion.effect.oil": "Throwable Bottle Of Oil",
   "item.minecraft.lingering_potion.effect.oil": "Oil Slick",
   "item.minecraft.tipped_arrow.effect.oil": "Arrow Coated In Oil",
-  "item.spacetechmod.steel_ingot": "Steel Ingot"
+  "item.spacetechmod.steel_ingot": "Steel Ingot",
+  "block.spacetechmod.alloy_furnace": "Alloy Furnace",
+  "block.spacetechmod.burner_press": "Burner Press",
+  "item.spacetechmod.blank_stamp": "Blank Stamp",
+  "item.spacetechmod.plate_stamp": "Plate Stamp",
+  "item.spacetechmod.wire_stamp": "Wire Stamp"
 }

@@ -1,0 +1,13 @@
+{
+  "type": "spacetechmod:pressing",
+  "ingredients": [
+    {
+      "item": "spacetechmod:plate_stamp"
+    },
+    {
+      "item": "spacetechmod:steel_ingot"
+    }
+
+  ],
+  "output": "spacetechmod:steel_plate"
+}
