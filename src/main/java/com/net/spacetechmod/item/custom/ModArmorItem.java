@@ -72,6 +72,7 @@ public class ModArmorItem extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 200, 0));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 1));
     }
 
     private void turtleMasterArmorOnLand(Player player) {

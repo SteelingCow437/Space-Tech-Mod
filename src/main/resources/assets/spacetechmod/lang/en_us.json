@@ -51,5 +51,6 @@
   "item.spacetechmod.blank_stamp": "Blank Stamp",
   "item.spacetechmod.plate_stamp": "Plate Stamp",
   "item.spacetechmod.wire_stamp": "Wire Stamp",
-  "item.spacetechmod.antidote": "The Antidote"
+  "item.spacetechmod.antidote": "The Antidote",
+  "block.spacetechmod.oil_deposit": "Oil Deposit"
 }

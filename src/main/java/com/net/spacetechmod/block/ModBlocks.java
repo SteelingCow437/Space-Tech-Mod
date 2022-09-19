@@ -68,4 +68,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BURNER_PRESS = registerBlock("burner_press",
             () -> new BurnerPressBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
+
+    //cover yourself in oil cover yourself in oil cover yourself in oil oyul funne heeh
+
+    public static final RegistryObject<Block> OIL_DEPOSIT = registerBlock("oil_deposit",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(3f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 }

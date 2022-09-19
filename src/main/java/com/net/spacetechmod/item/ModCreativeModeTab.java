@@ -32,7 +32,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab STM_MACHINES = new CreativeModeTab("STM_MACHINES") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModBlocks.BURNER_PRESS.get());
+            return new ItemStack(ModBlocks.ALLOY_FURNACE.get());
         }
     };
 
