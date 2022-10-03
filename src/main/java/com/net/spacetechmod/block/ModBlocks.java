@@ -3,6 +3,7 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.AlloyFurnaceBlock;
 import com.net.spacetechmod.block.custom.BurnerPressBlock;
+import com.net.spacetechmod.block.custom.MachineTableBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -68,6 +69,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BURNER_PRESS = registerBlock("burner_press",
             () -> new BurnerPressBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
+
+    public static final RegistryObject<Block> MACHINE_TABLE = registerBlock("machine_table",
+            () -> new MachineTableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(3f).noOcclusion()), ModCreativeModeTab.STM_MACHINES);
 
     //cover yourself in oil cover yourself in oil cover yourself in oil oyul funne heeh
 

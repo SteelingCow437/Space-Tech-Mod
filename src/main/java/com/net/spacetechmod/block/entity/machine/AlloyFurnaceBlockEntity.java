@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class AlloyFurnaceBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();

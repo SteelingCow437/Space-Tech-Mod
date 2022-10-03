@@ -74,11 +74,10 @@ import org.jetbrains.annotations.Nullable;
 
         public static class Serializer implements RecipeSerializer<com.net.spacetechmod.recipe.PressRecipe> {
             public static final com.net.spacetechmod.recipe.PressRecipe.Serializer INSTANCE = new com.net.spacetechmod.recipe.PressRecipe.Serializer();
-            public static final ResourceLocation ID =
-                    new ResourceLocation(Spacetechmod.MOD_ID, "pressing");
+            public static final ResourceLocation ID = new ResourceLocation(Spacetechmod.MOD_ID, "pressing");
 
             @Override
-            public com.net.spacetechmod.recipe.PressRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+            public PressRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
                 ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
 
                 JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
@@ -87,18 +86,18 @@ import org.jetbrains.annotations.Nullable;
                 for(int i = 0; i < inputs.size(); i++) {
                     inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
                 }
-                return new com.net.spacetechmod.recipe.PressRecipe(pRecipeId, output, inputs);
+                return new PressRecipe(pRecipeId, output, inputs);
             }
 
             @Override
-            public @Nullable com.net.spacetechmod.recipe.PressRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+            public @Nullable PressRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
                 NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
                 for(int i = 0; i < inputs.size(); i++) {
                     inputs.set(i, Ingredient.fromNetwork(buf));
                 }
                 ItemStack output = buf.readItem();
-                return new com.net.spacetechmod.recipe.PressRecipe(id, output, inputs);
+                return new PressRecipe(id, output, inputs);
             }
 
             @Override

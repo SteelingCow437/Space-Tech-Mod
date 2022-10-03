@@ -12,6 +12,7 @@ import com.net.spacetechmod.recipe.ModRecipes;
 import com.net.spacetechmod.screen.ModMenuTypes;
 import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceScreen;
 import com.net.spacetechmod.screen.burnerpress.BurnerPressScreen;
+import com.net.spacetechmod.screen.machinetable.MachineTableScreen;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
@@ -85,6 +86,7 @@ public class Spacetechmod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(ModMenuTypes.ALLOY_FURNACE_MENU.get(), AlloyFurnaceScreen::new);
             MenuScreens.register(ModMenuTypes.BURNER_PRESS_MENU.get(), BurnerPressScreen::new);
+            MenuScreens.register(ModMenuTypes.MACHINE_TABLE_MENU.get(), MachineTableScreen::new);
         }
     }
 
