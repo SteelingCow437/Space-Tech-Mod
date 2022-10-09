@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=z": { "model": "tutorialmod:block/sculkdim_portal_ew" },
+    "axis=x": { "model": "tutorialmod:block/sculkdim_portal_ns" }
+  }
+}

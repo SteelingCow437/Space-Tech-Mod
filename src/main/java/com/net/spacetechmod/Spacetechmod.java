@@ -12,12 +12,14 @@ import com.net.spacetechmod.recipe.ModRecipes;
 import com.net.spacetechmod.screen.ModMenuTypes;
 import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceScreen;
 import com.net.spacetechmod.screen.burnerpress.BurnerPressScreen;
-import com.net.spacetechmod.screen.machinetable.MachineTableScreen;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
+import com.net.spacetechmod.world.dimension.ModDimensions;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
 import com.net.spacetechmod.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +34,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
+@SuppressWarnings("ALL")
 @Mod(Spacetechmod.MOD_ID)
 public class Spacetechmod {
 
@@ -58,6 +61,7 @@ public class Spacetechmod {
         ModRecipes.register(eventBus);
         ModFluidTypes.register(eventBus);
         ModFluids.register(eventBus);
+        ModDimensions.register();
 
 
         // Register ourselves for server and other game events we are interested in
@@ -86,7 +90,8 @@ public class Spacetechmod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(ModMenuTypes.ALLOY_FURNACE_MENU.get(), AlloyFurnaceScreen::new);
             MenuScreens.register(ModMenuTypes.BURNER_PRESS_MENU.get(), BurnerPressScreen::new);
-            MenuScreens.register(ModMenuTypes.MACHINE_TABLE_MENU.get(), MachineTableScreen::new);
+
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SCULKDIM_PORTAL.get(), RenderType.translucent());
         }
     }
 

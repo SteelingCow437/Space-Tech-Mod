@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.item.custom.CatalystItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -169,5 +170,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> BASIC_CIRCUIT = ITEMS.register("basic_circuit",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+
+
+    //sculk thangs n' stuff
+
+    public static final RegistryObject<Item> ECHO = ITEMS.register("echo", CatalystItem::new);
 }
 

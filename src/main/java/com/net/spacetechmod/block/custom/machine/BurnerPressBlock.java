@@ -1,7 +1,7 @@
-package com.net.spacetechmod.block.custom;
+package com.net.spacetechmod.block.custom.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.block.entity.machine.AlloyFurnaceBlockEntity;
+import com.net.spacetechmod.block.entity.machine.BurnerPressBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,10 +21,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class AlloyFurnaceBlock extends BaseEntityBlock {
+public class BurnerPressBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public AlloyFurnaceBlock(Properties properties) {
+    public BurnerPressBlock(BlockBehaviour.Properties properties) {
         super(properties);
     }
 
@@ -57,8 +58,8 @@ public class AlloyFurnaceBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if(pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AlloyFurnaceBlockEntity) {
-                ((AlloyFurnaceBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof BurnerPressBlockEntity) {
+                ((BurnerPressBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -68,8 +69,8 @@ public class AlloyFurnaceBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if(!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof AlloyFurnaceBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (AlloyFurnaceBlockEntity)entity, pPos);
+            if(entity instanceof BurnerPressBlockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (BurnerPressBlockEntity)entity, pPos);
             }
             else {
                 throw new IllegalStateException("Missing Container provider");
@@ -81,15 +82,13 @@ public class AlloyFurnaceBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new AlloyFurnaceBlockEntity(pos, state);
+        return new BurnerPressBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.ALLOY_FURNACE.get(),
-                AlloyFurnaceBlockEntity::tick);
+        return createTickerHelper(type, ModBlockEntities.BURNER_PRESS.get(),
+                BurnerPressBlockEntity::tick);
     }
-
-
 }

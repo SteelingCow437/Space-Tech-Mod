@@ -36,4 +36,10 @@ public class ModCreativeModeTab {
         }
     };
 
+    public static final CreativeModeTab STM_SCULK = new CreativeModeTab("STM_SCULK") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.ECHO.get());
+        }
+    };
 }
