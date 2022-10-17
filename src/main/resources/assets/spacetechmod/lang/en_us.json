@@ -9,6 +9,7 @@
   "itemGroup.STM_TOOLS": "STM Tools",
   "itemGroup.STM_FOODS": "STM Foods",
   "itemGroup.STM_MACHINES": "STM Machines",
+  "itemGroup.STM_SCULK": "STM Sculk",
   "item.spacetechmod.titanium_sword": "Titanium Sword",
   "item.spacetechmod.titanium_pickaxe": "Titanium Pickaxe",
   "item.spacetechmod.titanium_axe": "Titanium Axe",
@@ -52,11 +53,12 @@
   "item.spacetechmod.plate_stamp": "Plate Stamp",
   "item.spacetechmod.wire_stamp": "Wire Stamp",
   "item.spacetechmod.antidote": "The Antidote",
-  "block.spacetechmod.oil_deposit": "Oil Deposit",
   "item.spacetechmod.basic_circuit": "Basic Circuit",
   "item.spacetechmod.titanium_plate": "Titanium Plate",
   "item.spacetechmod.copper_plate": "Copper Plate",
   "item.spacetechmod.steel_plate": "Steel Plate",
   "item.spacetechmod.copper_wiring": "Copper Wiring",
-  "block.spacetechmod.machine_table": "Machine Table"
+  "block.spacetechmod.sculk_heart": "Sculk Heart",
+  "item.spacetechmod.echo": "Echo",
+  "block.spacetechmod.sculk_bone": "Sculk Bone Block"
 }

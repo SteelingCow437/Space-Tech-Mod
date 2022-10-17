@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.machine.AlloyFurnaceBlock;
 import com.net.spacetechmod.block.custom.machine.BurnerPressBlock;
 import com.net.spacetechmod.block.custom.SculkDimPortalBlock;
+import com.net.spacetechmod.block.custom.sculk.SculkHeartBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -84,6 +85,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SCULKDIM_PORTAL = registerBlockWithoutBlockItem("sculkdim_portal",
             SculkDimPortalBlock::new);
+
+    public static final RegistryObject<Block> SCULK_HEART = registerBlock("sculk_heart",
+            () -> new SculkHeartBlock(BlockBehaviour.Properties.of(Material.SCULK)
+                    .strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_SCULK);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

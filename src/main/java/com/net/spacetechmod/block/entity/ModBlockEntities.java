@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.machine.AlloyFurnaceBlockEntity;
 import com.net.spacetechmod.block.entity.machine.BurnerPressBlockEntity;
+import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +24,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("burner_press", () ->
                     BlockEntityType.Builder.of(BurnerPressBlockEntity::new,
                             ModBlocks.BURNER_PRESS.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<SculkHeartBlockEntity>> SCULK_HEART =
+            BLOCK_ENTITIES.register("sculk_heart", () ->
+                    BlockEntityType.Builder.of(SculkHeartBlockEntity::new,
+                            ModBlocks.SCULK_HEART.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
