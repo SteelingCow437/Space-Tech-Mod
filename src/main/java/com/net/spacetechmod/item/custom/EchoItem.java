@@ -1,7 +1,7 @@
 package com.net.spacetechmod.item.custom;
 
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.custom.SculkDimPortalBlock;
+import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
@@ -14,8 +14,8 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
-public class CatalystItem extends Item {
-    public CatalystItem() {
+public class EchoItem extends Item {
+    public EchoItem() {
         super(new Properties()
                 .tab(ModCreativeModeTab.STM_ITEMS)
                 .stacksTo(1)

@@ -1,25 +1,11 @@
 {
   "type": "spacetechmod:sculkdim",
   "generator": {
-    "type": "minecraft:flat",
-    "settings": {
-      "biome": "minecraft:deep_dark",
-      "lakes": false,
-      "features": true,
-      "layers": [
-        {
-          "block": "minecraft:bedrock",
-          "height": 3
-        },
-        {
-          "block": "minecraft:stone",
-          "height": 2
-        },
-        {
-          "block": "minecraft:sculk",
-          "height": 5
-        }
-      ]
+    "type": "minecraft:noise",
+    "settings": "minecraft:end",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:deep_dark"
     }
   }
 }

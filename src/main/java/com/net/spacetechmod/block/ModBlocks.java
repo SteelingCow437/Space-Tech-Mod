@@ -3,7 +3,7 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.machine.AlloyFurnaceBlock;
 import com.net.spacetechmod.block.custom.machine.BurnerPressBlock;
-import com.net.spacetechmod.block.custom.SculkDimPortalBlock;
+import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
 import com.net.spacetechmod.block.custom.sculk.SculkHeartBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
@@ -71,17 +71,7 @@ public class ModBlocks {
             () -> new BurnerPressBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
 
-    //cover yourself in oil cover yourself in oil cover yourself in oil oyul funne heeh
-
-    public static final RegistryObject<Block> OIL_DEPOSIT = registerBlock("oil_deposit",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(3f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
-
     //sculk
-
-    public static final RegistryObject<Block> SCULK_BONE = registerBlock("sculk_bone",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2.0f).requiresCorrectToolForDrops()),
-            ModCreativeModeTab.STM_SCULK);
 
     public static final RegistryObject<Block> SCULKDIM_PORTAL = registerBlockWithoutBlockItem("sculkdim_portal",
             SculkDimPortalBlock::new);

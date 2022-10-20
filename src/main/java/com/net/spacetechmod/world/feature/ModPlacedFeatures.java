@@ -38,9 +38,4 @@ public class ModPlacedFeatures {
             () -> new PlacedFeature(ModConfiguredFeatures.AQUAMARINE_ORE.getHolder().get(),
                     commonOrePlacement(5, //veins per chunk
                             HeightRangePlacement.uniform(VerticalAnchor.absolute(-30), VerticalAnchor.absolute(20)))));
-
-    public static final RegistryObject<PlacedFeature> OIL_DEPOSIT_PLACED = PLACED_FEATURES.register("oil_deposit_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.OIL_DEPOSIT.getHolder().get(),
-                    rareOrePlacement(1, //veins per chunk
-                            HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(75)))));
 }

@@ -1,7 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.item.custom.CatalystItem;
+import com.net.spacetechmod.item.custom.EchoItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -175,6 +175,6 @@ public class ModItems {
 
     //sculk thangs n' stuff
 
-    public static final RegistryObject<Item> ECHO = ITEMS.register("echo", CatalystItem::new);
+    public static final RegistryObject<Item> ECHO = ITEMS.register("echo", EchoItem::new);
 }
 

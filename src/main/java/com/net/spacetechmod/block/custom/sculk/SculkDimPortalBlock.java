@@ -1,4 +1,4 @@
-package com.net.spacetechmod.block.custom;
+package com.net.spacetechmod.block.custom.sculk;
 
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.util.ModTags;
@@ -30,12 +30,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Random;
 
 public class SculkDimPortalBlock extends Block {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;

@@ -1,7 +1,7 @@
 package com.net.spacetechmod.world.dimension.portal;
 
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.custom.SculkDimPortalBlock;
+import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
 import com.net.spacetechmod.villager.ModPOIs;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.BlockUtil;

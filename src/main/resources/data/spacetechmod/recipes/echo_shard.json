@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "   ",
+    " # ",
+    "   "
   ],
   "key": {
     "#": {
@@ -12,6 +12,7 @@
 
   },
   "result": {
-    "item": "spacetechmod:echo"
+    "count": 9,
+    "item": "minecraft:echo_shard"
   }
 }

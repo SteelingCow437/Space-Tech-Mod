@@ -59,6 +59,5 @@
   "item.spacetechmod.steel_plate": "Steel Plate",
   "item.spacetechmod.copper_wiring": "Copper Wiring",
   "block.spacetechmod.sculk_heart": "Sculk Heart",
-  "item.spacetechmod.echo": "Echo",
-  "block.spacetechmod.sculk_bone": "Sculk Bone Block"
+  "item.spacetechmod.echo": "Echo"
 }
