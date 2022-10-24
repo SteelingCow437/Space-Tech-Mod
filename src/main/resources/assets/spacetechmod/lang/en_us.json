@@ -59,5 +59,8 @@
   "item.spacetechmod.steel_plate": "Steel Plate",
   "item.spacetechmod.copper_wiring": "Copper Wiring",
   "block.spacetechmod.sculk_heart": "Sculk Heart",
-  "item.spacetechmod.echo": "Echo"
+  "item.spacetechmod.echo": "Echo",
+  "block.spacetechmod.sculk_maw": "Sculk Maw",
+  "effect.spacetechmod.soul_consumption_effect": "Your Soul Is Being Eaten",
+  "item.spacetechmod.soul_crystal": "Soul Crystal"
 }

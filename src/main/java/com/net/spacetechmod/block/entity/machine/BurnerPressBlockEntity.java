@@ -1,9 +1,7 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.recipe.AlloyFurnaceRecipe;
 import com.net.spacetechmod.recipe.PressRecipe;
-import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceMenu;
 import com.net.spacetechmod.screen.burnerpress.BurnerPressMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

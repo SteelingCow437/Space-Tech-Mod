@@ -1,7 +1,6 @@
 package com.net.spacetechmod.screen.burnerpress;
 
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.entity.machine.AlloyFurnaceBlockEntity;
 import com.net.spacetechmod.block.entity.machine.BurnerPressBlockEntity;
 import com.net.spacetechmod.screen.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;

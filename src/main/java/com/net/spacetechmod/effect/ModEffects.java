@@ -19,6 +19,9 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> ANTIDOTE_EFFECT = MOB_EFFECTS.register("antidote_effect",
             () -> new AntidoteEffect(MobEffectCategory.NEUTRAL, 0));
 
+    public static final RegistryObject<MobEffect> SOUL_CONSUMPTION_EFFECT = MOB_EFFECTS.register("soul_consumption_effect",
+            () -> new SoulConsumptionEffect(MobEffectCategory.HARMFUL, 0));
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

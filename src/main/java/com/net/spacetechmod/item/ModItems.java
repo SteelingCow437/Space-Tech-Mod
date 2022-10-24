@@ -176,5 +176,8 @@ public class ModItems {
     //sculk thangs n' stuff
 
     public static final RegistryObject<Item> ECHO = ITEMS.register("echo", EchoItem::new);
+
+    public static final RegistryObject<Item> SOUL_CRYSTAL = ITEMS.register("soul_crystal",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.STM_SCULK)));
 }
 

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "spacetechmod:sculk_heart"
+    "spacetechmod:sculk_heart",
+    "spacetechmod:sculk_maw"
   ]
 }
