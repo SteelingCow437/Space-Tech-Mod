@@ -6,6 +6,7 @@ import com.net.spacetechmod.block.custom.machine.BurnerPressBlock;
 import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
 import com.net.spacetechmod.block.custom.sculk.SculkHeartBlock;
 import com.net.spacetechmod.block.custom.sculk.SculkMawBlock;
+import com.net.spacetechmod.block.custom.sculk.SculkTrapBlock;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -83,6 +84,15 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SCULK_MAW = registerBlock("sculk_maw",
             () -> new SculkMawBlock(BlockBehaviour.Properties.of(Material.SCULK)
+                    .strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_SCULK);
+
+    public static final RegistryObject<Block> CORRUPTED_BONE = registerBlock("corrupted_bone",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(2.5f).requiresCorrectToolForDrops().explosionResistance(2.5f)),
+            ModCreativeModeTab.STM_SCULK);
+
+    public static final RegistryObject<Block> SCULK_TRAP = registerBlock("sculk_trap",
+            () -> new SculkTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
                     .strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_SCULK);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
