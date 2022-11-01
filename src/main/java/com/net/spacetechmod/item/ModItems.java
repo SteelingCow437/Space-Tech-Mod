@@ -1,7 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.item.custom.EchoItem;
+import com.net.spacetechmod.item.custom.sculk.EchoItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -179,5 +179,26 @@ public class ModItems {
 
     public static final RegistryObject<Item> SOUL_CRYSTAL = ITEMS.register("soul_crystal",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.STM_SCULK)));
+    public static final RegistryObject<Item> SCULK_INGOT = ITEMS.register("sculk_ingot",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.STM_SCULK)));
+
+    public static final RegistryObject<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.STM_SCULK)));
+
+    public static final RegistryObject<Item> SCULK_HELMET = ITEMS.register("sculk_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> SCULK_CHESTPLATE = ITEMS.register("sculk_chestplate",
+            () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.CHEST,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> SCULK_LEGGINGS = ITEMS.register("sculk_leggings",
+            () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+
+    public static final RegistryObject<Item> SCULK_BOOTS = ITEMS.register("sculk_boots",
+            () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 }
 

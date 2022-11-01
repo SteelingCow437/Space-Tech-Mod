@@ -1,4 +1,4 @@
-package com.net.spacetechmod.item.custom;
+package com.net.spacetechmod.item.custom.sculk;
 
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;

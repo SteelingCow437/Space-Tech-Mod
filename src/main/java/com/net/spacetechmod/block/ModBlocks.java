@@ -3,10 +3,7 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.machine.AlloyFurnaceBlock;
 import com.net.spacetechmod.block.custom.machine.BurnerPressBlock;
-import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
-import com.net.spacetechmod.block.custom.sculk.SculkHeartBlock;
-import com.net.spacetechmod.block.custom.sculk.SculkMawBlock;
-import com.net.spacetechmod.block.custom.sculk.SculkTrapBlock;
+import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -88,7 +85,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CORRUPTED_BONE = registerBlock("corrupted_bone",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(2.5f).requiresCorrectToolForDrops().explosionResistance(2.5f)),
+                    .strength(7f).requiresCorrectToolForDrops().explosionResistance(2.5f)),
             ModCreativeModeTab.STM_SCULK);
 
     public static final RegistryObject<Block> SCULK_TRAP = registerBlock("sculk_trap",

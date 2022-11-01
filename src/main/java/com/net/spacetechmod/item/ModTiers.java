@@ -16,7 +16,7 @@ public class ModTiers {
 
     public static final ForgeTier TURTLE = new ForgeTier(4, 2500, 8f,
             4f, 20,BlockTags.NEEDS_DIAMOND_TOOL,
-            () -> Ingredient.of(ModItems.AQUAMARINE.get()));
+            () -> Ingredient.of(Items.TURTLE_HELMET));
 
 
 

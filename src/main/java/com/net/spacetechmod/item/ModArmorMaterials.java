@@ -8,7 +8,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
@@ -20,11 +19,12 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }),
 
     TURTLE("turtle_master", 156, new int[]{4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> {
-        return Ingredient.of(ModItems.AQUAMARINE.get());
+        return Ingredient.of(Items.TURTLE_HELMET);
+    }),
+
+    SCULK("sculk", 30, new int[]{2, 5, 6, 2}, 50, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.0F, () -> {
+        return Ingredient.of(ModItems.SCULK_INGOT.get());
     });
-
-
-
 
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
