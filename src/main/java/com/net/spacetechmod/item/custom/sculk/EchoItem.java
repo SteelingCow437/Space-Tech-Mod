@@ -19,9 +19,7 @@ public class EchoItem extends Item {
         super(new Properties()
                 .tab(ModCreativeModeTab.STM_ITEMS)
                 .stacksTo(1)
-                .rarity(Rarity.RARE)
-        );
-
+                .rarity(Rarity.RARE));
     }
     @Override
     public InteractionResult useOn(UseOnContext context) {

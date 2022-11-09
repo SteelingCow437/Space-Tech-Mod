@@ -15,7 +15,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
 public class SoulDartEntity extends AbstractArrow {
-    protected SoulDartEntity(EntityType<? extends AbstractArrow> entityType, Level level) {
+    public SoulDartEntity(EntityType<? extends AbstractArrow> entityType, Level level) {
         super(entityType, level);
     }
 

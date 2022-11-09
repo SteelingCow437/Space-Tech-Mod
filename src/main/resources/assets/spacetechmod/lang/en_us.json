@@ -64,5 +64,15 @@
   "effect.spacetechmod.soul_consumption_effect": "Your Soul Is Being Eaten",
   "item.spacetechmod.soul_crystal": "Soul Crystal",
   "block.spacetechmod.corrupted_bone": "Corrupted Bone Block",
-  "block.spacetechmod.sculk_trap": "Sculk Trap"
+  "block.spacetechmod.sculk_trap": "Sculk Trap",
+  "item.spacetechmod.sculk_helmet": "Helm of the Soulwalker",
+  "item.spacetechmod.sculk_chestplate": "Soulwalker Chestpiece",
+  "item.spacetechmod.sculk_leggings": "Soulwalker Leggings",
+  "item.spacetechmod.sculk_boots": "Soulwalker Boots",
+  "item.spacetechmod.soul_bottle": "Soul in a Jar",
+  "item.spacetechmod.sculk_ingot": "Brick of Sculk",
+  "item.spacetechmod.sword_book": "Summon Sword",
+  "item.spacetechmod.smite_book": "Summon Lightning",
+  "item.spacetechmod.arrow_book": "Arrow Rain",
+  "enchantment.spacetechmod.magic_decay": "Magic Decay"
 }

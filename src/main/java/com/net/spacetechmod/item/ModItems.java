@@ -1,6 +1,9 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.item.custom.sculk.ArrowBookItem;
+import com.net.spacetechmod.item.custom.sculk.SmiteBookItem;
+import com.net.spacetechmod.item.custom.sculk.SwordBookItem;
 import com.net.spacetechmod.item.custom.sculk.EchoItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -182,6 +185,12 @@ public class ModItems {
     public static final RegistryObject<Item> SCULK_INGOT = ITEMS.register("sculk_ingot",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.STM_SCULK)));
 
+    public static final RegistryObject<Item> SWORD_BOOK = ITEMS.register("sword_book", SwordBookItem::new);
+
+    public static final RegistryObject<Item> SMITE_BOOK = ITEMS.register("smite_book", SmiteBookItem::new);
+
+    public static final RegistryObject<Item> ARROW_BOOK = ITEMS.register("arrow_book", ArrowBookItem::new);
+
     public static final RegistryObject<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.STM_SCULK)));
 
@@ -201,4 +210,3 @@ public class ModItems {
             () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
 }
-

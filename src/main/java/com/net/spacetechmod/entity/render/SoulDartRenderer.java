@@ -15,8 +15,6 @@ public class SoulDartRenderer extends ArrowRenderer<SoulDartEntity> {
 
     }
 
-
-
     @Override
     public ResourceLocation getTextureLocation(SoulDartEntity entity) {
         return TEXTURE;

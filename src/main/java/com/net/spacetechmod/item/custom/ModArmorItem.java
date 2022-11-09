@@ -7,13 +7,11 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 
 
 public class ModArmorItem extends ArmorItem {
 
-    private static int sculkSetCooldown = 0;
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
@@ -57,12 +55,8 @@ public class ModArmorItem extends ArmorItem {
                 if(hasSameSetOfArmorOn(ModArmorMaterials.TURTLE, player) && !player.isUnderWater()) {
                     turtleMasterArmorOnLand(player);
                 }
-                if(hasSameSetOfArmorOn(ModArmorMaterials.SCULK, player)) {
-                    sculkSetBonus(player);
-                    sculkSetCooldown++;
-                }
                 if(hasSameSetOfArmorOn(ModArmorMaterials.SCULK, player) && player.experienceLevel < 100) {
-                    player.giveExperiencePoints(1);
+                    player.giveExperiencePoints(5);
                 }
             }
         }
@@ -85,17 +79,6 @@ public class ModArmorItem extends ArmorItem {
 
     private void turtleMasterArmorOnLand(Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1));
-    }
-    private void sculkSetBonus(Player player) {
-        ItemStack stack = ModItems.COPPER_SWORD.get().getDefaultInstance();
-        if(sculkSetCooldown >= 600 && player.isHolding(Items.STICK) && player.experienceLevel >= 20) {
-            sculkSetCooldown = 0;
-            player.addItem(stack);
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 9));
-            player.level.explode(player, player.getX(), player.getY(), player.getZ(), 5.0f, Explosion.BlockInteraction.NONE);
-            player.giveExperienceLevels(-20);
-        }
-
     }
 }
 
