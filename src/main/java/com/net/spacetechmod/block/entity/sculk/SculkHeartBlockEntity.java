@@ -31,6 +31,5 @@ public class SculkHeartBlockEntity extends BlockEntity {
         player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
         SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, this.getBlockPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
-        this.level.explode(player, this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), 2f, true, Explosion.BlockInteraction.NONE);
     }
 }

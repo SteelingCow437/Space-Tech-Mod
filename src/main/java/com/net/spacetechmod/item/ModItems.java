@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.entity.SoulDartEntity;
 import com.net.spacetechmod.item.custom.sculk.ArrowBookItem;
 import com.net.spacetechmod.item.custom.sculk.SmiteBookItem;
 import com.net.spacetechmod.item.custom.sculk.SwordBookItem;

@@ -74,5 +74,6 @@
   "item.spacetechmod.sword_book": "Summon Sword",
   "item.spacetechmod.smite_book": "Summon Lightning",
   "item.spacetechmod.arrow_book": "Arrow Rain",
-  "enchantment.spacetechmod.magic_decay": "Magic Decay"
+  "enchantment.spacetechmod.magic_decay": "Magic Decay",
+  "block.spacetechmod.sculk_altar": "Sculk Altar"
 }

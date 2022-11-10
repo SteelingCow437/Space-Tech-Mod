@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "# #",
+    "* *"
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:sculk_ingot"
+    },
+    "*":{
+      "item": "spacetechmod:echo"
+    }
+  },
+  "result": {
+    "item": "spacetechmod:sculk_boots"
+  }
+}

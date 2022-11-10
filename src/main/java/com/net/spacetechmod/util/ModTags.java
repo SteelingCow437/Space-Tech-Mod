@@ -31,10 +31,5 @@ public class ModTags {
             return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
         //item tags here
-
-
-
-
     }
-
 }

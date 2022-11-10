@@ -92,6 +92,10 @@ public class ModBlocks {
             () -> new SculkTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
                     .strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_SCULK);
 
+    public static final RegistryObject<Block> SCULK_ALTAR = registerBlock("sculk_altar",
+            () -> new SculkAltarBlock(BlockBehaviour.Properties.of(Material.SCULK)
+                    .strength(10f).noLootTable()), ModCreativeModeTab.STM_SCULK);
+
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }
