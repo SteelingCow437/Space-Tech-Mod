@@ -1,8 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.entity.SoulDartEntity;
-import com.net.spacetechmod.item.custom.sculk.ArrowBookItem;
+import com.net.spacetechmod.item.custom.sculk.FreezeBookItem;
 import com.net.spacetechmod.item.custom.sculk.SmiteBookItem;
 import com.net.spacetechmod.item.custom.sculk.SwordBookItem;
 import com.net.spacetechmod.item.custom.sculk.EchoItem;
@@ -190,7 +189,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SMITE_BOOK = ITEMS.register("smite_book", SmiteBookItem::new);
 
-    public static final RegistryObject<Item> ARROW_BOOK = ITEMS.register("arrow_book", ArrowBookItem::new);
+    public static final RegistryObject<Item> FREEZE_BOOK = ITEMS.register("freeze_book", FreezeBookItem::new);
 
     public static final RegistryObject<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.STM_SCULK)));

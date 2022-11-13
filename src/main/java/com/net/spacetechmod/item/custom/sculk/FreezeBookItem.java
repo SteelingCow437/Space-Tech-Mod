@@ -1,19 +1,20 @@
 package com.net.spacetechmod.item.custom.sculk;
 
-import com.net.spacetechmod.entity.SoulDartEntity;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
-public class ArrowBookItem extends Item {
-
-    public ArrowBookItem() {
+public class FreezeBookItem extends Item {
+    public FreezeBookItem() {
         super(new Properties()
                 .tab(ModCreativeModeTab.STM_TOOLS)
                 .rarity(Rarity.RARE)
@@ -23,23 +24,21 @@ public class ArrowBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 30) {
+            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 10) {
+                context.getPlayer().experienceLevel -= 10;
                 Level level = context.getLevel();
-                Player target1 = level.getNearestPlayer(TargetingConditions.forCombat(), context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ());
-                if(target1 != context.getPlayer() && target1 != null) {
-                    for(int i = 0; i < 20; i++) {
-                        SoulDartEntity dart = new SoulDartEntity(EntityType.ARROW, context.getPlayer().getLevel());
-                        dart.setPos(target1.getX(), target1.getY() + 3, target1.getZ());
-                    }
-                    context.getPlayer().giveExperienceLevels(-30);
-                    return InteractionResult.SUCCESS;
-                }
-
-                return InteractionResult.FAIL;
+                Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ());
+                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 1200, 9));
+                return InteractionResult.SUCCESS;
             }
+            return InteractionResult.FAIL;
         }
         return InteractionResult.FAIL;
     }
+
+
+
+
     private boolean hasSculkSetOn(Player player) {
         for (ItemStack armorStack: player.getInventory().armor) {
             if(!(armorStack.getItem() instanceof ArmorItem)) {
