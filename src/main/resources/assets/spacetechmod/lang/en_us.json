@@ -72,8 +72,10 @@
   "item.spacetechmod.soul_bottle": "Soul in a Jar",
   "item.spacetechmod.sculk_ingot": "Brick of Sculk",
   "item.spacetechmod.sword_book": "Summon Sword",
-  "item.spacetechmod.smite_book": "Summon Lightning",
+  "item.spacetechmod.warden_book": "Summon Warden",
   "item.spacetechmod.freeze_book": "Freeze Spell",
+  "item.spacetechmod.boost_book": "Human Rocket",
+  "item.spacetechmod.last_resort": "Last Resort",
   "enchantment.spacetechmod.magic_decay": "Magic Decay",
   "block.spacetechmod.sculk_altar": "Sculk Altar"
 }

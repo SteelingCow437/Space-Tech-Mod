@@ -5,40 +5,35 @@ import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.GameRules;
 
-public class FreezeBookItem extends Item {
-    public FreezeBookItem() {
+public class BoostBookItem extends Item {
+    public BoostBookItem() {
         super(new Properties()
                 .tab(ModCreativeModeTab.STM_TOOLS)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }
 
+
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 10) {
-                context.getPlayer().experienceLevel -= 10;
-                Level level = context.getLevel();
-                Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ());
-                if(target != context.getPlayer() && target != null) {
-                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 9));
-                    return InteractionResult.SUCCESS;
-                }
-                return InteractionResult.FAIL;
+            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 5) {
+                context.getPlayer().addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 9));
+                context.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 9));
+                context.getPlayer().experienceLevel -= 5;
+                return InteractionResult.SUCCESS;
             }
             return InteractionResult.FAIL;
         }
         return InteractionResult.FAIL;
     }
-
-
-
 
     private boolean hasSculkSetOn(Player player) {
         for (ItemStack armorStack: player.getInventory().armor) {
@@ -55,4 +50,7 @@ public class FreezeBookItem extends Item {
         return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
                 leggings.getMaterial() == material && boots.getMaterial() == material;
     }
+
+
+
 }
