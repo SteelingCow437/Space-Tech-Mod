@@ -7,7 +7,7 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:netherite_ingot"
+      "item": "spacetechmod:corrupted_bone"
     },
     "*": {
       "item": "minecraft:blast_furnace"

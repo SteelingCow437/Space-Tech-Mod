@@ -1,7 +1,6 @@
 package com.net.spacetechmod.block.custom.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;

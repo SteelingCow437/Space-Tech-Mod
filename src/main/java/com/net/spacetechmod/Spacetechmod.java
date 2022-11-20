@@ -78,6 +78,9 @@ public class Spacetechmod {
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
                             Items.WHEAT, ModPotions.OIL.get()));
 
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.STRENGTH,
+                    ModItems.SOUL_CRYSTAL.get(), ModPotions.SOUL_CHARGE.get()));
+
 
             //And above this line
         });

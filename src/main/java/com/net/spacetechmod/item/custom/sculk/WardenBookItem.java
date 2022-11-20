@@ -1,12 +1,12 @@
 package com.net.spacetechmod.item.custom.sculk;
 
+import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.SpawnUtil;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +25,7 @@ public class WardenBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 30) {
+            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 40) {
                 Level level = context.getLevel();
                 Player target = level.getNearestPlayer(TargetingConditions.forCombat(), context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ());
                 if(target != context.getPlayer() && target != null && context.getPlayer().distanceTo(target) < 30) {

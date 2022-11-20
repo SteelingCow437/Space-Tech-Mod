@@ -1,5 +1,6 @@
 package com.net.spacetechmod.item.custom.sculk;
 
+import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
@@ -20,7 +21,7 @@ public class SwordBookItem extends Item  {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 20) {
+            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 20) {
                 ItemStack stack = Items.NETHERITE_SWORD.getDefaultInstance();
                 stack.enchant(Enchantments.SHARPNESS, 5);
                 stack.enchant(Enchantments.KNOCKBACK, 2);

@@ -77,5 +77,11 @@
   "item.spacetechmod.boost_book": "Human Rocket",
   "item.spacetechmod.last_resort": "Last Resort",
   "enchantment.spacetechmod.magic_decay": "Magic Decay",
-  "block.spacetechmod.sculk_altar": "Sculk Altar"
+  "block.spacetechmod.sculk_altar": "Sculk Altar",
+  "block.spacetechmod.crystal_tnt": "Explosive Crystal",
+  "effect.spacetechmod.soul_charge": "Soul Charge",
+  "item.minecraft.splash_potion.effect.soul_charge": "Throwable Soul Charge",
+  "item.minecraft.lingering_potion.effect.soul_charge": "Cloud of Soul Charge",
+  "item.minecraft.tipped_arrow.effect.soul_charge": "Arrow Coated in Soul Charge",
+  "item.minecraft.potion.effect.soul_charge": "Bottle Of Soul Charge"
 }

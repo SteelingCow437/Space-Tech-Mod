@@ -1,10 +1,9 @@
 package com.net.spacetechmod.item.custom.sculk;
 
+import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
@@ -23,7 +22,7 @@ public class LastResortBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 50) {
+            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 50) {
                 context.getLevel().explode(context.getPlayer(), context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ(), 50f, Explosion.BlockInteraction.NONE);
                 context.getPlayer().experienceLevel -= 50;
                 return InteractionResult.SUCCESS;

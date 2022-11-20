@@ -1,16 +1,14 @@
 package com.net.spacetechmod.item.custom.sculk;
 
+import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Explosion;
-import net.minecraft.world.level.GameRules;
 
 public class BoostBookItem extends Item {
     public BoostBookItem() {
@@ -24,7 +22,7 @@ public class BoostBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) && context.getPlayer().experienceLevel >= 5) {
+            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 5) {
                 context.getPlayer().addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 9));
                 context.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 9));
                 context.getPlayer().experienceLevel -= 5;
