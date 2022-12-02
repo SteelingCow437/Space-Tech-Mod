@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:warden_pillar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 389294,
+    "spacing": 50,
+    "separation": 20,
+    "type": "minecraft:random_spread"
+  }
+}

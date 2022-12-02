@@ -31,6 +31,7 @@ public class SculkAltarBlock extends Block {
                 ItemStack stack = ModItems.SOUL_BOTTLE.get().getDefaultInstance();
                 pPlayer.addItem(stack);
                 pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+                pPlayer.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
                 pPlayer.experienceLevel -= 250;
             }
 

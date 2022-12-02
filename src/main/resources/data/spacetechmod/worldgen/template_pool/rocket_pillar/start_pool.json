@@ -1,0 +1,15 @@
+{
+  "name": "spacetechmod:rocket_pillar/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "spacetechmod:rocket_pillar",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

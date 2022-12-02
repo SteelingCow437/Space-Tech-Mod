@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:rocket_pillar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 839132,
+    "spacing": 50,
+    "separation": 20,
+    "type": "minecraft:random_spread"
+  }
+}

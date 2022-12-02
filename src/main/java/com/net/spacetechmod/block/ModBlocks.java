@@ -96,10 +96,6 @@ public class ModBlocks {
             () -> new SculkAltarBlock(BlockBehaviour.Properties.of(Material.SCULK)
                     .strength(10f).noLootTable()), ModCreativeModeTab.STM_SCULK);
 
-    public static final RegistryObject<Block> CRYSTAL_TNT = registerBlock("crystal_tnt",
-            () -> new CrystalTnt(BlockBehaviour.Properties.of(Material.EXPLOSIVE)
-                    .strength(1f)), ModCreativeModeTab.STM_BLOCKS);
-
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }

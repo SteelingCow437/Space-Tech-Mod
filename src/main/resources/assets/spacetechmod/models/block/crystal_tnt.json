@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "spacetechmod:block/crystal_tnt_top",
-    "side": "spacetechmod:block/crystal_tnt_side",
-    "top": "spacetechmod:block/crystal_tnt_top"
-  }
-}

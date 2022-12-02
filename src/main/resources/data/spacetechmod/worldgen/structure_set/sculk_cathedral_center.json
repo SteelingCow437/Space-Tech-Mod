@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:sculk_cathedral_center",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 3624360,
+    "spacing": 50,
+    "separation": 20,
+    "type": "minecraft:random_spread"
+  }
+}
