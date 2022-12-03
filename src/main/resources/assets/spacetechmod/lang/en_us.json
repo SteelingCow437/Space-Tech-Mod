@@ -82,5 +82,6 @@
   "item.minecraft.splash_potion.effect.soul_charge": "Throwable Soul Charge",
   "item.minecraft.lingering_potion.effect.soul_charge": "Cloud of Soul Charge",
   "item.minecraft.tipped_arrow.effect.soul_charge": "Arrow Coated in Soul Charge",
-  "item.minecraft.potion.effect.soul_charge": "Bottle Of Soul Charge"
+  "item.minecraft.potion.effect.soul_charge": "Bottle Of Soul Charge",
+  "item.spacetechmod.freeze_time": "Freeze Time"
 }

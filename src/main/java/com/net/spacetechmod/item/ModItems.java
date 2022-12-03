@@ -192,6 +192,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> LAST_RESORT_BOOK = ITEMS.register("last_resort", LastResortBookItem::new);
 
+    public static final RegistryObject<Item> FREEZE_TIME_BOOK = ITEMS.register("freeze_time", FreezeTimeBookItem::new);
+
     public static final RegistryObject<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.STM_SCULK)));
 

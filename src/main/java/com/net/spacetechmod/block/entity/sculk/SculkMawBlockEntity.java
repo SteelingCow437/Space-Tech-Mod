@@ -1,11 +1,9 @@
 package com.net.spacetechmod.block.entity.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.block.entity.machine.AlloyFurnaceBlockEntity;
 import com.net.spacetechmod.effect.ModEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;

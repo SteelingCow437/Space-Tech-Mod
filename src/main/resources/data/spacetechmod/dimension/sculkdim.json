@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:the_end",
+  "type": "spacetechmod:sculkdim",
   "generator": {
     "type": "minecraft:noise",
     "settings": "minecraft:end",
