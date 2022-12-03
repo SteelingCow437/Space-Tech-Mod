@@ -27,7 +27,7 @@ public class SculkAltarBlock extends Block {
                 pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                 pPlayer.experienceLevel -= 100;
             }
-            else if(pPlayer.experienceLevel >= 250 && pPlayer.isHolding(Items.GLASS_BOTTLE) && pPlayer.getOffhandItem() == ModItems.SOUL_CRYSTAL.get().getDefaultInstance()) {
+            else if(pPlayer.experienceLevel >= 250 && pPlayer.isHolding(Items.GLASS_BOTTLE) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
                 ItemStack stack = ModItems.SOUL_BOTTLE.get().getDefaultInstance();
                 pPlayer.addItem(stack);
                 pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);

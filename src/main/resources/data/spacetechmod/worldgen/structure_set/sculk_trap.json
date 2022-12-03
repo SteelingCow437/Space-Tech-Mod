@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:sculk_trap",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 39383491,
+    "spacing": 20,
+    "separation": 16,
+    "type": "minecraft:random_spread"
+  }
+}

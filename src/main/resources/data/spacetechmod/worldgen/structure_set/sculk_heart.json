@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:sculk_heart",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 169168,
+    "spacing": 20,
+    "separation": 16,
+    "type": "minecraft:random_spread"
+  }
+}

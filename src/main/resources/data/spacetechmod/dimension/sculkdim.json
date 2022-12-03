@@ -1,11 +1,36 @@
 {
-  "type": "spacetechmod:sculkdim",
+  "type": "minecraft:the_end",
   "generator": {
     "type": "minecraft:noise",
     "settings": "minecraft:end",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "minecraft:deep_dark"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:deep_dark",
+          "parameters": {
+            "temperature": 1,
+            "humidity": 1,
+            "continentalness": 2,
+            "erosion": 1,
+            "weirdness": 1,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:end_barrens",
+          "parameters": {
+            "temperature": 1,
+            "humidity": 1,
+            "continentalness": 2,
+            "erosion": 0,
+            "weirdness": 1,
+            "depth": -1,
+            "offset": 0
+          }
+        }
+      ]
     }
   }
 }
