@@ -32,6 +32,7 @@ public class SculkTrapBlockEntity extends BlockEntity {
         }
         if(count == 200 && !level.isClientSide()) {
             SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
+            count = 0;
         }
     }
 }
