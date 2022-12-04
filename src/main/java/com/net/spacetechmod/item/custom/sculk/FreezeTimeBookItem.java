@@ -24,7 +24,7 @@ public class FreezeTimeBookItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("This is a joke item. It makes the game pause for 10 seconds. No, you didn't crash the game"));
+        components.add(Component.literal("This is a joke item. It makes you pause for 10 seconds. No, you didn't crash the game"));
     }
     @Override
     public InteractionResult useOn(UseOnContext context) {

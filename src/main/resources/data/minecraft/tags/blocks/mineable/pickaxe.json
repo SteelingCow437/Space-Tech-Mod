@@ -2,8 +2,10 @@
   "replace": false,
   "values": [
     "spacetechmod:titanium_block",
+    "spacetechmod:raw_titanium_block",
     "spacetechmod:titanium_ore",
     "spacetechmod:titanium_ore_deepslate",
-    "spacetechmod:aquamarine_ore"
+    "spacetechmod:aquamarine_ore",
+    "spacetechmod:corrupted_bone"
   ]
 }

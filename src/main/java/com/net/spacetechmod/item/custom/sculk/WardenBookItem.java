@@ -13,6 +13,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.phys.AABB;
 
 public class WardenBookItem extends Item {
     public WardenBookItem() {
@@ -27,8 +29,8 @@ public class WardenBookItem extends Item {
         if(context.getPlayer() != null) {
             if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 30) {
                 Level level = context.getLevel();
-                Player target = level.getNearestPlayer(TargetingConditions.forCombat(), context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ());
-                if(target != context.getPlayer() && target != null && context.getPlayer().distanceTo(target) < 30) {
+                Player target = (Player) context.getLevel().getNearbyPlayers(TargetingConditions.forCombat(), context.getPlayer(), AABB.of(BoundingBox.infinite()));
+                if(target != context.getPlayer() && context.getPlayer().distanceTo(target) < 30) {
                     SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), target.getOnPos(), 1, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
                     context.getPlayer().experienceLevel -= 30;
                     return InteractionResult.SUCCESS;

@@ -85,7 +85,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CORRUPTED_BONE = registerBlock("corrupted_bone",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(7f).requiresCorrectToolForDrops().explosionResistance(2.5f)),
+                    .strength(6f).requiresCorrectToolForDrops().explosionResistance(2.5f)),
             ModCreativeModeTab.STM_SCULK);
 
     public static final RegistryObject<Block> SCULK_TRAP = registerBlock("sculk_trap",
