@@ -26,13 +26,14 @@ public class WardenBookItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 30) {
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 30) {
                 Level level = context.getLevel();
-                Player target = (Player) context.getLevel().getNearbyPlayers(TargetingConditions.forCombat(), context.getPlayer(), AABB.of(BoundingBox.infinite()));
-                if(target != context.getPlayer() && context.getPlayer().distanceTo(target) < 30) {
+                Player target = (Player) level.getNearbyPlayers(TargetingConditions.forCombat(), player, AABB.of(BoundingBox.infinite()));
+                if(target != player && player.distanceTo(target) < 30) {
                     SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), target.getOnPos(), 1, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-                    context.getPlayer().experienceLevel -= 30;
+                    player.experienceLevel -= 30;
                     return InteractionResult.SUCCESS;
                 }
                 return InteractionResult.FAIL;

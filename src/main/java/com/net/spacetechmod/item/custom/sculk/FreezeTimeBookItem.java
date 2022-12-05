@@ -28,9 +28,10 @@ public class FreezeTimeBookItem extends Item {
     }
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 100) {
-                context.getPlayer().experienceLevel -= 100;
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 100) {
+                player.experienceLevel -= 100;
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {

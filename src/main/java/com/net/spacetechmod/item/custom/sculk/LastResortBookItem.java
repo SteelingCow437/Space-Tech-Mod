@@ -21,10 +21,12 @@ public class LastResortBookItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 75) {
-                context.getLevel().explode(context.getPlayer(), context.getPlayer().getX(), context.getPlayer().getY(), context.getPlayer().getZ(), 50f, Explosion.BlockInteraction.NONE);
-                context.getPlayer().experienceLevel -= 75;
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 75) {
+                context.getLevel().explode(player, player.getX(), player.getY(), player.getZ(), 50f, Explosion.BlockInteraction.NONE);
+                player.experienceLevel -= 75;
+                player.setHealth(5);
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.FAIL;

@@ -21,11 +21,12 @@ public class BoostBookItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 5) {
-                context.getPlayer().addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 9));
-                context.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 9));
-                context.getPlayer().experienceLevel -= 5;
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 5) {
+                player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 9));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 9));
+                player.experienceLevel -= 5;
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.FAIL;

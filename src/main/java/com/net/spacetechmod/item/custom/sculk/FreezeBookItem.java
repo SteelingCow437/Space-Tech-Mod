@@ -23,11 +23,12 @@ public class FreezeBookItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 10) {
-                context.getPlayer().experienceLevel -= 10;
-                Player target = (Player) context.getLevel().getNearbyPlayers(TargetingConditions.forCombat(), context.getPlayer(), AABB.of(BoundingBox.infinite()));
-                if(target != context.getPlayer() && context.getPlayer().distanceTo(target) < 30) {
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 10) {
+                player.experienceLevel -= 10;
+                Player target = (Player) context.getLevel().getNearbyPlayers(TargetingConditions.forCombat(), player, AABB.of(BoundingBox.infinite()));
+                if(target != player && player.distanceTo(target) < 30) {
                     target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 9));
                     return InteractionResult.SUCCESS;
                 }

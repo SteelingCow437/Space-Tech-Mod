@@ -20,14 +20,15 @@ public class SwordBookItem extends Item  {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getPlayer() != null) {
-            if(hasSculkSetOn(context.getPlayer()) || context.getPlayer().hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && context.getPlayer().experienceLevel >= 20) {
+        Player player = context.getPlayer();
+        if(player != null) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 20) {
                 ItemStack stack = Items.NETHERITE_SWORD.getDefaultInstance();
                 stack.enchant(Enchantments.SHARPNESS, 5);
                 stack.enchant(Enchantments.KNOCKBACK, 2);
                 stack.enchant(ModEnchantments.MAGIC_DECAY.get(), 1);
-                context.getPlayer().addItem(stack);
-                context.getPlayer().giveExperienceLevels(-20);
+                player.addItem(stack);
+                player.giveExperienceLevels(-20);
                 return InteractionResult.SUCCESS;
             }
             else {
