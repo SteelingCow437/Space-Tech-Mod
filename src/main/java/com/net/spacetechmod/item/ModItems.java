@@ -229,4 +229,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
     public static final RegistryObject<Item> COPPER_REDSTIDE_INGOT = ITEMS.register("copper_redstide_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> TITANIUM_POWDER = ITEMS.register("titanium_powder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 }

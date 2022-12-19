@@ -90,5 +90,7 @@
   "item.spacetechmod.copper_redstide_blend": "Copper Redstide Blend",
   "block.spacetechmod.copper_redstide_block": "Copper Redstide Block",
   "item.spacetechmod.copper_redstide_ingot": "Copper Redstide Ingot",
-  "item.spacetechmod.copper_powder": "Copper Powder"
+  "item.spacetechmod.copper_powder": "Copper Powder",
+  "item.spacetechmod.titanium_powder": "Titanium Powder",
+  "enchantment.spacetechmod.magic_repair": "Self-Healing"
 }

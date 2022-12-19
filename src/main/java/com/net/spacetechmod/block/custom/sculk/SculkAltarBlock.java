@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.sculk;
 
+import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -40,8 +41,11 @@ public class SculkAltarBlock extends Block {
                 pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                 pPlayer.addItem(stack);
                 pPlayer.experienceLevel -= 20;
+            } else if (pPlayer.experienceLevel >= 250 && pPlayer.isHolding(Items.ELYTRA) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
+                pPlayer.getMainHandItem().enchant(ModEnchantments.MAGIC_REPAIR.get(), 1);
+                pPlayer.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
+                pPlayer.experienceLevel -= 250;
             }
-
         }
         return InteractionResult.SUCCESS;
     }

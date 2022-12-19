@@ -11,6 +11,8 @@ public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, Spacetechmod.MOD_ID);
 
     public static final RegistryObject<Enchantment> MAGIC_DECAY = ENCHANTMENTS.register("magic_decay", MagicDecayEnchantment::new);
+
+    public static final RegistryObject<Enchantment> MAGIC_REPAIR = ENCHANTMENTS.register("magic_repair", MagicRepairEnchantment::new);
     
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);

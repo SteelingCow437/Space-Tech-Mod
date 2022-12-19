@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "steel_ingot",
+  "ingredient": {
+    "item": "spacetechmod:steel_powder"
+  },
+  "result": "spacetechmod:steel_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}
