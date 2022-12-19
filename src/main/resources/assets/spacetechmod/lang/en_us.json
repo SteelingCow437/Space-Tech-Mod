@@ -47,8 +47,6 @@
   "item.minecraft.lingering_potion.effect.oil": "Oil Slick",
   "item.minecraft.tipped_arrow.effect.oil": "Arrow Coated In Oil",
   "item.spacetechmod.steel_ingot": "Steel Ingot",
-  "block.spacetechmod.alloy_furnace": "Alloy Furnace [WIP]",
-  "block.spacetechmod.burner_press": "Burner Press [WIP]",
   "item.spacetechmod.blank_stamp": "Blank Stamp",
   "item.spacetechmod.plate_stamp": "Plate Stamp",
   "item.spacetechmod.wire_stamp": "Wire Stamp",
@@ -84,5 +82,13 @@
   "item.minecraft.lingering_potion.effect.soul_charge": "Cloud of Soul Charge",
   "item.minecraft.tipped_arrow.effect.soul_charge": "Arrow Coated in Soul Charge",
   "item.minecraft.potion.effect.soul_charge": "Bottle Of Soul Charge",
-  "item.spacetechmod.freeze_time": "Freeze Time"
+  "item.spacetechmod.freeze_time": "Freeze Time",
+  "item.spacetechmod.iron_powder": "Iron Powder",
+  "item.spacetechmod.carbon_powder": "Carbon Powder",
+  "item.spacetechmod.steel_blend": "Steel Blend",
+  "item.spacetechmod.hammer": "Hammer",
+  "item.spacetechmod.copper_redstide_blend": "Copper Redstide Blend",
+  "block.spacetechmod.copper_redstide_block": "Copper Redstide Block",
+  "item.spacetechmod.copper_redstide_ingot": "Copper Redstide Ingot",
+  "item.spacetechmod.copper_powder": "Copper Powder"
 }

@@ -1,13 +1,12 @@
 {
-  "type": "spacetechmod:pressing",
-  "ingredients": [
-    {
-      "item": "spacetechmod:plate_stamp"
-    },
-    {
-      "item": "spacetechmod:titanium_ingot"
-    }
-
-  ],
-  "output": "spacetechmod:titanium_plate"
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "spacetechmod:titanium_ingot"
+  },
+  "base": {
+    "item": "spacetechmod:plate_stamp"
+  },
+  "result": {
+    "item": "spacetechmod:titanium_plate"
+  }
 }

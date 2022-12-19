@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.item.custom.HammerItem;
 import com.net.spacetechmod.item.custom.sculk.*;
 import com.net.spacetechmod.item.custom.ModArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,6 +22,8 @@ public class ModItems {
     //Declare all items below this line
 
     //begin of titanium stuff
+
+    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", HammerItem::new);
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
@@ -147,7 +150,7 @@ public class ModItems {
     public static final RegistryObject<Item> WIRE_STAMP = ITEMS.register("wire_stamp",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
-    //begin of steel stuff
+    //steel stuff
 
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
@@ -199,17 +202,31 @@ public class ModItems {
 
     public static final RegistryObject<Item> SCULK_HELMET = ITEMS.register("sculk_helmet",
             () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+                    new Item.Properties().tab(ModCreativeModeTab.STM_SCULK)));
 
     public static final RegistryObject<Item> SCULK_CHESTPLATE = ITEMS.register("sculk_chestplate",
             () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.CHEST,
-                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+                    new Item.Properties().tab(ModCreativeModeTab.STM_SCULK)));
 
     public static final RegistryObject<Item> SCULK_LEGGINGS = ITEMS.register("sculk_leggings",
             () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.LEGS,
-                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+                    new Item.Properties().tab(ModCreativeModeTab.STM_SCULK)));
 
     public static final RegistryObject<Item> SCULK_BOOTS = ITEMS.register("sculk_boots",
             () -> new ModArmorItem(ModArmorMaterials.SCULK, EquipmentSlot.FEET,
-                    new Item.Properties().tab(ModCreativeModeTab.STM_TOOLS)));
+                    new Item.Properties().tab(ModCreativeModeTab.STM_SCULK)));
+
+    //Alloy Powders
+    public static final RegistryObject<Item> IRON_POWDER = ITEMS.register("iron_powder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> CARBON_POWDER = ITEMS.register("carbon_powder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> STEEL_BLEND = ITEMS.register("steel_blend",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> COPPER_POWDER = ITEMS.register("copper_powder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> COPPER_REDSTIDE_BLEND = ITEMS.register("copper_redstide_blend",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+    public static final RegistryObject<Item> COPPER_REDSTIDE_INGOT = ITEMS.register("copper_redstide_ingot",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 }

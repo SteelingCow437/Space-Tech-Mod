@@ -17,7 +17,7 @@ public class FreezeTimeBookItem extends Item {
 
     public FreezeTimeBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1));
     }

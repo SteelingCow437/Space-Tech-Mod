@@ -1,13 +1,12 @@
 {
-  "type": "spacetechmod:pressing",
-  "ingredients": [
-    {
-      "item": "spacetechmod:plate_stamp"
-    },
-    {
-      "item": "spacetechmod:steel_ingot"
-    }
-
-  ],
-  "output": "spacetechmod:steel_plate"
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "spacetechmod:steel_ingot"
+  },
+  "base": {
+    "item": "spacetechmod:plate_stamp"
+  },
+  "result": {
+    "item": "minecraft:netherite_axe"
+  }
 }

@@ -2,8 +2,6 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.entity.machine.AlloyFurnaceBlockEntity;
-import com.net.spacetechmod.block.entity.machine.BurnerPressBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
@@ -18,15 +16,6 @@ public class ModBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Spacetechmod.MOD_ID);
 
     //machine
-    public static final RegistryObject<BlockEntityType<AlloyFurnaceBlockEntity>> ALLOY_FURNACE =
-            BLOCK_ENTITIES.register("alloy_furnace", () ->
-                    BlockEntityType.Builder.of(AlloyFurnaceBlockEntity::new,
-                            ModBlocks.ALLOY_FURNACE.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<BurnerPressBlockEntity>> BURNER_PRESS =
-            BLOCK_ENTITIES.register("burner_press", () ->
-                    BlockEntityType.Builder.of(BurnerPressBlockEntity::new,
-                            ModBlocks.BURNER_PRESS.get()).build(null));
 
     //sculk
     public static final RegistryObject<BlockEntityType<SculkHeartBlockEntity>> SCULK_HEART =

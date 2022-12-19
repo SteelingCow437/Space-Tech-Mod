@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 public class EchoItem extends Item {
     public EchoItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_ITEMS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .stacksTo(1)
                 .rarity(Rarity.RARE));
     }

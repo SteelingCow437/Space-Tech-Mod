@@ -1,13 +1,13 @@
 {
-  "type": "spacetechmod:pressing",
-  "ingredients": [
-    {
-      "item": "spacetechmod:wire_stamp"
-    },
-    {
-      "item": "minecraft:copper_ingot"
-    }
-
-  ],
-  "output": "spacetechmod:copper_wiring"
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:copper_ingot"
+  },
+  "base": {
+    "item": "spacetechmod:wire_stamp"
+  },
+  "result": {
+    "item": "spacetechmod:copper_wiring",
+    "count": 8
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "steel_ingot",
+  "ingredient": {
+    "item": "spacetechmod:steel_blend"
+  },
+  "result": "spacetechmod:steel_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

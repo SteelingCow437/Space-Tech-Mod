@@ -13,7 +13,7 @@ public class LastResortBookItem extends Item {
 
     public LastResortBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }

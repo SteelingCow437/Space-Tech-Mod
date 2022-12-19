@@ -13,7 +13,7 @@ import net.minecraft.world.item.context.UseOnContext;
 public class BoostBookItem extends Item {
     public BoostBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }

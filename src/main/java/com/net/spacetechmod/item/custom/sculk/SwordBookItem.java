@@ -13,7 +13,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 public class SwordBookItem extends Item  {
     public SwordBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }

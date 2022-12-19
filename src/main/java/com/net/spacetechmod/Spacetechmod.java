@@ -4,24 +4,17 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
-import com.net.spacetechmod.entity.ModEntities;
-import com.net.spacetechmod.entity.render.SoulDartRenderer;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.recipe.ModRecipes;
-import com.net.spacetechmod.screen.ModMenuTypes;
-import com.net.spacetechmod.screen.alloyfurnace.AlloyFurnaceScreen;
-import com.net.spacetechmod.screen.burnerpress.BurnerPressScreen;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
 import com.net.spacetechmod.world.feature.ModPlacedFeatures;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,10 +52,8 @@ public class Spacetechmod {
         ModConfiguredFeatures.register(eventBus);
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
         ModDimensions.register();
-        ModEntities.register(eventBus);
         ModEnchantments.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
@@ -92,12 +83,7 @@ public class Spacetechmod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenuTypes.ALLOY_FURNACE_MENU.get(), AlloyFurnaceScreen::new);
-            MenuScreens.register(ModMenuTypes.BURNER_PRESS_MENU.get(), BurnerPressScreen::new);
-
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SCULKDIM_PORTAL.get(), RenderType.translucent());
-
-            EntityRenderers.register(ModEntities.SOUL_DART.get(), SoulDartRenderer::new);
         }
     }
 

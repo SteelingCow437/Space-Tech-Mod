@@ -8,18 +8,14 @@ import net.minecraft.util.SpawnUtil;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.phys.AABB;
 
 public class WardenBookItem extends Item {
     public WardenBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
+                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }
@@ -29,14 +25,9 @@ public class WardenBookItem extends Item {
         Player player = context.getPlayer();
         if(player != null) {
             if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 30) {
-                Level level = context.getLevel();
-                Player target = (Player) level.getNearbyPlayers(TargetingConditions.forCombat(), player, AABB.of(BoundingBox.infinite()));
-                if(target != player && player.distanceTo(target) < 30) {
-                    SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), target.getOnPos(), 1, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-                    player.experienceLevel -= 30;
-                    return InteractionResult.SUCCESS;
-                }
-                return InteractionResult.FAIL;
+                SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) context.getLevel()), player.getOnPos(), 1, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
+                player.experienceLevel -= 30;
+                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.FAIL;

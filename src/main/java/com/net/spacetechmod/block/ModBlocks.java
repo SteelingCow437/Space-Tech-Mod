@@ -1,8 +1,6 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.custom.machine.AlloyFurnaceBlock;
-import com.net.spacetechmod.block.custom.machine.BurnerPressBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
@@ -61,14 +59,6 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
 
     // machines
-    public static final RegistryObject<Block> ALLOY_FURNACE = registerBlock("alloy_furnace",
-            () -> new AlloyFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
-
-
-    public static final RegistryObject<Block> BURNER_PRESS = registerBlock("burner_press",
-            () -> new BurnerPressBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.STM_MACHINES);
 
     //sculk
 
@@ -99,4 +89,7 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }
+
+    //alloys
+
 }

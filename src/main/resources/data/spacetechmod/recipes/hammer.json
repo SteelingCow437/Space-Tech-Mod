@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "*#*",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "*": {
+      "item": "spacetechmod:corrupted_bone"
+    }
+
+  },
+  "result": {
+    "count": 1,
+    "item": "spacetechmod:hammer"
+  }
+}

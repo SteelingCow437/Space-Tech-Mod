@@ -29,12 +29,6 @@ public class ModCreativeModeTab {
             return new ItemStack(ModItems.LEAN.get());
         }
     };
-    public static final CreativeModeTab STM_MACHINES = new CreativeModeTab("STM_MACHINES") {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(ModBlocks.ALLOY_FURNACE.get());
-        }
-    };
 
     public static final CreativeModeTab STM_SCULK = new CreativeModeTab("STM_SCULK") {
         @Override
