@@ -7,7 +7,6 @@ import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
-import com.net.spacetechmod.recipe.ModRecipes;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import com.net.spacetechmod.world.dimension.ModDimensions;
@@ -52,7 +51,6 @@ public class Spacetechmod {
         ModConfiguredFeatures.register(eventBus);
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModRecipes.register(eventBus);
         ModDimensions.register();
         ModEnchantments.register(eventBus);
 
