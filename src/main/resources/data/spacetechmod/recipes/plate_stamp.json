@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "spacetechmod:blank_stamp"
+    },
+    {
+      "item": "spacetechmod:paper"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:plate_stamp"
+  }
+}
