@@ -5,11 +5,11 @@
       "item": "spacetechmod:blank_stamp"
     },
     {
-      "item": "spacetechmod:paper"
+      "item": "minecraft:paper"
     }
   ],
   "result": {
     "count": 1,
-    "item": "minecraft:plate_stamp"
+    "item": "spacetechmod:plate_stamp"
   }
 }

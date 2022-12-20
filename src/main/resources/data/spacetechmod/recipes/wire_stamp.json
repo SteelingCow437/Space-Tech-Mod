@@ -5,11 +5,11 @@
       "item": "spacetechmod:blank_stamp"
     },
     {
-      "item": "spacetechmod:string"
+      "item": "minecraft:string"
     }
   ],
   "result": {
     "count": 1,
-    "item": "minecraft:wire_stamp"
+    "item": "spacetechmod:wire_stamp"
   }
 }

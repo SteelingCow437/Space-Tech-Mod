@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'com.david.stm'
-version = '44.1.0.104'
+version = '44.1.0.105'
 
 java {
     archivesBaseName = 'stm'
