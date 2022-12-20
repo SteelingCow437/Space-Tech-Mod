@@ -11,6 +11,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 
 public class WardenBookItem extends Item {
     public WardenBookItem() {
@@ -23,11 +24,14 @@ public class WardenBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
+        Level level = context.getLevel();
         if(player != null) {
             if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 30) {
-                SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) context.getLevel()), player.getOnPos(), 1, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-                player.experienceLevel -= 30;
-                return InteractionResult.SUCCESS;
+                if(!level.isClientSide) {
+                    SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, (ServerLevel) level, player.getOnPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
+                    player.experienceLevel -= 30;
+                    return InteractionResult.SUCCESS;
+                }
             }
         }
         return InteractionResult.FAIL;

@@ -10,8 +10,7 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.level.Level;
 
 public class FreezeBookItem extends Item {
     public FreezeBookItem() {
@@ -24,12 +23,13 @@ public class FreezeBookItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
+        Level level = context.getLevel();
         if(player != null) {
             if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 10) {
                 player.experienceLevel -= 10;
-                Player target = (Player) context.getLevel().getNearbyPlayers(TargetingConditions.forCombat(), player, AABB.of(BoundingBox.infinite()));
-                if(target != player && player.distanceTo(target) < 30) {
-                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 9));
+                Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, player);
+                if(target != null && !level.isClientSide) {
+                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 4));
                     return InteractionResult.SUCCESS;
                 }
                 return InteractionResult.FAIL;
