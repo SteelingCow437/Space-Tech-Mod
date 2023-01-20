@@ -10,12 +10,11 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
-
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'com.david.stm'
-version = '44.1.0.106'
+version = '43.1.0.107'
 
 java {
     archivesBaseName = 'stm'
@@ -167,7 +166,7 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.1'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.3'
 
     // compile against the JEI API but do not include it at runtime
     //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")

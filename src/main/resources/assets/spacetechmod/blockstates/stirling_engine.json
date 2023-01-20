@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "spacetechmod:block/stirling_engine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "spacetechmod:stirling_engine"
+    },
+    "facing=south": {
+      "model": "spacetechmod:stirling_engine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "spacetechmod:stirling_engine",
+      "y": 270
+    }
+  }
+}

@@ -5,6 +5,7 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
@@ -69,6 +70,8 @@ public class Spacetechmod {
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.STRENGTH,
                     ModItems.SOUL_CRYSTAL.get(), ModPotions.SOUL_CHARGE.get()));
+
+            ModMessages.register();
 
 
             //And above this line

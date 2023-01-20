@@ -2,8 +2,8 @@ package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.item.custom.HammerItem;
-import com.net.spacetechmod.item.custom.sculk.*;
 import com.net.spacetechmod.item.custom.ModArmorItem;
+import com.net.spacetechmod.item.custom.sculk.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -230,5 +230,9 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_REDSTIDE_INGOT = ITEMS.register("copper_redstide_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
     public static final RegistryObject<Item> TITANIUM_POWDER = ITEMS.register("titanium_powder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
+
+    //shredder blades
+    public static final RegistryObject<Item> SHREDDER_BLADES = ITEMS.register("shredder_blades",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 }

@@ -64,10 +64,10 @@
   "item.spacetechmod.soul_crystal": "Soul Crystal",
   "block.spacetechmod.corrupted_bone": "Corrupted Bone Block",
   "block.spacetechmod.sculk_trap": "Sculk Trap",
-  "item.spacetechmod.sculk_helmet": "Helm of the Soulwalker",
-  "item.spacetechmod.sculk_chestplate": "Soulwalker Chestpiece",
-  "item.spacetechmod.sculk_leggings": "Soulwalker Leggings",
-  "item.spacetechmod.sculk_boots": "Soulwalker Boots",
+  "item.spacetechmod.sculk_helmet": "Sculk Helmet",
+  "item.spacetechmod.sculk_chestplate": "Sculk Chestpiece",
+  "item.spacetechmod.sculk_leggings": "Sculk Leggings",
+  "item.spacetechmod.sculk_boots": "Sculk Boots",
   "item.spacetechmod.soul_bottle": "Soul in a Jar",
   "item.spacetechmod.sculk_ingot": "Brick of Sculk",
   "item.spacetechmod.sword_book": "Summon Sword",
@@ -92,5 +92,9 @@
   "item.spacetechmod.copper_redstide_ingot": "Copper Redstide Ingot",
   "item.spacetechmod.copper_powder": "Copper Powder",
   "item.spacetechmod.titanium_powder": "Titanium Powder",
-  "enchantment.spacetechmod.magic_repair": "Self-Healing"
+  "enchantment.spacetechmod.magic_repair": "Self-Healing",
+  "block.spacetechmod.shredder": "Shredder",
+  "item.spacetechmod.shredder_blades": "Shredder Blades",
+  "block.spacetechmod.stirling_engine": "Stirling Engine",
+  "block.spacetechmod.battery": "Battery Block"
 }

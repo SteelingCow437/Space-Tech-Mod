@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#@#",
+    "* *",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:steel_ingot"
+    },
+    "*":{
+      "item": "spacetechmod:shredder_blades"
+    },
+    "@": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "spacetechmod:shredder"
+  }
+}

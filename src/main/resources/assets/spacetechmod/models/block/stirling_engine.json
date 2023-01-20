@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "spacetechmod:stirling_engine_top",
+    "front": "minecraft:tnt_side",
+    "side": "spacetechmod:stirling_engine_side"
+  }
+}

@@ -26,10 +26,10 @@ public class WardenBookItem extends Item {
         Player player = context.getPlayer();
         Level level = context.getLevel();
         if(player != null) {
-            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 30) {
+            if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 80) {
                 if(!level.isClientSide) {
                     SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, (ServerLevel) level, player.getOnPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
-                    player.experienceLevel -= 30;
+                    player.experienceLevel -= 80;
                     return InteractionResult.SUCCESS;
                 }
             }

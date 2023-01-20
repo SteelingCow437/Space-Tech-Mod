@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "spacetechmod:block/shredder_bottom",
+    "side": "spacetechmod:block/shredder_side",
+    "top": "spacetechmod:block/shredder_top"
+  }
+}

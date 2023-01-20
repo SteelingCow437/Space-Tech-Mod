@@ -36,4 +36,11 @@ public class ModCreativeModeTab {
             return new ItemStack(ModItems.ECHO.get());
         }
     };
+
+    public static final CreativeModeTab STM_MACHINES = new CreativeModeTab("STM_MACHINES") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModBlocks.STIRLING_ENGINE.get());
+        }
+    };
 }

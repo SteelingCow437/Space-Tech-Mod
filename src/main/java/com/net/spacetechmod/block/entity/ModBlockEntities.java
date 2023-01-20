@@ -2,6 +2,9 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.entity.machine.BatteryBlockEntity;
+import com.net.spacetechmod.block.entity.machine.ShredderBlockEntity;
+import com.net.spacetechmod.block.entity.machine.StirlingEngineBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
@@ -15,7 +18,22 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Spacetechmod.MOD_ID);
 
-    //machine
+    //machines
+    public static final RegistryObject<BlockEntityType<ShredderBlockEntity>> SHREDDER =
+            BLOCK_ENTITIES.register("shredder", () ->
+                    BlockEntityType.Builder.of(ShredderBlockEntity::new,
+                            ModBlocks.SHREDDER.get()).build(null));
+
+    //tier 0 generators
+    public static final RegistryObject<BlockEntityType<StirlingEngineBlockEntity>> STIRLING_ENGINE =
+            BLOCK_ENTITIES.register("stirling_engine", () ->
+                    BlockEntityType.Builder.of(StirlingEngineBlockEntity::new,
+                            ModBlocks.STIRLING_ENGINE.get()).build(null));
+    //battery
+    public static final RegistryObject<BlockEntityType<BatteryBlockEntity>> BATTERY =
+            BLOCK_ENTITIES.register("battery", () ->
+                    BlockEntityType.Builder.of(BatteryBlockEntity::new,
+                            ModBlocks.BATTERY.get()).build(null));
 
     //sculk
     public static final RegistryObject<BlockEntityType<SculkHeartBlockEntity>> SCULK_HEART =
