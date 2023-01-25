@@ -3,11 +3,17 @@ package com.net.spacetechmod.item.custom.sculk;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModCreativeModeTab;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class LastResortBookItem extends Item {
 
@@ -18,15 +24,22 @@ public class LastResortBookItem extends Item {
                 .stacksTo(1));
     }
 
+    @Nullable
+    public static GlobalPos getSpawnPosition(Level level) {
+        return level.dimensionType().natural() ? GlobalPos.of(level.dimension(), level.getSharedSpawnPos()) : null;
+    }
+
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
+        Level level = context.getLevel();
         if(player != null) {
             if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 75) {
                 context.getLevel().explode(player, player.getX(), player.getY(), player.getZ(), 50f, Explosion.BlockInteraction.NONE);
                 player.experienceLevel -= 75;
                 player.setHealth(5);
+                player.setPos(Vec3.atCenterOf(Objects.requireNonNull(getSpawnPosition(level)).pos()));
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.FAIL;

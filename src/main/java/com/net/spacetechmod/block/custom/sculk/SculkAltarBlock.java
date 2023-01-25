@@ -5,7 +5,6 @@ import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,26 +24,26 @@ public class SculkAltarBlock extends Block {
             if(pPlayer.experienceLevel >= 75 && pPlayer.isHolding(ModItems.TITANIUM_INGOT.get())) {
                 ItemStack stack = ModItems.SCULK_INGOT.get().getDefaultInstance();
                 pPlayer.addItem(stack);
-                pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
-                pPlayer.experienceLevel -= 100;
+                pPlayer.getMainHandItem().shrink(1);
+                pPlayer.experienceLevel -= 75;
             }
             else if(pPlayer.experienceLevel >= 250 && pPlayer.isHolding(Items.GLASS_BOTTLE) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
                 ItemStack stack = ModItems.SOUL_BOTTLE.get().getDefaultInstance();
                 pPlayer.addItem(stack);
-                pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
-                pPlayer.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
+                pPlayer.getMainHandItem().shrink(1);
+                pPlayer.getOffhandItem().shrink(1);
                 pPlayer.experienceLevel -= 250;
             }
 
             else if(pPlayer.experienceLevel >= 20 && pPlayer.isHolding(Items.AMETHYST_SHARD)) {
                 ItemStack stack = Items.ECHO_SHARD.getDefaultInstance();
-                pPlayer.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+                pPlayer.getMainHandItem().shrink(1);
                 pPlayer.addItem(stack);
                 pPlayer.experienceLevel -= 20;
-            } else if (pPlayer.experienceLevel >= 250 && pPlayer.isHolding(Items.ELYTRA) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
+            } else if (pPlayer.experienceLevel >= 100 && pPlayer.isHolding(Items.BOOK) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
                 pPlayer.getMainHandItem().enchant(ModEnchantments.MAGIC_REPAIR.get(), 1);
-                pPlayer.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
-                pPlayer.experienceLevel -= 250;
+                pPlayer.getOffhandItem().shrink(1);
+                pPlayer.experienceLevel -= 100;
             }
         }
         return InteractionResult.SUCCESS;

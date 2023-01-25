@@ -93,8 +93,5 @@
   "item.spacetechmod.copper_powder": "Copper Powder",
   "item.spacetechmod.titanium_powder": "Titanium Powder",
   "enchantment.spacetechmod.magic_repair": "Self-Healing",
-  "block.spacetechmod.shredder": "Shredder",
-  "item.spacetechmod.shredder_blades": "Shredder Blades",
-  "block.spacetechmod.stirling_engine": "Stirling Engine",
-  "block.spacetechmod.battery": "Battery Block"
+  "item.spacetechmod.canada": "Canadian Flag"
 }

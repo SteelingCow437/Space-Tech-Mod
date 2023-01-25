@@ -12,4 +12,6 @@ public class ModFoods {
     public static final FoodProperties BAGUETTE = (new FoodProperties.Builder()).nutrition(15).saturationMod(10f).build();
 
     public static final FoodProperties ANTIDOTE = (new FoodProperties.Builder()).nutrition(0).saturationMod(0).effect(new MobEffectInstance(ModEffects.ANTIDOTE_EFFECT.get(), 20, 1), 1f).build();
+
+    public static final FoodProperties CANADA = (new FoodProperties.Builder()).nutrition(5).saturationMod(6).build();
 }

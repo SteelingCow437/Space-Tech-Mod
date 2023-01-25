@@ -68,6 +68,8 @@ public class ModItems {
     //end of titanium stuff
 
     //begin of foodstuffs
+    public static final RegistryObject<Item> CANADA = ITEMS.register("canada",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.CANADA)));
     public static final RegistryObject<Item> LEAN = ITEMS.register( "lean",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_FOODS).food(ModFoods.LEAN)));
 
@@ -232,7 +234,4 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_POWDER = ITEMS.register("titanium_powder",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 
-    //shredder blades
-    public static final RegistryObject<Item> SHREDDER_BLADES = ITEMS.register("shredder_blades",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.STM_ITEMS)));
 }

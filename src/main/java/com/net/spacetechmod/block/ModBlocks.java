@@ -1,9 +1,6 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.custom.machine.BatteryBlock;
-import com.net.spacetechmod.block.custom.machine.ShredderBlock;
-import com.net.spacetechmod.block.custom.machine.StirlingEngineBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
@@ -60,23 +57,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> AQUAMARINE_ORE = registerBlock("aquamarine_ore",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.STM_BLOCKS);
-
-    // machines
-
-    public static final RegistryObject<Block> SHREDDER = registerBlock("shredder",
-            () -> new ShredderBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops()),
-                    ModCreativeModeTab.STM_MACHINES);
-
-    //generators
-    public static final RegistryObject<Block> STIRLING_ENGINE = registerBlock("stirling_engine",
-            () -> new StirlingEngineBlock(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops()),
-            ModCreativeModeTab.STM_MACHINES);
-
-
-    //battery
-    public static final RegistryObject<Block> BATTERY = registerBlock("battery",
-            () -> new BatteryBlock(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops()),
-            ModCreativeModeTab.STM_MACHINES);
 
     //sculk
 

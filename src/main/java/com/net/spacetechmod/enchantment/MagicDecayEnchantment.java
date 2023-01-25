@@ -5,7 +5,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,7 +22,6 @@ public class MagicDecayEnchantment extends Enchantment {
         @SubscribeEvent
         public static void takeDurability(TickEvent.PlayerTickEvent event){
             if (event.phase == TickEvent.Phase.END || event.player.level.isClientSide()) return;
-            int level = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.MAGIC_DECAY.get(), event.player);
             if(event.player.getMainHandItem().getEnchantmentLevel(ModEnchantments.MAGIC_DECAY.get()) > 0) {
                 event.player.getMainHandItem().setDamageValue(damageValue);
                 damageValue++;

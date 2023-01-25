@@ -31,5 +31,13 @@ public class ModTags {
             return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
         }
         //item tags here
+        public static final TagKey<Item> GENERAL_MAGIC_ITEMS
+                = tag("general_magic_items");
+
+        public static final TagKey<Item> SCULK_MAGIC_ITEMS
+                = tag("sculk_magic_items");
+
+        public static final TagKey<Item> WATER_MAGIC_ITEMS
+                = tag("water_magic_items");
     }
 }
