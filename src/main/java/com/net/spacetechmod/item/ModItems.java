@@ -171,15 +171,7 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_WIRING = ITEMS.register("copper_wiring",
             () -> new Item(new Item.Properties()));
 
-    //circuits
-
-    public static final RegistryObject<Item> BASIC_CIRCUIT = ITEMS.register("basic_circuit",
-            () -> new Item(new Item.Properties()));
-
-
-
     //sculk thangs n' stuff
-
     public static final RegistryObject<Item> ECHO = ITEMS.register("echo", EchoItem::new);
 
     public static final RegistryObject<Item> SOUL_CRYSTAL = ITEMS.register("soul_crystal",

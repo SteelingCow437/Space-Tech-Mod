@@ -23,7 +23,7 @@ public class SculkMawBlockEntity extends BlockEntity {
 
     public static void tick(Level level, BlockPos pos, BlockState state, SculkMawBlockEntity pEntity) {
         Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), pEntity.x, pEntity.y, pEntity.z);
-        if (player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 100 && time >= 20) {
+        if(player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 100 && time >= 20) {
             if(player.experienceLevel >= 1) {
                 player.experienceLevel--;
                 player.addEffect(new MobEffectInstance(ModEffects.SOUL_CONSUMPTION_EFFECT.get(), 25, 0));

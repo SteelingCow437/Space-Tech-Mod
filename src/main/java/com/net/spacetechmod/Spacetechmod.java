@@ -96,7 +96,6 @@ public class Spacetechmod {
             event.accept(ModItems.STEEL_PLATE);
             event.accept(ModItems.COPPER_PLATE);
             event.accept(ModItems.COPPER_WIRING);
-            event.accept(ModItems.BASIC_CIRCUIT);
             event.accept(ModItems.COPPER_POWDER);
             event.accept(ModItems.CARBON_POWDER);
             event.accept(ModItems.IRON_POWDER);
