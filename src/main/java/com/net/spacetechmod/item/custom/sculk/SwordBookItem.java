@@ -3,7 +3,6 @@ package com.net.spacetechmod.item.custom.sculk;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModArmorMaterials;
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -13,7 +12,6 @@ import net.minecraft.world.item.enchantment.Enchantments;
 public class SwordBookItem extends Item  {
     public SwordBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }

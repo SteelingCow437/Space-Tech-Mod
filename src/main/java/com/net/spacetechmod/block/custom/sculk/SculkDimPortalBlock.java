@@ -122,8 +122,8 @@ public class SculkDimPortalBlock extends Block {
                 Level entityWorld = entity.level;
                 if(entityWorld != null) {
                     MinecraftServer minecraftserver = entityWorld.getServer();
-                    ResourceKey<Level> destination = entity.level.dimension() == ModDimensions.SCULKDIM_KEY
-                            ? Level.OVERWORLD : ModDimensions.SCULKDIM_KEY;
+                    ResourceKey<Level> destination = entity.level.dimension() == ModDimensions.SCULKDIM
+                            ? Level.OVERWORLD : ModDimensions.SCULKDIM;
                     if(minecraftserver != null) {
                         ServerLevel destinationWorld = minecraftserver.getLevel(destination);
                         if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {

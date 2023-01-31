@@ -4,21 +4,20 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
+import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
-import com.net.spacetechmod.world.dimension.ModDimensions;
-import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
-import com.net.spacetechmod.world.feature.ModPlacedFeatures;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -48,15 +47,13 @@ public class Spacetechmod {
         ModPotions.register(eventBus);
         ModPaintings.register(eventBus);
         ModEffects.register(eventBus);
-        ModPlacedFeatures.register(eventBus);
-        ModConfiguredFeatures.register(eventBus);
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModDimensions.register();
         ModEnchantments.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        eventBus.addListener(this::addCreative);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -77,6 +74,87 @@ public class Spacetechmod {
             //And above this line
         });
 
+    }
+
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeModeTab.STM_BLOCKS) {
+            event.accept(ModBlocks.TITANIUM_BLOCK);
+            event.accept(ModBlocks.RAW_TITANIUM_BLOCK);
+            event.accept(ModBlocks.TITANIUM_ORE);
+            event.accept(ModBlocks.TITANIUM_ORE_DEEPSLATE);
+            event.accept(ModBlocks.AQUAMARINE_ORE);
+        }
+        if(event.getTab() == ModCreativeModeTab.STM_ITEMS) {
+            event.accept(ModItems.TITANIUM_INGOT);
+            event.accept(ModItems.RAW_TITANIUM);
+            event.accept(ModItems.TITANIUM_PLATE);
+            event.accept(ModItems.AQUAMARINE);
+            event.accept(ModItems.BLANK_STAMP);
+            event.accept(ModItems.PLATE_STAMP);
+            event.accept(ModItems.WIRE_STAMP);
+            event.accept(ModItems.STEEL_INGOT);
+            event.accept(ModItems.STEEL_PLATE);
+            event.accept(ModItems.COPPER_PLATE);
+            event.accept(ModItems.COPPER_WIRING);
+            event.accept(ModItems.BASIC_CIRCUIT);
+            event.accept(ModItems.COPPER_POWDER);
+            event.accept(ModItems.CARBON_POWDER);
+            event.accept(ModItems.IRON_POWDER);
+            event.accept(ModItems.TITANIUM_POWDER);
+            event.accept(ModItems.STEEL_BLEND);
+            event.accept(ModItems.COPPER_REDSTIDE_BLEND);
+            event.accept(ModItems.COPPER_REDSTIDE_INGOT);
+        }
+        if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
+            event.accept(ModItems.TITANIUM_SWORD);
+            event.accept(ModItems.TITANIUM_PICKAXE);
+            event.accept(ModItems.TITANIUM_AXE);
+            event.accept(ModItems.TITANIUM_SHOVEL);
+            event.accept(ModItems.TITANIUM_HOE);
+            event.accept(ModItems.TITANIUM_HELMET);
+            event.accept(ModItems.TITANIUM_CHESTPLATE);
+            event.accept(ModItems.TITANIUM_LEGGINGS);
+            event.accept(ModItems.TITANIUM_BOOTS);
+            event.accept(ModItems.HAMMER);
+            event.accept(ModItems.COPPER_HELMET);
+            event.accept(ModItems.COPPER_CHESTPLATE);
+            event.accept(ModItems.COPPER_LEGGINGS);
+            event.accept(ModItems.COPPER_BOOTS);
+            event.accept(ModItems.COPPER_SWORD);
+            event.accept(ModItems.COPPER_PICKAXE);
+            event.accept(ModItems.COPPER_AXE);
+            event.accept(ModItems.COPPER_SHOVEL);
+            event.accept(ModItems.COPPER_HOE);
+            event.accept(ModItems.TURTLE_MASTER_HELMET);
+            event.accept(ModItems.TURTLE_MASTER_CHESTPLATE);
+            event.accept(ModItems.TURTLE_MASTER_LEGGINGS);
+            event.accept(ModItems.TURTLE_MASTER_BOOTS);
+        }
+        if(event.getTab() == ModCreativeModeTab.STM_FOODS) {
+            event.accept(ModItems.BAGUETTE);
+            event.accept(ModItems.LEAN);
+            event.accept(ModItems.CANADA);
+            event.accept(ModItems.ANTIDOTE);
+        }
+        if(event.getTab() == ModCreativeModeTab.STM_SCULK) {
+            event.accept(ModItems.SCULK_HELMET);
+            event.accept(ModItems.SCULK_CHESTPLATE);
+            event.accept(ModItems.SCULK_LEGGINGS);
+            event.accept(ModItems.SCULK_BOOTS);
+            event.accept(ModBlocks.SCULK_HEART);
+            event.accept(ModBlocks.SCULK_MAW);
+            event.accept(ModBlocks.SCULK_TRAP);
+            event.accept(ModBlocks.SCULK_ALTAR);
+            event.accept(ModItems.ECHO);
+            event.accept(ModItems.SOUL_BOTTLE);
+            event.accept(ModItems.SOUL_CRYSTAL);
+            event.accept(ModItems.BOOST_BOOK);
+            event.accept(ModItems.FREEZE_BOOK);
+            event.accept(ModItems.FREEZE_TIME_BOOK);
+            event.accept(ModItems.WARDEN_BOOK);
+            event.accept(ModItems.SWORD_BOOK);
+            event.accept(ModItems.LAST_RESORT_BOOK);
+        }
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

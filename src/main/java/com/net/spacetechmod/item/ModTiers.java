@@ -15,10 +15,10 @@ public class ModTiers {
             () -> Ingredient.of(Items.COPPER_INGOT));
 
     public static final ForgeTier TURTLE = new ForgeTier(4, 2500, 8f,
-            4f, 20,BlockTags.NEEDS_DIAMOND_TOOL,
+            4f, 20, BlockTags.NEEDS_DIAMOND_TOOL,
             () -> Ingredient.of(Items.TURTLE_HELMET));
 
-
-
-
+    public static final ForgeTier SCULK = new ForgeTier(3, 500, 4f,
+            4, 50, BlockTags.NEEDS_IRON_TOOL,
+            () -> Ingredient.of(ModItems.SCULK_INGOT.get()));
 }

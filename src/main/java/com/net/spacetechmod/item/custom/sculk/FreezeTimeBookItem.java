@@ -2,7 +2,6 @@ package com.net.spacetechmod.item.custom.sculk;
 
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -17,7 +16,6 @@ public class FreezeTimeBookItem extends Item {
 
     public FreezeTimeBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1));
     }

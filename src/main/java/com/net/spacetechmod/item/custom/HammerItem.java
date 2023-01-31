@@ -1,6 +1,5 @@
 package com.net.spacetechmod.item.custom;
 
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.Level;
 public class HammerItem extends Item {
     public HammerItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_TOOLS)
                 .stacksTo(1)
                 .rarity(Rarity.COMMON));
     }

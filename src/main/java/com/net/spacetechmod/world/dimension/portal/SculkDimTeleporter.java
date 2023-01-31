@@ -166,8 +166,8 @@ public class SculkDimTeleporter implements ITeleporter {
     @Nullable
     @Override
     public PortalInfo getPortalInfo(Entity entity, ServerLevel level, Function<ServerLevel, PortalInfo> defaultPortalInfo) {
-        boolean destinationIsUG = level.dimension() == ModDimensions.SCULKDIM_KEY;
-        if (entity.level.dimension() != ModDimensions.SCULKDIM_KEY && !destinationIsUG) {
+        boolean destinationIsUG = level.dimension() == ModDimensions.SCULKDIM;
+        if (entity.level.dimension() != ModDimensions.SCULKDIM && !destinationIsUG) {
             return null;
         }
         else {
@@ -192,7 +192,7 @@ public class SculkDimTeleporter implements ITeleporter {
                     vector3d = new Vec3(0.5D, 0.0D, 0.0D);
                 }
 
-                return PortalShape.createPortalInfo(level, result, axis, vector3d, entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
+                return PortalShape.createPortalInfo(level, result, axis, vector3d, entity, entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
             }).orElse(null);
         }
     }

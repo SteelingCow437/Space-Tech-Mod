@@ -2,7 +2,6 @@ package com.net.spacetechmod.item.custom.sculk;
 
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.Level;
 public class EchoItem extends Item {
     public EchoItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_SCULK)
                 .stacksTo(1)
                 .rarity(Rarity.RARE));
     }
@@ -30,7 +28,7 @@ public class EchoItem extends Item {
         Player player = context.getPlayer();
         Level level = context.getLevel();
         if(player != null) {
-            if(player.level.dimension() == ModDimensions.SCULKDIM_KEY
+            if(player.level.dimension() == ModDimensions.SCULKDIM
                     || player.level.dimension() == Level.OVERWORLD) {
                 for(Direction direction : Direction.Plane.VERTICAL) {
                     BlockPos framePos = context.getClickedPos().relative(direction);

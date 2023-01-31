@@ -2,7 +2,6 @@ package com.net.spacetechmod.item.custom.sculk;
 
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -19,7 +18,6 @@ public class LastResortBookItem extends Item {
 
     public LastResortBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }
@@ -35,8 +33,9 @@ public class LastResortBookItem extends Item {
         Player player = context.getPlayer();
         Level level = context.getLevel();
         if(player != null) {
+            Explosion explosion = new Explosion(level, player, player.getX(), player.getY(), player.getZ(), 50f, false, Explosion.BlockInteraction.KEEP);
             if(hasSculkSetOn(player) || player.hasEffect(ModEffects.SOUL_CHARGE_EFFECT.get()) && player.experienceLevel >= 75) {
-                context.getLevel().explode(player, player.getX(), player.getY(), player.getZ(), 50f, Explosion.BlockInteraction.NONE);
+                explosion.explode();
                 player.experienceLevel -= 75;
                 player.setHealth(5);
                 player.setPos(Vec3.atCenterOf(Objects.requireNonNull(getSpawnPosition(level)).pos()));

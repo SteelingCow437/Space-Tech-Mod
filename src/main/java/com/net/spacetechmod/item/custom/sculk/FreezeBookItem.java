@@ -2,7 +2,6 @@ package com.net.spacetechmod.item.custom.sculk;
 
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModArmorMaterials;
-import com.net.spacetechmod.item.ModCreativeModeTab;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.Level;
 public class FreezeBookItem extends Item {
     public FreezeBookItem() {
         super(new Properties()
-                .tab(ModCreativeModeTab.STM_SCULK)
                 .rarity(Rarity.RARE)
                 .stacksTo(1));
     }
