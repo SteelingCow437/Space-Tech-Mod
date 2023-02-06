@@ -26,11 +26,4 @@ public class ModPotions {
 
     public static final RegistryObject<Potion> OIL = POTIONS.register("oil",
             () -> new Potion(new MobEffectInstance(ModEffects.OILEFFECT.get(), 600, 0)));
-
-    public static final RegistryObject<Potion> SOUL_CHARGE = POTIONS.register("soul_charge",
-            () -> new Potion(new MobEffectInstance(ModEffects.SOUL_CHARGE_EFFECT.get(), 600, 0)));
-
-
-
-
 }

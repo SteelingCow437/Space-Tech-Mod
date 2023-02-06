@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "spacetechmod:item/sculk_book"
+    "layer0": "spacetechmod:item/magic_book"
   }
 }

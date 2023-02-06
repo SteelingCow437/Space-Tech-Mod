@@ -22,9 +22,6 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> SOUL_CONSUMPTION_EFFECT = MOB_EFFECTS.register("soul_consumption_effect",
             () -> new SoulConsumptionEffect(MobEffectCategory.HARMFUL, 0));
 
-    public static final RegistryObject<MobEffect> SOUL_CHARGE_EFFECT = MOB_EFFECTS.register("soul_charge_effect",
-            () -> new SoulChargeEffect(MobEffectCategory.BENEFICIAL, 0));
-
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

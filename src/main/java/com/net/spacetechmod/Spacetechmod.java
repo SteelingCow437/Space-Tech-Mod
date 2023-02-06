@@ -65,13 +65,9 @@ public class Spacetechmod {
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
                             Items.WHEAT, ModPotions.OIL.get()));
 
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.STRENGTH,
-                    ModItems.SOUL_CRYSTAL.get(), ModPotions.SOUL_CHARGE.get()));
-
-            ModMessages.register();
-
 
             //And above this line
+            ModMessages.register();
         });
 
     }
@@ -83,6 +79,10 @@ public class Spacetechmod {
             event.accept(ModBlocks.TITANIUM_ORE);
             event.accept(ModBlocks.TITANIUM_ORE_DEEPSLATE);
             event.accept(ModBlocks.AQUAMARINE_ORE);
+            event.accept(ModBlocks.SCULK_HEART);
+            event.accept(ModBlocks.SCULK_MAW);
+            event.accept(ModBlocks.SCULK_TRAP);
+            event.accept(ModBlocks.SCULK_ALTAR);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -103,6 +103,7 @@ public class Spacetechmod {
             event.accept(ModItems.STEEL_BLEND);
             event.accept(ModItems.COPPER_REDSTIDE_BLEND);
             event.accept(ModItems.COPPER_REDSTIDE_INGOT);
+            event.accept(ModItems.ECHO);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -128,6 +129,10 @@ public class Spacetechmod {
             event.accept(ModItems.TURTLE_MASTER_CHESTPLATE);
             event.accept(ModItems.TURTLE_MASTER_LEGGINGS);
             event.accept(ModItems.TURTLE_MASTER_BOOTS);
+            event.accept(ModItems.SCULK_HELMET);
+            event.accept(ModItems.SCULK_CHESTPLATE);
+            event.accept(ModItems.SCULK_LEGGINGS);
+            event.accept(ModItems.SCULK_BOOTS);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS) {
             event.accept(ModItems.BAGUETTE);
@@ -135,16 +140,8 @@ public class Spacetechmod {
             event.accept(ModItems.CANADA);
             event.accept(ModItems.ANTIDOTE);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_SCULK) {
-            event.accept(ModItems.SCULK_HELMET);
-            event.accept(ModItems.SCULK_CHESTPLATE);
-            event.accept(ModItems.SCULK_LEGGINGS);
-            event.accept(ModItems.SCULK_BOOTS);
-            event.accept(ModBlocks.SCULK_HEART);
-            event.accept(ModBlocks.SCULK_MAW);
-            event.accept(ModBlocks.SCULK_TRAP);
-            event.accept(ModBlocks.SCULK_ALTAR);
-            event.accept(ModItems.ECHO);
+        if(event.getTab() == ModCreativeModeTab.STM_MAGIC) {
+            event.accept(ModItems.MAGIC_BOOK);
             event.accept(ModItems.SOUL_BOTTLE);
             event.accept(ModItems.SOUL_CRYSTAL);
             event.accept(ModItems.BOOST_BOOK);
@@ -153,6 +150,7 @@ public class Spacetechmod {
             event.accept(ModItems.WARDEN_BOOK);
             event.accept(ModItems.SWORD_BOOK);
             event.accept(ModItems.LAST_RESORT_BOOK);
+            event.accept(ModItems.MINING_FATIGUE_BOOK);
         }
     }
 

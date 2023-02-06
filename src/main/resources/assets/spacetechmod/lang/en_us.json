@@ -74,13 +74,9 @@
   "item.spacetechmod.freeze_book": "Freeze Spell",
   "item.spacetechmod.boost_book": "Human Rocket",
   "item.spacetechmod.last_resort": "Last Resort",
+  "item.spactechmod.mining_fatigue_book": "Mining Fatigue Spell",
   "enchantment.spacetechmod.magic_decay": "Magic Decay",
   "block.spacetechmod.sculk_altar": "Sculk Altar",
-  "effect.spacetechmod.soul_charge": "Soul Charge",
-  "item.minecraft.splash_potion.effect.soul_charge": "Throwable Soul Charge",
-  "item.minecraft.lingering_potion.effect.soul_charge": "Cloud of Soul Charge",
-  "item.minecraft.tipped_arrow.effect.soul_charge": "Arrow Coated in Soul Charge",
-  "item.minecraft.potion.effect.soul_charge": "Bottle Of Soul Charge",
   "item.spacetechmod.freeze_time": "Freeze Time",
   "item.spacetechmod.iron_powder": "Iron Powder",
   "item.spacetechmod.carbon_powder": "Carbon Powder",
@@ -92,5 +88,6 @@
   "item.spacetechmod.copper_powder": "Copper Powder",
   "item.spacetechmod.titanium_powder": "Titanium Powder",
   "enchantment.spacetechmod.magic_repair": "Self-Healing",
-  "item.spacetechmod.canada": "Canadian Flag"
+  "item.spacetechmod.canada": "Canadian Flag",
+  "item.spacetechmod.magic_book": "Magic Book"
 }

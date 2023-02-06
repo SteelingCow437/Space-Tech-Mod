@@ -1,4 +1,4 @@
-package com.net.spacetechmod.item.custom.sculk;
+package com.net.spacetechmod.item.custom.magic_books;
 
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.custom.sculk.SculkDimPortalBlock;
