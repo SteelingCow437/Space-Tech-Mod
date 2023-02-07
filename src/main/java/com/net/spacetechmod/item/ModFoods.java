@@ -14,4 +14,6 @@ public class ModFoods {
     public static final FoodProperties ANTIDOTE = (new FoodProperties.Builder()).nutrition(0).saturationMod(0).effect(new MobEffectInstance(ModEffects.ANTIDOTE_EFFECT.get(), 20, 1), 1f).build();
 
     public static final FoodProperties CANADA = (new FoodProperties.Builder()).nutrition(5).saturationMod(6).build();
+
+    public static final FoodProperties CANNED_BREAD = (new FoodProperties.Builder()).nutrition(10).saturationMod(8f).effect(new MobEffectInstance(ModEffects.CANNED_BREAD_EFFECT.get(), 1, 1), 1f).build();
 }

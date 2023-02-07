@@ -1,12 +1,10 @@
 package com.net.spacetechmod.world.feature;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -18,6 +16,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> TITANIUM_PLACED_KEY = createKey("titanium_placed");
     public static final ResourceKey<PlacedFeature> AQUAMARINE_PLACED_KEY = createKey("aquamarine_placed");
+    public static final ResourceKey<PlacedFeature> TIN_PLACED_KEY = createKey("tin_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -27,7 +26,12 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-51), VerticalAnchor.aboveBottom(120))));
 
         register(context, AQUAMARINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.AQUAMARINE_ORE_KEY),
-                List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.AQUAMARINE_ORE.get())));
+                commonOrePlacement(4, //veins per chunk
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(30))));
+
+        register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
+                commonOrePlacement(6, //veins per chunk
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-63), VerticalAnchor.aboveBottom(45))));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

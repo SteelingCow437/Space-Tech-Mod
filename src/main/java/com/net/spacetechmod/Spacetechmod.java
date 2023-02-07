@@ -83,6 +83,8 @@ public class Spacetechmod {
             event.accept(ModBlocks.SCULK_MAW);
             event.accept(ModBlocks.SCULK_TRAP);
             event.accept(ModBlocks.SCULK_ALTAR);
+            event.accept(ModBlocks.TIN_ORE);
+            event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -104,6 +106,8 @@ public class Spacetechmod {
             event.accept(ModItems.COPPER_REDSTIDE_BLEND);
             event.accept(ModItems.COPPER_REDSTIDE_INGOT);
             event.accept(ModItems.ECHO);
+            event.accept(ModItems.TIN_CAN);
+            event.accept(ModItems.TIN_INGOT);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -139,6 +143,7 @@ public class Spacetechmod {
             event.accept(ModItems.LEAN);
             event.accept(ModItems.CANADA);
             event.accept(ModItems.ANTIDOTE);
+            event.accept(ModItems.CANNED_BREAD);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MAGIC) {
             event.accept(ModItems.MAGIC_BOOK);

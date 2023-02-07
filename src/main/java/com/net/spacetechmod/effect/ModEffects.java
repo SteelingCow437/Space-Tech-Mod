@@ -22,6 +22,9 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> SOUL_CONSUMPTION_EFFECT = MOB_EFFECTS.register("soul_consumption_effect",
             () -> new SoulConsumptionEffect(MobEffectCategory.HARMFUL, 0));
 
+    public static final RegistryObject<MobEffect> CANNED_BREAD_EFFECT = MOB_EFFECTS.register("canned_bread_effect",
+            () -> new CannedBreadEffect(MobEffectCategory.BENEFICIAL, 0));
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

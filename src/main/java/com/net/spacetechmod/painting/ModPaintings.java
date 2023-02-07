@@ -26,9 +26,4 @@ public class ModPaintings {
 
     public static final RegistryObject<PaintingVariant> TROLL =
             PAINTING_MOTIVES.register("troll", () -> new PaintingVariant(64, 64));
-
-
-
-
-
 }

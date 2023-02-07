@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "# #",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:tin_ingot"
+    }
+
+  },
+  "result": {
+    "item": "spacetechmod:tin_can"
+  }
+}

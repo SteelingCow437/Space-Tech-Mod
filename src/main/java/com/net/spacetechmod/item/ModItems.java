@@ -3,6 +3,7 @@ package com.net.spacetechmod.item;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.item.custom.HammerItem;
 import com.net.spacetechmod.item.custom.ModArmorItem;
+import com.net.spacetechmod.item.custom.magic.EchoItem;
 import com.net.spacetechmod.item.custom.magic.MagicBookItem;
 import com.net.spacetechmod.item.custom.magic_books.*;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -79,6 +80,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> ANTIDOTE = ITEMS.register("antidote",
             () -> new Item(new Item.Properties().food(ModFoods.ANTIDOTE)));
+
+    public static final RegistryObject<Item> CANNED_BREAD = ITEMS.register("canned_bread",
+            () -> new Item(new Item.Properties().food(ModFoods.CANNED_BREAD)));
     //end of foodstuffs
 
 
@@ -231,5 +235,17 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_POWDER = ITEMS.register("titanium_powder",
             () -> new Item(new Item.Properties()));
 
+    //tin stuff
+    public static final RegistryObject<Item> RAW_TIN = ITEMS.register("raw_tin",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TIN_INGOT = ITEMS.register("tin_ingot",
+            () -> new Item(new Item.Properties()));
+
+
     //GUNS
+
+
+    //misc. items
+    public static final RegistryObject<Item> TIN_CAN = ITEMS.register("tin_can",
+            () -> new Item(new Item.Properties()));
 }
