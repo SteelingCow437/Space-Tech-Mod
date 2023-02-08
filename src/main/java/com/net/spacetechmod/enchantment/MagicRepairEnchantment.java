@@ -21,22 +21,27 @@ public class MagicRepairEnchantment extends Enchantment {
                 if(event.player.getItemBySlot(EquipmentSlot.HEAD).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.HEAD).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.HEAD).setDamageValue(event.player.getItemBySlot(EquipmentSlot.HEAD).getDamageValue() - 1);
                     event.player.giveExperiencePoints(-1);
+                    time = 0;
                 }
                 if(event.player.getItemBySlot(EquipmentSlot.CHEST).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.CHEST).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.CHEST).setDamageValue(event.player.getItemBySlot(EquipmentSlot.CHEST).getDamageValue() - 1);
                     event.player.giveExperiencePoints(-1);
+                    time = 0;
                 }
                 if(event.player.getItemBySlot(EquipmentSlot.LEGS).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.LEGS).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.LEGS).setDamageValue(event.player.getItemBySlot(EquipmentSlot.LEGS).getDamageValue() - 1);
                     event.player.giveExperiencePoints(-1);
+                    time = 0;
                 }
                 if(event.player.getItemBySlot(EquipmentSlot.FEET).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.FEET).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.FEET).setDamageValue(event.player.getItemBySlot(EquipmentSlot.FEET).getDamageValue() - 1);
                     event.player.giveExperiencePoints(-1);
+                    time = 0;
                 }
                 if(event.player.getItemBySlot(EquipmentSlot.MAINHAND).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.MAINHAND).setDamageValue(event.player.getItemBySlot(EquipmentSlot.MAINHAND).getDamageValue() - 1);
                     event.player.giveExperiencePoints(-1);
+                    time = 0;
                 }
                 if(event.player.getItemBySlot(EquipmentSlot.OFFHAND).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.OFFHAND).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.OFFHAND).setDamageValue(event.player.getItemBySlot(EquipmentSlot.OFFHAND).getDamageValue() - 1);

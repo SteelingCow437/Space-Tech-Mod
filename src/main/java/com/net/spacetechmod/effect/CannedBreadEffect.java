@@ -16,7 +16,6 @@ public class CannedBreadEffect extends MobEffect {
         if (!pLivingEntity.level.isClientSide()) {
             if(pLivingEntity instanceof Player) {
                 pLivingEntity.playSound(SoundEvents.DONKEY_AMBIENT);
-
             }
         }
         super.applyEffectTick(pLivingEntity, pAmplifier);
