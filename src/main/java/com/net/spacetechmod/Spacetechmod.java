@@ -4,6 +4,7 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
+import com.net.spacetechmod.entity.ModEntities;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.networking.ModMessages;
@@ -50,6 +51,7 @@ public class Spacetechmod {
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModEnchantments.register(eventBus);
+        ModEntities.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -108,6 +110,11 @@ public class Spacetechmod {
             event.accept(ModItems.ECHO);
             event.accept(ModItems.TIN_CAN);
             event.accept(ModItems.TIN_INGOT);
+            event.accept(ModItems.RAW_TIN);
+            event.accept(ModItems.TIN_POWDER);
+            event.accept(ModItems.BRASS_BLEND);
+            event.accept(ModItems.BRASS_INGOT);
+            event.accept(ModItems.BRASS_PLATE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
             event.accept(ModItems.TITANIUM_SWORD);

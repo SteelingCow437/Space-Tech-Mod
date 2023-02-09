@@ -39,5 +39,14 @@ public class ModTags {
 
         public static final TagKey<Item> WATER_MAGIC_ITEMS
                 = tag("water_magic_items");
+
+        public static final TagKey<Item> LIGHT_WEAPONS
+                = tag("light_weapons");
+
+        public static final TagKey<Item> MEDIUM_WEAPONS
+                = tag("medium_weapons");
+
+        public static final TagKey<Item> HEAVY_WEAPONS
+                = tag("heavy_weapons");
     }
 }
