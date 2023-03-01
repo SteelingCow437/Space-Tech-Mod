@@ -2,6 +2,7 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.entity.machine.StirlingEngineBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
@@ -31,6 +32,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(SculkTrapBlockEntity::new,
                             ModBlocks.SCULK_TRAP.get()).build(null));
 
+    //Machine
+    public static final RegistryObject<BlockEntityType<StirlingEngineBlockEntity>> STIRLING_ENGINE =
+            BLOCK_ENTITIES.register("stirling_engine", () ->
+                    BlockEntityType.Builder.of(StirlingEngineBlockEntity::new,
+                            ModBlocks.STIRLING_ENGINE.get()).build(null));
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

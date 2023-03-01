@@ -96,5 +96,6 @@
   "item.spacetechmod.tin_can": "Tin Can",
   "item.spacetechmod.canned_bread": "Canned Bread",
   "item.spacetechmod.raw_tin": "Raw Tin",
-  "item.spacetechmod.tin_ingot": "Tin Ingot"
+  "item.spacetechmod.tin_ingot": "Tin Ingot",
+  "block.spacetechmod.warden_trap_block": "You shouldn't have this"
 }

@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.custom.machine.StirlingEngineBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -25,7 +26,9 @@ public class ModBlocks {
         registerBlockItem(name, toReturn);
         return toReturn;
     }
-
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
+    }
     private static <T extends Block> RegistryObject<Item>
     registerBlockItem(String name, RegistryObject<T> block){
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
@@ -36,6 +39,7 @@ public class ModBlocks {
     //Register blocks below this line
     //The stuff above is just to declare the block class
 
+    //titanium
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(9f).requiresCorrectToolForDrops()));
@@ -88,10 +92,13 @@ public class ModBlocks {
             () -> new SculkAltarBlock(BlockBehaviour.Properties.of(Material.SCULK)
                     .strength(10f).noLootTable()));
 
-    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
-        return BLOCKS.register(name, block);
-    }
+    public static final RegistryObject<Block> WARDEN_TRAP_BLOCK = registerBlock("warden_trap_block",
+            () -> new WardenTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
+                    .strength(12f).noLootTable()));
 
-    //alloys
+    //machines
+    public static final RegistryObject<Block> STIRLING_ENGINE = registerBlock("stirling_engine",
+            () -> new StirlingEngineBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops()));
 
 }

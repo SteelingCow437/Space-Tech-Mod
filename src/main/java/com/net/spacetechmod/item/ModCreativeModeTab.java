@@ -17,6 +17,7 @@ public class ModCreativeModeTab {
     public static CreativeModeTab STM_TOOLS;
     public static CreativeModeTab STM_FOODS;
     public static CreativeModeTab STM_MAGIC;
+    public static CreativeModeTab STM_MACHINES;
 
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
@@ -30,5 +31,7 @@ public class ModCreativeModeTab {
                 builder -> builder.icon(() -> new ItemStack(ModBlocks.SCULK_HEART.get())).title(Component.literal("STM Magic")).build());
         STM_ITEMS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_items"),
                 builder -> builder.icon(() -> new ItemStack(ModItems.AQUAMARINE.get())).title(Component.literal("STM Items")).build());
+        STM_MACHINES = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_machines"),
+                builder -> builder.icon(() -> new ItemStack(ModBlocks.STIRLING_ENGINE.get())).title(Component.literal("STM Machines")).build());
     }
 }
