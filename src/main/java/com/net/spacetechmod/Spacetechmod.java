@@ -4,12 +4,14 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.enchantment.ModEnchantments;
+import com.net.spacetechmod.fluid.ModFluidTypes;
+import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
-import com.net.spacetechmod.screen.ModMenus;
 import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
+import com.net.spacetechmod.screen.ModMenus;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -43,6 +45,7 @@ public class Spacetechmod {
         eventBus.addListener(this::setup);
 
         // Register the eventbus for all of the items and such
+
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModPotions.register(eventBus);
@@ -52,6 +55,8 @@ public class Spacetechmod {
         ModBlockEntities.register(eventBus);
         ModEnchantments.register(eventBus);
         ModMenus.register(eventBus);
+        ModFluidTypes.register(eventBus);
+        ModFluids.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -165,7 +170,7 @@ public class Spacetechmod {
             event.accept(ModItems.MINING_FATIGUE_BOOK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
-            event.accept(ModBlocks.STIRLING_ENGINE);
+
         }
     }
 

@@ -1,7 +1,6 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.custom.machine.StirlingEngineBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -97,8 +96,6 @@ public class ModBlocks {
                     .strength(12f).noLootTable()));
 
     //machines
-    public static final RegistryObject<Block> STIRLING_ENGINE = registerBlock("stirling_engine",
-            () -> new StirlingEngineBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(5f).requiresCorrectToolForDrops()));
+
 
 }

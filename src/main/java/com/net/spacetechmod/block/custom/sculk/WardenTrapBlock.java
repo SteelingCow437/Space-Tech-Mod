@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import javax.annotation.Nullable;
 
 public class WardenTrapBlock extends Block {
-    private boolean hasSpawned = false;
     public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
     public WardenTrapBlock(Properties properties) {
@@ -45,12 +44,8 @@ public class WardenTrapBlock extends Block {
     }
 
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
-        if(!hasSpawned) {
+        if(!level.isClientSide) {
             SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, pos, 20, 1, 1, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-            hasSpawned = true;
-        }
-        else {
-            hasSpawned = false;
         }
         super.tick(state, level, pos, source);
     }

@@ -12,10 +12,10 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, Spacetechmod.MOD_ID);
-    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
-                                                                                                  String name) {
+    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
         return MENU_TYPES.register(name, () -> IForgeMenuType.create(factory));
     }
+
 
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);

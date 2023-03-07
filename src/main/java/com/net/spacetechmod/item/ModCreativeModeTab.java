@@ -32,6 +32,6 @@ public class ModCreativeModeTab {
         STM_ITEMS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_items"),
                 builder -> builder.icon(() -> new ItemStack(ModItems.AQUAMARINE.get())).title(Component.literal("STM Items")).build());
         STM_MACHINES = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_machines"),
-                builder -> builder.icon(() -> new ItemStack(ModBlocks.STIRLING_ENGINE.get())).title(Component.literal("STM Machines")).build());
+                builder -> builder.icon(() -> new ItemStack(ModBlocks.AQUAMARINE_ORE.get())).title(Component.literal("STM Machines")).build());
     }
 }

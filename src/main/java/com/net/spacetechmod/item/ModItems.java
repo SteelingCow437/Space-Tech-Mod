@@ -20,11 +20,9 @@ public class ModItems {
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
-
     //Declare all items below this line
 
     //begin of titanium stuff
-
     public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", HammerItem::new);
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties()));
@@ -215,4 +213,7 @@ public class ModItems {
     //misc. items
     public static final RegistryObject<Item> TIN_CAN = ITEMS.register("tin_can",
             () -> new Item(new Item.Properties()));
+
+    //Fluid containers
+
 }
