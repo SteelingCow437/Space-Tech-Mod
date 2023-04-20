@@ -38,10 +38,10 @@ public class SculkHeartBlockEntity extends BlockEntity {
     }
     public void summonWarden(ServerLevel level) {
         Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), x, y, z);
-        assert player != null;
-        assert this.level != null;
-        player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
-        player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
-        SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, this.getBlockPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
+        if(this.level != null && player != null) {
+            player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 1));
+            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1));
+            SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, this.getBlockPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
+        }
     }
 }

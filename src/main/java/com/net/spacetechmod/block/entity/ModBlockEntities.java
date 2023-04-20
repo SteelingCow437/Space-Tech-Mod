@@ -2,6 +2,7 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
@@ -33,6 +34,12 @@ public class ModBlockEntities {
 
     //Machine
 
+
+    //Fluid container blocks
+    public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> BASIC_FLUID_BARREL =
+            BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
+                    BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
+                            ModBlocks.BASIC_FLUID_BARREL.get()).build(null));
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

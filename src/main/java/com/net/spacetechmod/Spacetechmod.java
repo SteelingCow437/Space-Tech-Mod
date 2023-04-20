@@ -11,7 +11,6 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
-import com.net.spacetechmod.screen.ModMenus;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -54,7 +53,6 @@ public class Spacetechmod {
         ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModEnchantments.register(eventBus);
-        ModMenus.register(eventBus);
         ModFluidTypes.register(eventBus);
         ModFluids.register(eventBus);
 
@@ -120,6 +118,7 @@ public class Spacetechmod {
             event.accept(ModItems.BRASS_BLEND);
             event.accept(ModItems.BRASS_INGOT);
             event.accept(ModItems.BRASS_PLATE);
+            event.accept(ModItems.IRON_PLATE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -149,6 +148,7 @@ public class Spacetechmod {
             event.accept(ModItems.SCULK_CHESTPLATE);
             event.accept(ModItems.SCULK_LEGGINGS);
             event.accept(ModItems.SCULK_BOOTS);
+            event.accept(ModItems.DEBUG_STICK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS) {
             event.accept(ModItems.BAGUETTE);
@@ -170,7 +170,11 @@ public class Spacetechmod {
             event.accept(ModItems.MINING_FATIGUE_BOOK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
-
+            event.accept(ModBlocks.BASIC_FLUID_BARREL);
+        }
+        if(event.getTab() == ModCreativeModeTab.STM_FLUIDS) {
+            event.accept(ModItems.OIL_BOTTLE.get());
+            event.accept(ModItems.OIL_BUCKET.get());
         }
     }
 

@@ -96,5 +96,11 @@
   "item.spacetechmod.canned_bread": "Canned Bread",
   "item.spacetechmod.raw_tin": "Raw Tin",
   "item.spacetechmod.tin_ingot": "Tin Ingot",
-  "block.spacetechmod.warden_trap_block": "You shouldn't have this"
+  "block.spacetechmod.warden_trap_block": "You shouldn't have this",
+  "item.spacetechmod.iron_plate": "Iron Plate",
+  "block.spacetechmod.basic_barrel": "Iron Barrel",
+  "item.spacetechmod.debug_stick": "Debug Stick",
+  "item.spacetechmod.oil_bucket": "Bucket of Oil",
+  "item.spacetechmod.oil_bottle": "Bottle of Oil",
+  "item.spacetechmod.lava_bottle": "Bottle of Lava"
 }

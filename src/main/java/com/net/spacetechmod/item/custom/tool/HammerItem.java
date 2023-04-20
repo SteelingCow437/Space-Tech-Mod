@@ -1,4 +1,4 @@
-package com.net.spacetechmod.item.custom;
+package com.net.spacetechmod.item.custom.tool;
 
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;

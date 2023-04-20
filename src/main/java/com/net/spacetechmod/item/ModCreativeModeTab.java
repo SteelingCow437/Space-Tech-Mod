@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +19,7 @@ public class ModCreativeModeTab {
     public static CreativeModeTab STM_FOODS;
     public static CreativeModeTab STM_MAGIC;
     public static CreativeModeTab STM_MACHINES;
+    public static CreativeModeTab STM_FLUIDS;
 
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
@@ -33,5 +35,7 @@ public class ModCreativeModeTab {
                 builder -> builder.icon(() -> new ItemStack(ModItems.AQUAMARINE.get())).title(Component.literal("STM Items")).build());
         STM_MACHINES = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_machines"),
                 builder -> builder.icon(() -> new ItemStack(ModBlocks.AQUAMARINE_ORE.get())).title(Component.literal("STM Machines")).build());
+        STM_FLUIDS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_fluids"),
+                builder -> builder.icon(() -> new ItemStack(Items.BUCKET)).title(Component.literal("STM Fluids")).build());
     }
 }

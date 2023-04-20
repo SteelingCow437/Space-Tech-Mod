@@ -23,15 +23,15 @@ public class SculkTrapBlockEntity extends BlockEntity {
     private static int count = 0;
     public static void tick(Level level, BlockPos pos, BlockState state, SculkTrapBlockEntity pEntity) {
         Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), pEntity.x, pEntity.y, pEntity.z);
-        if(player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 250 && count <= 200) {
+        if(player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 250 && count >= 200) {
             player.teleportTo(pEntity.getBlockPos().getX(), pEntity.getBlockPos().getY() + 1, pEntity.getBlockPos().getZ());
             count++;
         }
-        if(player == null || player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) > 250 && count >= 200) {
-            count = 0;
-        }
         if(count == 200 && !level.isClientSide()) {
             SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
+            count = 0;
+        }
+        if(player == null || player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) > 250 && count >= 200) {
             count = 0;
         }
     }

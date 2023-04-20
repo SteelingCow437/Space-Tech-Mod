@@ -18,9 +18,13 @@ public class ModFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, Spacetechmod.MOD_ID);
 
-    public static final RegistryObject<FluidType> STEAM_TYPE = register("steam_fluid",
-            FluidType.Properties.create().lightLevel(10).density(1).viscosity(1).sound(SoundAction.get("woosh"),
-                    SoundEvents.FIRE_EXTINGUISH));
+    public static final RegistryObject<FluidType> OIL_FLUID_TYPE = register("oil_fluid",
+            FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).sound(SoundAction.get("drink"),
+                    SoundEvents.ELDER_GUARDIAN_DEATH));
+
+    public static final RegistryObject<FluidType> HONEY_FLUID_TYPE = register("honey_fluid",
+            FluidType.Properties.create().lightLevel(3).density(15).viscosity(8).sound(SoundAction.get("drink"),
+                    SoundEvents.HONEY_BLOCK_STEP));
 
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
         return FLUID_TYPES.register(name, () -> new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, FLUID_OVERLAY_RL,

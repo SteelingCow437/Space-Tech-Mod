@@ -5,6 +5,7 @@ import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModTags;
 import net.minecraft.core.GlobalPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -44,9 +45,9 @@ public class MagicBookItem extends Item {
     private String ability3 = "none";
     private String ability4 = "none";
     private String ability5 = "none";
+    CompoundTag data = new CompoundTag();
 
     private final int maxAbilityCount = 5;
-    private int abilityCount = 0;
     private int selectedAbility = 1;
 
     @Override
@@ -65,22 +66,27 @@ public class MagicBookItem extends Item {
                 if(selectedAbility == 1) {
                     ability1 = player.getOffhandItem().getDisplayName().getString();
                     level.playSound(player, player.getOnPos(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.PLAYERS, 2.0f, 2.0f);
+                    data.putString(ability1, player.getName().toString());
                 }
                 if(selectedAbility == 2) {
                     ability2 = player.getOffhandItem().getDisplayName().getString();
                     level.playSound(player, player.getOnPos(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.PLAYERS, 2.0f, 2.0f);
+                    data.putString(ability2, player.getName().toString());
                 }
                 if(selectedAbility == 3) {
                     ability3 = player.getOffhandItem().getDisplayName().getString();
                     level.playSound(player, player.getOnPos(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.PLAYERS, 2.0f, 2.0f);
+                    data.putString(ability3, player.getName().toString());
                 }
                 if(selectedAbility == 4) {
                     ability4 = player.getOffhandItem().getDisplayName().getString();
                     level.playSound(player, player.getOnPos(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.PLAYERS, 2.0f, 2.0f);
+                    data.putString(ability4, player.getName().toString());
                 }
                 if(selectedAbility == 5) {
                     ability5 = player.getOffhandItem().getDisplayName().getString();
                     level.playSound(player, player.getOnPos(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.PLAYERS, 2.0f, 2.0f);
+                    data.putString(ability5, player.getName().toString());
                 }
             }
             if(stack.is(this) && offHandValidForUse(player) && !level.isClientSide) {
@@ -125,14 +131,14 @@ public class MagicBookItem extends Item {
         //turtle/water
         if(hasFullSuitOfArmorOn(player) && hasSameSetOfArmorOn(ModArmorMaterials.TURTLE, player)) {
             if(getAbilitySelected().equalsIgnoreCase("[freeze spell]")) {
-                player.experienceLevel -= 10;
+                player.experienceLevel -= 15;
                 Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, player);
                 if(target != null && !level.isClientSide) {
                     target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 4));
                 }
             }
             if(getAbilitySelected().equalsIgnoreCase("[mining fatigue spell]")) {
-                player.experienceLevel -= 10;
+                player.experienceLevel -= 20;
                 Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, player);
                 if(target != null && !level.isClientSide) {
                     target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 200, 4));
@@ -144,13 +150,6 @@ public class MagicBookItem extends Item {
             if(getAbilitySelected().equalsIgnoreCase("[summon warden]")) {
                 SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, (ServerLevel) level, player.getOnPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
                 player.experienceLevel -= 80;
-            }
-        }
-        if(getAbilitySelected().equalsIgnoreCase("[freeze spell]")) {
-            player.experienceLevel -= 10;
-            Player target = level.getNearestPlayer(TargetingConditions.DEFAULT, player);
-            if(target != null && !level.isClientSide) {
-                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 4));
             }
         }
         //general
@@ -213,4 +212,5 @@ public class MagicBookItem extends Item {
     public static GlobalPos getSpawnPosition(Level level) {
         return level.dimensionType().natural() ? GlobalPos.of(level.dimension(), level.getSharedSpawnPos()) : null;
     }
+
 }

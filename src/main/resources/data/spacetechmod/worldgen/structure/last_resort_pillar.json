@@ -22,7 +22,7 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "minecraft:warden",
+          "type": "minecraft:bat",
           "weight": 1,
           "minCount": 1,
           "maxCount": 2

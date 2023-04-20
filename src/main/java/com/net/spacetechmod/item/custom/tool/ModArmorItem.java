@@ -1,9 +1,8 @@
-package com.net.spacetechmod.item.custom;
+package com.net.spacetechmod.item.custom.tool;
 
 import com.net.spacetechmod.item.ModArmorMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -14,8 +13,8 @@ import net.minecraft.world.level.Level;
 public class ModArmorItem extends ArmorItem {
 
 
-    public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
-        super(material, slot, settings);
+    public ModArmorItem(ArmorMaterial material, ArmorItem.Type type, Properties settings) {
+        super(material, type, settings);
     }
     private boolean hasFullSuitOfArmorOn(Player player) {
         ItemStack boots = player.getInventory().getArmor(0);

@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.custom.fluid.BasicFluidBarrelBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -94,6 +95,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> WARDEN_TRAP_BLOCK = registerBlock("warden_trap_block",
             () -> new WardenTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
                     .strength(12f).noLootTable()));
+
+    //Fluid Tanks
+    public static final RegistryObject<Block> BASIC_FLUID_BARREL = registerBlock("basic_barrel",
+            () -> new BasicFluidBarrelBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops()));
 
     //machines
 

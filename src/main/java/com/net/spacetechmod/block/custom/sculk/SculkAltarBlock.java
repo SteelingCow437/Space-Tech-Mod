@@ -34,13 +34,13 @@ public class SculkAltarBlock extends Block {
                 pPlayer.getOffhandItem().shrink(1);
                 pPlayer.experienceLevel -= 250;
             }
-
             else if(pPlayer.experienceLevel >= 20 && pPlayer.isHolding(Items.AMETHYST_SHARD)) {
                 ItemStack stack = Items.ECHO_SHARD.getDefaultInstance();
                 pPlayer.getMainHandItem().shrink(1);
                 pPlayer.addItem(stack);
                 pPlayer.experienceLevel -= 20;
-            } else if (pPlayer.experienceLevel >= 100 && pPlayer.isHolding(Items.BOOK) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
+            }
+            else if (pPlayer.experienceLevel >= 100 && pPlayer.isHolding(Items.BOOK) && pPlayer.getOffhandItem().is(ModItems.SOUL_CRYSTAL.get())) {
                 pPlayer.getMainHandItem().enchant(ModEnchantments.MAGIC_REPAIR.get(), 1);
                 pPlayer.getOffhandItem().shrink(1);
                 pPlayer.experienceLevel -= 100;
