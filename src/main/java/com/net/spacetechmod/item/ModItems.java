@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.custom.magic.EchoItem;
 import com.net.spacetechmod.item.custom.magic.MagicBookItem;
 import com.net.spacetechmod.item.custom.magic_books.*;
@@ -11,6 +12,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.ArrayList;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -212,10 +215,10 @@ public class ModItems {
     public static final RegistryObject<Item> BRASS_PLATE = ITEMS.register("brass_plate",
             () -> new Item(new Item.Properties()));
     //GUNS
-    //todo: add guns
+    //todo: add guns eventually
 
     //AMMO
-    //todo: also this
+    //todo: also this eventually
 
     public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick",
             () -> new Item(new Item.Properties()));
@@ -226,7 +229,7 @@ public class ModItems {
 
     //Fluid buckets
     public static final RegistryObject<Item> OIL_BUCKET = ITEMS.register("oil_bucket",
-            () -> new Item(new Item.Properties().stacksTo(64)));
+            () -> new BucketItem(ModFluids.CRUDE_OIL, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(64)));
 
     //Fluid bottles
     public static final RegistryObject<Item> OIL_BOTTLE = ITEMS.register("oil_bottle",
@@ -235,4 +238,6 @@ public class ModItems {
     public static final RegistryObject<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle",
             () -> new Item(new Item.Properties().stacksTo(64)));
 
+    public static ArrayList<Item> BUCKET_LIST = new ArrayList<Item>();
+    public static ArrayList<Item> BOTTLE_LIST = new ArrayList<Item>();
 }

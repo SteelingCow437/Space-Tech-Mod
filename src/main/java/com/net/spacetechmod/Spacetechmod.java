@@ -170,11 +170,12 @@ public class Spacetechmod {
             event.accept(ModItems.MINING_FATIGUE_BOOK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
-            event.accept(ModBlocks.BASIC_FLUID_BARREL);
+            event.accept(ModBlocks.IRON_BARREL);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS) {
-            event.accept(ModItems.OIL_BOTTLE.get());
-            event.accept(ModItems.OIL_BUCKET.get());
+            event.accept(ModItems.OIL_BOTTLE);
+            event.accept(ModItems.OIL_BUCKET);
+            event.accept(ModItems.LAVA_BOTTLE);
         }
     }
 

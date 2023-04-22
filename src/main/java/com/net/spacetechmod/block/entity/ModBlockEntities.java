@@ -36,10 +36,10 @@ public class ModBlockEntities {
 
 
     //Fluid container blocks
-    public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> BASIC_FLUID_BARREL =
+    public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
-                            ModBlocks.BASIC_FLUID_BARREL.get()).build(null));
+                            ModBlocks.IRON_BARREL.get()).build(null));
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

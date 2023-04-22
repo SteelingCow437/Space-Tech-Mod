@@ -5,6 +5,9 @@
     "spacetechmod:titanium_ore",
     "spacetechmod:raw_titanium_block",
     "spacetechmod:titanium_ore_deepslate",
-    "spacetechmod:corrupted_bone"
+    "spacetechmod:corrupted_bone",
+    "spacetechmod:iron_barrel",
+    "spacetechmod:tin_ore",
+    "spacetechmod:tin_ore_deepslate"
   ]
 }
