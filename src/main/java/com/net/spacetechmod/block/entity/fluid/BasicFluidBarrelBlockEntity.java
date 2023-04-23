@@ -47,6 +47,7 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
             else if(item == Items.GLASS_BOTTLE.asItem() && amount >= 1) {
                 fillBottle(player);
             }
+            setChanged(level, getBlockPos(), getBlockState());
         }
     }
 
@@ -71,6 +72,7 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
             case 0 -> name = "Crude Oil";
             case 1, 2 -> name = "Water";
             case 3, 4 -> name = "Lava";
+            case 5 -> name = "Honey";
         }
         return name;
     }

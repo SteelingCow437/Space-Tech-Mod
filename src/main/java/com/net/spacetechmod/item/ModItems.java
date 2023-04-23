@@ -3,8 +3,6 @@ package com.net.spacetechmod.item;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.custom.magic.EchoItem;
-import com.net.spacetechmod.item.custom.magic.MagicBookItem;
-import com.net.spacetechmod.item.custom.magic_books.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
 import net.minecraft.world.item.*;
@@ -162,15 +160,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SCULK_INGOT = ITEMS.register("sculk_ingot",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-    //magic books
-    public static final RegistryObject<Item> SWORD_BOOK = ITEMS.register("sword_book", SwordBookItem::new);
-    public static final RegistryObject<Item> WARDEN_BOOK = ITEMS.register("warden_book", WardenBookItem::new);
-    public static final RegistryObject<Item> FREEZE_BOOK = ITEMS.register("freeze_book", FreezeBookItem::new);
-    public static final RegistryObject<Item> BOOST_BOOK = ITEMS.register("boost_book", BoostBookItem::new);
-    public static final RegistryObject<Item> LAST_RESORT_BOOK = ITEMS.register("last_resort", LastResortBookItem::new);
-    public static final RegistryObject<Item> FREEZE_TIME_BOOK = ITEMS.register("freeze_time", FreezeTimeBookItem::new);
-    public static final RegistryObject<Item> MINING_FATIGUE_BOOK = ITEMS.register("mining_fatigue_book", MiningFatigueBook::new);
-    public static final RegistryObject<Item> MAGIC_BOOK = ITEMS.register("magic_book", MagicBookItem::new);
     public static final RegistryObject<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> SCULK_HELMET = ITEMS.register("sculk_helmet",

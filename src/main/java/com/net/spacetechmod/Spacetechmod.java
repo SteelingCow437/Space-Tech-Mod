@@ -158,16 +158,8 @@ public class Spacetechmod {
             event.accept(ModItems.CANNED_BREAD);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MAGIC) {
-            event.accept(ModItems.MAGIC_BOOK);
             event.accept(ModItems.SOUL_BOTTLE);
             event.accept(ModItems.SOUL_CRYSTAL);
-            event.accept(ModItems.BOOST_BOOK);
-            event.accept(ModItems.FREEZE_BOOK);
-            event.accept(ModItems.FREEZE_TIME_BOOK);
-            event.accept(ModItems.WARDEN_BOOK);
-            event.accept(ModItems.SWORD_BOOK);
-            event.accept(ModItems.LAST_RESORT_BOOK);
-            event.accept(ModItems.MINING_FATIGUE_BOOK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
             event.accept(ModBlocks.IRON_BARREL);
