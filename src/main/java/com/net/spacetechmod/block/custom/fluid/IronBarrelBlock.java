@@ -1,8 +1,6 @@
 package com.net.spacetechmod.block.custom.fluid;
 
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
-import com.net.spacetechmod.fluid.ModFluids;
-import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -33,15 +31,6 @@ public class IronBarrelBlock extends BaseEntityBlock {
             BlockEntity entity = level.getBlockEntity(pos);
             Item item = player.getMainHandItem().getItem();
             if(entity instanceof BasicFluidBarrelBlockEntity) {
-                if(!ModFluids.FLUIDS_INDEX.contains(ModFluids.CRUDE_OIL)) {
-                    ((BasicFluidBarrelBlockEntity) entity).addFluids();
-                }
-                if(!ModItems.BUCKET_LIST.contains(ModItems.OIL_BUCKET)) {
-                    ((BasicFluidBarrelBlockEntity) entity).addBuckets();
-                }
-                if(!ModItems.BOTTLE_LIST.contains(ModItems.OIL_BOTTLE)) {
-                    ((BasicFluidBarrelBlockEntity) entity).addBottles();
-                }
                 ((BasicFluidBarrelBlockEntity) entity).onRightClick(item, player);
                 return InteractionResult.SUCCESS;
             }

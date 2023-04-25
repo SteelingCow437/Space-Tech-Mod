@@ -115,9 +115,9 @@ public class Spacetechmod {
             event.accept(ModItems.TIN_INGOT);
             event.accept(ModItems.RAW_TIN);
             event.accept(ModItems.TIN_POWDER);
-            event.accept(ModItems.BRASS_BLEND);
-            event.accept(ModItems.BRASS_INGOT);
-            event.accept(ModItems.BRASS_PLATE);
+            event.accept(ModItems.BRONZE_BLEND);
+            event.accept(ModItems.BRONZE_INGOT);
+            event.accept(ModItems.BRONZE_PLATE);
             event.accept(ModItems.IRON_PLATE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {

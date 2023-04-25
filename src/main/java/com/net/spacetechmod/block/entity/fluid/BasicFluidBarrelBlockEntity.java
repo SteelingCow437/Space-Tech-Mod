@@ -26,6 +26,7 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     }
 
     public void onRightClick(Item item, Player player) {
+        addLists();
         if(player.isShiftKeyDown()) {
             if(player.isHolding(ItemStack.EMPTY.getItem())) {
                 player.sendSystemMessage(Component.literal(getFluidName() + ", " + amount + " / " + capacity + " bottles"));
@@ -145,6 +146,18 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
                     setChanged(level, getBlockPos(), getBlockState());
                 }
             }
+        }
+    }
+
+    public void addLists() {
+        if(!ModItems.BOTTLE_LIST.contains(ModItems.OIL_BOTTLE)) {
+            addBottles();
+        }
+        if(!ModItems.BUCKET_LIST.contains(ModItems.OIL_BUCKET)) {
+            addBuckets();
+        }
+        if(!ModFluids.FLUIDS_INDEX.contains(ModFluids.CRUDE_OIL)) {
+            addFluids();
         }
     }
     //Saving & loading

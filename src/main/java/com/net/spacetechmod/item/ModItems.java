@@ -189,7 +189,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TITANIUM_POWDER = ITEMS.register("titanium_powder",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRASS_BLEND = ITEMS.register("brass_blend",
+    public static final RegistryObject<Item> BRONZE_BLEND = ITEMS.register("bronze_blend",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TIN_POWDER = ITEMS.register("tin_powder",
             () -> new Item(new Item.Properties()));
@@ -198,17 +198,11 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TIN_INGOT = ITEMS.register("tin_ingot",
             () -> new Item(new Item.Properties()));
-    //brass
-    public static final RegistryObject<Item> BRASS_INGOT = ITEMS.register("brass_ingot",
+    //bronze
+    public static final RegistryObject<Item> BRONZE_INGOT = ITEMS.register("bronze_ingot",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRASS_PLATE = ITEMS.register("brass_plate",
+    public static final RegistryObject<Item> BRONZE_PLATE = ITEMS.register("bronze_plate",
             () -> new Item(new Item.Properties()));
-    //GUNS
-    //todo: add guns eventually
-
-    //AMMO
-    //todo: also this eventually
-
     public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick",
             () -> new Item(new Item.Properties()));
 
