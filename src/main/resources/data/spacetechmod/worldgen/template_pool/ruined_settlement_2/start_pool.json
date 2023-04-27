@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:rocket_pillar/start_pool",
+  "name": "spacetechmod:ruined_settlement_2/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:rocket_pillar",
+        "location": "spacetechmod:ruined_settlement_2",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

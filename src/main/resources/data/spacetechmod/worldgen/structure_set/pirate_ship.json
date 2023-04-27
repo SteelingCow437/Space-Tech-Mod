@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:pirate_ship",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 83943,
+    "spacing": 64,
+    "separation": 48,
+    "type": "minecraft:random_spread"
+  }
+}

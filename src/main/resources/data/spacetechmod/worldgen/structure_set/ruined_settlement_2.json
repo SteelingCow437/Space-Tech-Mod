@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:last_resort_pillar",
+      "structure": "spacetechmod:ruined_settlement_2",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 393920,
-    "spacing": 50,
-    "separation": 20,
+    "salt": 39203,
+    "spacing": 94,
+    "separation": 71,
     "type": "minecraft:random_spread"
   }
 }

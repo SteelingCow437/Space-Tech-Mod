@@ -1,5 +1,5 @@
 {
-  "type": "spacetechmod:pressing",
+  "type": "minecraft:smithing",
   "ingredients": [
     {
       "item": "spacetechmod:plate_stamp"

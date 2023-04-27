@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "spacetechmod:bronze_ingot"
+  },
+  "base": {
+    "item": "spacetechmod:plate_stamp"
+  },
+  "result": {
+    "item": "spacetechmod:bronze_plate"
+  }
+}

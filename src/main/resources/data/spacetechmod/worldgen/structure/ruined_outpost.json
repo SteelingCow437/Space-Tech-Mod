@@ -1,6 +1,6 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "spacetechmod:sculk_maw/start_pool",
+  "start_pool": "spacetechmod:ruined_outpost/start_pool",
   "size": 2,
   "max_distance_from_center": 80,
   "biomes": "#spacetechmod:has_structure/sculk_heart",

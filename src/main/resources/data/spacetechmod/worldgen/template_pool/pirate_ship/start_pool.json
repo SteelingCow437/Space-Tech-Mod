@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:freeze_pillar/start_pool",
+  "name": "spacetechmod:pirate_ship/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:freeze_pillar",
+        "location": "spacetechmod:pirate_ship",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

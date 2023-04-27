@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:rocket_pillar",
+      "structure": "spacetechmod:temple_of_doom",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 839132,
-    "spacing": 50,
-    "separation": 20,
+    "salt": 299394,
+    "spacing": 44,
+    "separation": 33,
     "type": "minecraft:random_spread"
   }
 }

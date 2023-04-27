@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:warden_pillar",
+      "structure": "spacetechmod:ruined_portal",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 389294,
-    "spacing": 50,
-    "separation": 20,
+    "salt": 169168,
+    "spacing": 32,
+    "separation": 24,
     "type": "minecraft:random_spread"
   }
 }

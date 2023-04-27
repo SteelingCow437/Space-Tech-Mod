@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:ruined_settlement_1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 482942,
+    "spacing": 94,
+    "separation": 71,
+    "type": "minecraft:random_spread"
+  }
+}

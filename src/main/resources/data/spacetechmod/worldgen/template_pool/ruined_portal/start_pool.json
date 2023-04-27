@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:sculk_cathedral_center/start_pool",
+  "name": "spacetechmod:ruined_portal/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:sculk_cathedral_center",
+        "location": "spacetechmod:ruined_portal",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

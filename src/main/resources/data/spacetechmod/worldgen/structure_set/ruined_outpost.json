@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:freeze_pillar",
+      "structure": "spacetechmod:ruined_outpost",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 493933,
-    "spacing": 50,
-    "separation": 20,
+    "salt": 492094,
+    "spacing": 48,
+    "separation": 36,
     "type": "minecraft:random_spread"
   }
 }

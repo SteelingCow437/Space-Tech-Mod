@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:warden_pillar/start_pool",
+  "name": "spacetechmod:ruined_settlement_1/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:warden_pillar",
+        "location": "spacetechmod:ruined_settlement_1",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
