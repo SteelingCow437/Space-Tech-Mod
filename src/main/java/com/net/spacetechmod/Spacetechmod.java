@@ -160,6 +160,8 @@ public class Spacetechmod {
         if(event.getTab() == ModCreativeModeTab.STM_MAGIC) {
             event.accept(ModItems.SOUL_BOTTLE);
             event.accept(ModItems.SOUL_CRYSTAL);
+            event.accept(ModItems.MAGIC_QUIVER);
+            event.accept(ModItems.LIGHTNING_STAFF);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
             event.accept(ModBlocks.IRON_BARREL);

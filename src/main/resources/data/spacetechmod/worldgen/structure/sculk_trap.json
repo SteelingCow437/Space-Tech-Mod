@@ -8,10 +8,10 @@
   "start_height": {
     "type": "minecraft:very_biased_to_bottom",
     "min_inclusive": {
-      "absolute": -1
+      "absolute": 0
     },
     "max_inclusive": {
-      "absolute": 0
+      "absolute": 1
     }
   },
   "project_start_to_heightmap": "WORLD_SURFACE_WG",

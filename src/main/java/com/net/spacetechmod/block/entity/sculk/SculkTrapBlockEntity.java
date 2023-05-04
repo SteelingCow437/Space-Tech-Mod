@@ -3,6 +3,8 @@ package com.net.spacetechmod.block.entity.sculk;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.SpawnUtil;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
@@ -21,18 +23,17 @@ public class SculkTrapBlockEntity extends BlockEntity {
     private final double y = this.getBlockPos().getY();
     private final double z = this.getBlockPos().getZ();
     private static int count = 0;
-    public static void tick(Level level, BlockPos pos, BlockState state, SculkTrapBlockEntity pEntity) {
-        Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), pEntity.x, pEntity.y, pEntity.z);
-        if(player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 250 && count >= 200) {
-            player.teleportTo(pEntity.getBlockPos().getX(), pEntity.getBlockPos().getY() + 1, pEntity.getBlockPos().getZ());
+    public static void tick(Level level, BlockPos pos, BlockState state, SculkTrapBlockEntity entity) {
+        Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), entity.x, entity.y, entity.z);
+        if(player != null && player.getServer() != null && player.distanceToSqr(entity.x, entity.y, entity.z) <= 250 && count >= 400) {
+            ServerLevel serverLevel = player.getServer().getLevel(player.getLevel().dimension());
+            player.teleportTo(entity.x, entity.y + 1, entity.z);
+            count = 0;
+            SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, serverLevel, pos, 20, 8, 8, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
+            level.playSound(player, player.getOnPos(), SoundEvents.ELDER_GUARDIAN_CURSE, SoundSource.HOSTILE, 2.0f, 2.0f);
+        }
+        else if(count < 400) {
             count++;
-        }
-        if(count == 200 && !level.isClientSide()) {
-            SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, ((ServerLevel) level), pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER).isPresent();
-            count = 0;
-        }
-        if(player == null || player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) > 250 && count >= 200) {
-            count = 0;
         }
     }
 }

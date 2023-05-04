@@ -42,10 +42,10 @@
   "item.spacetechmod.turtle_master_boots": "Boots of the Turtle Master",
   "block.spacetechmod.aquamarine_ore": "Aquamarine Ore",
   "effect.spacetechmod.oileffect": "Covered In Oil",
-  "item.minecraft.potion.effect.oil": "Bottle Of Oil",
-  "item.minecraft.splash_potion.effect.oil": "Throwable Bottle Of Oil",
-  "item.minecraft.lingering_potion.effect.oil": "Oil Slick",
-  "item.minecraft.tipped_arrow.effect.oil": "Arrow Coated In Oil",
+  "item.minecraft.potion.effect.oil": "Bottle Of Canola Oil",
+  "item.minecraft.splash_potion.effect.oil": "Throwable Bottle Of Canola Oil",
+  "item.minecraft.lingering_potion.effect.oil": "(Canola) Oil Slick",
+  "item.minecraft.tipped_arrow.effect.oil": "Arrow Coated In Canola Oil",
   "item.spacetechmod.steel_ingot": "Steel Ingot",
   "item.spacetechmod.blank_stamp": "Blank Stamp",
   "item.spacetechmod.plate_stamp": "Plate Stamp",
@@ -96,5 +96,7 @@
   "item.spacetechmod.tin_powder": "Tin Powder",
   "item.spacetechmod.bronze_blend": "Bronze Blend",
   "item.spacetechmod.bronze_ingot": "Bronze Ingot",
-  "item.spacetechmod.bronze_plate": "Bronze Plate"
+  "item.spacetechmod.bronze_plate": "Bronze Plate",
+  "item.spacetechmod.magic_quiver": "Magic Quiver",
+  "item.spacetechmod.lightning_staff": "Lightning Staff"
 }
