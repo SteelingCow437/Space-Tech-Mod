@@ -11,6 +11,7 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
+import com.net.spacetechmod.sound.ModSounds;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -55,6 +56,7 @@ public class Spacetechmod {
         ModEnchantments.register(eventBus);
         ModFluidTypes.register(eventBus);
         ModFluids.register(eventBus);
+        ModSounds.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
