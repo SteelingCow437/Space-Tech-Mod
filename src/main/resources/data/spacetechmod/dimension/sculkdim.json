@@ -19,18 +19,6 @@
           }
         },
         {
-          "biome": "spacetechmod:sculk_wastes",
-          "parameters": {
-            "temperature": 1.2,
-            "humidity": 1,
-            "continentalness": 1.5,
-            "erosion": 0.5,
-            "weirdness": 1,
-            "depth": -1.02,
-            "offset": 0
-          }
-        },
-        {
           "biome": "minecraft:end_barrens",
           "parameters": {
             "temperature": 1,

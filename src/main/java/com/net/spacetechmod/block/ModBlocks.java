@@ -2,6 +2,8 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
+import com.net.spacetechmod.block.custom.machine.DynamoBlock;
+import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -102,6 +104,12 @@ public class ModBlocks {
                     .strength(5f).requiresCorrectToolForDrops()));
 
     //machines
-
+    public static final RegistryObject<Block> DYNAMO = registerBlock("dynamo",
+            () -> new DynamoBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f).requiresCorrectToolForDrops()));
+    //Cables
+    public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire",
+            () -> new WireBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f)));
 
 }

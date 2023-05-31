@@ -29,8 +29,8 @@ public class LightningStaffItem extends Item {
                 .stacksTo(1)
                 .durability(11));
     }
-    int charge = 0;
-    boolean isBeingUsed = false;
+    public int charge = 0;
+    public boolean isBeingUsed = false;
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

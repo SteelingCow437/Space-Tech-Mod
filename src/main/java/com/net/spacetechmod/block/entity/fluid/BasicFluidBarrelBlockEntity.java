@@ -146,17 +146,18 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
                     setChanged(level, getBlockPos(), getBlockState());
                 }
             }
+            setChanged(level, getBlockPos(), getBlockState());
         }
     }
 
     public void addLists() {
-        if(!ModItems.BOTTLE_LIST.contains(ModItems.OIL_BOTTLE)) {
+        if(!ModItems.BOTTLE_LIST.contains(ModItems.OIL_BOTTLE.get())) {
             addBottles();
         }
-        if(!ModItems.BUCKET_LIST.contains(ModItems.OIL_BUCKET)) {
+        if(!ModItems.BUCKET_LIST.contains(ModItems.OIL_BUCKET.get())) {
             addBuckets();
         }
-        if(!ModFluids.FLUIDS_INDEX.contains(ModFluids.CRUDE_OIL)) {
+        if(!ModFluids.FLUIDS_INDEX.contains(ModFluids.CRUDE_OIL.get())) {
             addFluids();
         }
     }
