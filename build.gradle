@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'com.david.stm'
-version = '45.0.0.125'
+version = '45.0.0.126'
 java {
     archivesBaseName = 'stm'
     toolchain.languageVersion = JavaLanguageVersion.of(17)

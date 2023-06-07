@@ -44,7 +44,7 @@ public class ModBlockEntities {
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>();
 
     public static void addMachines() {
-        MACHINE_INDEX.add(0, ModBlockEntities.DYNAMO.get());
+        MACHINE_INDEX.add(0, ModBlockEntities.IRON_BARREL.get());
         MACHINE_INDEX.add(1, BlockEntityType.FURNACE);
     }
     //Fluid container blocks

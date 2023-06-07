@@ -98,5 +98,7 @@
   "item.spacetechmod.bronze_ingot": "Bronze Ingot",
   "item.spacetechmod.bronze_plate": "Bronze Plate",
   "item.spacetechmod.magic_quiver": "Magic Quiver",
-  "item.spacetechmod.lightning_staff": "Lightning Staff"
+  "item.spacetechmod.lightning_staff": "Lightning Staff",
+  "block.spacetechmod.wire": "Copper Cable",
+  "block.spacetechmod.dynamo": "Dynamo"
 }

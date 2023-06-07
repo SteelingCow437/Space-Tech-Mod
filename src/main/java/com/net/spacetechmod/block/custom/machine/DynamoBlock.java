@@ -11,10 +11,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -63,23 +60,48 @@ public class DynamoBlock extends BaseEntityBlock {
 
     @Override
     public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
-        super.onNeighborChange(state, level, pos, neighbor);
         BlockEntity entity = level.getBlockEntity(pos);
         BlockEntityType<?> neighborEntity = level.getBlockEntity(neighbor).getType();
-        if(ModBlockEntities.MACHINE_INDEX.contains(neighborEntity) && entity instanceof DynamoBlockEntity) {
-            switch(ModBlockEntities.MACHINE_INDEX.indexOf(neighborEntity)) {
-                default -> {((DynamoBlockEntity) entity).outputVoltage = 0; ((DynamoBlockEntity) entity).outputAmperage = 0; ((DynamoBlockEntity) entity).outputWattage = 0; entity.setChanged();}
-                case 1 -> {((DynamoBlockEntity) entity).outputVoltage = 12; ((DynamoBlockEntity) entity).outputAmperage = 5; ((DynamoBlockEntity) entity).outputWattage = 60; entity.setChanged();}
+        if(entity instanceof DynamoBlockEntity) {
+            if(level.getBlockEntity(neighbor) == null) {
+                ((DynamoBlockEntity) entity).outputWattage = 0;
+            }
+            else if (ModBlockEntities.MACHINE_INDEX.contains(neighborEntity)) {
+                if (((DynamoBlockEntity) entity).isActive) {
+                    switch (ModBlockEntities.MACHINE_INDEX.indexOf(neighborEntity)) {
+                        default -> {
+                            ((DynamoBlockEntity) entity).outputWattage = 0;
+                            entity.setChanged();
+                        }
+                        case 1 -> {
+                            ((DynamoBlockEntity) entity).outputWattage = 50;
+                            entity.setChanged();
+                        }
+                    }
+                } else {
+                    ((DynamoBlockEntity) entity).outputWattage = 0;
+                }
             }
         }
+        super.onNeighborChange(state, level, pos, neighbor);
     }
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof DynamoBlockEntity) {
+            ((DynamoBlockEntity) entity).outputWattage = 0;
+            entity.setChanged();
+        }
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
             if(entity instanceof DynamoBlockEntity) {
-                player.sendSystemMessage(Component.literal("Output voltage: " + ((DynamoBlockEntity) entity).outputVoltage + " Output amperage: " + ((DynamoBlockEntity) entity).outputAmperage +  " Output Wattage: " + ((DynamoBlockEntity) entity).outputWattage));
+                player.sendSystemMessage(Component.literal("Output Wattage: " + ((DynamoBlockEntity) entity).getOutput()));
             }
         }
         return InteractionResult.SUCCESS;
@@ -89,7 +111,7 @@ public class DynamoBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        if(!ModBlockEntities.MACHINE_INDEX.contains(ModBlockEntities.DYNAMO.get())) {
+        if(!ModBlockEntities.MACHINE_INDEX.contains(ModBlockEntities.IRON_BARREL.get())) {
             ModBlockEntities.addMachines();
         }
         return new DynamoBlockEntity(pos, state);
