@@ -14,7 +14,7 @@ public class SoulConsumptionEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if(!pLivingEntity.level.isClientSide() && pLivingEntity instanceof Player) {
+        if(!pLivingEntity.level().isClientSide() && pLivingEntity instanceof Player) {
             if(((Player) pLivingEntity).experienceLevel <= 0) {
                 pLivingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
                 pLivingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1));

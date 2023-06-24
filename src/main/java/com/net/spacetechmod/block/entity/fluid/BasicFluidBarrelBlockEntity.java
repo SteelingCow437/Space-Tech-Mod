@@ -1,11 +1,14 @@
 package com.net.spacetechmod.block.entity.fluid;
 
+import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
@@ -26,7 +29,6 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     }
 
     public void onRightClick(Item item, Player player) {
-        addLists();
         if(player.isShiftKeyDown()) {
             if(player.isHolding(ItemStack.EMPTY.getItem())) {
                 player.sendSystemMessage(Component.literal(getFluidName() + ", " + amount + " / " + capacity + " bottles"));
@@ -36,10 +38,10 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
             if(amount == 0) {
                 fluidType = Fluids.EMPTY;
             }
-            if(ModItems.BUCKET_LIST.contains(item) && amount <= 21) {
+            if(ModLists.BUCKET_LIST.contains(item) && amount <= 21) {
                 fillBarrelFromBucket(player, item);
             }
-            else if(ModItems.BOTTLE_LIST.contains(item) && amount <= 23) {
+            else if(ModLists.BOTTLE_LIST.contains(item) && amount <= 23) {
                 fillBarrelFromBottle(player, item);
             }
             else if(item == Items.BUCKET.asItem() && amount >= 3) {
@@ -68,7 +70,7 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
 
     private String getFluidName() {
         String name;
-        switch(ModFluids.FLUIDS_INDEX.indexOf(fluidType)) {
+        switch(ModLists.FLUIDS_INDEX.indexOf(fluidType)) {
             default -> name = "None";
             case 0 -> name = "Crude Oil";
             case 1, 2 -> name = "Water";
@@ -79,7 +81,7 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     }
 
     private void getBottle(Player player) {
-        switch(ModFluids.FLUIDS_INDEX.indexOf(fluidType)) {
+        switch(ModLists.FLUIDS_INDEX.indexOf(fluidType)) {
             default -> player.sendSystemMessage(Component.literal("Houston, we have a problem!"));
             case 0 -> player.addItem(ModItems.OIL_BOTTLE.get().getDefaultInstance());
             case 1, 2 -> player.addItem(Items.POTION.getDefaultInstance());
@@ -88,30 +90,8 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
         }
     }
 
-    public void addFluids() {
-        ModFluids.FLUIDS_INDEX.add(0, ModFluids.CRUDE_OIL.get());
-        ModFluids.FLUIDS_INDEX.add(1, Fluids.WATER);
-        ModFluids.FLUIDS_INDEX.add(2, Fluids.FLOWING_WATER);
-        ModFluids.FLUIDS_INDEX.add(3, Fluids.LAVA);
-        ModFluids.FLUIDS_INDEX.add(4, Fluids.FLOWING_LAVA);
-        ModFluids.FLUIDS_INDEX.add(5, ModFluids.HONEY.get());
-    }
-
-    public void addBottles() {
-        ModItems.BOTTLE_LIST.add(0, ModItems.OIL_BOTTLE.get().asItem());
-        ModItems.BOTTLE_LIST.add(1, Items.POTION.asItem());
-        ModItems.BOTTLE_LIST.add(3, ModItems.LAVA_BOTTLE.get().asItem());
-        ModItems.BOTTLE_LIST.add(5, Items.HONEY_BOTTLE.asItem());
-    }
-
-    public void addBuckets() {
-        ModItems.BUCKET_LIST.add(0, ModItems.OIL_BUCKET.get().asItem());
-        ModItems.BUCKET_LIST.add(1, Items.WATER_BUCKET.asItem());
-        ModItems.BUCKET_LIST.add(3, Items.LAVA_BUCKET.asItem());
-    }
-
     public void fillBarrelFromBucket(Player player, Item item) {
-        if(ModItems.BUCKET_LIST.contains(item)) {
+        if(ModLists.BUCKET_LIST.contains(item)) {
             if(fluidType == Fluids.EMPTY) {
                 fluidType = ((BucketItem) item).getFluid();
                 player.getMainHandItem().shrink(1);
@@ -129,17 +109,17 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     }
 
     public void fillBarrelFromBottle(Player player, Item item) {
-        if(ModItems.BOTTLE_LIST.contains(item)) {
-            int index = ModItems.BOTTLE_LIST.indexOf(item);
+        if(ModLists.BOTTLE_LIST.contains(item)) {
+            int index = ModLists.BOTTLE_LIST.indexOf(item);
             if(fluidType == Fluids.EMPTY) {
-                fluidType = ModFluids.FLUIDS_INDEX.get(index);
+                fluidType = ModLists.FLUIDS_INDEX.get(index);
                 player.getMainHandItem().shrink(1);
                 player.addItem(Items.GLASS_BOTTLE.getDefaultInstance());
                 amount++;
                 setChanged(level, getBlockPos(), getBlockState());
             }
             else {
-                if(fluidType.isSame(ModFluids.FLUIDS_INDEX.get(index))) {
+                if(fluidType.isSame(ModLists.FLUIDS_INDEX.get(index))) {
                     amount++;
                     player.getMainHandItem().shrink(1);
                     player.addItem(Items.GLASS_BOTTLE.getDefaultInstance());
@@ -147,18 +127,6 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
                 }
             }
             setChanged(level, getBlockPos(), getBlockState());
-        }
-    }
-
-    public void addLists() {
-        if(!ModItems.BOTTLE_LIST.contains(ModItems.OIL_BOTTLE.get())) {
-            addBottles();
-        }
-        if(!ModItems.BUCKET_LIST.contains(ModItems.OIL_BUCKET.get())) {
-            addBuckets();
-        }
-        if(!ModFluids.FLUIDS_INDEX.contains(ModFluids.CRUDE_OIL.get())) {
-            addFluids();
         }
     }
     //Saving & loading
@@ -172,11 +140,11 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     @Override
     public void load(CompoundTag nbt) {
         amount = nbt.getInt("fluid_amount");
-        fluidType = ModFluids.FLUIDS_INDEX.get(nbt.getInt("fluid_type"));
+        fluidType = ModLists.FLUIDS_INDEX.get(nbt.getInt("fluid_type"));
         super.load(nbt);
     }
 
     public int getIndex() {
-        return ModFluids.FLUIDS_INDEX.indexOf(fluidType);
+        return ModLists.FLUIDS_INDEX.indexOf(fluidType);
     }
 }

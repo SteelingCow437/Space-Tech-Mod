@@ -12,6 +12,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.level.ChunkPos;
@@ -150,7 +152,7 @@ public class SculkDimTeleporter implements ITeleporter {
         for(int i = -1; i < 3; ++i) {
             for(int j = -1; j < 4; ++j) {
                 offsetPos.setWithOffset(originalPos, directionIn.getStepX() * i + direction.getStepX() * offsetScale, j, directionIn.getStepZ() * i + direction.getStepZ() * offsetScale);
-                if (j < 0 && !this.level.getBlockState(offsetPos).getMaterial().isSolid()) {
+                if (j < 0 && !this.level.getBlockState(offsetPos).getBlock().isValidSpawn(level.getBlockState(offsetPos).getBlock().defaultBlockState(), level, offsetPos, SpawnPlacements.Type.ON_GROUND, EntityType.PLAYER)) {
                     return false;
                 }
 
@@ -167,7 +169,7 @@ public class SculkDimTeleporter implements ITeleporter {
     @Override
     public PortalInfo getPortalInfo(Entity entity, ServerLevel level, Function<ServerLevel, PortalInfo> defaultPortalInfo) {
         boolean destinationIsUG = level.dimension() == ModDimensions.SCULKDIM;
-        if (entity.level.dimension() != ModDimensions.SCULKDIM && !destinationIsUG) {
+        if (entity.level().dimension() != ModDimensions.SCULKDIM && !destinationIsUG) {
             return null;
         }
         else {
@@ -176,15 +178,15 @@ public class SculkDimTeleporter implements ITeleporter {
             double minZ = Math.max(-2.9999872E7D, border.getMinZ() + 16.0D);
             double maxX = Math.min(2.9999872E7D, border.getMaxX() - 16.0D);
             double maxZ = Math.min(2.9999872E7D, border.getMaxZ() - 16.0D);
-            double coordinateDifference = DimensionType.getTeleportationScale(entity.level.dimensionType(), level.dimensionType());
+            double coordinateDifference = DimensionType.getTeleportationScale(entity.level().dimensionType(), level.dimensionType());
             BlockPos blockpos = new BlockPos((int) Mth.clamp(entity.getX() * coordinateDifference, minX, maxX), (int) entity.getY(), (int) Mth.clamp(entity.getZ() * coordinateDifference, minZ, maxZ));
             return this.getOrMakePortal(entity, blockpos).map((result) -> {
-                BlockState blockstate = entity.level.getBlockState(entity.portalEntrancePos);
+                BlockState blockstate = entity.level().getBlockState(entity.portalEntrancePos);
                 Direction.Axis axis;
                 Vec3 vector3d;
                 if (blockstate.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
                     axis = blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(entity.portalEntrancePos, axis, 21, Direction.Axis.Y, 21, (pos) -> entity.level.getBlockState(pos) == blockstate);
+                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(entity.portalEntrancePos, axis, 21, Direction.Axis.Y, 21, (pos) -> entity.level().getBlockState(pos) == blockstate);
                     //vector3d = entity.getRelativePortalPosition(axis, rectangle);
                     vector3d = PortalShape.getRelativePosition(rectangle, axis, entity.position(), entity.getDimensions(entity.getPose()));
                 } else {

@@ -1,7 +1,6 @@
 package com.net.spacetechmod.block.custom.sculk;
 
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.util.ModTags;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import com.net.spacetechmod.world.dimension.portal.SculkDimTeleporter;
 import net.minecraft.core.BlockPos;
@@ -24,7 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
@@ -40,7 +38,7 @@ public class SculkDimPortalBlock extends Block {
     protected static final VoxelShape Z_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
     public SculkDimPortalBlock() {
-        super(Properties.of(Material.PORTAL)
+        super(Properties.copy(Blocks.NETHER_PORTAL)
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 10)
@@ -116,21 +114,21 @@ public class SculkDimPortalBlock extends Block {
                 entity.setPortalCooldown();
             }
             else {
-                if(!entity.level.isClientSide && !pos.equals(entity.portalEntrancePos)) {
+                if(!entity.level().isClientSide && !pos.equals(entity.portalEntrancePos)) {
                     entity.portalEntrancePos = pos.immutable();
                 }
-                Level entityWorld = entity.level;
+                Level entityWorld = entity.level();
                 if(entityWorld != null) {
                     MinecraftServer minecraftserver = entityWorld.getServer();
-                    ResourceKey<Level> destination = entity.level.dimension() == ModDimensions.SCULKDIM
+                    ResourceKey<Level> destination = entity.level().dimension() == ModDimensions.SCULKDIM
                             ? Level.OVERWORLD : ModDimensions.SCULKDIM;
                     if(minecraftserver != null) {
                         ServerLevel destinationWorld = minecraftserver.getLevel(destination);
                         if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
-                            entity.level.getProfiler().push("sculkdim_portal");
+                            entity.level().getProfiler().push("sculkdim_portal");
                             entity.setPortalCooldown();
                             entity.changeDimension(destinationWorld, new SculkDimTeleporter(destinationWorld));
-                            entity.level.getProfiler().pop();
+                            entity.level().getProfiler().pop();
                         }
                     }
                 }
@@ -239,13 +237,13 @@ public class SculkDimPortalBlock extends Block {
             for(i = 0; i < 22; ++i) {
                 BlockPos blockpos = pos.relative(directionIn, i);
                 if(!this.canConnect(this.level.getBlockState(blockpos)) ||
-                        !(this.level.getBlockState(blockpos.below()).is(ModTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                        !(this.level.getBlockState(blockpos.below()).is(com.net.spacetechmod.util.ModTags.ModBlockTags.PORTAL_FRAME_BLOCKS))) {
                     break;
                 }
             }
 
             BlockPos framePos = pos.relative(directionIn, i);
-            return this.level.getBlockState(framePos).is(ModTags.Blocks.PORTAL_FRAME_BLOCKS) ? i : 0;
+            return this.level.getBlockState(framePos).is(com.net.spacetechmod.util.ModTags.ModBlockTags.PORTAL_FRAME_BLOCKS) ? i : 0;
         }
 
         public int getHeight() {
@@ -273,12 +271,12 @@ public class SculkDimPortalBlock extends Block {
 
                     if (i == 0) {
                         BlockPos framePos = blockpos.relative(this.leftDir);
-                        if (!(this.level.getBlockState(framePos).is(ModTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                        if (!(this.level.getBlockState(framePos).is(com.net.spacetechmod.util.ModTags.ModBlockTags.PORTAL_FRAME_BLOCKS))) {
                             break label56;
                         }
                     } else if (i == this.width - 1) {
                         BlockPos framePos = blockpos.relative(this.rightDir);
-                        if (!(this.level.getBlockState(framePos).is(ModTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                        if (!(this.level.getBlockState(framePos).is(com.net.spacetechmod.util.ModTags.ModBlockTags.PORTAL_FRAME_BLOCKS))) {
                             break label56;
                         }
                     }
@@ -287,7 +285,7 @@ public class SculkDimPortalBlock extends Block {
 
             for(int j = 0; j < this.width; ++j) {
                 BlockPos framePos = this.bottomLeft.relative(this.rightDir, j).above(this.height);
-                if (!(this.level.getBlockState(framePos).is(ModTags.Blocks.PORTAL_FRAME_BLOCKS))) {
+                if (!(this.level.getBlockState(framePos).is(com.net.spacetechmod.util.ModTags.ModBlockTags.PORTAL_FRAME_BLOCKS))) {
                     this.height = 0;
                     break;
                 }

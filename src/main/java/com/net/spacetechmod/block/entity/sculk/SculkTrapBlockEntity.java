@@ -26,7 +26,7 @@ public class SculkTrapBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, SculkTrapBlockEntity entity) {
         Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), entity.x, entity.y, entity.z);
         if(player != null && player.getServer() != null && player.distanceToSqr(entity.x, entity.y, entity.z) <= 250 && count >= 400) {
-            ServerLevel serverLevel = player.getServer().getLevel(player.getLevel().dimension());
+            ServerLevel serverLevel = player.getServer().getLevel(player.level().dimension());
             player.teleportTo(entity.x, entity.y + 1, entity.z);
             count = 0;
             SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, serverLevel, pos, 20, 8, 8, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);

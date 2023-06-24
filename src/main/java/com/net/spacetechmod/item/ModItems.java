@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -227,7 +228,4 @@ public class ModItems {
 
     public static final RegistryObject<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle",
             () -> new Item(new Item.Properties().stacksTo(64)));
-
-    public static ArrayList<Item> BUCKET_LIST = new ArrayList<Item>();
-    public static ArrayList<Item> BOTTLE_LIST = new ArrayList<Item>();
 }

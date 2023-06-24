@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -41,17 +42,14 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(DynamoBlockEntity::new,
                             ModBlocks.DYNAMO.get()).build(null));
 
-    public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>();
-
-    public static void addMachines() {
-        MACHINE_INDEX.add(0, ModBlockEntities.IRON_BARREL.get());
-        MACHINE_INDEX.add(1, BlockEntityType.FURNACE);
-    }
     //Fluid container blocks
     public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
                             ModBlocks.IRON_BARREL.get()).build(null));
+
+    //batteries
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

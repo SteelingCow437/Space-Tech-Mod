@@ -28,8 +28,8 @@ public class EchoItem extends Item {
         Player player = context.getPlayer();
         Level level = context.getLevel();
         if(player != null) {
-            if(player.level.dimension() == ModDimensions.SCULKDIM
-                    || player.level.dimension() == Level.OVERWORLD) {
+            if(player.level().dimension() == ModDimensions.SCULKDIM
+                    || player.level().dimension() == Level.OVERWORLD) {
                 for(Direction direction : Direction.Plane.VERTICAL) {
                     BlockPos framePos = context.getClickedPos().relative(direction);
                     if(((SculkDimPortalBlock) ModBlocks.SCULKDIM_PORTAL.get()).trySpawnPortal(context.getLevel(), framePos)) {

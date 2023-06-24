@@ -9,8 +9,8 @@ import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,30 +43,30 @@ public class ModBlocks {
 
     //titanium
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .strength(9f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)
                     .strength(9f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> TITANIUM_ORE_DEEPSLATE = registerBlock("titanium_ore_deepslate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(5f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> AQUAMARINE_ORE = registerBlock("aquamarine_ore",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> TIN_ORE_DEEPSLATE = registerBlock("tin_ore_deepslate",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(5f).requiresCorrectToolForDrops()));
 
     //sculk
@@ -75,41 +75,41 @@ public class ModBlocks {
             SculkDimPortalBlock::new);
 
     public static final RegistryObject<Block> SCULK_HEART = registerBlock("sculk_heart",
-            () -> new SculkHeartBlock(BlockBehaviour.Properties.of(Material.SCULK)
+            () -> new SculkHeartBlock(BlockBehaviour.Properties.copy(Blocks.SCULK)
                     .strength(1f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SCULK_MAW = registerBlock("sculk_maw",
-            () -> new SculkMawBlock(BlockBehaviour.Properties.of(Material.SCULK)
+            () -> new SculkMawBlock(BlockBehaviour.Properties.copy(Blocks.SCULK)
                     .strength(2f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> CORRUPTED_BONE = registerBlock("corrupted_bone",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)
                     .strength(6f).requiresCorrectToolForDrops().explosionResistance(2.5f)));
 
     public static final RegistryObject<Block> SCULK_TRAP = registerBlock("sculk_trap",
-            () -> new SculkTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
+            () -> new SculkTrapBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_SHRIEKER)
                     .strength(2f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SCULK_ALTAR = registerBlock("sculk_altar",
-            () -> new SculkAltarBlock(BlockBehaviour.Properties.of(Material.SCULK)
+            () -> new SculkAltarBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_CATALYST)
                     .strength(10f).noLootTable()));
 
     public static final RegistryObject<Block> WARDEN_TRAP_BLOCK = registerBlock("warden_trap_block",
-            () -> new WardenTrapBlock(BlockBehaviour.Properties.of(Material.SCULK)
+            () -> new WardenTrapBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICKS)
                     .strength(12f).noLootTable()));
 
     //Fluid Tanks
     public static final RegistryObject<Block> IRON_BARREL = registerBlock("iron_barrel",
-            () -> new IronBarrelBlock(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new IronBarrelBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .strength(5f).requiresCorrectToolForDrops()));
 
     //machines
     public static final RegistryObject<Block> DYNAMO = registerBlock("dynamo",
-            () -> new DynamoBlock(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new DynamoBlock(BlockBehaviour.Properties.copy(Blocks.LIGHTNING_ROD)
                     .strength(3f).requiresCorrectToolForDrops()));
     //Cables
     public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire",
-            () -> new WireBlock(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new WireBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)
                     .strength(3f)));
 
 }

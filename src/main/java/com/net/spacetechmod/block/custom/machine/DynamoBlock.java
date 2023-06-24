@@ -2,6 +2,7 @@ package com.net.spacetechmod.block.custom.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.machine.DynamoBlockEntity;
+import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -11,7 +12,10 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -66,9 +70,9 @@ public class DynamoBlock extends BaseEntityBlock {
             if(level.getBlockEntity(neighbor) == null) {
                 ((DynamoBlockEntity) entity).outputWattage = 0;
             }
-            else if (ModBlockEntities.MACHINE_INDEX.contains(neighborEntity)) {
+            else if (ModLists.MACHINE_INDEX.contains(neighborEntity)) {
                 if (((DynamoBlockEntity) entity).isActive) {
-                    switch (ModBlockEntities.MACHINE_INDEX.indexOf(neighborEntity)) {
+                    switch (ModLists.MACHINE_INDEX.indexOf(neighborEntity)) {
                         default -> {
                             ((DynamoBlockEntity) entity).outputWattage = 0;
                             entity.setChanged();
@@ -111,9 +115,6 @@ public class DynamoBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        if(!ModBlockEntities.MACHINE_INDEX.contains(ModBlockEntities.IRON_BARREL.get())) {
-            ModBlockEntities.addMachines();
-        }
         return new DynamoBlockEntity(pos, state);
     }
 

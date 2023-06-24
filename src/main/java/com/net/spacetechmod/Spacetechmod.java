@@ -16,11 +16,14 @@ import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +32,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @SuppressWarnings("ALL")
@@ -57,6 +65,7 @@ public class Spacetechmod {
         ModFluidTypes.register(eventBus);
         ModFluids.register(eventBus);
         ModSounds.register(eventBus);
+        ModCreativeModeTab.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -79,8 +88,8 @@ public class Spacetechmod {
 
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == ModCreativeModeTab.STM_BLOCKS) {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTab() == ModCreativeModeTab.STM_BLOCKS.get()) {
             event.accept(ModBlocks.TITANIUM_BLOCK);
             event.accept(ModBlocks.RAW_TITANIUM_BLOCK);
             event.accept(ModBlocks.TITANIUM_ORE);
@@ -93,7 +102,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.TIN_ORE);
             event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_ITEMS) {
+        if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
             event.accept(ModItems.RAW_TITANIUM);
             event.accept(ModItems.TITANIUM_PLATE);
@@ -122,7 +131,7 @@ public class Spacetechmod {
             event.accept(ModItems.BRONZE_PLATE);
             event.accept(ModItems.IRON_PLATE);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_TOOLS) {
+        if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
             event.accept(ModItems.TITANIUM_PICKAXE);
             event.accept(ModItems.TITANIUM_AXE);
@@ -152,23 +161,23 @@ public class Spacetechmod {
             event.accept(ModItems.SCULK_BOOTS);
             event.accept(ModItems.DEBUG_STICK);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_FOODS) {
+        if(event.getTab() == ModCreativeModeTab.STM_FOODS.get()) {
             event.accept(ModItems.BAGUETTE);
             event.accept(ModItems.LEAN);
             event.accept(ModItems.CANADA);
             event.accept(ModItems.ANTIDOTE);
             event.accept(ModItems.CANNED_BREAD);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_MAGIC) {
+        if(event.getTab() == ModCreativeModeTab.STM_MAGIC.get()) {
             event.accept(ModItems.SOUL_BOTTLE);
             event.accept(ModItems.SOUL_CRYSTAL);
             event.accept(ModItems.MAGIC_QUIVER);
             event.accept(ModItems.LIGHTNING_STAFF);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_MACHINES) {
+        if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_FLUIDS) {
+        if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);
             event.accept(ModItems.OIL_BUCKET);
             event.accept(ModItems.LAVA_BOTTLE);

@@ -16,7 +16,7 @@ public class CannedBreadEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
         ItemStack stack = ModItems.TIN_CAN.get().getDefaultInstance();
-        if (!entity.level.isClientSide()) {
+        if (!entity.level().isClientSide()) {
             if(entity instanceof Player) {
                 entity.playSound(ModSounds.CANNED_BREAD.get(), 2.0f, 2.0f);
                 ((Player) entity).addItem(stack);

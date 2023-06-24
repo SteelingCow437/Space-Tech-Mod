@@ -11,7 +11,7 @@ public class OilEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.level.isClientSide()) {
+        if (!pLivingEntity.level().isClientSide()) {
             double x = pLivingEntity.getX();
             double y = pLivingEntity.getY();
             double z = pLivingEntity.getZ();

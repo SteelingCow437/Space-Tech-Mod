@@ -2,40 +2,33 @@ package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = Spacetechmod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeModeTab {
-    public static CreativeModeTab STM_BLOCKS;
-    public static CreativeModeTab STM_ITEMS;
-    public static CreativeModeTab STM_TOOLS;
-    public static CreativeModeTab STM_FOODS;
-    public static CreativeModeTab STM_MAGIC;
-    public static CreativeModeTab STM_MACHINES;
-    public static CreativeModeTab STM_FLUIDS;
 
-    @SubscribeEvent
-    public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
-        STM_BLOCKS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_blocks"),
-                builder -> builder.icon(() -> new ItemStack(ModBlocks.TITANIUM_BLOCK.get())).title(Component.literal("STM Blocks")).build());
-        STM_FOODS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_foods"),
-                builder -> builder.icon(() -> new ItemStack(ModItems.LEAN.get())).title(Component.literal("STM Foods")).build());
-        STM_TOOLS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_tools"),
-                builder -> builder.icon(() -> new ItemStack(ModItems.TITANIUM_SWORD.get())).title(Component.literal("STM Tools")).build());
-        STM_MAGIC = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_magic"),
-                builder -> builder.icon(() -> new ItemStack(ModBlocks.SCULK_HEART.get())).title(Component.literal("STM Magic")).build());
-        STM_ITEMS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_items"),
-                builder -> builder.icon(() -> new ItemStack(ModItems.AQUAMARINE.get())).title(Component.literal("STM Items")).build());
-        STM_MACHINES = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_machines"),
-                builder -> builder.icon(() -> new ItemStack(ModBlocks.IRON_BARREL.get())).title(Component.literal("STM Machines")).build());
-        STM_FLUIDS = event.registerCreativeModeTab(new ResourceLocation(Spacetechmod.MOD_ID, "stm_fluids"),
-                builder -> builder.icon(() -> new ItemStack(Items.BUCKET)).title(Component.literal("STM Fluids")).build());
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Spacetechmod.MOD_ID);
+
+    public static void register(IEventBus eventBus) {
+        CREATIVE_MODE_TABS.register(eventBus);
     }
+    public static RegistryObject<CreativeModeTab> STM_BLOCKS = CREATIVE_MODE_TABS.register("stm_blocks", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.TITANIUM_BLOCK.get())).title(Component.literal("STM Blocks")).build());
+    public static RegistryObject<CreativeModeTab> STM_ITEMS = CREATIVE_MODE_TABS.register("stm_items", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.AQUAMARINE.get())).title(Component.literal("STM Items")).build());
+    public static RegistryObject<CreativeModeTab> STM_TOOLS = CREATIVE_MODE_TABS.register("stm_tools", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TITANIUM_AXE.get())).title(Component.literal("STM Tools")).build());
+    public static RegistryObject<CreativeModeTab> STM_FOODS = CREATIVE_MODE_TABS.register("stm_foods", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.LEAN.get())).title(Component.literal("STM Foods")).build());
+    public static RegistryObject<CreativeModeTab> STM_MAGIC = CREATIVE_MODE_TABS.register("stm_magic", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SCULK_HEART.get())).title(Component.literal("STM Magic")).build());
+    public static RegistryObject<CreativeModeTab> STM_MACHINES = CREATIVE_MODE_TABS.register("stm_machines", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.IRON_BARREL.get())).title(Component.literal("STM Machines")).build());
+    public static RegistryObject<CreativeModeTab> STM_FLUIDS = CREATIVE_MODE_TABS.register("stm_fluids", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.OIL_BUCKET.get())).title(Component.literal("STM Fluids")).build());
 }

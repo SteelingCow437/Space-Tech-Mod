@@ -16,7 +16,7 @@ public class MagicRepairEnchantment extends Enchantment {
     public static class DurabilityIncreaseHandler {
         @SubscribeEvent
         public static void addDurability(TickEvent.PlayerTickEvent event){
-            if (event.phase == TickEvent.Phase.END || event.player.level.isClientSide()) return;
+            if (event.phase == TickEvent.Phase.END || event.player.level().isClientSide()) return;
             if(time >= 20) {
                 if(event.player.getItemBySlot(EquipmentSlot.HEAD).getEnchantmentLevel(ModEnchantments.MAGIC_REPAIR.get()) > 0 && event.player.getItemBySlot(EquipmentSlot.HEAD).getDamageValue() > 0 && event.player.experienceLevel > 0) {
                     event.player.getItemBySlot(EquipmentSlot.HEAD).setDamageValue(event.player.getItemBySlot(EquipmentSlot.HEAD).getDamageValue() - 1);

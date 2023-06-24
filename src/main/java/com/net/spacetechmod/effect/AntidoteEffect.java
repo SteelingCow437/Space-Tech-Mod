@@ -12,7 +12,7 @@ public class AntidoteEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.level.isClientSide()) {
+        if (!pLivingEntity.level().isClientSide()) {
             pLivingEntity.removeAllEffects();
         }
         super.applyEffectTick(pLivingEntity, pAmplifier);
