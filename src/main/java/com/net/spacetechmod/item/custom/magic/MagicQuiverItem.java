@@ -26,6 +26,9 @@ public class MagicQuiverItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        if(player.getOffhandItem().getItem() == Items.BOW || player.getOffhandItem().getItem() == Items.CROSSBOW) {
+            player.getOffhandItem().setDamageValue((int) (player.getOffhandItem().getDamageValue() * 0.9));
+        }
         if(player.isShiftKeyDown() && player.experienceLevel >= 13) {
             player.addItem(new ItemStack(Items.ARROW, 64));
             player.giveExperiencePoints(-320);

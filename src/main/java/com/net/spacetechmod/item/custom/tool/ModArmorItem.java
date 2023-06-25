@@ -56,7 +56,7 @@ public class ModArmorItem extends ArmorItem {
                     turtleMasterArmorOnLand(player);
                 }
                 if(hasSameSetOfArmorOn(ModArmorMaterials.SCULK, player) && player.experienceLevel < 100) {
-                    player.giveExperiencePoints(5);
+                    player.giveExperiencePoints(2);
                 }
             }
         }

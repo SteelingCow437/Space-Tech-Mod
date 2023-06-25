@@ -100,5 +100,6 @@
   "item.spacetechmod.magic_quiver": "Magic Quiver",
   "item.spacetechmod.lightning_staff": "Lightning Staff",
   "block.spacetechmod.wire": "Copper Cable",
-  "block.spacetechmod.dynamo": "Dynamo"
+  "block.spacetechmod.dynamo": "Dynamo",
+  "item.spacetechmod.death_marker_staff": "Marker of Death"
 }

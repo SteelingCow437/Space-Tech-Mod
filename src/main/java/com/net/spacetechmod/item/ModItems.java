@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.custom.magic.EchoItem;
 import com.net.spacetechmod.item.custom.magic.LightningStaffItem;
+import com.net.spacetechmod.item.custom.magic.DeathMarkerStaffItem;
 import com.net.spacetechmod.item.custom.magic.MagicQuiverItem;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
@@ -12,9 +13,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -179,6 +177,9 @@ public class ModItems {
                     new Item.Properties()));
     public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
             LightningStaffItem::new);
+
+    public static final RegistryObject<Item> DEATH_MARKER_STAFF = ITEMS.register("death_marker_staff",
+            DeathMarkerStaffItem::new);
 
     public static final RegistryObject<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
             MagicQuiverItem::new);

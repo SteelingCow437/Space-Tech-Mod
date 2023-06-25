@@ -173,9 +173,11 @@ public class Spacetechmod {
             event.accept(ModItems.SOUL_CRYSTAL);
             event.accept(ModItems.MAGIC_QUIVER);
             event.accept(ModItems.LIGHTNING_STAFF);
+            event.accept(ModItems.DEATH_MARKER_STAFF);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
+            event.accept(ModBlocks.DYNAMO);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);

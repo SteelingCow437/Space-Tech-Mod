@@ -27,10 +27,11 @@ public class LightningStaffItem extends Item {
         super(new Properties()
                 .rarity(Rarity.RARE)
                 .stacksTo(1)
+                .fireResistant()
                 .durability(11));
     }
     public int charge = 0;
-    public boolean isBeingUsed = false;
+    private boolean isBeingUsed = false;
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

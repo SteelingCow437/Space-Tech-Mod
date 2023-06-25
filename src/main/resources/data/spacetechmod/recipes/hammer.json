@@ -10,7 +10,7 @@
       "item": "minecraft:stick"
     },
     "*": {
-      "item": "spacetechmod:corrupted_bone"
+      "tag": "minecraft:planks"
     }
 
   },

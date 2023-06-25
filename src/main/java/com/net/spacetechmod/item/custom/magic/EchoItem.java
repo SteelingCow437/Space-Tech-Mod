@@ -21,6 +21,7 @@ public class EchoItem extends Item {
     public EchoItem() {
         super(new Properties()
                 .stacksTo(1)
+                .fireResistant()
                 .rarity(Rarity.RARE));
     }
     @Override
@@ -34,11 +35,12 @@ public class EchoItem extends Item {
                     BlockPos framePos = context.getClickedPos().relative(direction);
                     if(((SculkDimPortalBlock) ModBlocks.SCULKDIM_PORTAL.get()).trySpawnPortal(context.getLevel(), framePos)) {
                         level.playSound(player, framePos,
-                                SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 1.0F, 1.0F);
+                                SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 2.0F, 2.0F);
                         return InteractionResult.CONSUME;
                     }
                     else if(player.isShiftKeyDown()) {
                         player.giveExperienceLevels(25);
+                        level.playSound(player, player.getOnPos(), SoundEvents.WARDEN_NEARBY_CLOSEST, SoundSource.PLAYERS, 2.0f, 2.0f);
                         if(player.getOffhandItem().is(ModItems.ECHO.get())) {
                             player.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
                         }

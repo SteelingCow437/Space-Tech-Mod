@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 public class MagicDecayEnchantment extends Enchantment {
 
     public MagicDecayEnchantment() {
-        super(Enchantment.Rarity.RARE, EnchantmentCategory.VANISHABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Enchantment.Rarity.RARE, EnchantmentCategory.BREAKABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -58,11 +58,8 @@ public class MagicDecayEnchantment extends Enchantment {
         }
     }
 
-
     @Override
     public int getMaxLevel() {
         return 1;
     }
-
-
 }

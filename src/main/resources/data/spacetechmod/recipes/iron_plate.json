@@ -1,9 +1,12 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:iron_ingot"
+    "item": "spacetechmod:hammer"
   },
   "base": {
+    "item": "spacetechmod:iron_ingot"
+  },
+  "template": {
     "item": "spacetechmod:plate_stamp"
   },
   "result": {
