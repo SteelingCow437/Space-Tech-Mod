@@ -98,6 +98,14 @@ public class ModBlocks {
             () -> new WardenTrapBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICKS)
                     .strength(12f).noLootTable()));
 
+    public static final RegistryObject<Block> SCULK_CORE = registerBlock("sculk_core",
+            () -> new SculkCoreBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_SHRIEKER)
+                    .strength(5f).explosionResistance(12f)));
+
+    public static final RegistryObject<Block> CALIBRATED_SCULK_TRAP = registerBlock("calibrated_sculk_trap",
+            () -> new CalibratedSculkTrapBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_SHRIEKER)
+                    .strength(2f).requiresCorrectToolForDrops()));
+
     //Fluid Tanks
     public static final RegistryObject<Block> IRON_BARREL = registerBlock("iron_barrel",
             () -> new IronBarrelBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)

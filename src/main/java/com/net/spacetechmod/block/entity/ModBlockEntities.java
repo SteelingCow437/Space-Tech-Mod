@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.DynamoBlockEntity;
+import com.net.spacetechmod.block.entity.sculk.CalibratedSculkTrapBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
@@ -12,9 +13,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -35,6 +33,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("sculk_trap", () ->
                     BlockEntityType.Builder.of(SculkTrapBlockEntity::new,
                             ModBlocks.SCULK_TRAP.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CalibratedSculkTrapBlockEntity>> CALIBRATED_SCULK_TRAP =
+            BLOCK_ENTITIES.register("calibrated_sculk_trap", () ->
+                    BlockEntityType.Builder.of(CalibratedSculkTrapBlockEntity::new,
+                            ModBlocks.CALIBRATED_SCULK_TRAP.get()).build(null));
 
     //Machine
     public static final RegistryObject<BlockEntityType<DynamoBlockEntity>> DYNAMO =

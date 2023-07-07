@@ -1,14 +1,11 @@
 package com.net.spacetechmod.block.entity.fluid;
 
-import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;

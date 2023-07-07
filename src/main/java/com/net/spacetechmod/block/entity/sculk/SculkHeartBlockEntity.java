@@ -27,9 +27,9 @@ public class SculkHeartBlockEntity extends BlockEntity {
         super(ModBlockEntities.SCULK_HEART.get(), pos, state);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, SculkHeartBlockEntity pEntity) {
-        if(timer >= 20) {
-            level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, pEntity.x, pEntity.y, pEntity.z), pEntity.x, pEntity.y, pEntity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
+    public static void tick(Level level, BlockPos pos, BlockState state, SculkHeartBlockEntity entity) {
+        if(timer >= 30) {
+            level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z), entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
             timer = 0;
         }
         else {

@@ -16,11 +16,8 @@ import com.net.spacetechmod.util.BetterBrewingRecipe;
 import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -32,11 +29,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @SuppressWarnings("ALL")
@@ -95,12 +87,15 @@ public class Spacetechmod {
             event.accept(ModBlocks.TITANIUM_ORE);
             event.accept(ModBlocks.TITANIUM_ORE_DEEPSLATE);
             event.accept(ModBlocks.AQUAMARINE_ORE);
+            event.accept(ModBlocks.TIN_ORE);
+            event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
+            event.accept(ModBlocks.CORRUPTED_BONE);
             event.accept(ModBlocks.SCULK_HEART);
             event.accept(ModBlocks.SCULK_MAW);
             event.accept(ModBlocks.SCULK_TRAP);
             event.accept(ModBlocks.SCULK_ALTAR);
-            event.accept(ModBlocks.TIN_ORE);
-            event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
+            event.accept(ModBlocks.SCULK_CORE);
+            event.accept(ModBlocks.CALIBRATED_SCULK_TRAP);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -178,6 +173,7 @@ public class Spacetechmod {
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
             event.accept(ModBlocks.DYNAMO);
+            event.accept(ModBlocks.WIRE_BLOCK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);

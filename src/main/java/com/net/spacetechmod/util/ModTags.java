@@ -1,15 +1,12 @@
 package com.net.spacetechmod.util;
 
 import com.net.spacetechmod.Spacetechmod;
-import net.minecraft.client.gui.components.FittingMultiLineTextWidget;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.FlowingFluid;
 
 public class ModTags {
     public static class ModBlockTags {

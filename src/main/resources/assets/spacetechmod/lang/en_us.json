@@ -101,5 +101,8 @@
   "item.spacetechmod.lightning_staff": "Lightning Staff",
   "block.spacetechmod.wire": "Copper Cable",
   "block.spacetechmod.dynamo": "Dynamo",
-  "item.spacetechmod.death_marker_staff": "Marker of Death"
+  "item.spacetechmod.death_marker_staff": "Marker of Death",
+  "block.spacetechmod.sculk_core": "Sculk Core",
+  "item.spacetechmod.teleport_marker": "Amethyst Pearl",
+  "block.spacetechmod.calibrated_sculk_trap": "Calibrated Sculk Trap"
 }

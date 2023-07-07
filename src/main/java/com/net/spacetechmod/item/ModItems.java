@@ -2,10 +2,7 @@ package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.fluid.ModFluids;
-import com.net.spacetechmod.item.custom.magic.EchoItem;
-import com.net.spacetechmod.item.custom.magic.LightningStaffItem;
-import com.net.spacetechmod.item.custom.magic.DeathMarkerStaffItem;
-import com.net.spacetechmod.item.custom.magic.MagicQuiverItem;
+import com.net.spacetechmod.item.custom.magic.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
 import net.minecraft.world.item.*;
@@ -183,6 +180,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
             MagicQuiverItem::new);
+
+    public static final RegistryObject<Item> TELEPORT_MARKER = ITEMS.register("teleport_marker",
+            TeleportMarkerItem::new);
     //Alloy Powders
     public static final RegistryObject<Item> IRON_POWDER = ITEMS.register("iron_powder",
             () -> new Item(new Item.Properties()));
