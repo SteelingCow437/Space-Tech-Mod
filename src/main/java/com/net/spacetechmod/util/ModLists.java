@@ -3,6 +3,8 @@ package com.net.spacetechmod.util;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModItems;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -38,17 +40,11 @@ public class ModLists {
     public static final ArrayList<Item> SCULK_ALTAR_INGREDIENT_LIST = new ArrayList<Item>
             (Arrays.asList(ModItems.TITANIUM_INGOT.get(), Items.GLASS_BOTTLE, Items.AMETHYST_SHARD, Items.BOOK));
 
-    public static final ArrayList<EntityType> SCULK_CORE_LIST = new ArrayList<EntityType>
-            (Arrays.asList(EntityType.ALLAY, EntityType.AXOLOTL, EntityType.BAT, EntityType.BEE, EntityType.BLAZE, EntityType.CAMEL,
-                    EntityType.CAT, EntityType.CAVE_SPIDER, EntityType.CHICKEN, EntityType.COD, EntityType.COW, EntityType.CREEPER, EntityType.DOLPHIN,
-                    EntityType.DONKEY, EntityType.DROWNED, EntityType.ELDER_GUARDIAN, EntityType.ENDERMAN, EntityType.ENDERMITE, EntityType.EVOKER,
-                    EntityType.FOX, EntityType.FROG, EntityType.GHAST, EntityType.GLOW_SQUID, EntityType.GOAT, EntityType.GUARDIAN, EntityType.HOGLIN,
-                    EntityType.HORSE, EntityType.HUSK, EntityType.IRON_GOLEM, EntityType.LLAMA, EntityType.MAGMA_CUBE, EntityType.MOOSHROOM, EntityType.MULE,
-                    EntityType.OCELOT, EntityType.PANDA, EntityType.PARROT, EntityType.PHANTOM, EntityType.PIG, EntityType.PIGLIN, EntityType.PIGLIN_BRUTE,
-                    EntityType.PILLAGER, EntityType.POLAR_BEAR, EntityType.PUFFERFISH, EntityType.RABBIT, EntityType.RAVAGER, EntityType.SALMON,
-                    EntityType.SHEEP, EntityType.SHULKER, EntityType.SILVERFISH, EntityType.SKELETON, EntityType.SKELETON_HORSE, EntityType.SLIME,
-                    EntityType.SNIFFER, EntityType.SNOW_GOLEM, EntityType.SPIDER, EntityType.SQUID, EntityType.STRAY, EntityType.STRIDER, EntityType.TADPOLE,
-                    EntityType.TRADER_LLAMA, EntityType.TROPICAL_FISH, EntityType.TURTLE, EntityType.VEX, EntityType.VILLAGER, EntityType.VINDICATOR, EntityType.WANDERING_TRADER,
-                    EntityType.WARDEN, EntityType.WITCH, EntityType.WITHER_SKELETON, EntityType.WOLF, EntityType.ZOGLIN, EntityType.ZOMBIE, EntityType.ZOMBIE_HORSE,
-                    EntityType.ZOMBIE_VILLAGER, EntityType.ZOMBIFIED_PIGLIN, EntityType.WITHER, EntityType.ENDER_DRAGON)); //Good lord that's a mouthful but trust me its worth it
+    public static final ArrayList<MobEffect> SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
+            Arrays.asList(MobEffects.DARKNESS, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.MOVEMENT_SLOWDOWN,
+                    MobEffects.POISON, MobEffects.HARM, MobEffects.HUNGER, MobEffects.WEAKNESS, MobEffects.WITHER));
+
+    public static final ArrayList<MobEffect> CALIBRATED_SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
+            Arrays.asList(MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
+                    MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.NIGHT_VISION, MobEffects.LUCK));
 }

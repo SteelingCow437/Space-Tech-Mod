@@ -183,6 +183,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> TELEPORT_MARKER = ITEMS.register("teleport_marker",
             TeleportMarkerItem::new);
+
+    public static final RegistryObject<Item> CALIBRATED_SCULK_HEART = ITEMS.register("calibrated_sculk_heart",
+            CalibratedSculkHeartItem::new);
+
     //Alloy Powders
     public static final RegistryObject<Item> IRON_POWDER = ITEMS.register("iron_powder",
             () -> new Item(new Item.Properties()));

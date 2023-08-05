@@ -19,6 +19,9 @@ public class SoulConsumptionEffect extends MobEffect {
                 pLivingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 0));
                 pLivingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1));
             }
+            else {
+                ((Player) pLivingEntity).giveExperiencePoints(-1);
+            }
         }
         if(!(pLivingEntity instanceof Player)) {
             pLivingEntity.kill();

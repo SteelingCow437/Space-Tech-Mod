@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "@*@",
+    "*#*",
+    "@*@"
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:sculk_heart"
+    },
+    "*": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "@": {
+      "item": "spacetechmod:sculk_ingot"
+    }
+  },
+  "result": {
+    "item": "spacetechmod:calibrated_sculk_heart"
+  }
+}

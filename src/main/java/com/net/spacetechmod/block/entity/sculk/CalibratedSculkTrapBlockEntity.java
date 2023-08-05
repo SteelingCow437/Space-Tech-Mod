@@ -2,16 +2,18 @@ package com.net.spacetechmod.block.entity.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 import java.util.Random;
@@ -21,8 +23,8 @@ public class CalibratedSculkTrapBlockEntity extends BlockEntity {
         super(ModBlockEntities.CALIBRATED_SCULK_TRAP.get(), pos, state);
     }
 
-    private final AABB boundingBox = new AABB(worldPosition.getX() - 10, worldPosition.getY() - 10, worldPosition.getZ() - 10,
-    worldPosition.getX() + 10, worldPosition.getY() + 10, worldPosition.getZ() + 10);
+    private final AABB boundingBox = new AABB(getBlockPos().getX() - 10, getBlockPos().getY() - 10, getBlockPos().getZ() - 10,
+    getBlockPos().getX() + 10, getBlockPos().getY() + 10, getBlockPos().getZ() + 10);
     private static int timer = 0;
     public boolean targetsPlayers = false;
     Random random = new Random();
@@ -34,36 +36,64 @@ public class CalibratedSculkTrapBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, CalibratedSculkTrapBlockEntity entity) {
         if(!level.isClientSide && timer >= 400) {
             List<Entity> entities = level.getEntities(null, entity.boundingBox);
-            Entity targetEntity = entities.get(entity.random.nextInt(0, entities.size()));
-            if(targetEntity instanceof LivingEntity) {
-                if(entity.targetsPlayers) {
-                    entity.springTrap(targetEntity, pos);
-                }
-                else {
-                    if(!(targetEntity instanceof Player)) {
-                        entity.springTrap(targetEntity, pos);
+            if (!entities.isEmpty()) {
+                for (int i = 0; i < entities.size(); ++i) {
+                    if(entities.get(i) instanceof ItemEntity) {
+                        entities.remove(i);
                     }
-                    else {
+                }
+                Entity targetEntity = entities.get(entity.random.nextInt(0, entities.size()));
+                if(targetEntity instanceof LivingEntity) {
+                    if(entity.targetsPlayers) {
+                        entity.springTrap(targetEntity, pos);
+                        timer = 0;
+                    } else {
                         while(targetEntity instanceof Player) {
-                            targetEntity = entities.get(entity.random.nextInt(0, entities.size()));
+                            entities.remove(targetEntity);
+                            if(!entities.isEmpty()) {
+                                targetEntity = entities.get(entity.random.nextInt(0, entities.size()));
+                            }
+                            else {
+                                break;
+                            }
                         }
                         entity.springTrap(targetEntity, pos);
                     }
                 }
             }
         }
-        else if(timer < 400) {
-            ++timer;
+        else {
+            if(timer >= 400) {
+                timer = 0;
+            }
+            else {
+                ++timer;
+            }
         }
     }
 
     private void springTrap(Entity targetEntity, BlockPos pos) {
-        targetEntity.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
-        ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 9));
-        if(targetEntity.isAlive()) {
-            ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.POISON, 100, 1));
-        } else {
-            ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1));
+        if(targetEntity instanceof LivingEntity) {
+            targetEntity.teleportTo(pos.getX(), pos.getY() + 1, pos.getZ());
+            ((LivingEntity) targetEntity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 9));
+            targetEntity.hurt(magicDamage(targetEntity), 4.0f);
         }
+    }
+
+    public DamageSource magicDamage(Entity entity) {
+        return entity.damageSources().magic();
+    }
+
+    //Saving & loading
+    @Override
+    public void saveAdditional(CompoundTag nbt) {
+        nbt.putBoolean("targetsPlayers", targetsPlayers);
+        super.saveAdditional(nbt);
+    }
+
+    @Override
+    public void load(CompoundTag nbt) {
+        targetsPlayers = nbt.getBoolean("targetsPlayers");
+        super.load(nbt);
     }
 }

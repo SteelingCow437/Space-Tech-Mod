@@ -1,20 +1,26 @@
 package com.net.spacetechmod.block.entity.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
+import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.SpawnUtil;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.monster.Husk;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.Random;
 
 public class SculkHeartBlockEntity extends BlockEntity {
 
@@ -23,13 +29,21 @@ public class SculkHeartBlockEntity extends BlockEntity {
     private final double z = this.getBlockPos().getZ();
     private static int timer = 0;
 
+    Player targetPlayer;
+    private Random random = new Random();
+
     public SculkHeartBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.SCULK_HEART.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, SculkHeartBlockEntity entity) {
-        if(timer >= 30) {
+        if(timer >= 40) {
             level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z), entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
+        }
+        if(timer >= 80) {
+            entity.targetPlayer = level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z);
+            level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z), entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
+            entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect(), 200, 1));
             timer = 0;
         }
         else {
@@ -43,5 +57,9 @@ public class SculkHeartBlockEntity extends BlockEntity {
             player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1));
             SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, this.getBlockPos(), 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
         }
+    }
+
+    private MobEffect getMobEffect() {
+        return ModLists.SCULK_HEART_EFFECT_LIST.get(random.nextInt(0, 8));
     }
 }

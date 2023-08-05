@@ -104,5 +104,6 @@
   "item.spacetechmod.death_marker_staff": "Marker of Death",
   "block.spacetechmod.sculk_core": "Sculk Core",
   "item.spacetechmod.teleport_marker": "Amethyst Pearl",
-  "block.spacetechmod.calibrated_sculk_trap": "Calibrated Sculk Trap"
+  "block.spacetechmod.calibrated_sculk_trap": "Calibrated Sculk Trap",
+  "item.spacetechmod.calibrated_sculk_heart": "Calibrated Sculk Heart"
 }
