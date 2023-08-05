@@ -1,11 +1,14 @@
 package com.net.spacetechmod.block.custom.sculk;
 
+import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -33,11 +36,13 @@ public class SculkAltarBlock extends Block {
                 }
                 case 1 -> {
                     if(player.experienceLevel >= 250) {
-                        stack = ModItems.SOUL_BOTTLE.get().getDefaultInstance();
-                        player.addItem(stack);
-                        player.getMainHandItem().shrink(1);
-                        player.getOffhandItem().shrink(1);
-                        player.experienceLevel -= 250;
+                        if(player.getOffhandItem() == ModItems.SOUL_CRYSTAL.get().getDefaultInstance()) {
+                            stack = ModItems.SOUL_BOTTLE.get().getDefaultInstance();
+                            player.addItem(stack);
+                            player.getMainHandItem().shrink(1);
+                            player.getOffhandItem().shrink(1);
+                            player.experienceLevel -= 250;
+                        }
                     }
                 }
                 case 2 -> {
@@ -50,10 +55,8 @@ public class SculkAltarBlock extends Block {
                 }
                 case 3 -> {
                     if(player.experienceLevel >= 100) {
-                        ItemStack stack = Items.ECHO_SHARD.getDefaultInstance();
-                        player.getMainHandItem().shrink(1);
-                        player.addItem(stack);
-                        player.experienceLevel -= 20;
+                        player.getMainHandItem().enchant(ModEnchantments.MAGIC_REPAIR.get(), 0);
+                        player.experienceLevel -= 100;
                     }
                 }
             }

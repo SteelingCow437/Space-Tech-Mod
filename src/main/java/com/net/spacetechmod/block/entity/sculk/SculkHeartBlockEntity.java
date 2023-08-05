@@ -37,17 +37,17 @@ public class SculkHeartBlockEntity extends BlockEntity {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, SculkHeartBlockEntity entity) {
-        if(timer >= 40) {
-            level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z), entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
+        entity.targetPlayer = level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z);
+        if(timer >= 40 && entity.targetPlayer != null) {
+            level.playSound(entity.targetPlayer, entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
         }
-        if(timer >= 80) {
-            entity.targetPlayer = level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z);
-            level.playSound(level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z), entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
+        if(timer >= 80 && entity.targetPlayer != null) {
+            level.playSound(entity.targetPlayer, entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
             entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect(), 200, 1));
             timer = 0;
         }
         else {
-            timer++;
+            ++timer;
         }
     }
     public void summonWarden(ServerLevel level) {
@@ -60,6 +60,6 @@ public class SculkHeartBlockEntity extends BlockEntity {
     }
 
     private MobEffect getMobEffect() {
-        return ModLists.SCULK_HEART_EFFECT_LIST.get(random.nextInt(0, 8));
+        return ModLists.SCULK_HEART_EFFECT_LIST.get(random.nextInt(0, 7));
     }
 }

@@ -19,7 +19,9 @@ public class ModLists {
 
     //A class that contains the lists of things that I use to improve the performance of things
     //that benefit from using switches, such as barrels and the hammer. These lists didn't
-    //want to play nice in any other class, so here they are.
+    //want to play nice in any other class, so here they are. Consider this to be the backbone of
+    //the mod's "API" I guess. I don't feel like learning how to make an API/implement a proper Forge
+    //one, so here this is.
 
     public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.OIL_BUCKET.get()));
@@ -42,7 +44,7 @@ public class ModLists {
 
     public static final ArrayList<MobEffect> SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
             Arrays.asList(MobEffects.DARKNESS, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.MOVEMENT_SLOWDOWN,
-                    MobEffects.POISON, MobEffects.HARM, MobEffects.HUNGER, MobEffects.WEAKNESS, MobEffects.WITHER));
+                    MobEffects.POISON, MobEffects.HUNGER, MobEffects.WEAKNESS, MobEffects.WITHER));
 
     public static final ArrayList<MobEffect> CALIBRATED_SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
             Arrays.asList(MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
