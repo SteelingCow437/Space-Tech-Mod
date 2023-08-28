@@ -168,7 +168,6 @@ public class Spacetechmod {
             event.accept(ModItems.SOUL_CRYSTAL);
             event.accept(ModItems.MAGIC_QUIVER);
             event.accept(ModItems.LIGHTNING_STAFF);
-            event.accept(ModItems.DEATH_MARKER_STAFF);
             event.accept(ModItems.CALIBRATED_SCULK_HEART);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {

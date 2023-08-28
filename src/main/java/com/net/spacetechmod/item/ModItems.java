@@ -175,9 +175,6 @@ public class ModItems {
     public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
             LightningStaffItem::new);
 
-    public static final RegistryObject<Item> DEATH_MARKER_STAFF = ITEMS.register("death_marker_staff",
-            DeathMarkerStaffItem::new);
-
     public static final RegistryObject<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
             MagicQuiverItem::new);
 
