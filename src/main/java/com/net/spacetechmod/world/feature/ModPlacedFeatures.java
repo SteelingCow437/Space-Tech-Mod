@@ -1,6 +1,7 @@
 package com.net.spacetechmod.world.feature;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -40,7 +41,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-63), VerticalAnchor.aboveBottom(45))));
 
         register(context, SCULK_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SCULK_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2)));
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2), ModBlocks.BONE_SAPLING.get()));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

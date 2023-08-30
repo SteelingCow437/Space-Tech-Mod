@@ -6,10 +6,12 @@ import com.net.spacetechmod.block.custom.machine.DynamoBlock;
 import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.world.tree.SculkTreeGrower;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -105,6 +107,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CALIBRATED_SCULK_TRAP = registerBlock("calibrated_sculk_trap",
             () -> new CalibratedSculkTrapBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_SHRIEKER)
                     .strength(2f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> BONE_SAPLING = registerBlock("bone_sapling",
+            () -> new SaplingBlock(new SculkTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     //Fluid Tanks
     public static final RegistryObject<Block> IRON_BARREL = registerBlock("iron_barrel",

@@ -38,12 +38,12 @@ public class SculkHeartBlockEntity extends BlockEntity {
 
     public static void tick(Level level, BlockPos pos, BlockState state, SculkHeartBlockEntity entity) {
         entity.targetPlayer = level.getNearestPlayer(TargetingConditions.DEFAULT, entity.x, entity.y, entity.z);
-        if(timer >= 40 && entity.targetPlayer != null) {
+        if(timer >= 40 && entity.targetPlayer != null && entity.targetPlayer.distanceToSqr(entity.x, entity.y, entity.z) < 225) {
             level.playSound(entity.targetPlayer, entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
         }
-        if(timer >= 80 && entity.targetPlayer != null) {
+        if(timer >= 80 && entity.targetPlayer != null && entity.targetPlayer.distanceToSqr(entity.x, entity.y, entity.z) < 225) {
             level.playSound(entity.targetPlayer, entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
-            entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect(), 200, 1));
+            entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect(), 160, 1));
             timer = 0;
         }
         else {

@@ -28,6 +28,7 @@ public class CalibratedSculkHeartItem extends Item {
     }
 
     private int selectedEffectIndex = 0;
+    private int cooldown = 0;
     private MobEffect effect;
 
     private void setEffect(Player player) {
@@ -40,12 +41,14 @@ public class CalibratedSculkHeartItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (player.isShiftKeyDown()) {
+        if (cooldown == 0 && player.isShiftKeyDown()) {
             setEffect(player);
-        } else {
+            cooldown = 20;
+        } else if(cooldown == 0 && !player.isShiftKeyDown()) {
             level.playSound(player, player.getOnPos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0f, 1.0f);
             player.sendSystemMessage(Component.literal(effectActive ? "Deactivated!" : "Activated!"));
             effectActive = !effectActive;
+            cooldown = 20;
         }
         return super.use(level, player, hand);
     }
@@ -55,16 +58,18 @@ public class CalibratedSculkHeartItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int number, boolean bool) {
-        if (entity instanceof Player) {
-            Player player = (Player) entity;
-            if (player.totalExperience > 0 && effectActive) {
+        if (entity instanceof Player player) {
+            if(cooldown > 0) {
+                --cooldown;
+            }
+            if (player.experienceLevel > 0 && effectActive) {
                 if (timer >= 200) {
-                    player.addEffect(new MobEffectInstance(effect, 200, 1));
+                    player.addEffect(new MobEffectInstance(effect, 201, 1));
                     timer = 0; // Reset the timer
+                    player.giveExperiencePoints(-20);
                 } else {
                     timer++;
                 }
-                player.giveExperiencePoints(-1);
             }
         }
         super.inventoryTick(stack, level, entity, number, bool);

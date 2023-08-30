@@ -5,6 +5,7 @@
     "spacetechmod:sculk_maw",
     "spacetechmod:sculk_trap",
     "spacetechmod:sculk_altar",
-    "spacetechmod:sculk_core"
+    "spacetechmod:sculk_core",
+    "spacetechmod:calibrated_sculk_trap"
   ]
 }
