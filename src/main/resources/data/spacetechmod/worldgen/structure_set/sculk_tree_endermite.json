@@ -1,12 +1,12 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:sculk_heart",
+      "structure": "spacetechmod:sculk_tree_endermite",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 100002,
+    "salt": 100005,
     "spacing": 16,
     "separation": 12,
     "type": "minecraft:random_spread"

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:temple_of_doom",
+      "structure": "spacetechmod:wrecked_ship",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 299394,
-    "spacing": 44,
-    "separation": 33,
+    "salt": 100008,
+    "spacing": 64,
+    "separation": 56,
     "type": "minecraft:random_spread"
   }
 }

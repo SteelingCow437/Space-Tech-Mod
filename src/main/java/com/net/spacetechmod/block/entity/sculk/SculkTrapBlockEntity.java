@@ -26,7 +26,7 @@ public class SculkTrapBlockEntity extends BlockEntity {
     private final double z = this.getBlockPos().getZ();
     private static int count = 0;
     private static Random random = new Random();
-    Warden warden = new Warden(EntityType.WARDEN, Objects.requireNonNull(getLevel()));
+
     public static void tick(Level level, BlockPos pos, BlockState state, SculkTrapBlockEntity entity) {
         Player player = level.getNearestPlayer(TargetingConditions.forNonCombat(), entity.x, entity.y, entity.z);
         if(player != null && player.getServer() != null && count >= 400) {
@@ -39,10 +39,11 @@ public class SculkTrapBlockEntity extends BlockEntity {
     }
 
     private static void triggerTrap(Player player, SculkTrapBlockEntity entity, Level level) {
+        Warden warden = new Warden(EntityType.WARDEN, player.level());
         if(player.distanceToSqr(entity.x, entity.y, entity.z) <= 250) {
             player.setPos(new Vec3(entity.x, entity.y + 1, entity.z));
-            entity.warden.setPos(player.getX() + random.nextInt(-15, 15), player.getY(), player.getZ() + random.nextInt(-15, 15));
-            level.addFreshEntity(entity.warden);
+            warden.setPos(player.getX() + random.nextInt(-15, 15), player.getY(), player.getZ() + random.nextInt(-15, 15));
+            level.addFreshEntity(warden);
             level.playSound(player, player.getOnPos(), SoundEvents.ELDER_GUARDIAN_CURSE, SoundSource.HOSTILE, 2.0f, 2.0f);
         }
     }

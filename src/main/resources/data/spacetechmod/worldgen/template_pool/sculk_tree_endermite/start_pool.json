@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:pirate_ship/start_pool",
+  "name": "spacetechmod:sculk_tree_endermite/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:pirate_ship",
+        "location": "spacetechmod:sculk_tree_endermite",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

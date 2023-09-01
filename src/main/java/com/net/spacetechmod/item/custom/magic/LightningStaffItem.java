@@ -32,24 +32,21 @@ public class LightningStaffItem extends Item {
                 .fireResistant()
                 .durability(11));
     }
-    public double charge = 0;
+    public int charge = 0;
     Random random = new Random();
-    private boolean isBeingUsed = false;
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if(!player.isShiftKeyDown()) {
-            isBeingUsed = !isBeingUsed;
-        }
-        else {
-            List<Entity> entities = level.getEntities(null, new AABB(player.getOnPos().getX() - 10, player.getOnPos().getY() - 10, player.getOnPos().getZ() - 10,
-                    player.getOnPos().getX() + 10, player.getOnPos().getY() + 10, player.getOnPos().getZ() + 10));
+        if(charge >= 20) {
+            List<Entity> entities = level.getEntities(null, new AABB(player.getOnPos().getX() - 20, player.getOnPos().getY() - 20, player.getOnPos().getZ() - 20,
+                    player.getOnPos().getX() + 20, player.getOnPos().getY() + 20, player.getOnPos().getZ() + 20));
+            entities.remove(player);
             if(!entities.isEmpty()) {
                 LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
                 bolt.setDamage(10);
                 Entity target = entities.get(random.nextInt(0, entities.size()));
                 bolt.setPos(target.getOnPos().getCenter());
-                charge = 100;
+                charge -= 40;
                 level.addFreshEntity(bolt);
             }
         }
@@ -60,27 +57,15 @@ public class LightningStaffItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int number, boolean bool) {
         if(!level.isClientSide && entity instanceof Player) {
-            BlockPos playerPos = entity.getOnPos();
-            if(charge < 200 && !isBeingUsed && (((Player) entity).experienceLevel > 0 || ((Player) entity).getAbilities().instabuild)) {
+            if((charge < 200 && (((Player) entity).experienceLevel > 0) || ((Player) entity).getAbilities().instabuild)) {
                 charge++;
                 ((Player) entity).giveExperiencePoints(-5);
-            }
-            if(isBeingUsed && charge > 0) {
-                LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
-                bolt.setDamage(10);
-                ((Player) entity).addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 4));
-                bolt.setPos(playerPos.getX() + random.nextInt(-10, 10), playerPos.getY(), playerPos.getZ() + random.nextInt(-10, 10));
-                level.addFreshEntity(bolt);
-                charge--;
-            }
-            if(charge == 0) {
-                isBeingUsed = false;
             }
         }
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> component, TooltipFlag flag) {
-        component.add(Component.literal("Charge: " + (charge / 2) + " / 100"));
+        component.add(Component.literal("Charge: " + charge + " / 200"));
     }
 }

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:ruined_outpost",
+      "structure": "spacetechmod:sculk_tree_spider",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 492094,
-    "spacing": 48,
-    "separation": 36,
+    "salt": 100006,
+    "spacing": 16,
+    "separation": 12,
     "type": "minecraft:random_spread"
   }
 }

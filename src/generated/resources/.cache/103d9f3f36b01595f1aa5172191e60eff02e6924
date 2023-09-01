@@ -1,9 +1,9 @@
-// 1.20.1	2023-08-05T13:31:57.9312533	Registries
+// 1.20.1	2023-08-30T11:42:39.1510432	Registries
 37a69dffb088021acfdb289ae94131131c04351c data/spacetechmod/worldgen/configured_feature/aquamarine_ore.json
 750a0e7cd12f205fe205e4c040ea4e6b155cb2c8 data/spacetechmod/worldgen/configured_feature/sculk_tree.json
 4088f34f3af785ad2780bdfbdb67566735be47ea data/spacetechmod/worldgen/configured_feature/tin_ore.json
 793869123b8e8a757a24d1c6b25e1c236b91ab54 data/spacetechmod/worldgen/configured_feature/titanium_ore.json
 ab8df16bc5fa86fc37f712622129a5f9225a3d30 data/spacetechmod/worldgen/placed_feature/aquamarine_placed.json
-662d3b90d578f06e4bc8aba000e11e18cea6e128 data/spacetechmod/worldgen/placed_feature/sculk_tree_placed.json
+fd46283229bd125606395225e5878fc22e1d8f2b data/spacetechmod/worldgen/placed_feature/sculk_tree_placed.json
 3a15eb24318ecbdb5ec1296291b9d3402f455ab6 data/spacetechmod/worldgen/placed_feature/tin_placed.json
 f37a69d175126c562134cb53bf3a203d5fe3aa3f data/spacetechmod/worldgen/placed_feature/titanium_placed.json

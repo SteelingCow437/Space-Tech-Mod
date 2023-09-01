@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:ruined_outpost/start_pool",
+  "name": "spacetechmod:wrecked_ship/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:ruined_outpost",
+        "location": "spacetechmod:wrecked_ship",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

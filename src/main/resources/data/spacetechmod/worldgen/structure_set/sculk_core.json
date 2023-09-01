@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "spacetechmod:ruined_settlement_2",
+      "structure": "spacetechmod:sculk_core",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 39203,
-    "spacing": 94,
-    "separation": 71,
+    "salt": 100001,
+    "spacing": 32,
+    "separation": 24,
     "type": "minecraft:random_spread"
   }
 }

@@ -1,6 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_column",
   "textures": {
-    "all": "spacetechmod:block/corrupted_bone"
+    "end": "spacetechmod:block/corrupted_bone_top",
+    "side": "spacetechmod:block/corrupted_bone_side"
   }
 }

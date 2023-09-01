@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:ruined_settlement_2/start_pool",
+  "name": "spacetechmod:sculk_tree_spider/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:ruined_settlement_2",
+        "location": "spacetechmod:sculk_tree_spider",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

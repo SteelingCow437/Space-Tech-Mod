@@ -1,11 +1,11 @@
 {
-  "name": "spacetechmod:ruined_settlement_1/start_pool",
+  "name": "spacetechmod:sculk_core/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "spacetechmod:ruined_settlement_1",
+        "location": "spacetechmod:sculk_core",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
