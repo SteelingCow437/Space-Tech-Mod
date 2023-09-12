@@ -129,15 +129,14 @@ public class ModItems {
 
     //stamps
     public static final RegistryObject<Item> BLANK_STAMP = ITEMS.register("blank_stamp",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> PLATE_STAMP = ITEMS.register("plate_stamp",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> WIRE_STAMP = ITEMS.register("wire_stamp",
             () -> new Item(new Item.Properties()));
     //steel stuff
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties()));
-    //plates n' wires
     //plates
     public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate",
             () -> new Item(new Item.Properties()));
@@ -146,6 +145,8 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_PLATE = ITEMS.register("titanium_plate",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BRONZE_PLATE = ITEMS.register("bronze_plate",
             () -> new Item(new Item.Properties()));
 
     //wires
@@ -210,8 +211,6 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     //bronze
     public static final RegistryObject<Item> BRONZE_INGOT = ITEMS.register("bronze_ingot",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRONZE_PLATE = ITEMS.register("bronze_plate",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick",
             () -> new Item(new Item.Properties()));

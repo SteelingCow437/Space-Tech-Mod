@@ -49,4 +49,12 @@ public class ModLists {
     public static final ArrayList<MobEffect> CALIBRATED_SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
             Arrays.asList(MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
                     MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.NIGHT_VISION, MobEffects.LUCK));
+
+    public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<>(
+            Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
+                    ModItems.BRONZE_INGOT.get()));
+
+    public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<>(
+            Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
+
 }

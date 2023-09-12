@@ -1,5 +1,6 @@
 package com.net.spacetechmod.item.custom.tool;
 
+import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
@@ -34,7 +35,7 @@ public class HammerItem extends Item {
         ItemStack offhand = player.getOffhandItem();
         Item item = offhand.getItem();
         if(!level.isClientSide) {
-            if(block == Blocks.SMITHING_TABLE && player.isShiftKeyDown()) {
+            if(block == ModBlocks.FORGING_TABLE.get() && player.isShiftKeyDown()) {
                 switch(ModLists.HAMMER_INGREDIENT_LIST.indexOf(item)) {
                     case 0 -> {player.addItem(ModItems.IRON_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     case 1, 2 -> {player.addItem(ModItems.CARBON_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
@@ -45,10 +46,5 @@ public class HammerItem extends Item {
             }
         }
         return InteractionResult.FAIL;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> component, TooltipFlag flag) {
-        component.add(Component.literal("A single-use wooden hammer, perfect for smashing things into different shapes!"));
     }
 }

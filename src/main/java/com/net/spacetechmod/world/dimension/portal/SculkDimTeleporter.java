@@ -134,12 +134,12 @@ public class SculkDimTeleporter implements ITeleporter {
             }
         }
 
-        BlockState kaupenPortal = ModBlocks.SCULKDIM_PORTAL.get().defaultBlockState().setValue(SculkDimPortalBlock.AXIS, axis);
+        BlockState portal = ModBlocks.SCULKDIM_PORTAL.get().defaultBlockState().setValue(SculkDimPortalBlock.AXIS, axis);
 
         for(int j2 = 0; j2 < 2; ++j2) {
             for(int l2 = 0; l2 < 3; ++l2) {
                 mutablePos.setWithOffset(blockpos, j2 * direction.getStepX(), l2, j2 * direction.getStepZ());
-                this.level.setBlock(mutablePos, kaupenPortal, 18);
+                this.level.setBlock(mutablePos, portal, 18);
             }
         }
 

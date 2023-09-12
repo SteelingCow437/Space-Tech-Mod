@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.DynamoBlockEntity;
+import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,6 +38,11 @@ public class ModBlockEntities {
                             ModBlocks.CALIBRATED_SCULK_TRAP.get()).build(null));
 
     //Machine
+
+    public static final RegistryObject<BlockEntityType<ForgingTableBlockEntity>> FORGING_TABLE =
+            BLOCK_ENTITIES.register("forging_table", () ->
+                    BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
+                            ModBlocks.FORGING_TABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<DynamoBlockEntity>> DYNAMO =
             BLOCK_ENTITIES.register("dynamo", () ->
                     BlockEntityType.Builder.of(DynamoBlockEntity::new,
