@@ -9,14 +9,12 @@ you would expect from a tech mod.
 
 With that being said, here is my current roadmap:
 
-1. Finish the sculk dimension (so I can learn how to mess with biomes, dimensions, and structures) [I know, so original guys,
-a sculk dimension.]
-2. Create a redstone-like power network or just implement RF (TBD)
-3. Implement a fluid system or just use ForgeFluids (TBD)
-4. Begin experimenting with new biomes and structures
-5. Create a system for rockets
-6. Create planets
-7. Make things fun
-8. IDK what comes after that to be honest. I don't expect to get this far for quite a long time,
+1. Create a redstone-like power network or just implement RF (TBD)
+2. Implement a fluid system or just use ForgeFluids (TBD)
+3. Begin experimenting with new biomes and structures
+4. Create a system for rockets
+5. Create planets
+6. Make things fun
+7. IDK what comes after that to be honest. I don't expect to get this far for quite a long time,
 as I am the only one developing this. If you want to make a pull request to add, fix, or improve
 something, you're more than welcome to.

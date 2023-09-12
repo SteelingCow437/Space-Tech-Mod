@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:temple_of_doom",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 100011,
+    "spacing": 96,
+    "separation": 92,
+    "type": "minecraft:random_spread"
+  }
+}

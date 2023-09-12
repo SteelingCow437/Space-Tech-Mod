@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:ruined_outpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 100010,
+    "spacing": 96,
+    "separation": 92,
+    "type": "minecraft:random_spread"
+  }
+}
