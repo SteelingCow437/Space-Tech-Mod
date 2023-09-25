@@ -2,9 +2,10 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
-import com.net.spacetechmod.block.entity.machine.DynamoBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
+import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -43,10 +44,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forging_table", () ->
                     BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
                             ModBlocks.FORGING_TABLE.get()).build(null));
-    public static final RegistryObject<BlockEntityType<DynamoBlockEntity>> DYNAMO =
-            BLOCK_ENTITIES.register("dynamo", () ->
-                    BlockEntityType.Builder.of(DynamoBlockEntity::new,
-                            ModBlocks.DYNAMO.get()).build(null));
 
     //Fluid container blocks
     public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
@@ -55,6 +52,12 @@ public class ModBlockEntities {
                             ModBlocks.IRON_BARREL.get()).build(null));
 
     //batteries
+
+    //oil
+    public static final RegistryObject<BlockEntityType<OilPumpBlockEntity>> OIL_PUMP =
+            BLOCK_ENTITIES.register("oil_pump", () ->
+                    BlockEntityType.Builder.of(OilPumpBlockEntity::new,
+                            ModBlocks.OIL_PUMP.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

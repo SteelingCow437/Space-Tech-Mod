@@ -18,9 +18,9 @@ import net.minecraft.world.level.material.Fluids;
 
 public class BasicFluidBarrelBlockEntity extends BlockEntity {
 
-    private final int capacity = 24; //in bottles. 1 bottle is 1/3 of a bucket.
+    public final int capacity = 24; //in bottles. 1 bottle is 1/3 of a bucket.
     public Fluid fluidType = Fluids.EMPTY;
-    private int amount = 0;
+    public int amount = 0;
     public BasicFluidBarrelBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.IRON_BARREL.get(), pos, state);
     }
@@ -84,6 +84,20 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
             case 1, 2 -> player.addItem(Items.POTION.getDefaultInstance());
             case 3, 4 -> player.addItem(ModItems.LAVA_BOTTLE.get().getDefaultInstance());
             case 5 -> player.addItem(Items.HONEY_BOTTLE.getDefaultInstance());
+        }
+    }
+
+    public boolean isFull() {
+        return amount >= capacity;
+    }
+
+    public void fillBarrelFromMachine(Fluid type, int fluidAmount) {
+        if(fluidType == Fluids.EMPTY && amount < (fluidAmount + amount)) {
+            fluidType = type;
+            amount += fluidAmount;
+        }
+        else if(fluidType == type && amount < (fluidAmount + amount)) {
+            amount += fluidAmount;
         }
     }
 

@@ -2,9 +2,8 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
-import com.net.spacetechmod.block.custom.machine.DynamoBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
-import com.net.spacetechmod.block.custom.machine.WireBlock;
+import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.tree.SculkTreeGrower;
@@ -122,12 +121,16 @@ public class ModBlocks {
     public static final RegistryObject<Block> FORGING_TABLE = registerBlock("forging_table",
             () -> new ForgingTableBlock(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> DYNAMO = registerBlock("dynamo",
-            () -> new DynamoBlock(BlockBehaviour.Properties.copy(Blocks.LIGHTNING_ROD)
-                    .strength(3f).requiresCorrectToolForDrops()));
-    //Cables
-    public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire",
-            () -> new WireBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)
-                    .strength(3f)));
 
+
+    //Cables
+
+    //cover yuorself in oyul
+    public static final RegistryObject<Block> OIL_DEPOSIT = registerBlock("oil_deposit",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(3)
+                    .noLootTable()));
+
+    public static final RegistryObject<Block> OIL_PUMP = registerBlock("oil_pump",
+            () -> new OilPumpBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(6f)
+                    .requiresCorrectToolForDrops()));
 }

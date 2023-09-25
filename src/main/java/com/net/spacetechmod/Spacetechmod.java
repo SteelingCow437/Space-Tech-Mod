@@ -96,6 +96,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.SCULK_ALTAR);
             event.accept(ModBlocks.SCULK_CORE);
             event.accept(ModBlocks.CALIBRATED_SCULK_TRAP);
+            event.accept(ModBlocks.OIL_DEPOSIT);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -172,9 +173,8 @@ public class Spacetechmod {
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
-            event.accept(ModBlocks.DYNAMO);
-            event.accept(ModBlocks.WIRE_BLOCK);
             event.accept(ModBlocks.FORGING_TABLE);
+            event.accept(ModBlocks.OIL_PUMP);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);

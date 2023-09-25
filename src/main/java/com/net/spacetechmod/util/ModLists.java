@@ -3,6 +3,7 @@ package com.net.spacetechmod.util;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModItems;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -34,7 +35,7 @@ public class ModLists {
                     ModFluids.HONEY.get()));
 
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
-            (Arrays.asList(ModBlockEntities.DYNAMO.get()));
+            (Arrays.asList(ModBlockEntities.OIL_PUMP.get()));
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get()));
@@ -50,11 +51,10 @@ public class ModLists {
             Arrays.asList(MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
                     MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.NIGHT_VISION, MobEffects.LUCK));
 
-    public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<>(
+    public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
                     ModItems.BRONZE_INGOT.get()));
 
-    public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<>(
+    public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
-
 }

@@ -99,12 +99,12 @@
   "item.spacetechmod.bronze_plate": "Bronze Plate",
   "item.spacetechmod.magic_quiver": "Magic Quiver",
   "item.spacetechmod.lightning_staff": "Lightning Staff",
-  "block.spacetechmod.wire": "Copper Cable",
-  "block.spacetechmod.dynamo": "Dynamo",
   "item.spacetechmod.death_marker_staff": "Marker of Death",
   "block.spacetechmod.sculk_core": "Sculk Core",
   "item.spacetechmod.teleport_marker": "Amethyst Pearl",
   "block.spacetechmod.calibrated_sculk_trap": "Calibrated Sculk Trap",
   "item.spacetechmod.calibrated_sculk_heart": "Calibrated Sculk Heart",
-  "block.spacetechmod.forging_table": "Forging Table"
+  "block.spacetechmod.forging_table": "Forging Table",
+  "block.spacetechmod.oil_deposit": "Oil Deposit",
+  "block.spacetechmod.oil_pump": "Oil Pump"
 }

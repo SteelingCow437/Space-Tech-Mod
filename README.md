@@ -7,14 +7,31 @@ as this is my first mod and I want to make sure that I make everything as vanill
 as possible and easy to understand while still maintaining a high level of technicality that
 you would expect from a tech mod.
 
-With that being said, here is my current roadmap:
+If you see something that either looks gross, works poorly, or just needs improvement, make a pull request
+or open up an issue, so I can know what's going on. Things will be broked/janky, I'm an amateur programmer
+and modder, so bear with me here.
 
-1. Create a redstone-like power network or just implement RF (TBD)
-2. Implement a fluid system or just use ForgeFluids (TBD)
-3. Begin experimenting with new biomes and structures
-4. Create a system for rockets
-5. Create planets
-6. Make things fun
-7. IDK what comes after that to be honest. I don't expect to get this far for quite a long time,
-as I am the only one developing this. If you want to make a pull request to add, fix, or improve
-something, you're more than welcome to.
+FAQ:
+
+"What versions?"  1.20.1 Forge, as of now. I'll update to the latest versions of everything as soon as
+I humanly can.
+
+"Fabric? Quilt?" No. By all means, port them if you know how, but don't bother asking ME to do it.
+
+"Hotel?"  Trivago.
+
+"Can you add X?"  If it's a good suggestion, maybe. Don't put suggestions in the issues tab, that's
+for issues, not for suggestions. If you want something, make a pull request, or make it a really good
+suggestion.
+
+"When will X be done?"  IDK. I work at my own pace. I have school, a job, and an Eagle Scout project to
+work on, and all of those come first.
+
+"I hate you and this mod is stupid!"  Then don't download it
+
+"How do I make X?"  Use the mod Just Enough Items / JEI / whatever it's called now.
+If it's not in there, chances are you either have to find it or it's made at a special
+crafting station. Recipes for everything will be on the wiki in the GitHub page.
+
+"How do I download it?"  Download the file from the "Releases" tab and put it in your
+mods folder
