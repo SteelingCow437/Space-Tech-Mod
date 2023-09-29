@@ -7,6 +7,8 @@ import com.net.spacetechmod.fluid.ModFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -23,6 +25,12 @@ public class OilPumpBlockEntity extends BlockEntity {
     private int x = worldPosition.getX();
     private int y = worldPosition.getY();
     private int z = worldPosition.getZ();
+
+    public boolean active = false;
+
+    public static final int powerDrawPerTick = 25;
+
+    private BlockEntity wire;
 
     private BasicFluidBarrelBlockEntity connectedBarrel;
 
@@ -63,6 +71,19 @@ public class OilPumpBlockEntity extends BlockEntity {
         return blockPositions;
     }
 
+    public void drawPower() {
+        if(powerSourceConnected(level)) {
+            ((WireBlockEntity) wire).addEnergyPerTick(-25);
+            ((WireBlockEntity) wire).updateNeighbors(level);
+        }
+    }
+
+    public void disconnectPower() {
+        if(powerSourceConnected(level)) {
+            ((WireBlockEntity) wire).addEnergyPerTick(25);
+        }
+    }
+
     private ArrayList getOilDeposits(Level level) {
         if(boundingBox != null) {
             ArrayList<Block> desiredBlocks = new ArrayList<Block>(List.of(ModBlocks.OIL_DEPOSIT.get()));
@@ -85,14 +106,28 @@ public class OilPumpBlockEntity extends BlockEntity {
         return false;
     }
 
+    public boolean powerSourceConnected(Level level) {
+        for(BlockPos pos : ADJACENT_POS_LIST) {
+            if(level.getBlockEntity(pos) instanceof WireBlockEntity) {
+                wire = level.getBlockEntity(pos);
+                return ((WireBlockEntity) wire).energyPerTick >= 25;
+            }
+        }
+        return false;
+    }
+
     public static void tick(Level level, BlockPos pos, BlockState state, OilPumpBlockEntity entity) {
-        if(timer >= 100 && entity.boundingBox != null) {
+        if(timer >= 100 && entity.boundingBox != null && entity.active) {
             if(entity.barrelConnected(level) && entity.getOilDeposits(level) != null) {
+                if(entity.connectedBarrel.fluidType == null) {entity.connectedBarrel.fluidType = ModFluids.CRUDE_OIL.get();}
+                while(!entity.connectedBarrel.isFull() && entity.overflowCapacity > 0) {
+                    entity.overflowCapacity--;
+                    entity.connectedBarrel.amount++;
+                }
                 index = random.nextInt(entity.getOilDeposits(level).size());
                 removePos = (BlockPos) entity.getOilDeposits(level).get(index);
                 if(removePos != null) {
                     level.removeBlock(removePos, false);
-                    entity.connectedBarrel.fluidType = ModFluids.CRUDE_OIL.get();
                     if(!entity.connectedBarrel.isFull()) {
                         entity.connectedBarrel.fillBarrelFromMachine(ModFluids.CRUDE_OIL.get(), 2);
                         while(entity.connectedBarrel.amount > entity.connectedBarrel.capacity) {
@@ -104,9 +139,10 @@ public class OilPumpBlockEntity extends BlockEntity {
                         entity.overflowCapacity += 2;
                     }
                 }
+                else {
+                    entity.disconnectPower();
+                }
             }
         }
     }
-
-
 }

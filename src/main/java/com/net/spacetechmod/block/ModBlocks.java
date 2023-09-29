@@ -4,9 +4,11 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
 import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
+import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.tree.SculkTreeGrower;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -124,6 +126,8 @@ public class ModBlocks {
 
 
     //Cables
+    public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire_block",
+            () -> new WireBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).strength(3f)));
 
     //cover yuorself in oyul
     public static final RegistryObject<Block> OIL_DEPOSIT = registerBlock("oil_deposit",

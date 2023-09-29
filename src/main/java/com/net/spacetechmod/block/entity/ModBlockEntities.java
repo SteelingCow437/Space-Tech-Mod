@@ -6,6 +6,7 @@ import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
+import com.net.spacetechmod.block.entity.machine.WireBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -51,7 +52,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
                             ModBlocks.IRON_BARREL.get()).build(null));
 
-    //batteries
+    //wires
+    public static final RegistryObject<BlockEntityType<WireBlockEntity>> WIRE =
+            BLOCK_ENTITIES.register("wire", () ->
+                    BlockEntityType.Builder.of(WireBlockEntity::new,
+                            ModBlocks.WIRE_BLOCK.get()).build(null));
 
     //oil
     public static final RegistryObject<BlockEntityType<OilPumpBlockEntity>> OIL_PUMP =
