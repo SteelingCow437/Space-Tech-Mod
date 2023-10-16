@@ -13,10 +13,10 @@ and modder, so bear with me here.
 
 FAQ:
 
-"What versions?"  1.20.1 Forge, as of now. I'll update to the latest versions of everything as soon as
+"What versions?"  1.20.1 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
 
-"Fabric? Quilt?" No. By all means, port them if you know how, but don't bother asking ME to do it.
+"Fabric? Quilt? Regular Forge?" No. By all means, port them if you know how, but don't bother asking ME to do it.
 
 "Hotel?"  Trivago.
 
@@ -27,11 +27,12 @@ suggestion.
 "When will X be done?"  IDK. I work at my own pace. I have school, a job, and an Eagle Scout project to
 work on, and all of those come first.
 
-"I hate you and this mod is stupid!"  Then don't download it
+"I hate you and this mod is stupid!"  Then don't download it.
 
 "How do I make X?"  Use the mod Just Enough Items / JEI / whatever it's called now.
 If it's not in there, chances are you either have to find it or it's made at a special
 crafting station. Recipes for everything will be on the wiki in the GitHub page.
 
-"How do I download it?"  Download the file from the "Releases" tab and put it in your
-mods folder
+"How do I download it?"  Download the JAR file from the "Releases" tab and put it in your
+mods folder. There are no dependencies, but I recommend some performance mods, as Mojang doesn't know how to code, and
+neither do I.
