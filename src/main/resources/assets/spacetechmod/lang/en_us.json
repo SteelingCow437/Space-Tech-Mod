@@ -106,5 +106,7 @@
   "item.spacetechmod.calibrated_sculk_heart": "Calibrated Sculk Heart",
   "block.spacetechmod.forging_table": "Forging Table",
   "block.spacetechmod.oil_deposit": "Oil Deposit",
-  "block.spacetechmod.oil_pump": "Oil Pump"
+  "block.spacetechmod.oil_pump": "Oil Pump",
+  "block.spacetechmod.wire_block": "Wire Block",
+  "item.spacetechmod.copper_redstide_wiring": "Copper Redstide Wiring"
 }

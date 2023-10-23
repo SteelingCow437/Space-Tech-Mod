@@ -5,6 +5,8 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.fluid.ModFluids;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -73,14 +75,28 @@ public class OilPumpBlockEntity extends BlockEntity {
 
     public void drawPower() {
         if(powerSourceConnected(level)) {
-            ((WireBlockEntity) wire).addEnergyPerTick(-25);
+            ((WireBlockEntity) wire).addEnergyPerTick(-powerDrawPerTick);
             ((WireBlockEntity) wire).updateNeighbors(level);
         }
     }
 
+    public boolean checkPower() {
+        if(active) {
+            if(((WireBlockEntity) wire).energyPerTick > -1) {
+                return true;
+            }
+        }
+        else {
+            if(((WireBlockEntity) wire).energyPerTick >= powerDrawPerTick) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void disconnectPower() {
         if(powerSourceConnected(level)) {
-            ((WireBlockEntity) wire).addEnergyPerTick(25);
+            ((WireBlockEntity) wire).addEnergyPerTick(powerDrawPerTick);
         }
     }
 
@@ -110,14 +126,14 @@ public class OilPumpBlockEntity extends BlockEntity {
         for(BlockPos pos : ADJACENT_POS_LIST) {
             if(level.getBlockEntity(pos) instanceof WireBlockEntity) {
                 wire = level.getBlockEntity(pos);
-                return ((WireBlockEntity) wire).energyPerTick >= 25;
+                return wire != null && ((WireBlockEntity) wire).energyPerTick >= powerDrawPerTick;
             }
         }
         return false;
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, OilPumpBlockEntity entity) {
-        if(timer >= 100 && entity.boundingBox != null && entity.active) {
+        if(timer >= 100 && entity.boundingBox != null && entity.active && entity.checkPower()) {
             if(entity.barrelConnected(level) && entity.getOilDeposits(level) != null) {
                 if(entity.connectedBarrel.fluidType == null) {entity.connectedBarrel.fluidType = ModFluids.CRUDE_OIL.get();}
                 while(!entity.connectedBarrel.isFull() && entity.overflowCapacity > 0) {
@@ -144,5 +160,12 @@ public class OilPumpBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    public void debug(Player player) {
+        player.sendSystemMessage(Component.literal(
+                "Is drawing power: " + active + "\n"
+                + "Overflow: " + overflowCapacity + "\n"
+                + "Amount of detected oil blocks: " + getOilDeposits(level)));
     }
 }

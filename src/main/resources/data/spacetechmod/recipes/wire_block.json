@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "###",
+    "***"
+  ],
+  "key": {
+    "#": {
+      "item": "spacetechmod:copper_redstide_wiring"
+    },
+    "*": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "result": {
+    "item": "spacetechmod:wire_block",
+    "count": 16
+  }
+}

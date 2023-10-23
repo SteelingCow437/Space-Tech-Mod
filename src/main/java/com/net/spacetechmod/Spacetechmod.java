@@ -126,6 +126,7 @@ public class Spacetechmod {
             event.accept(ModItems.BRONZE_INGOT);
             event.accept(ModItems.BRONZE_PLATE);
             event.accept(ModItems.IRON_PLATE);
+            event.accept(ModItems.COPPER_REDSTIDE_WIRING);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -175,6 +176,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.IRON_BARREL);
             event.accept(ModBlocks.FORGING_TABLE);
             event.accept(ModBlocks.OIL_PUMP);
+            event.accept(ModBlocks.WIRE_BLOCK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);

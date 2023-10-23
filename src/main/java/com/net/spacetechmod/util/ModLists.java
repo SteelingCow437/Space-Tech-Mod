@@ -22,7 +22,7 @@ public class ModLists {
     //A class that contains the lists of things that I use to improve the performance of things
     //that benefit from using switches, such as barrels and the hammer. These lists didn't
     //want to play nice in any other class, so here they are. Consider this to be the backbone of
-    //the mod's "API" I guess. I don't feel like learning how to make an API/implement a proper Forge
+    //the mod's "API" I guess. I don't feel like learning how to make an API/implement a proper Neoforge
     //one, so here this is.
 
     public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>(
@@ -54,7 +54,7 @@ public class ModLists {
 
     public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
-                    ModItems.BRONZE_INGOT.get()));
+                    ModItems.BRONZE_INGOT.get(), ModItems.COPPER_REDSTIDE_INGOT.get()));
 
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));

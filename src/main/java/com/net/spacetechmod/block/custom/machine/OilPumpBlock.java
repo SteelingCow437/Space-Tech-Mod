@@ -2,6 +2,7 @@ package com.net.spacetechmod.block.custom.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
+import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -31,15 +32,20 @@ public class OilPumpBlock extends BaseEntityBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof OilPumpBlockEntity) {
+        if(entity instanceof OilPumpBlockEntity && player.getMainHandItem() != ModItems.DEBUG_STICK.get().getDefaultInstance()) {
             ((OilPumpBlockEntity) entity).active = !((OilPumpBlockEntity) entity).active;
-            if (((OilPumpBlockEntity) entity).active) {
+            if (((OilPumpBlockEntity) entity).active && ((OilPumpBlockEntity) entity).checkPower()) {
                 ((OilPumpBlockEntity) entity).drawPower();
             }
             else {
                 ((OilPumpBlockEntity) entity).disconnectPower();
             }
             level.playSound(player, pos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 2.0f, 2.0f);
+        }
+        else {
+            if(entity instanceof OilPumpBlockEntity) {
+                ((OilPumpBlockEntity) entity).debug(player);
+            }
         }
         return super.use(state, level, pos, player, hand, hit);
     }

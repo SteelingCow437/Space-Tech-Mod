@@ -4,6 +4,8 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -49,5 +51,9 @@ public class WireBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    public void debug(Player player) {
+        player.sendSystemMessage(Component.literal("Energy Per Tick: " + energyPerTick));
     }
 }

@@ -22,6 +22,9 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AQUAMARINE_PLACED_KEY = createKey("aquamarine_placed");
     public static final ResourceKey<PlacedFeature> TIN_PLACED_KEY = createKey("tin_placed");
 
+    //geodes
+    public static final ResourceKey<PlacedFeature> OIL_DEPOSIT_PLACED_KEY = createKey("oil_deposit_placed");
+
     //trees
     public static final ResourceKey<PlacedFeature> SCULK_TREE_PLACED_KEY = createKey("sculk_tree_placed");
 
@@ -30,18 +33,23 @@ public class ModPlacedFeatures {
 
         register(context, TITANIUM_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TITANIUM_ORE_KEY),
                 commonOrePlacement(12, //veins per chunk
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-51), VerticalAnchor.aboveBottom(120))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-51), VerticalAnchor.absolute(120))));
 
         register(context, AQUAMARINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.AQUAMARINE_ORE_KEY),
                 commonOrePlacement(4, //veins per chunk
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(30))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(30))));
 
         register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 commonOrePlacement(6, //veins per chunk
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-63), VerticalAnchor.aboveBottom(45))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-63), VerticalAnchor.absolute(45))));
 
         register(context, SCULK_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SCULK_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2), ModBlocks.BONE_SAPLING.get()));
+
+        register(context, OIL_DEPOSIT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OIL_DEPOSIT_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(25), InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(40)),
+                        BiomeFilter.biome()));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

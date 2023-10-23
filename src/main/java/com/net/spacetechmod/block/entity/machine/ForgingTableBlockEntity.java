@@ -37,22 +37,31 @@ public class ForgingTableBlockEntity extends BlockEntity {
                         case 4 -> result = ModItems.BRONZE_PLATE.get();
                         default -> player.sendSystemMessage(Component.literal("Invalid recipe!"));
                     }
-                    giveItem(player);
+                    givePlate(player);
+                    level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
                 } else if (stamp == ModItems.WIRE_STAMP.get()) {
                     switch (ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem())) {
                         case 1 -> result = ModItems.COPPER_WIRING.get();
+                        case 5 -> result = ModItems.COPPER_REDSTIDE_WIRING.get();
                         default -> player.sendSystemMessage(Component.literal("Invalid recipe!"));
-                        //more to come soon i swear
                     }
-                    giveItem(player);
+                    giveWire(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
                 }
             }
         }
     }
-    public void giveItem(Player player) {
+    public void givePlate(Player player) {
         if(result != null) {
             player.addItem(new ItemStack(result, ingredient.getCount()));
+            ingredient = ItemStack.EMPTY;
+            result = null;
+        }
+    }
+
+    public void giveWire(Player player) {
+        if(result != null) {
+            player.addItem(new ItemStack(result, 8 * ingredient.getCount()));
             ingredient = ItemStack.EMPTY;
             result = null;
         }
