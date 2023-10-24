@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.fluid.ModFluids;
@@ -74,26 +75,22 @@ public class OilPumpBlockEntity extends BlockEntity {
     }
 
     public void drawPower() {
-        if(powerSourceConnected(level)) {
+        if(powerSourceConnected(level) && checkPower()) {
             ((WireBlockEntity) wire).addEnergyPerTick(-powerDrawPerTick);
             ((WireBlockEntity) wire).updateNeighbors(level);
         }
     }
 
     public boolean checkPower() {
-        if(active) {
-            if(((WireBlockEntity) wire).energyPerTick > -1) {
-                return true;
-            }
-        }
-        else {
-            if(((WireBlockEntity) wire).energyPerTick >= powerDrawPerTick) {
-                return true;
+        if (wire != null && wire instanceof WireBlockEntity) {
+            if (active) {
+                return ((WireBlockEntity) wire).energyPerTick > -1;
+            } else {
+                return ((WireBlockEntity) wire).energyPerTick >= powerDrawPerTick;
             }
         }
         return false;
     }
-
     public void disconnectPower() {
         if(powerSourceConnected(level)) {
             ((WireBlockEntity) wire).addEnergyPerTick(powerDrawPerTick);
