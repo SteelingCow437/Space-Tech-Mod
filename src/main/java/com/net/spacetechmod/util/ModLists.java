@@ -3,13 +3,10 @@ package com.net.spacetechmod.util;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModItems;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluids;
@@ -21,10 +18,11 @@ public class ModLists {
 
     //A class that contains the lists of things that I use to improve the performance of things
     //that benefit from using switches, such as barrels and the hammer. These lists didn't
-    //want to play nice in any other class, so here they are. Consider this to be the backbone of
-    //the mod's "API" I guess. I don't feel like learning how to make an API/implement a proper Neoforge
+    //want to play nice in any other class, so here they are. Consider this to be the mod's "API"
+    //I guess. I don't feel like learning how to make an API/implement a proper Neoforged
     //one, so here this is.
 
+    //general lists
     public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.OIL_BUCKET.get()));
 
@@ -58,7 +56,4 @@ public class ModLists {
 
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
-
-    public static final ArrayList<Block> ENERGY_SOURCE_LIST = new ArrayList<Block>(
-            Arrays.asList());
 }

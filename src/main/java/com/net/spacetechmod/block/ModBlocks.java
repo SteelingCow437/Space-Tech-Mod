@@ -3,12 +3,12 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
+import com.net.spacetechmod.block.custom.machine.GeneratorBlock;
 import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.tree.SculkTreeGrower;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -124,6 +124,9 @@ public class ModBlocks {
             () -> new ForgingTableBlock(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> GENERATOR = registerBlock("generator",
+            () -> new GeneratorBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)
+                    .strength(5f).requiresCorrectToolForDrops()));
 
     //Cables
     public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire_block",

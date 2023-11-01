@@ -2,12 +2,15 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
+import com.net.spacetechmod.block.entity.machine.GeneratorBlockEntity;
 import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
 import com.net.spacetechmod.block.entity.machine.WireBlockEntity;
-import com.net.spacetechmod.block.entity.sculk.*;
+import com.net.spacetechmod.block.entity.sculk.CalibratedSculkTrapBlockEntity;
+import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
+import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
+import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,6 +48,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forging_table", () ->
                     BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
                             ModBlocks.FORGING_TABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<GeneratorBlockEntity>> GENERATOR =
+            BLOCK_ENTITIES.register("generator", () ->
+                    BlockEntityType.Builder.of(GeneratorBlockEntity::new,
+                            ModBlocks.GENERATOR.get()).build(null));
 
     //Fluid container blocks
     public static final RegistryObject<BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
