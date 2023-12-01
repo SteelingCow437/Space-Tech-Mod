@@ -126,7 +126,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator",
             () -> new GeneratorBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(4.5f).requiresCorrectToolForDrops()));
 
     //Cables
     public static final RegistryObject<Block> WIRE_BLOCK = registerBlock("wire_block",

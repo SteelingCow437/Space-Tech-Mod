@@ -108,5 +108,6 @@
   "block.spacetechmod.oil_deposit": "Oil Deposit",
   "block.spacetechmod.oil_pump": "Oil Pump",
   "block.spacetechmod.wire_block": "Wire Block",
-  "item.spacetechmod.copper_redstide_wiring": "Copper Redstide Wiring"
+  "item.spacetechmod.copper_redstide_wiring": "Copper Redstide Wiring",
+  "block.spacetechmod.generator": "Generator"
 }
