@@ -7,7 +7,7 @@ plugins {
     //id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '47.0.145'
+version = '47.0.146'
 group = 'com.david.stm'
 
 base {
