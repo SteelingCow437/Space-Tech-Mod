@@ -1,11 +1,17 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
+import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -32,23 +38,18 @@ public class GeneratorBlockEntity extends BlockEntity {
 
     private ArrayList<BlockEntity> ADJACENT_WIRES = new ArrayList<BlockEntity>(Arrays.asList());
     int itemCount = 0;
-    int burnTime = 0;
+    public int burnTime = 0;
     public static final int burnEnergy = 250; //energy per tick
     public boolean active = false;
 
     public void addItem(ItemStack stack) {
         ItemStack checkStack = new ItemStack(stack.getItem(), 1);
         if(ForgeHooks.getBurnTime(checkStack, RecipeType.SMELTING) > 0) {
-            if(itemList.size() < 5) {
-                for(Item item : itemList) {
-                    if(item == null) {
-                        itemList.add(stack.getItem());
-                        stack.shrink(1);
-                        ++itemCount;
-                        burnTime += ForgeHooks.getBurnTime(checkStack, RecipeType.SMELTING);
-                        break;
-                    }
-                }
+            if(itemList.isEmpty() || itemList.size() < 5 || itemCount < 5) {
+                itemList.add(stack.getItem());
+                stack.shrink(1);
+                ++itemCount;
+                burnTime += ForgeHooks.getBurnTime(checkStack, RecipeType.SMELTING);
             }
             else {
                 level.playSound(null, getBlockPos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
@@ -83,6 +84,9 @@ public class GeneratorBlockEntity extends BlockEntity {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GeneratorBlockEntity entity) {
+        if(entity.burnTime > 0) {
+            --entity.burnTime;
+        }
         if(entity.burnTime > 0 && !entity.active) {
             entity.updateNeighbors(level);
         }
@@ -91,8 +95,28 @@ public class GeneratorBlockEntity extends BlockEntity {
             entity.itemList.clear();
             entity.itemCount = 0;
         }
-        if (entity.burnTime > 0) {
-            --entity.burnTime;
-        }
+    }
+
+    @Override
+    public void saveAdditional(CompoundTag nbt) {
+        nbt.putInt("burntime", burnTime);
+        nbt.putBoolean("active", active);
+        nbt.putInt("itemcount", itemCount);
+        super.saveAdditional(nbt);
+    }
+
+    @Override
+    public void load(CompoundTag nbt) {
+        burnTime = nbt.getInt("burntime");
+        active = nbt.getBoolean("active");
+        itemCount = nbt.getInt("itemcount");
+        super.load(nbt);
+    }
+
+    public void debug(Player player) {
+        player.sendSystemMessage(Component.literal(
+                "Is active: " + active + "\n"
+                        + "Burn time remaining: " + burnTime + "\n"
+                        + "Amount of items in generator: " + itemCount));
     }
 }

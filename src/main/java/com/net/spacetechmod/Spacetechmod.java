@@ -177,6 +177,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.FORGING_TABLE);
             event.accept(ModBlocks.OIL_PUMP);
             event.accept(ModBlocks.WIRE_BLOCK);
+            event.accept(ModBlocks.GENERATOR);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.OIL_BOTTLE);

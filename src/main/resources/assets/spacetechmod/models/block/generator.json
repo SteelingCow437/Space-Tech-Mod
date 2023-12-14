@@ -1,12 +1,8 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "down": "minecraft:block/furnace_bottom",
-    "east": "minecraft:block/furnace_side",
-    "north": "spacetechmod:block/generator_front",
-    "particle": "minecraft:block/furnace",
-    "south": "minecraft:block/furnace_side",
-    "up": "spacetechmod:block/generator_top",
-    "west": "minecraft:block/furnace_side"
+    "bottom": "minecraft:block/furnace_bottom",
+    "side": "minecraft:block/furnace_side",
+    "top": "minecraft:block/furnace_front"
   }
 }

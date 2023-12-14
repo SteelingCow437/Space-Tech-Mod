@@ -20,13 +20,14 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class OilPumpBlock extends BaseEntityBlock {
-    public OilPumpBlock(Properties properties) {
-        super(properties);
-    }
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    public OilPumpBlock(Properties properties) {
+        super(properties);
     }
 
     @Override

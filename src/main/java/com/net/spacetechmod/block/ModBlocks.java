@@ -45,6 +45,8 @@ public class ModBlocks {
     //Register blocks below this line
     //The stuff above is just to declare the block class
 
+    //IMPORTANT: DO NOT USE ANY "Properties.copy(Blocks.FURNACE)" IT WILL CRASH THE GAME!!!
+
     //titanium
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
@@ -125,7 +127,7 @@ public class ModBlocks {
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator",
-            () -> new GeneratorBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)
+            () -> new GeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
     //Cables

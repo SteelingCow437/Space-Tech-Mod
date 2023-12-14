@@ -4,9 +4,15 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.fluid.ModFluids;
+import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -154,6 +160,21 @@ public class OilPumpBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    @Override
+    public void saveAdditional(CompoundTag nbt) {
+        nbt.putInt("overflow", overflowCapacity);
+        nbt.putBoolean("active", active);
+        super.saveAdditional(nbt);
+    }
+
+    @Override
+    public void load(CompoundTag nbt) {
+        overflowCapacity = nbt.getInt("overflow");
+        active = nbt.getBoolean("active");
+        getOilDeposits(level);
+        super.load(nbt);
     }
 
     public void debug(Player player) {
