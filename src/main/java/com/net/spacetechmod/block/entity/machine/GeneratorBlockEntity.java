@@ -1,8 +1,6 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.item.ModItems;
-import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -11,12 +9,11 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,12 +41,12 @@ public class GeneratorBlockEntity extends BlockEntity {
 
     public void addItem(ItemStack stack) {
         ItemStack checkStack = new ItemStack(stack.getItem(), 1);
-        if(ForgeHooks.getBurnTime(checkStack, RecipeType.SMELTING) > 0) {
+        if(CommonHooks.getBurnTime(checkStack, RecipeType.SMELTING) > 0) {
             if(itemList.isEmpty() || itemList.size() < 5 || itemCount < 5) {
                 itemList.add(stack.getItem());
                 stack.shrink(1);
                 ++itemCount;
-                burnTime += ForgeHooks.getBurnTime(checkStack, RecipeType.SMELTING);
+                burnTime += CommonHooks.getBurnTime(checkStack, RecipeType.SMELTING);
             }
             else {
                 level.playSound(null, getBlockPos(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);

@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.machine;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -57,6 +58,11 @@ public class ForgingTableBlock extends BaseEntityBlock {
     public ForgingTableBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(STAMP, stampNumber));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

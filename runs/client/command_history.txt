@@ -1,0 +1,8 @@
+/locate structure minecraft:ancient_city
+/tp @s -912 ~ -624
+/gamemode spectator
+/effect give Dev minecraft:night_vision infinite
+/tp @s ~ -50 ~
+/gamemode creative
+/locate structure spacetechmod:sculk_core
+/tp @s -1488 ~ -448

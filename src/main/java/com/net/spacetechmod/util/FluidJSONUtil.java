@@ -3,7 +3,7 @@ package com.net.spacetechmod.util;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class FluidJSONUtil {
     public static FluidStack readFluid(JsonObject json) {

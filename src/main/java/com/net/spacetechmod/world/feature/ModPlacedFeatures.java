@@ -1,13 +1,10 @@
 package com.net.spacetechmod.world.feature;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -42,9 +39,6 @@ public class ModPlacedFeatures {
         register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 commonOrePlacement(6, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-63), VerticalAnchor.absolute(45))));
-
-        register(context, SCULK_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SCULK_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2), ModBlocks.BONE_SAPLING.get()));
 
         register(context, OIL_DEPOSIT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OIL_DEPOSIT_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(25), InSquarePlacement.spread(),

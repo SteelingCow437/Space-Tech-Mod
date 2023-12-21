@@ -1,6 +1,5 @@
 package com.net.spacetechmod.block.custom.sculk;
 
-import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
@@ -9,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -52,9 +52,9 @@ public class SculkAltarBlock extends Block {
                     }
                 }
                 case 3 -> {
-                    if(player.experienceLevel >= 100) {
-                        player.getMainHandItem().enchant(ModEnchantments.MAGIC_REPAIR.get(), 0);
-                        player.experienceLevel -= 100;
+                    if(player.experienceLevel >= 30) {
+                        player.getMainHandItem().enchant(Enchantments.MENDING, 0);
+                        player.experienceLevel -= 30;
                     }
                 }
             }

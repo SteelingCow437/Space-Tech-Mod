@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.sculk;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.sculk.CalibratedSculkTrapBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -22,6 +23,11 @@ import org.jetbrains.annotations.Nullable;
 public class CalibratedSculkTrapBlock extends BaseEntityBlock {
     public CalibratedSculkTrapBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

@@ -13,7 +13,7 @@ and modder, so bear with me here.
 
 FAQ:
 
-"What versions?"  1.20.1 Neoforged, as of now. I'll update to the latest versions of everything as soon as
+"What versions?"  1.20.4 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
 
 "Fabric? Quilt? Regular Forge?" No. By all means, port them if you know how, but don't bother asking ME to do it.

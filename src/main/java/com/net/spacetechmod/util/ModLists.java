@@ -8,7 +8,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class ModLists {
     public static final ArrayList<Item> BOTTLE_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.OIL_BOTTLE.get(), ModItems.LAVA_BOTTLE.get()));
 
-    public static final ArrayList<FlowingFluid> FLUIDS_INDEX = new ArrayList<FlowingFluid>(
+    public static final ArrayList<Fluid> FLUIDS_INDEX = new ArrayList<Fluid>(
             Arrays.asList(ModFluids.CRUDE_OIL.get(), Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA,
                     ModFluids.HONEY.get()));
 

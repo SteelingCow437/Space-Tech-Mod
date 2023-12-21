@@ -25,11 +25,11 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.ICancellableEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class SculkDimPortalBlock extends Block {
@@ -38,7 +38,7 @@ public class SculkDimPortalBlock extends Block {
     protected static final VoxelShape Z_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
     public SculkDimPortalBlock() {
-        super(Properties.copy(Blocks.NETHER_PORTAL)
+        super(Properties.ofFullCopy(Blocks.NETHER_PORTAL)
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 10)
@@ -68,12 +68,17 @@ public class SculkDimPortalBlock extends Block {
         }
     }
 
-    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, SculkDimPortalBlock.Size size) {
-        return MinecraftForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
+    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, Size size) {
+        boolean worked;
+        if(NeoForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size)).getPortalSize().validatePortal()) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    @Cancelable
-    public static class PortalSpawnEvent extends BlockEvent {
+    public static class PortalSpawnEvent extends BlockEvent implements ICancellableEvent {
         private final SculkDimPortalBlock.Size size;
 
         public PortalSpawnEvent(LevelAccessor world, BlockPos pos, BlockState state, SculkDimPortalBlock.Size size) {
@@ -163,7 +168,6 @@ public class SculkDimPortalBlock extends Block {
         }
     }
 
-    @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }

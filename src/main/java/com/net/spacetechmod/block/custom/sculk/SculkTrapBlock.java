@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.sculk;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.sculk.SculkTrapBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -16,6 +17,11 @@ public class SculkTrapBlock extends BaseEntityBlock {
 
     public SculkTrapBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

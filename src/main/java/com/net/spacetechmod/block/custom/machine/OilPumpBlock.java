@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.machine;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
 import com.net.spacetechmod.item.ModItems;
@@ -28,6 +29,11 @@ public class OilPumpBlock extends BaseEntityBlock {
 
     public OilPumpBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

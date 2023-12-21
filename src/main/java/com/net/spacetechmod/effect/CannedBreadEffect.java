@@ -24,9 +24,4 @@ public class CannedBreadEffect extends MobEffect {
         }
         super.applyEffectTick(entity, amplifier);
     }
-
-    @Override
-    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return true;
-    }
 }

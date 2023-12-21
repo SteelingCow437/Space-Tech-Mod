@@ -3,17 +3,17 @@ package com.net.spacetechmod.villager;
 import com.google.common.collect.ImmutableSet;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModPOIs {
     public static final DeferredRegister<PoiType> POI
-            = DeferredRegister.create(ForgeRegistries.POI_TYPES, Spacetechmod.MOD_ID);
+            = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, Spacetechmod.MOD_ID);
 
-    public static final RegistryObject<PoiType> SCULKDIM_PORTAL =
+    public static final DeferredHolder<PoiType, PoiType> SCULKDIM_PORTAL =
             POI.register("sculkdim_portal", () -> new PoiType(
                     ImmutableSet.copyOf(ModBlocks.SCULKDIM_PORTAL.get().getStateDefinition().getPossibleStates()),
                             0, 1));

@@ -1,8 +1,8 @@
 package com.net.spacetechmod.block.custom.machine;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.machine.GeneratorBlockEntity;
-import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -27,6 +27,11 @@ public class GeneratorBlock extends BaseEntityBlock {
 
     public GeneratorBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

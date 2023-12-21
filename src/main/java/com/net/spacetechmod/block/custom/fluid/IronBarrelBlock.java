@@ -1,5 +1,6 @@
 package com.net.spacetechmod.block.custom.fluid;
 
+import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -18,6 +19,11 @@ public class IronBarrelBlock extends BaseEntityBlock {
 
     public IronBarrelBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

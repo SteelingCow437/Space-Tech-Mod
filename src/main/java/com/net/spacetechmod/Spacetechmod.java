@@ -3,30 +3,30 @@ package com.net.spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
-import com.net.spacetechmod.enchantment.ModEnchantments;
+//import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.fluid.ModFluidTypes;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
-import com.net.spacetechmod.networking.ModMessages;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.sound.ModSounds;
 import com.net.spacetechmod.util.BetterBrewingRecipe;
-import com.net.spacetechmod.villager.ModPOIs;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -51,17 +51,17 @@ public class Spacetechmod {
         ModPotions.register(eventBus);
         ModPaintings.register(eventBus);
         ModEffects.register(eventBus);
-        ModPOIs.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModEnchantments.register(eventBus);
+        //ModEnchantments.register(eventBus);
         ModFluidTypes.register(eventBus);
         ModFluids.register(eventBus);
         ModSounds.register(eventBus);
         ModCreativeModeTab.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(this);
         eventBus.addListener(this::addCreative);
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -75,7 +75,6 @@ public class Spacetechmod {
 
 
             //And above this line
-            ModMessages.register();
         });
 
     }
@@ -186,15 +185,19 @@ public class Spacetechmod {
         }
     }
 
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event)
+    {
+        // Do something when the server starts
+        LOGGER.info("The server is starting!");
+    }
+
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SCULKDIM_PORTAL.get(), RenderType.translucent());
         }
-    }
-
-
-
+   }
 }
