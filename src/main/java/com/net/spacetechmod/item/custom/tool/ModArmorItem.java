@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item.custom.tool;
 
 import com.net.spacetechmod.effect.ModEffects;
+import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.util.ModLists;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -46,10 +47,15 @@ public class ModArmorItem extends ArmorItem {
         ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmor(2).getItem());
         ArmorItem helmet = ((ArmorItem)player.getInventory().getArmor(3).getItem());
 
-        fullSetMaterial = helmet.getMaterial();
-
-        return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
-                leggings.getMaterial() == material && boots.getMaterial() == material;
+        if(helmet.getMaterial() == material && breastplate.getMaterial() == material &&
+                leggings.getMaterial() == material && boots.getMaterial() == material) {
+            fullSetMaterial = helmet.getMaterial();
+            return true;
+        }
+        else {
+            fullSetMaterial = null;
+            return false;
+        }
     }
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
@@ -78,16 +84,19 @@ public class ModArmorItem extends ArmorItem {
                         }
                     }
 
-                    case 4 -> spaceSuit(player);
+                    case 4 -> {
+                        if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension())) {
+                            spaceSuit(player);
+                        }
+                    }
                 }
             }
         }
     }
 
     //add methods for set bonuses here!
-
     private void spaceSuit(Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 200, 0));
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 2, 0));
     }
     private void copperArmor(Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));

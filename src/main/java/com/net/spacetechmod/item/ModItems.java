@@ -234,17 +234,17 @@ public class ModItems {
 
     public static final DeferredItem<Item> SPACESUIT_HELMET = ITEMS.register("spacesuit_helmet",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> SPACESUIT_CHESTPLATE = ITEMS.register("spacesuit_chestplate",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()));
+                    new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> SPACESUIT_LEGS = ITEMS.register("spacesuit_legs",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()));
+                    new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().fireResistant()));
 }

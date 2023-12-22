@@ -1,12 +1,27 @@
 package com.net.spacetechmod.effect;
 
+import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 
 public class SpaceBreathingEffect extends MobEffect {
-    protected SpaceBreathingEffect(MobEffectCategory category, int color) {
+    public SpaceBreathingEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
-    //we don't need anything here because all the work is done in ModEvents :)
+    @Override
+    public void applyEffectTick(LivingEntity entity, int amplifier) {
+        if(entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == ModItems.SPACESUIT_CHESTPLATE.get()) {
+
+        }
+
+
+
+
+
+
+        super.applyEffectTick(entity, amplifier);
+    }
 }
