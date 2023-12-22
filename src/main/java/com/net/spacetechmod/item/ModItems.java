@@ -1,7 +1,6 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.custom.magic.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
@@ -205,6 +204,9 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> TIN_POWDER = ITEMS.register("tin_powder",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> TITAN_STEEL_BLEND = ITEMS.register("titan_steel_blend",
+            () -> new Item(new Item.Properties()));
     //tin stuff
     public static final DeferredItem<Item> RAW_TIN = ITEMS.register("raw_tin",
             () -> new Item(new Item.Properties()));
@@ -221,13 +223,28 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     //Fluid buckets
-    public static final DeferredItem<Item> OIL_BUCKET = ITEMS.register("oil_bucket",
-            () -> new BucketItem(ModFluids.CRUDE_OIL, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(64)));
 
     //Fluid bottles
-    public static final DeferredItem<Item> OIL_BOTTLE = ITEMS.register("oil_bottle",
-            () -> new Item(new Item.Properties().stacksTo(64)));
-
     public static final DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle",
             () -> new Item(new Item.Properties().stacksTo(64)));
+
+    //Aeronautics
+    public static final DeferredItem<Item> TITAN_STEEL_INGOT = ITEMS.register("titan_steel_ingot",
+            () -> new Item(new Item.Properties().stacksTo(64).fireResistant()));
+
+    public static final DeferredItem<Item> SPACESUIT_HELMET = ITEMS.register("spacesuit_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.HELMET,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> SPACESUIT_CHESTPLATE = ITEMS.register("spacesuit_chestplate",
+            () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> SPACESUIT_LEGS = ITEMS.register("spacesuit_legs",
+            () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
+            () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS,
+                    new Item.Properties()));
 }

@@ -30,5 +30,5 @@ public class ModCreativeModeTab {
     public static DeferredHolder<CreativeModeTab, CreativeModeTab> STM_MACHINES = CREATIVE_MODE_TABS.register("stm_machines", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.IRON_BARREL.get())).title(Component.literal("STM Machines")).build());
     public static DeferredHolder<CreativeModeTab, CreativeModeTab> STM_FLUIDS = CREATIVE_MODE_TABS.register("stm_fluids", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.OIL_BUCKET.get())).title(Component.literal("STM Fluids")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.LAVA_BOTTLE.get())).title(Component.literal("STM Fluids")).build());
 }

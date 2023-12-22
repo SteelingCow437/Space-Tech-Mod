@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:deep_dark",
-  "features": "spacetechmod:sculk_tree_placed",
-  "step": "vegetal_decoration"
-}

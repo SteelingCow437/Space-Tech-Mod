@@ -26,6 +26,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     SCULK("sculk", 30, new int[]{2, 5, 6, 2}, 50, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.0F, () -> {
         return Ingredient.of(ModItems.SCULK_INGOT.get());
+    }),
+
+    SPACESUIT("spacesuit", 90, new int[]{4, 7, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON, 1.2f, 0.4f, () -> {
+        return Ingredient.of(ModItems.TITAN_STEEL_INGOT.get());
     });
 
 

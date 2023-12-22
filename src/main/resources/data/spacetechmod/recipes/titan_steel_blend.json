@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "spacetechmod:steel_blend"
+    },
+    {
+      "item": "spacetechmod:titanium_powder"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "spacetechmod:titan_steel_blend"
+  }
+}

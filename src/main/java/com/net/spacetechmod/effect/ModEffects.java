@@ -25,6 +25,9 @@ public class ModEffects {
     public static final DeferredHolder<MobEffect, MobEffect> CANNED_BREAD_EFFECT = MOB_EFFECTS.register("canned_bread_effect",
             () -> new CannedBreadEffect(MobEffectCategory.BENEFICIAL, 0));
 
+    public static final DeferredHolder<MobEffect, MobEffect> SPACE_BREATHING_EFFECT = MOB_EFFECTS.register("space_breathing",
+            () -> new SpaceBreathingEffect(MobEffectCategory.BENEFICIAL, 0));
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

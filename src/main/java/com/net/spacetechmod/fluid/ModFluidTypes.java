@@ -18,10 +18,6 @@ public class ModFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, Spacetechmod.MOD_ID);
 
-    public static final DeferredHolder<FluidType, FluidType> OIL_FLUID_TYPE = register("oil_fluid",
-            FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).sound(SoundAction.get("drink"),
-                    SoundEvents.ELDER_GUARDIAN_DEATH));
-
     public static final DeferredHolder<FluidType, FluidType> HONEY_FLUID_TYPE = register("honey_fluid",
             FluidType.Properties.create().lightLevel(3).density(15).viscosity(8).sound(SoundAction.get("drink"),
                     SoundEvents.HONEY_BLOCK_STEP));

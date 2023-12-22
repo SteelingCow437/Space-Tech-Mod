@@ -3,7 +3,6 @@ package com.net.spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
-//import com.net.spacetechmod.enchantment.ModEnchantments;
 import com.net.spacetechmod.fluid.ModFluidTypes;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModCreativeModeTab;
@@ -61,7 +60,6 @@ public class Spacetechmod {
         // Register ourselves for server and other game events we are interested in
         NeoForge.EVENT_BUS.register(this);
         eventBus.addListener(this::addCreative);
-
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -95,7 +93,6 @@ public class Spacetechmod {
             event.accept(ModBlocks.SCULK_ALTAR);
             event.accept(ModBlocks.SCULK_CORE);
             event.accept(ModBlocks.CALIBRATED_SCULK_TRAP);
-            event.accept(ModBlocks.OIL_DEPOSIT);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -126,6 +123,8 @@ public class Spacetechmod {
             event.accept(ModItems.BRONZE_PLATE);
             event.accept(ModItems.IRON_PLATE);
             event.accept(ModItems.COPPER_REDSTIDE_WIRING);
+            event.accept(ModItems.TITAN_STEEL_BLEND);
+            event.accept(ModItems.TITAN_STEEL_INGOT);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -156,6 +155,10 @@ public class Spacetechmod {
             event.accept(ModItems.SCULK_LEGGINGS);
             event.accept(ModItems.SCULK_BOOTS);
             event.accept(ModItems.DEBUG_STICK);
+            event.accept(ModItems.SPACESUIT_HELMET);
+            event.accept(ModItems.SPACESUIT_CHESTPLATE);
+            event.accept(ModItems.SPACESUIT_LEGS);
+            event.accept(ModItems.SPACESUIT_BOOTS);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS.get()) {
             event.accept(ModItems.BAGUETTE);
@@ -174,13 +177,10 @@ public class Spacetechmod {
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
             event.accept(ModBlocks.FORGING_TABLE);
-            event.accept(ModBlocks.OIL_PUMP);
             event.accept(ModBlocks.WIRE_BLOCK);
             event.accept(ModBlocks.GENERATOR);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
-            event.accept(ModItems.OIL_BOTTLE);
-            event.accept(ModItems.OIL_BUCKET);
             event.accept(ModItems.LAVA_BOTTLE);
         }
     }

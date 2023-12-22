@@ -3,9 +3,9 @@ package com.net.spacetechmod.block.entity;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
+import com.net.spacetechmod.block.entity.machine.BatteryBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.block.entity.machine.GeneratorBlockEntity;
-import com.net.spacetechmod.block.entity.machine.OilPumpBlockEntity;
 import com.net.spacetechmod.block.entity.machine.WireBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.CalibratedSculkTrapBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
@@ -21,7 +21,6 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Spacetechmod.MOD_ID);
     //sculk
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SculkHeartBlockEntity>> SCULK_HEART =
             BLOCK_ENTITIES.register("sculk_heart",
                     () -> BlockEntityType.Builder.of(SculkHeartBlockEntity::new, ModBlocks.SCULK_HEART.get()).build(null));
@@ -42,7 +41,6 @@ public class ModBlockEntities {
                             ModBlocks.CALIBRATED_SCULK_TRAP.get()).build(null));
 
     //Machine
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ForgingTableBlockEntity>> FORGING_TABLE =
             BLOCK_ENTITIES.register("forging_table", () ->
                     BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
@@ -52,6 +50,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("generator", () ->
                     BlockEntityType.Builder.of(GeneratorBlockEntity::new,
                             ModBlocks.GENERATOR.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY =
+            BLOCK_ENTITIES.register("battery", () ->
+                    BlockEntityType.Builder.of(BatteryBlockEntity::new,
+                            ModBlocks.BASIC_BATTERY.get()).build(null));
 
     //Fluid container blocks
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
@@ -64,12 +67,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("wire", () ->
                     BlockEntityType.Builder.of(WireBlockEntity::new,
                             ModBlocks.WIRE_BLOCK.get()).build(null));
-
-    //oil
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<OilPumpBlockEntity>> OIL_PUMP =
-            BLOCK_ENTITIES.register("oil_pump", () ->
-                    BlockEntityType.Builder.of(OilPumpBlockEntity::new,
-                            ModBlocks.OIL_PUMP.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

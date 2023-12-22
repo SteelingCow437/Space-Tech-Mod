@@ -2,9 +2,9 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
+import com.net.spacetechmod.block.custom.machine.BasicBatteryBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
 import com.net.spacetechmod.block.custom.machine.GeneratorBlock;
-import com.net.spacetechmod.block.custom.machine.OilPumpBlock;
 import com.net.spacetechmod.block.custom.machine.WireBlock;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
@@ -120,16 +120,11 @@ public class ModBlocks {
             () -> new GeneratorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> BASIC_BATTERY = registerBlock("basic_battery",
+            () -> new BasicBatteryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .strength(4.5f).requiresCorrectToolForDrops()));
+
     //Cables
     public static final DeferredBlock<Block> WIRE_BLOCK = registerBlock("wire_block",
             () -> new WireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).strength(3f)));
-
-    //cover yuorself in oyul
-    public static final DeferredBlock<Block> OIL_DEPOSIT = registerBlock("oil_deposit",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(3)
-                    .noLootTable()));
-
-    public static final DeferredBlock<Block> OIL_PUMP = registerBlock("oil_pump",
-            () -> new OilPumpBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).strength(6f)
-                    .requiresCorrectToolForDrops()));
 }

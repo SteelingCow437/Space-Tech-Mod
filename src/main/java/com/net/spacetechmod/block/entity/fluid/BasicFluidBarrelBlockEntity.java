@@ -69,10 +69,9 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
         String name;
         switch(ModLists.FLUIDS_INDEX.indexOf(fluidType)) {
             default -> name = "None";
-            case 0 -> name = "Crude Oil";
-            case 1, 2 -> name = "Water";
-            case 3, 4 -> name = "Lava";
-            case 5 -> name = "Honey";
+            case 0, 1 -> name = "Water";
+            case 2, 3 -> name = "Lava";
+            case 4 -> name = "Honey";
         }
         return name;
     }
@@ -80,10 +79,9 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     private void getBottle(Player player) {
         switch(ModLists.FLUIDS_INDEX.indexOf(fluidType)) {
             default -> player.sendSystemMessage(Component.literal("Houston, we have a problem!"));
-            case 0 -> player.addItem(ModItems.OIL_BOTTLE.get().getDefaultInstance());
-            case 1, 2 -> player.addItem(Items.POTION.getDefaultInstance());
-            case 3, 4 -> player.addItem(ModItems.LAVA_BOTTLE.get().getDefaultInstance());
-            case 5 -> player.addItem(Items.HONEY_BOTTLE.getDefaultInstance());
+            case 0, 1 -> player.addItem(Items.POTION.getDefaultInstance());
+            case 2, 3 -> player.addItem(ModItems.LAVA_BOTTLE.get().getDefaultInstance());
+            case 4 -> player.addItem(Items.HONEY_BOTTLE.getDefaultInstance());
         }
     }
 

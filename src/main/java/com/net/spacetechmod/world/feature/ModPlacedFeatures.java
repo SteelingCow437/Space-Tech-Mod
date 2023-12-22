@@ -20,10 +20,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> TIN_PLACED_KEY = createKey("tin_placed");
 
     //geodes
-    public static final ResourceKey<PlacedFeature> OIL_DEPOSIT_PLACED_KEY = createKey("oil_deposit_placed");
 
     //trees
-    public static final ResourceKey<PlacedFeature> SCULK_TREE_PLACED_KEY = createKey("sculk_tree_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -39,11 +37,6 @@ public class ModPlacedFeatures {
         register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 commonOrePlacement(6, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-63), VerticalAnchor.absolute(45))));
-
-        register(context, OIL_DEPOSIT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OIL_DEPOSIT_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(25), InSquarePlacement.spread(),
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(40)),
-                        BiomeFilter.biome()));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

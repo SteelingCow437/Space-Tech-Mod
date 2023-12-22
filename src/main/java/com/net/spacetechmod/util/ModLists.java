@@ -1,12 +1,15 @@
 package com.net.spacetechmod.util;
 
-import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
+import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModItems;
+import com.net.spacetechmod.world.dimension.ModDimensions;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -23,18 +26,17 @@ public class ModLists {
     //one, so here this is.
 
     //general lists
-    public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>(
-            Arrays.asList(ModItems.OIL_BUCKET.get()));
+    public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>();
 
     public static final ArrayList<Item> BOTTLE_LIST = new ArrayList<Item>(
-            Arrays.asList(ModItems.OIL_BOTTLE.get(), ModItems.LAVA_BOTTLE.get()));
+            Arrays.asList(ModItems.LAVA_BOTTLE.get()));
 
     public static final ArrayList<Fluid> FLUIDS_INDEX = new ArrayList<Fluid>(
-            Arrays.asList(ModFluids.CRUDE_OIL.get(), Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA,
+            Arrays.asList(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA,
                     ModFluids.HONEY.get()));
 
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
-            (Arrays.asList(ModBlockEntities.OIL_PUMP.get()));
+            (Arrays.asList());
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get()));
@@ -56,4 +58,12 @@ public class ModLists {
 
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
+
+    public static final ArrayList<ModArmorMaterials> ARMOR_MATERIAL_INDEX = new ArrayList<ModArmorMaterials>(
+            Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
+                    ModArmorMaterials.SCULK, ModArmorMaterials.SPACESUIT));
+
+    public static final ArrayList<ResourceKey<Level>> SAFE_BREATHING_LIST = new ArrayList<>(
+            Arrays.asList(Level.OVERWORLD, Level.NETHER, Level.END, ModDimensions.SCULKDIM)
+    );
 }
