@@ -63,7 +63,11 @@ public class ModLists {
             Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
                     ModArmorMaterials.SCULK, ModArmorMaterials.SPACESUIT));
 
-    public static final ArrayList<ResourceKey<Level>> SAFE_BREATHING_LIST = new ArrayList<>(
+    public static final ArrayList<ResourceKey<Level>> SAFE_BREATHING_LIST = new ArrayList<ResourceKey<Level>>(
             Arrays.asList(Level.OVERWORLD, Level.NETHER, Level.END, ModDimensions.SCULKDIM)
+    );
+
+    public static final ArrayList<ResourceKey<Level>> PLANET_LIST = new ArrayList<ResourceKey<Level>>(
+            Arrays.asList(Level.OVERWORLD, ModDimensions.MOON)
     );
 }

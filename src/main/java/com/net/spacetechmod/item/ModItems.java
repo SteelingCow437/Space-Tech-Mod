@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.magic.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
@@ -237,8 +238,7 @@ public class ModItems {
                     new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> SPACESUIT_CHESTPLATE = ITEMS.register("spacesuit_chestplate",
-            () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().fireResistant()));
+            SpaceSuitChestplateItem::new);
 
     public static final DeferredItem<Item> SPACESUIT_LEGS = ITEMS.register("spacesuit_legs",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS,

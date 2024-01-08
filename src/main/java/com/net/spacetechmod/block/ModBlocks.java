@@ -127,4 +127,9 @@ public class ModBlocks {
     //Cables
     public static final DeferredBlock<Block> WIRE_BLOCK = registerBlock("wire_block",
             () -> new WireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).strength(3f)));
+
+    //Space equipment stuffs
+    public static final DeferredBlock<Block> PLANET_DIRECTORY = registerBlock("planet_directory",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CARTOGRAPHY_TABLE)
+                    .strength(5.0f)));
 }
