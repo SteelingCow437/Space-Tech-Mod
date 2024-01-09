@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -60,35 +61,43 @@ public class ModArmorItem extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if (!world.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player) && hasSameSetOfArmorOn(fullSetMaterial, player)) {
-                //add the if statements for armor here!
-                switch(ModLists.ARMOR_MATERIAL_INDEX.indexOf(fullSetMaterial)) {
-                    case 1 -> {
-                        if(world.isThundering()) {
-                            copperArmor(player);
-                        }
+            if (hasFullSuitOfArmorOn(player)) {
+                for(int i = 0; i < ModLists.ARMOR_MATERIAL_INDEX.size(); ++i) {
+                    if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i), player)) {
+                        setEffects(player, world);
+                        break;
                     }
+                }
+            }
+        }
+    }
 
-                    case 2 -> {
-                        if(player.isUnderWater()) {
-                            turtleMasterArmorInWater(player);
-                        }
-                        else {
-                            turtleMasterArmorOnLand(player);
-                        }
-                    }
+    public void setEffects(Player player, Level world) {
+        switch(ModLists.ARMOR_MATERIAL_INDEX.indexOf(fullSetMaterial)) {
+            case 1 -> {
+                if(world.isThundering()) {
+                    copperArmor(player);
+                }
+            }
 
-                    case 3 -> {
-                        if(player.experienceLevel < 100) {
-                            player.giveExperiencePoints(2);
-                        }
-                    }
+            case 2 -> {
+                if(player.isUnderWater()) {
+                    turtleMasterArmorInWater(player);
+                }
+                else {
+                    turtleMasterArmorOnLand(player);
+                }
+            }
 
-                    case 4 -> {
-                        if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension())) {
-                            spaceSuit(player);
-                        }
-                    }
+            case 3 -> {
+                if(player.experienceLevel < 100) {
+                    player.giveExperiencePoints(2);
+                }
+            }
+
+            case 4 -> {
+                if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension())) {
+                    spaceSuit(player);
                 }
             }
         }
@@ -96,7 +105,7 @@ public class ModArmorItem extends ArmorItem {
 
     //add methods for set bonuses here!
     private void spaceSuit(Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 2, 0));
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 40, 0));
     }
     private void copperArmor(Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
