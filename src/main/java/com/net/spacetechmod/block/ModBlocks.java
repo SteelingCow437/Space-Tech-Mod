@@ -2,10 +2,7 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
-import com.net.spacetechmod.block.custom.machine.BasicBatteryBlock;
-import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
-import com.net.spacetechmod.block.custom.machine.GeneratorBlock;
-import com.net.spacetechmod.block.custom.machine.WireBlock;
+import com.net.spacetechmod.block.custom.machine.*;
 import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -111,7 +108,6 @@ public class ModBlocks {
                     .strength(5f).requiresCorrectToolForDrops()));
 
     //machines
-
     public static final DeferredBlock<Block> FORGING_TABLE = registerBlock("forging_table",
             () -> new ForgingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMITHING_TABLE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
@@ -124,12 +120,26 @@ public class ModBlocks {
             () -> new BasicBatteryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ALLOY_REVERSAL_MACHINE = registerBlock("un_alloy_machine",
+            () -> new UnAlloyMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                    .strength(4.5f).requiresCorrectToolForDrops()));
+
     //Cables
     public static final DeferredBlock<Block> WIRE_BLOCK = registerBlock("wire_block",
-            () -> new WireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).strength(3f)));
+            () -> new WireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).strength(2f)));
 
     //Space equipment stuffs
     public static final DeferredBlock<Block> PLANET_DIRECTORY = registerBlock("planet_directory",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CARTOGRAPHY_TABLE)
                     .strength(5.0f)));
+
+
+    //Moon blocks
+    public static final DeferredBlock<Block> MOON_DIRT = registerBlock("moon_dirt",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)
+                    .strength(0.5f)));
+
+    public static final DeferredBlock<Block> MOON_ROCK = registerBlock("moon_rock",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .strength(1.5f)));
 }

@@ -9,10 +9,13 @@
     "spacetechmod:corrupted_bone",
     "spacetechmod:tin_ore",
     "spacetechmod:tin_ore_deepslate",
-    "spacetechmod:oil_deposit",
     "spacetechmod:iron_barrel",
     "spacetechmod:forging_table",
     "spacetechmod:oil_pump",
-    "spacetechmod:wire_block)"
+    "spacetechmod:wire_block",
+    "spacetechmod:generator",
+    "spacetechmod:moon_rock",
+    "spacetechmod:planet_directory",
+    "spacetechmod:un_alloy_machine"
   ]
 }

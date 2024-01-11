@@ -233,6 +233,9 @@ public class ModItems {
     public static final DeferredItem<Item> TITAN_STEEL_INGOT = ITEMS.register("titan_steel_ingot",
             () -> new Item(new Item.Properties().stacksTo(64).fireResistant()));
 
+    public static final DeferredItem<Item> TITAN_STEEL_PLATE = ITEMS.register("titan_steel_plate",
+            () -> new Item(new Item.Properties().stacksTo(64).fireResistant()));
+
     public static final DeferredItem<Item> SPACESUIT_HELMET = ITEMS.register("spacesuit_helmet",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.HELMET,
                     new Item.Properties().fireResistant()));

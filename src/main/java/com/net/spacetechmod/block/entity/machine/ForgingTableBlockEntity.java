@@ -34,6 +34,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                         case 2 -> result = ModItems.TITANIUM_PLATE.get();
                         case 3 -> result = ModItems.STEEL_PLATE.get();
                         case 4 -> result = ModItems.BRONZE_PLATE.get();
+                        case 6 -> result = ModItems.TITAN_STEEL_PLATE.get();
                         default -> player.sendSystemMessage(Component.literal("Invalid recipe!"));
                     }
                     givePlate(player);

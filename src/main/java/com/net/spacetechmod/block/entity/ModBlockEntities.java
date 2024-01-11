@@ -3,10 +3,7 @@ package com.net.spacetechmod.block.entity;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
-import com.net.spacetechmod.block.entity.machine.BatteryBlockEntity;
-import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
-import com.net.spacetechmod.block.entity.machine.GeneratorBlockEntity;
-import com.net.spacetechmod.block.entity.machine.WireBlockEntity;
+import com.net.spacetechmod.block.entity.machine.*;
 import com.net.spacetechmod.block.entity.sculk.CalibratedSculkTrapBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkHeartBlockEntity;
 import com.net.spacetechmod.block.entity.sculk.SculkMawBlockEntity;
@@ -56,6 +53,10 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(BatteryBlockEntity::new,
                             ModBlocks.BASIC_BATTERY.get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<UnAlloyMachineBlockEntity>> UN_ALLOY_MACHINE =
+            BLOCK_ENTITIES.register("un_alloy_machine", () ->
+                    BlockEntityType.Builder.of(UnAlloyMachineBlockEntity::new,
+                            ModBlocks.ALLOY_REVERSAL_MACHINE.get()).build(null));
     //Fluid container blocks
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful

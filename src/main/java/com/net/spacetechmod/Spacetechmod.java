@@ -180,6 +180,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.WIRE_BLOCK);
             event.accept(ModBlocks.GENERATOR);
             event.accept(ModBlocks.PLANET_DIRECTORY);
+            event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);
