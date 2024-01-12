@@ -22,9 +22,9 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
     public UnAlloyMachineBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.UN_ALLOY_MACHINE.get(), pos, state);
     }
+    //TODO: Convert to electric once I figure out that mess
 
     private int timer = 0;
-
     private static int tick = 0;
     public int fuelTime = 0;
 

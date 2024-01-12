@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "***",
-    "###",
-    "***"
+    "*#*",
+    "#$#",
+    "*#*"
   ],
   "key": {
     "#": {
@@ -11,6 +11,9 @@
     },
     "*": {
       "item": "minecraft:black_wool"
+    },
+    "$": {
+      "item": "spacetechmod:copper_redstide_ingot"
     }
   },
   "result": {
