@@ -112,10 +112,6 @@ public class ModBlocks {
             () -> new ForgingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMITHING_TABLE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
-    public static final DeferredBlock<Block> GENERATOR = registerBlock("generator",
-            () -> new GeneratorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
-                    .strength(4.5f).requiresCorrectToolForDrops()));
-
     public static final DeferredBlock<Block> BASIC_BATTERY = registerBlock("basic_battery",
             () -> new BasicBatteryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
@@ -123,10 +119,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ALLOY_REVERSAL_MACHINE = registerBlock("un_alloy_machine",
             () -> new UnAlloyMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(4.5f).requiresCorrectToolForDrops()));
-
-    //Cables
-    public static final DeferredBlock<Block> WIRE_BLOCK = registerBlock("wire_block",
-            () -> new WireBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).strength(2f)));
 
     //Space equipment stuffs
     public static final DeferredBlock<Block> PLANET_DIRECTORY = registerBlock("planet_directory",

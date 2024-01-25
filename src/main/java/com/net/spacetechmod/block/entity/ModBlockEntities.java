@@ -43,11 +43,6 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
                             ModBlocks.FORGING_TABLE.get()).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GeneratorBlockEntity>> GENERATOR =
-            BLOCK_ENTITIES.register("generator", () ->
-                    BlockEntityType.Builder.of(GeneratorBlockEntity::new,
-                            ModBlocks.GENERATOR.get()).build(null));
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY =
             BLOCK_ENTITIES.register("battery", () ->
                     BlockEntityType.Builder.of(BatteryBlockEntity::new,
@@ -62,12 +57,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
                             ModBlocks.IRON_BARREL.get()).build(null));
-
-    //wires
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WireBlockEntity>> WIRE =
-            BLOCK_ENTITIES.register("wire", () ->
-                    BlockEntityType.Builder.of(WireBlockEntity::new,
-                            ModBlocks.WIRE_BLOCK.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

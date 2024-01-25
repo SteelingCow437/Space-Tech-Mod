@@ -177,8 +177,6 @@ public class Spacetechmod {
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
             event.accept(ModBlocks.FORGING_TABLE);
-            event.accept(ModBlocks.WIRE_BLOCK);
-            event.accept(ModBlocks.GENERATOR);
             event.accept(ModBlocks.PLANET_DIRECTORY);
             event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
         }
