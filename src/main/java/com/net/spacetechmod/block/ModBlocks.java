@@ -112,8 +112,8 @@ public class ModBlocks {
             () -> new ForgingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMITHING_TABLE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
-    public static final DeferredBlock<Block> BASIC_BATTERY = registerBlock("basic_battery",
-            () -> new BasicBatteryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+    public static final DeferredBlock<Block> AIR_MACHINE = registerBlock("air_machine",
+            () -> new AirMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> ALLOY_REVERSAL_MACHINE = registerBlock("un_alloy_machine",

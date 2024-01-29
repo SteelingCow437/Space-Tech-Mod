@@ -1,5 +1,7 @@
 package com.net.spacetechmod.util;
 
+import com.net.spacetechmod.block.ModBlocks;
+import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModItems;
@@ -36,7 +38,7 @@ public class ModLists {
                     ModFluids.HONEY.get()));
 
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
-            (Arrays.asList());
+            (Arrays.asList(ModBlockEntities.FORGING_TABLE.get(), ModBlockEntities.AIR_MACHINE.get(), ModBlockEntities.UN_ALLOY_MACHINE.get()));
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get()));

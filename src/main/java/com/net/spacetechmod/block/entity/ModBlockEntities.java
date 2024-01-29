@@ -43,10 +43,10 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(ForgingTableBlockEntity::new,
                             ModBlocks.FORGING_TABLE.get()).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY =
-            BLOCK_ENTITIES.register("battery", () ->
-                    BlockEntityType.Builder.of(BatteryBlockEntity::new,
-                            ModBlocks.BASIC_BATTERY.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AirMachineBlockEntity>> AIR_MACHINE =
+            BLOCK_ENTITIES.register("air_machine", () ->
+                    BlockEntityType.Builder.of(AirMachineBlockEntity::new,
+                            ModBlocks.AIR_MACHINE.get()).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<UnAlloyMachineBlockEntity>> UN_ALLOY_MACHINE =
             BLOCK_ENTITIES.register("un_alloy_machine", () ->

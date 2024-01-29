@@ -85,20 +85,6 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
         }
     }
 
-    public boolean isFull() {
-        return amount >= capacity;
-    }
-
-    public void fillBarrelFromMachine(Fluid type, int fluidAmount) {
-        if(fluidType == Fluids.EMPTY && amount < (fluidAmount + amount)) {
-            fluidType = type;
-            amount += fluidAmount;
-        }
-        else if(fluidType == type && amount < (fluidAmount + amount)) {
-            amount += fluidAmount;
-        }
-    }
-
     public void fillBarrelFromBucket(Player player, Item item) {
         if(ModLists.BUCKET_LIST.contains(item)) {
             if(fluidType == Fluids.EMPTY) {
