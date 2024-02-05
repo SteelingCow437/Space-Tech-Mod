@@ -115,5 +115,6 @@
   "item.spacetechmod.spacesuit_boots": "Space Suit Boots",
   "effect.spacetechmod.space_breathing": "Air",
   "block.spacetechmod.planet_directory": "Star Map",
-  "block.spacetechmod.un_alloy_machine": "Alloy Separator"
+  "block.spacetechmod.un_alloy_machine": "Alloy Separator",
+  "block.spacetechmod.air_machine": "Air Machine"
 }

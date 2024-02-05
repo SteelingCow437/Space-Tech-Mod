@@ -179,6 +179,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.FORGING_TABLE);
             event.accept(ModBlocks.PLANET_DIRECTORY);
             event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
+            event.accept(ModBlocks.AIR_MACHINE);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);

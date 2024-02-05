@@ -40,9 +40,8 @@ public class AirMachineBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof AirMachineBlockEntity) {
-            ItemStack item = player.getMainHandItem();
-            if(CommonHooks.getBurnTime(item, RecipeType.SMELTING) > 0) {
-                ((AirMachineBlockEntity) entity).addFuel(item);
+            if(CommonHooks.getBurnTime(player.getMainHandItem(), RecipeType.SMELTING) > 0) {
+                ((AirMachineBlockEntity) entity).addFuel(player);
             }
             else {
                 ((AirMachineBlockEntity) entity).getTimeRemaining(player);
