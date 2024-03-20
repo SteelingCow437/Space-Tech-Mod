@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -52,6 +53,12 @@ public class AirMachineBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, AirMachineBlockEntity entity) {
         if(timer % 20 == 0 && entity.timeRemaining > 0) {
             level.playSound(null, pos, SoundEvents.BEACON_AMBIENT, SoundSource.BLOCKS, 4.0f, 4.0f);
+            if(entity.timeRemaining < 1200) {
+                Player player = level.getNearestPlayer(TargetingConditions.DEFAULT, pos.getX(), pos.getY(), pos.getZ());
+                if(player != null) {
+                    player.sendSystemMessage(Component.literal("60 seconds until the air machine runs out of fuel!"));
+                }
+            }
         }
         if(timer >= 100 && entity.timeRemaining > 0) {
             for(Object player : entity.getPlayersInRange(level)) {
