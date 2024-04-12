@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.net.spacetechmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "modid.refmap.json",
+  "mixins": [
+    "LivingEntityMixin"
+  ],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}

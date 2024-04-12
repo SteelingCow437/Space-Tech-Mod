@@ -55,6 +55,11 @@ public class ModEvents {
                         event.player.teleportTo(destinationLevel, 0, 100, 0, EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);
                     }
                 }
+                switch(ModLists.PLANET_LIST.indexOf(event.player.level().dimension())) {
+                    case 1 -> {
+
+                    }
+                }
             }
         }
     }
