@@ -9,6 +9,7 @@ import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -71,5 +72,9 @@ public class ModLists {
 
     public static final ArrayList<ResourceKey<Level>> PLANET_LIST = new ArrayList<ResourceKey<Level>>(
             Arrays.asList(Level.OVERWORLD, ModDimensions.MOON)
+    );
+
+    public static final ArrayList<AttributeModifier> GRAVITY_CONSTANTS = new ArrayList<AttributeModifier>(
+            Arrays.asList(ModAttributeModifiers.MOON_GRAVITY)
     );
 }

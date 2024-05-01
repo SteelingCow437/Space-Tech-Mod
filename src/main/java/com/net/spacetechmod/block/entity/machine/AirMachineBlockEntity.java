@@ -56,7 +56,7 @@ public class AirMachineBlockEntity extends BlockEntity {
             if(entity.timeRemaining < 1200) {
                 Player player = level.getNearestPlayer(TargetingConditions.DEFAULT, pos.getX(), pos.getY(), pos.getZ());
                 if(player != null) {
-                    player.sendSystemMessage(Component.literal("60 seconds until the air machine runs out of fuel!"));
+                    player.sendSystemMessage(Component.literal(entity.timeRemaining / 20 + " seconds until the air machine runs out of fuel!"));
                 }
             }
         }
