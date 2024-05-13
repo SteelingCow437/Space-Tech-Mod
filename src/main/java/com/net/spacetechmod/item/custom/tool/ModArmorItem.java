@@ -16,11 +16,12 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.util.ITeleporter;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 
 public class ModArmorItem extends ArmorItem {
 
-    public ModArmorItem(ArmorMaterial material, ArmorItem.Type type, Properties settings) {
+    public ModArmorItem(DeferredHolder<ArmorMaterial, ArmorMaterial> material, ArmorItem.Type type, Properties settings) {
         super(material, type, settings);
     }
 
@@ -48,9 +49,9 @@ public class ModArmorItem extends ArmorItem {
         ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmor(2).getItem());
         ArmorItem helmet = ((ArmorItem)player.getInventory().getArmor(3).getItem());
 
-        if(helmet.getMaterial() == material && breastplate.getMaterial() == material &&
-                leggings.getMaterial() == material && boots.getMaterial() == material) {
-            fullSetMaterial = helmet.getMaterial();
+        if(helmet.getMaterial().value() == material && breastplate.getMaterial().value() == material &&
+                leggings.getMaterial().value() == material && boots.getMaterial().value() == material) {
+            fullSetMaterial = helmet.getMaterial().value();
             return true;
         }
         else {

@@ -75,8 +75,8 @@ public class CalibratedSculkHeartItem extends Item {
         super.inventoryTick(stack, level, entity, number, bool);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> component, TooltipFlag flag) {
+   @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> component, TooltipFlag flag) {
         if (effect != null) {
             component.add(Component.literal("Selected Effect: " + effect.getDisplayName().getString()));
         }

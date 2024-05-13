@@ -34,14 +34,14 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
         return null;
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof UnAlloyMachineBlockEntity) {
             ItemStack stack = player.getMainHandItem();
             ((UnAlloyMachineBlockEntity) entity).use(player, stack);
+            return InteractionResult.SUCCESS;
         }
-        return super.use(state, level, pos, player, hand, result);
+        return InteractionResult.FAIL;
     }
 
     @Nullable

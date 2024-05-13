@@ -7,28 +7,29 @@ import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
-    TITANIUM("titanium", 78, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
+public enum ModArmorMaterials {
+    TITANIUM("titanium", 78, new int[]{3, 6, 7, 3}, 12, SoundEvents.ARMOR_EQUIP_IRON.value(), 1.0F, 0.1F, () -> {
         return Ingredient.of(ModItems.TITANIUM_INGOT.get());
     }),
-    COPPER("copper", 29, new int[]{1, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
+    COPPER("copper", 29, new int[]{1, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_GOLD.value(), 0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT);
     }),
 
-    TURTLE("turtle_master", 156, new int[]{4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> {
+    TURTLE("turtle_master", 156, new int[]{4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_TURTLE.value(), 2.0F, 0.5F, () -> {
         return Ingredient.of(Items.TURTLE_HELMET);
     }),
 
-    SCULK("sculk", 30, new int[]{2, 5, 6, 2}, 50, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.0F, () -> {
+    SCULK("sculk", 30, new int[]{2, 5, 6, 2}, 50, SoundEvents.ARMOR_EQUIP_NETHERITE.value(), 0.5F, 0.0F, () -> {
         return Ingredient.of(ModItems.SCULK_INGOT.get());
     }),
 
-    SPACESUIT("spacesuit", 90, new int[]{4, 7, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON, 1.2f, 0.4f, () -> {
+    SPACESUIT("spacesuit", 90, new int[]{4, 7, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON.value(), 1.2f, 0.4f, () -> {
         return Ingredient.of(ModItems.TITAN_STEEL_INGOT.get());
     });
 

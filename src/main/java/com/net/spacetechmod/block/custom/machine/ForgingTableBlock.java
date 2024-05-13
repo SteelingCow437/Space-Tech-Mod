@@ -65,15 +65,16 @@ public class ForgingTableBlock extends BaseEntityBlock {
         return null;
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof ForgingTableBlockEntity) {
             if(player.getMainHandItem().getItem() == ModItems.HAMMER.get()) {
                 ((ForgingTableBlockEntity) entity).craft(player);
+                return InteractionResult.SUCCESS;
             }
             else if(player.getMainHandItem() == ItemStack.EMPTY) {
                 ((ForgingTableBlockEntity) entity).removeItem(player);
+                return InteractionResult.SUCCESS;
             }
             else {
                 ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
@@ -81,8 +82,9 @@ public class ForgingTableBlock extends BaseEntityBlock {
             }
             stampNumber = ((ForgingTableBlockEntity) entity).getStamp();
             level.setBlock(pos, state.setValue(STAMP, ((ForgingTableBlockEntity) entity).getStamp()), 1);
+            return InteractionResult.SUCCESS;
         }
-        return super.use(state, level, pos, player, hand, result);
+        return InteractionResult.FAIL;
     }
 
     @Nullable

@@ -4,6 +4,7 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -88,13 +89,13 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     public void fillBarrelFromBucket(Player player, Item item) {
         if(ModLists.BUCKET_LIST.contains(item)) {
             if(fluidType == Fluids.EMPTY) {
-                fluidType = ((BucketItem) item).getFluid();
+                fluidType = ((BucketItem) item).content;
                 player.getMainHandItem().shrink(1);
                 player.addItem(Items.BUCKET.getDefaultInstance());
                 amount += 3;
                 setChanged(level, getBlockPos(), getBlockState());
             }
-            else if(fluidType.isSame(((BucketItem) item).getFluid())) {
+            else if(fluidType.isSame(((BucketItem) item).content)) {
                 player.getMainHandItem().shrink(1);
                 player.addItem(Items.BUCKET.getDefaultInstance());
                 amount += 3;
@@ -126,17 +127,17 @@ public class BasicFluidBarrelBlockEntity extends BlockEntity {
     }
     //Saving & loading
     @Override
-    public void saveAdditional(CompoundTag nbt) {
+    public void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         nbt.putInt("fluid_amount", amount);
         nbt.putInt("fluid_type", getIndex());
-        super.saveAdditional(nbt);
+        super.saveAdditional(nbt, provider);
     }
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         amount = nbt.getInt("fluid_amount");
         fluidType = ModLists.FLUIDS_INDEX.get(nbt.getInt("fluid_type"));
-        super.load(nbt);
+        super.loadAdditional(nbt, provider);
     }
 
     public int getIndex() {

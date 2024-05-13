@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.common.extensions.IItemExtension;
 import org.jetbrains.annotations.Nullable;
 
 public class AirMachineBlock extends BaseEntityBlock {
@@ -36,11 +37,10 @@ public class AirMachineBlock extends BaseEntityBlock {
         return new AirMachineBlockEntity(pos, state);
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof AirMachineBlockEntity) {
-            if(CommonHooks.getBurnTime(player.getMainHandItem(), RecipeType.SMELTING) > 0) {
+            if(player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
                 ((AirMachineBlockEntity) entity).addFuel(player);
             }
             else {

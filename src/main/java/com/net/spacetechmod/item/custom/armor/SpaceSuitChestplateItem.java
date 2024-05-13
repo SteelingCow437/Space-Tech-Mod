@@ -64,11 +64,10 @@ public class SpaceSuitChestplateItem extends ModArmorItem {
         return "Yet to be selected!";
     }
 
-
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+   public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag flag) {
         list.add(Component.literal("Destination: " + getPlanetNames()));
-        super.appendHoverText(stack, level, list, flag);
+        super.appendHoverText(stack, context, list, flag);
     }
 
     @Override

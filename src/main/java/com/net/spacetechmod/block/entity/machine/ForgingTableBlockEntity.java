@@ -4,6 +4,7 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -110,15 +111,15 @@ public class ForgingTableBlockEntity extends BlockEntity {
         }
     }
     @Override
-    public void saveAdditional(CompoundTag nbt) {
+    public void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         nbt.putInt("stamp_type", ModLists.FORGING_TABLE_STAMP_LIST.indexOf(stamp));
         nbt.putInt("ingredient", ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem()));
         nbt.putInt("ingredient_count", ingredient.getCount());
-        super.saveAdditional(nbt);
+        super.saveAdditional(nbt, provider);
     }
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         switch(nbt.getInt("stamp_type")) {
             case 0 -> stamp = null;
             case 1 -> stamp = ModItems.PLATE_STAMP.get();
@@ -135,7 +136,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
         if(tempItem != null) {
             ingredient = new ItemStack(tempItem, nbt.getInt("ingredient_count"));
         }
-        super.load(nbt);
+        super.loadAdditional(nbt, provider);
     }
 
 

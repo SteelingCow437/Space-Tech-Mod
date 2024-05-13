@@ -10,16 +10,16 @@ public class OilEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.level().isClientSide()) {
-            double x = pLivingEntity.getX();
-            double y = pLivingEntity.getY();
-            double z = pLivingEntity.getZ();
-            if(pLivingEntity.isInWaterOrRain()) {
-                pLivingEntity.moveTo(x, y + 0.15, z);
+    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+        if (!livingEntity.level().isClientSide()) {
+            double x = livingEntity.getX();
+            double y = livingEntity.getY();
+            double z = livingEntity.getZ();
+            if(livingEntity.isInWaterOrRain()) {
+                livingEntity.moveTo(x, y + 0.15, z);
             }
         }
-        super.applyEffectTick(pLivingEntity, pAmplifier);
+        return super.applyEffectTick(livingEntity, amplifier);
     }
 }
 

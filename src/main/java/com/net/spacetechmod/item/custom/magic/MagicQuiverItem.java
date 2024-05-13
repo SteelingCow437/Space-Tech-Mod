@@ -42,7 +42,7 @@ public class MagicQuiverItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> component, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> component, TooltipFlag flag) {
         component.add(Component.literal("Yes, the texture is Terraria's Endless Quiver. Cry about it."));
     }
 }

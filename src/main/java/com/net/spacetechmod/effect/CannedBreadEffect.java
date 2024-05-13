@@ -14,7 +14,7 @@ public class CannedBreadEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
         ItemStack stack = ModItems.TIN_CAN.get().getDefaultInstance();
         if (!entity.level().isClientSide()) {
             if(entity instanceof Player) {
@@ -22,6 +22,6 @@ public class CannedBreadEffect extends MobEffect {
                 ((Player) entity).addItem(stack);
             }
         }
-        super.applyEffectTick(entity, amplifier);
+        return super.applyEffectTick(entity, amplifier);
     }
 }

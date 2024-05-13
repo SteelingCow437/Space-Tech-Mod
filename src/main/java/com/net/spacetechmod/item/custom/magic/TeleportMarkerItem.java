@@ -53,8 +53,9 @@ public class TeleportMarkerItem extends Item {
     public int getTimeRemaining() {
         return (timer / 1200);
     }
+
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> component, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> component, TooltipFlag flag) {
         component.add(Component.literal("Time remaining: " + getTimeRemaining() + " minutes"));
     }
 }

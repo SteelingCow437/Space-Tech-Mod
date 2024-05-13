@@ -20,7 +20,6 @@ public class SculkAltarBlock extends Block {
     }
 
     ItemStack stack;
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if(!level.isClientSide()) {
             switch(ModLists.SCULK_ALTAR_INGREDIENT_LIST.indexOf(player.getMainHandItem().getItem())) {

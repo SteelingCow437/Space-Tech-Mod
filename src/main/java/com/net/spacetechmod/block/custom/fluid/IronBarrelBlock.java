@@ -31,7 +31,6 @@ public class IronBarrelBlock extends BaseEntityBlock {
         return RenderShape.MODEL;
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);

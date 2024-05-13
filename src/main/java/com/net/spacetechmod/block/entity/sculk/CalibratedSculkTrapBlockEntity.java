@@ -2,6 +2,7 @@ package com.net.spacetechmod.block.entity.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -86,14 +87,14 @@ public class CalibratedSculkTrapBlockEntity extends BlockEntity {
 
     //Saving & loading
     @Override
-    public void saveAdditional(CompoundTag nbt) {
+    public void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         nbt.putBoolean("targetsPlayers", targetsPlayers);
-        super.saveAdditional(nbt);
+        super.saveAdditional(nbt, provider);
     }
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         targetsPlayers = nbt.getBoolean("targetsPlayers");
-        super.load(nbt);
+        super.loadAdditional(nbt, provider);
     }
 }

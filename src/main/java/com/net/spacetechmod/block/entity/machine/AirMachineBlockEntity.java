@@ -39,7 +39,7 @@ public class AirMachineBlockEntity extends BlockEntity {
 
     public void addFuel(Player player) {
         ItemStack input = new ItemStack(player.getMainHandItem().getItem(), 1);
-        timeRemaining += CommonHooks.getBurnTime(input, RecipeType.SMELTING);
+        timeRemaining += input.getBurnTime(RecipeType.SMELTING);
         level.playSound(null, worldPosition, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
         player.getMainHandItem().shrink(1);
     }

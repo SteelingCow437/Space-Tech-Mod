@@ -15,21 +15,18 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.LogicalSide;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.NeoForgeMod;
-import net.neoforged.neoforge.event.TickEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import java.util.EnumSet;
 
 public class ModEvents {
-    @Mod.EventBusSubscriber(modid = Spacetechmod.MOD_ID)
+    @EventBusSubscriber(modid = Spacetechmod.MOD_ID)
     public static class NeoForgeEvents {
         private static int playerBreathTimer = 0;
         private static int playerGravityTimer = 0;

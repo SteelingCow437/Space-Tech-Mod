@@ -20,7 +20,6 @@ public class SculkCoreBlock extends Block {
         super(properties);
     }
 
-    @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if(player.getMainHandItem().getItem() == Items.ENDER_PEARL) {
             player.getMainHandItem().shrink(1);
