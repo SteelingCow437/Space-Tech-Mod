@@ -1,11 +1,16 @@
 package com.net.spacetechmod.util;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
+import net.neoforged.neoforge.event.brewing.PotionBrewEvent;
 
 public class BetterBrewingRecipe implements IBrewingRecipe
 {
@@ -23,7 +28,8 @@ public class BetterBrewingRecipe implements IBrewingRecipe
     @Override
     public boolean isInput(ItemStack input)
     {
-        return PotionUtils.getPotion(input) == this.input;
+        PotionContents inputContents = input.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+        return inputContents.getAllEffects() == this.input.getEffects();
     }
 
     @Override
@@ -41,8 +47,10 @@ public class BetterBrewingRecipe implements IBrewingRecipe
         }
 
         ItemStack itemStack = new ItemStack(input.getItem());
-        itemStack.setTag(new CompoundTag());
-        PotionUtils.setPotion(itemStack, this.output);
+      /*  itemStack.setTag(new CompoundTag());
+        PotionBrewing.setPotion(itemStack, this.output);
+
+       */
         return itemStack;
     }
 }

@@ -1,8 +1,10 @@
 package com.net.spacetechmod.block.entity.sculk;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
+import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -41,7 +43,7 @@ public class SculkHeartBlockEntity extends BlockEntity {
         }
         if(timer >= 80 && entity.targetPlayer != null && entity.targetPlayer.distanceToSqr(entity.x, entity.y, entity.z) < 225) {
             level.playSound(entity.targetPlayer, entity.x, entity.y, entity.z, SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 2.0f, 2.0f);
-            entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect(), 160, 1));
+            entity.targetPlayer.addEffect(new MobEffectInstance(entity.getMobEffect().getDelegate(), 160, 1));
             timer = 0;
         }
         else {
@@ -57,7 +59,7 @@ public class SculkHeartBlockEntity extends BlockEntity {
         }
     }
 
-    private MobEffect getMobEffect() {
+    private Holder<MobEffect> getMobEffect() {
         return ModLists.SCULK_HEART_EFFECT_LIST.get(random.nextInt(0, 7));
     }
 }

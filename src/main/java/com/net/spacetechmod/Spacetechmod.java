@@ -10,11 +10,8 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.sound.ModSounds;
-import com.net.spacetechmod.util.BetterBrewingRecipe;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -24,7 +21,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
@@ -66,12 +62,12 @@ public class Spacetechmod {
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             //declare all potion recipes under this line
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.HARMING,
+             /* PotionBrewing.addRecipe(new BetterBrewingRecipe(Potions.HARMING.value(),
                     ModItems.LEAN.get(), ModPotions.LEAN_2.get()));
 
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
+            PotionBrewing.addRecipe(new BetterBrewingRecipe(Potions.THICK.value(),
                             Items.WHEAT, ModPotions.OIL.get()));
-
+            */
 
             //And above this line
         });

@@ -25,5 +25,5 @@ public class ModPotions {
                     new MobEffectInstance(MobEffects.HARM, 600, 4)));
 
     public static final DeferredHolder<Potion, Potion> OIL = POTIONS.register("oil",
-            () -> new Potion(new MobEffectInstance(ModEffects.OILEFFECT.get(), 600, 0)));
+            () -> new Potion(new MobEffectInstance(ModEffects.OILEFFECT.getDelegate(), 600, 0)));
 }

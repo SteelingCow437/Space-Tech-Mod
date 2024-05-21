@@ -6,10 +6,12 @@ import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.dimension.ModDimensions;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -47,11 +49,11 @@ public class ModLists {
     public static final ArrayList<Item> SCULK_ALTAR_INGREDIENT_LIST = new ArrayList<Item>
             (Arrays.asList(ModItems.TITANIUM_INGOT.get(), Items.GLASS_BOTTLE, Items.AMETHYST_SHARD, Items.BOOK));
 
-    public static final ArrayList<MobEffect> SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
+    public static final ArrayList<Holder<MobEffect>> SCULK_HEART_EFFECT_LIST = new ArrayList<Holder<MobEffect>>(
             Arrays.asList(MobEffects.DARKNESS, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.MOVEMENT_SLOWDOWN,
                     MobEffects.POISON, MobEffects.HUNGER, MobEffects.WEAKNESS, MobEffects.WITHER));
 
-    public static final ArrayList<MobEffect> CALIBRATED_SCULK_HEART_EFFECT_LIST = new ArrayList<MobEffect>(
+    public static final ArrayList<Holder<MobEffect>> CALIBRATED_SCULK_HEART_EFFECT_LIST = new ArrayList<Holder<MobEffect>>(
             Arrays.asList(MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
                     MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.NIGHT_VISION, MobEffects.LUCK));
 
@@ -62,7 +64,7 @@ public class ModLists {
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
 
-    public static final ArrayList<ModArmorMaterials> ARMOR_MATERIAL_INDEX = new ArrayList<ModArmorMaterials>(
+    public static final ArrayList<Holder<ArmorMaterial>> ARMOR_MATERIAL_INDEX = new ArrayList<Holder<ArmorMaterial>>(
             Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
                     ModArmorMaterials.SCULK, ModArmorMaterials.SPACESUIT));
 

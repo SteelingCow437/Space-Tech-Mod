@@ -12,8 +12,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.level.ChunkPos;
@@ -152,7 +150,7 @@ public class SculkDimTeleporter implements ITeleporter {
         for(int i = -1; i < 3; ++i) {
             for(int j = -1; j < 4; ++j) {
                 offsetPos.setWithOffset(originalPos, directionIn.getStepX() * i + direction.getStepX() * offsetScale, j, directionIn.getStepZ() * i + direction.getStepZ() * offsetScale);
-                if (j < 0 && !this.level.getBlockState(offsetPos).getBlock().isValidSpawn(level.getBlockState(offsetPos).getBlock().defaultBlockState(), level, offsetPos, SpawnPlacements.Type.ON_GROUND, EntityType.PLAYER)) {
+                if (j < 0 && !this.level.getBlockState(offsetPos).getBlock().isPossibleToRespawnInThis(level.getBlockState(offsetPos).getBlock().defaultBlockState())) {
                     return false;
                 }
 

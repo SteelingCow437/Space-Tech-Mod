@@ -1,6 +1,7 @@
 package com.net.spacetechmod.item.custom.magic;
 
 import com.net.spacetechmod.util.ModLists;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -29,14 +30,12 @@ public class CalibratedSculkHeartItem extends Item {
 
     private int selectedEffectIndex = 0;
     private int cooldown = 0;
-    private MobEffect effect;
+    private Holder<MobEffect> effect;
 
     private void setEffect(Player player) {
         selectedEffectIndex = (selectedEffectIndex + 1) % ModLists.CALIBRATED_SCULK_HEART_EFFECT_LIST.size();
-        effect = ModLists.CALIBRATED_SCULK_HEART_EFFECT_LIST.get(selectedEffectIndex);
-        if (effect != null) {
-            player.sendSystemMessage(Component.literal("Selected " + effect.getDisplayName().getString()));
-        }
+        effect = ModLists.CALIBRATED_SCULK_HEART_EFFECT_LIST.get(selectedEffectIndex).getDelegate();
+        player.sendSystemMessage(Component.literal("Selected " + effect.getDelegate()));
     }
 
     @Override
@@ -78,7 +77,7 @@ public class CalibratedSculkHeartItem extends Item {
    @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> component, TooltipFlag flag) {
         if (effect != null) {
-            component.add(Component.literal("Selected Effect: " + effect.getDisplayName().getString()));
+            component.add(Component.literal("Selected Effect: " + effect.getDelegate().getRegisteredName()));
         }
     }
 }

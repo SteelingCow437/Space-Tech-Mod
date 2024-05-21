@@ -11,8 +11,8 @@ public class ModAttributeModifiers {
      */
 
     //Gravity modifiers
-    public static final AttributeModifier MOON_GRAVITY = new AttributeModifier("LUNAR_SURFACE_GRAVITY", -0.066, AttributeModifier.Operation.ADDITION);
+    public static final AttributeModifier MOON_GRAVITY = new AttributeModifier("LUNAR_SURFACE_GRAVITY", -0.066, AttributeModifier.Operation.ADD_VALUE);
 
-    public static final AttributeModifier MARS_GRAVITY = new AttributeModifier("MARS_SURFACE_GRAVITY", -0.049, AttributeModifier.Operation.ADDITION);
+    public static final AttributeModifier MARS_GRAVITY = new AttributeModifier("MARS_SURFACE_GRAVITY", -0.049, AttributeModifier.Operation.ADD_VALUE);
 
 }

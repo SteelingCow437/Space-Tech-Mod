@@ -5,8 +5,10 @@ import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.magic.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -25,19 +27,19 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_TITANIUM = ITEMS.register("raw_titanium",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword",
-            () -> new SwordItem(ModTiers.TITANIUM, 3, -2.4f,
+            () -> new SwordItem(ModTiers.TITANIUM,
                     new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe",
-            () -> new PickaxeItem(ModTiers.TITANIUM, 1, -2.8f,
+            () -> new PickaxeItem(ModTiers.TITANIUM,
                     new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",
-            () -> new AxeItem(ModTiers.TITANIUM, 5, -3f,
+            () -> new AxeItem(ModTiers.TITANIUM,
                     new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel",
-            () -> new ShovelItem(ModTiers.TITANIUM, 1, -3f,
+            () -> new ShovelItem(ModTiers.TITANIUM,
                     new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe",
-            () -> new HoeItem(ModTiers.TITANIUM, -2, 0f,
+            () -> new HoeItem(ModTiers.TITANIUM,
                     new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.HELMET,
@@ -72,23 +74,23 @@ public class ModItems {
 
     //begin of copper stuff
     public static final DeferredItem<Item> COPPER_SWORD = ITEMS.register("copper_sword",
-            () -> new SwordItem(ModTiers.COPPER, 3, -2.4f,
+            () -> new SwordItem(ModTiers.COPPER,
                     new Item.Properties()));
 
     public static final DeferredItem<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
-            () -> new PickaxeItem(ModTiers.COPPER, 2, -2.8f,
+            () -> new PickaxeItem(ModTiers.COPPER,
                     new Item.Properties()));
 
     public static final DeferredItem<Item> COPPER_AXE = ITEMS.register("copper_axe",
-            () -> new AxeItem(ModTiers.COPPER, 7, -3.15f,
+            () -> new AxeItem(ModTiers.COPPER,
                     new Item.Properties()));
 
     public static final DeferredItem<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
-            () -> new ShovelItem(ModTiers.COPPER, 2, -3f,
+            () -> new ShovelItem(ModTiers.COPPER,
                     new Item.Properties()));
 
     public static final DeferredItem<Item> COPPER_HOE = ITEMS.register("copper_hoe",
-            () -> new HoeItem(ModTiers.COPPER, -1, -1.5f,
+            () -> new HoeItem(ModTiers.COPPER,
                     new Item.Properties()));
 
     public static final DeferredItem<Item> COPPER_HELMET = ITEMS.register("copper_helmet",

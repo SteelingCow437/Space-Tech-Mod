@@ -5,6 +5,7 @@ import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.util.ModLists;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,7 +22,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ModArmorItem extends ArmorItem {
 
-    public ModArmorItem(DeferredHolder<ArmorMaterial, ArmorMaterial> material, ArmorItem.Type type, Properties settings) {
+    public ModArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Properties settings) {
         super(material, type, settings);
     }
 
@@ -64,7 +65,7 @@ public class ModArmorItem extends ArmorItem {
         if (!world.isClientSide()) {
             if (hasFullSuitOfArmorOn(player)) {
                 for(int i = 0; i < ModLists.ARMOR_MATERIAL_INDEX.size(); ++i) {
-                    if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i), player)) {
+                    if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i).value(), player)) {
                         setEffects(player, world);
                         break;
                     }
@@ -106,7 +107,7 @@ public class ModArmorItem extends ArmorItem {
 
     //add methods for set bonuses here!
     private void spaceSuit(Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 40, 0));
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.getDelegate(), 40, 0));
     }
     private void copperArmor(Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));

@@ -62,7 +62,7 @@ public class AirMachineBlockEntity extends BlockEntity {
         }
         if(timer >= 100 && entity.timeRemaining > 0) {
             for(Object player : entity.getPlayersInRange(level)) {
-                ((Player) player).addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.get(), 110, 0));
+                ((Player) player).addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.getDelegate(), 110, 0));
             }
             timer = 0;
         }

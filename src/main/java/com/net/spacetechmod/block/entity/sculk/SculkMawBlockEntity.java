@@ -26,11 +26,11 @@ public class SculkMawBlockEntity extends BlockEntity {
         if(player != null && player.distanceToSqr(pEntity.x, pEntity.y, pEntity.z) < 100 && time >= 20) {
             if(player.experienceLevel >= 1) {
                 player.experienceLevel--;
-                player.addEffect(new MobEffectInstance(ModEffects.SOUL_CONSUMPTION_EFFECT.get(), 25, 0));
+                player.addEffect(new MobEffectInstance(ModEffects.SOUL_CONSUMPTION_EFFECT.getDelegate(), 25, 0));
                 time = 0;
             }
             if(player.experienceLevel <= 0) {
-                player.addEffect(new MobEffectInstance(ModEffects.SOUL_CONSUMPTION_EFFECT.get(), 25, 0));
+                player.addEffect(new MobEffectInstance(ModEffects.SOUL_CONSUMPTION_EFFECT.getDelegate(), 25, 0));
             }
         }
         else {
