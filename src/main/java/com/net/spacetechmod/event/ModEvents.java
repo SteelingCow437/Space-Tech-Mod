@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -24,27 +25,32 @@ import net.neoforged.fml.LogicalSide;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.EnumSet;
 
 public class ModEvents {
-    @EventBusSubscriber(modid = Spacetechmod.MOD_ID)
+   @EventBusSubscriber(modid = Spacetechmod.MOD_ID)
     public static class NeoForgeEvents {
         private static int playerBreathTimer = 0;
         private static int playerGravityTimer = 0;
         private static float playerHealth;
+        private static Player player;
         @SubscribeEvent
-        public static void onPlayerTick(PlayerTickEvent event) {
+        public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if(!event.getEntity().level().isClientSide) {
-                if(!ModLists.SAFE_BREATHING_LIST.contains(event.getEntity().level().dimension()) && !event.getEntity().getAbilities().instabuild) {
+                if(event.getEntity() instanceof Player) {
+                    player = event.getEntity();
+                }
+                if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild) {
                     if(playerBreathTimer >= 40) {
-                        if(!event.getEntity().hasEffect(ModEffects.SPACE_BREATHING_EFFECT.getDelegate())) {
-                            event.getEntity().sendSystemMessage(Component.literal(
+                        if(!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT.getDelegate())) {
+                            player.sendSystemMessage(Component.literal(
                                     "You can't breathe in space!"
                             ));
-                            playerHealth = event.getEntity().getHealth();
-                            event.getEntity().setHealth(playerHealth -= 2);
+                            playerHealth = player.getHealth();
+                            player.setHealth(playerHealth -= 2);
                         }
                         playerBreathTimer = 0;
                     }
@@ -53,21 +59,21 @@ public class ModEvents {
                     }
                 }
                 if(playerGravityTimer >= 20) {
-                    handleGravity(event.getEntity(), event.getEntity().level().dimension());
+                    handleGravity(player, player.level().dimension());
                     playerGravityTimer = 0;
                 }
                 else {
                     ++playerGravityTimer;
                 }
-                if(event.getEntity().getY() >= 70000) {
-                    Item item = event.getEntity().getItemBySlot(EquipmentSlot.CHEST).getItem();
+                if(player.getY() >= 70000) {
+                    Item item = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
                     if(item == ModItems.SPACESUIT_CHESTPLATE.get()) {
-                        MinecraftServer server = event.getEntity().getServer();
+                        MinecraftServer server = player.getServer();
                         ResourceKey<Level> selectedPlanet =((SpaceSuitChestplateItem) item).getSelectedPlanet();
                         ServerLevel destinationLevel = server.getLevel(selectedPlanet);
-                        event.getEntity().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9, 2));
-                        event.getEntity().teleportTo(destinationLevel, 0, 100, 0, EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);
-                        handleGravity(event.getEntity(), destinationLevel.dimension());
+                        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9, 2));
+                        player.teleportTo(destinationLevel, 0, 100, 0, EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);
+                        handleGravity(player, destinationLevel.dimension());
                     }
                 }
             }
