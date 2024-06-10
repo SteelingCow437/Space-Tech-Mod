@@ -1,6 +1,6 @@
 Space-Tech-Mod
 
-A mod about space and tech, for 1.20.1 and beyond
+A mod about space and tech, for 1.21 and beyond
 
 Space stuff won't be here for quite a while,
 as this is my first mod and I want to make sure that I make everything as vanilla-feeling
@@ -13,7 +13,7 @@ and modder, so bear with me here.
 
 FAQ:
 
-"What versions?"  1.20.4 Neoforged, as of now. I'll update to the latest versions of everything as soon as
+"What versions?"  1.21 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
 
 "Fabric? Quilt? Regular Forge?" No. By all means, port them if you know how, but don't bother asking ME to do it.

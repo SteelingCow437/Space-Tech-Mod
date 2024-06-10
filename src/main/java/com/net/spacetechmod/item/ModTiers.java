@@ -18,10 +18,6 @@ public class ModTiers {
             4f, 20,
             () -> Ingredient.of(Items.TURTLE_HELMET));
 
-    public static final SimpleTier SCULK = new SimpleTier(BlockTags.NEEDS_IRON_TOOL, 500, 4f,
-            4, 50,
-            () -> Ingredient.of(ModItems.SCULK_INGOT.get()));
-
     public static final SimpleTier SPACESUIT = new SimpleTier(BlockTags.NEEDS_DIAMOND_TOOL, 1500, 7f,
             2f, 15,
             () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()));

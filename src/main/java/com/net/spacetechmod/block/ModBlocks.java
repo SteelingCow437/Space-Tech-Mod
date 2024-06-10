@@ -3,7 +3,6 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.*;
-import com.net.spacetechmod.block.custom.sculk.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -66,41 +65,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> TIN_ORE_DEEPSLATE = registerBlock("tin_ore_deepslate",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(5f).requiresCorrectToolForDrops()));
-
-    //sculk
-    public static final DeferredBlock<Block> SCULKDIM_PORTAL = registerBlockWithoutBlockItem("sculkdim_portal",
-            SculkDimPortalBlock::new);
-    public static final DeferredBlock<Block> SCULK_HEART = registerBlock("sculk_heart",
-            () -> new SculkHeartBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK)
-                    .strength(1f).requiresCorrectToolForDrops()));
-
-    public static final DeferredBlock<Block> SCULK_MAW = registerBlock("sculk_maw",
-            () -> new SculkMawBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK)
-                    .strength(2f).requiresCorrectToolForDrops()));
-
-    public static final DeferredBlock<Block> CORRUPTED_BONE = registerBlock("corrupted_bone",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)
-                    .strength(6f).requiresCorrectToolForDrops().explosionResistance(2.5f)));
-
-    public static final DeferredBlock<Block> SCULK_TRAP = registerBlock("sculk_trap",
-            () -> new SculkTrapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_SHRIEKER)
-                    .strength(2f).requiresCorrectToolForDrops()));
-
-    public static final DeferredBlock<Block> SCULK_ALTAR = registerBlock("sculk_altar",
-            () -> new SculkAltarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_CATALYST)
-                    .strength(10f).noLootTable()));
-
-    public static final DeferredBlock<Block> WARDEN_TRAP_BLOCK = registerBlock("warden_trap_block",
-            () -> new WardenTrapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)
-                    .strength(12f).noLootTable()));
-
-    public static final DeferredBlock<Block> SCULK_CORE = registerBlock("sculk_core",
-            () -> new SculkCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_SHRIEKER)
-                    .strength(5f).explosionResistance(12f)));
-
-    public static final DeferredBlock<Block> CALIBRATED_SCULK_TRAP = registerBlock("calibrated_sculk_trap",
-            () -> new CalibratedSculkTrapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_SHRIEKER)
-                    .strength(2f).requiresCorrectToolForDrops()));
 
     //Fluid Tanks
     public static final DeferredBlock<Block> IRON_BARREL = registerBlock("iron_barrel",

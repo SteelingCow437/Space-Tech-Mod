@@ -90,14 +90,7 @@ public class ModArmorItem extends ArmorItem {
                     turtleMasterArmorOnLand(player);
                 }
             }
-
             case 3 -> {
-                if(player.experienceLevel < 100) {
-                    player.giveExperiencePoints(2);
-                }
-            }
-
-            case 4 -> {
                 if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension())) {
                     spaceSuit(player);
                 }

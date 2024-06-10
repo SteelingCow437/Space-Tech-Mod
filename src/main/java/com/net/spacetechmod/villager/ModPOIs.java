@@ -13,10 +13,6 @@ public class ModPOIs {
     public static final DeferredRegister<PoiType> POI
             = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, Spacetechmod.MOD_ID);
 
-    public static final DeferredHolder<PoiType, PoiType> SCULKDIM_PORTAL =
-            POI.register("sculkdim_portal", () -> new PoiType(
-                    ImmutableSet.copyOf(ModBlocks.SCULKDIM_PORTAL.get().getStateDefinition().getPossibleStates()),
-                            0, 1));
 
     public static void register(IEventBus eventBus) {
         POI.register(eventBus);

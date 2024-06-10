@@ -42,14 +42,6 @@ public class ModArmorMaterials {
         p_323378_.put(ArmorItem.Type.BODY, 8);
     }), 156, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> Ingredient.of(Items.TURTLE_HELMET));
 
-    public static final Holder<ArmorMaterial> SCULK = register("iron", Util.make(new EnumMap<>(ArmorItem.Type.class), p_323378_ -> {
-        p_323378_.put(ArmorItem.Type.BOOTS, 2);
-        p_323378_.put(ArmorItem.Type.LEGGINGS, 5);
-        p_323378_.put(ArmorItem.Type.CHESTPLATE, 6);
-        p_323378_.put(ArmorItem.Type.HELMET, 2);
-        p_323378_.put(ArmorItem.Type.BODY, 5);
-    }), 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.of(ModItems.SCULK_INGOT.get()));
-
     public static final Holder<ArmorMaterial> SPACESUIT = register("iron", Util.make(new EnumMap<>(ArmorItem.Type.class), p_323378_ -> {
         p_323378_.put(ArmorItem.Type.BOOTS, 4);
         p_323378_.put(ArmorItem.Type.LEGGINGS, 7);

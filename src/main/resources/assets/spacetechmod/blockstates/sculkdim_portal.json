@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "axis=z": { "model": "spacetechmod:block/sculkdim_portal_ew" },
-    "axis=x": { "model": "spacetechmod:block/sculkdim_portal_ns" }
-  }
-}

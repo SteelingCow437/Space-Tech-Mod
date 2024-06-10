@@ -83,13 +83,6 @@ public class Spacetechmod {
             event.accept(ModBlocks.AQUAMARINE_ORE);
             event.accept(ModBlocks.TIN_ORE);
             event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
-            event.accept(ModBlocks.CORRUPTED_BONE);
-            event.accept(ModBlocks.SCULK_HEART);
-            event.accept(ModBlocks.SCULK_MAW);
-            event.accept(ModBlocks.SCULK_TRAP);
-            event.accept(ModBlocks.SCULK_ALTAR);
-            event.accept(ModBlocks.SCULK_CORE);
-            event.accept(ModBlocks.CALIBRATED_SCULK_TRAP);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -110,7 +103,6 @@ public class Spacetechmod {
             event.accept(ModItems.STEEL_BLEND);
             event.accept(ModItems.COPPER_REDSTIDE_BLEND);
             event.accept(ModItems.COPPER_REDSTIDE_INGOT);
-            event.accept(ModItems.ECHO);
             event.accept(ModItems.TIN_CAN);
             event.accept(ModItems.TIN_INGOT);
             event.accept(ModItems.RAW_TIN);
@@ -147,10 +139,6 @@ public class Spacetechmod {
             event.accept(ModItems.TURTLE_MASTER_CHESTPLATE);
             event.accept(ModItems.TURTLE_MASTER_LEGGINGS);
             event.accept(ModItems.TURTLE_MASTER_BOOTS);
-            event.accept(ModItems.SCULK_HELMET);
-            event.accept(ModItems.SCULK_CHESTPLATE);
-            event.accept(ModItems.SCULK_LEGGINGS);
-            event.accept(ModItems.SCULK_BOOTS);
             event.accept(ModItems.DEBUG_STICK);
             event.accept(ModItems.SPACESUIT_HELMET);
             event.accept(ModItems.SPACESUIT_CHESTPLATE);
@@ -163,13 +151,6 @@ public class Spacetechmod {
             event.accept(ModItems.CANADA);
             event.accept(ModItems.ANTIDOTE);
             event.accept(ModItems.CANNED_BREAD);
-        }
-        if(event.getTab() == ModCreativeModeTab.STM_MAGIC.get()) {
-            event.accept(ModItems.SOUL_BOTTLE);
-            event.accept(ModItems.SOUL_CRYSTAL);
-            event.accept(ModItems.MAGIC_QUIVER);
-            event.accept(ModItems.LIGHTNING_STAFF);
-            event.accept(ModItems.CALIBRATED_SCULK_HEART);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
             event.accept(ModBlocks.IRON_BARREL);
@@ -195,7 +176,7 @@ public class Spacetechmod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SCULKDIM_PORTAL.get(), RenderType.translucent());
+
         }
    }
 }

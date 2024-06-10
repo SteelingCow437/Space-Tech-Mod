@@ -9,13 +9,14 @@ import net.minecraft.world.level.dimension.DimensionType;
 
 public class ModDimensions {
 
-    public static final ResourceKey<Level> SCULKDIM =
-            ResourceKey.create(Registries.DIMENSION, new ResourceLocation(Spacetechmod.MOD_ID, "sculkdim"));
-    public static final ResourceKey<DimensionType> SCULKDIM_TYPE = register("sculkdim_type");
-
     public static final ResourceKey<Level> MOON =
             ResourceKey.create(Registries.DIMENSION, new ResourceLocation(Spacetechmod.MOD_ID, "moon"));
+
     public static final ResourceKey<DimensionType> MOON_TYPE = register("moon_type");
+
+
+
+
     private static ResourceKey<DimensionType> register(String register) {
         return ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(Spacetechmod.MOD_ID, register));
     }

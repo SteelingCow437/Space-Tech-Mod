@@ -2,13 +2,10 @@ package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
-import com.net.spacetechmod.item.custom.magic.*;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
-import net.minecraft.core.Holder;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -155,38 +152,6 @@ public class ModItems {
 
     public static final DeferredItem<Item> COPPER_REDSTIDE_WIRING = ITEMS.register("copper_redstide_wiring",
             () -> new Item(new Item.Properties()));
-
-    //sculk thangs n' stuff
-    public static final DeferredItem<Item> ECHO = ITEMS.register("echo", EchoItem::new);
-    public static final DeferredItem<Item> SOUL_CRYSTAL = ITEMS.register("soul_crystal",
-            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-    public static final DeferredItem<Item> SCULK_INGOT = ITEMS.register("sculk_ingot",
-            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-    public static final DeferredItem<Item> SOUL_BOTTLE = ITEMS.register("soul_bottle",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
-    public static final DeferredItem<Item> SCULK_HELMET = ITEMS.register("sculk_helmet",
-            () -> new ModArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
-    public static final DeferredItem<Item> SCULK_CHESTPLATE = ITEMS.register("sculk_chestplate",
-            () -> new ModArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()));
-    public static final DeferredItem<Item> SCULK_LEGGINGS = ITEMS.register("sculk_leggings",
-            () -> new ModArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()));
-    public static final DeferredItem<Item> SCULK_BOOTS = ITEMS.register("sculk_boots",
-            () -> new ModArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
-    public static final DeferredItem<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
-            LightningStaffItem::new);
-
-    public static final DeferredItem<Item> MAGIC_QUIVER = ITEMS.register("magic_quiver",
-            MagicQuiverItem::new);
-
-    public static final DeferredItem<Item> TELEPORT_MARKER = ITEMS.register("teleport_marker",
-            TeleportMarkerItem::new);
-
-    public static final DeferredItem<Item> CALIBRATED_SCULK_HEART = ITEMS.register("calibrated_sculk_heart",
-            CalibratedSculkHeartItem::new);
 
     //Alloy Powders
     public static final DeferredItem<Item> IRON_POWDER = ITEMS.register("iron_powder",

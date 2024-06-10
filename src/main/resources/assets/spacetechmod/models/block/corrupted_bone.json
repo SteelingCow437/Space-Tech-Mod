@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "spacetechmod:block/corrupted_bone_top",
-    "side": "spacetechmod:block/corrupted_bone_side"
-  }
-}

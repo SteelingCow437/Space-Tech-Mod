@@ -19,9 +19,6 @@ public class ModEffects {
     public static final DeferredHolder<MobEffect, MobEffect> ANTIDOTE_EFFECT = MOB_EFFECTS.register("antidote_effect",
             () -> new AntidoteEffect(MobEffectCategory.NEUTRAL, 0));
 
-    public static final DeferredHolder<MobEffect, MobEffect> SOUL_CONSUMPTION_EFFECT = MOB_EFFECTS.register("soul_consumption_effect",
-            () -> new SoulConsumptionEffect(MobEffectCategory.HARMFUL, 0));
-
     public static final DeferredHolder<MobEffect, MobEffect> CANNED_BREAD_EFFECT = MOB_EFFECTS.register("canned_bread_effect",
             () -> new CannedBreadEffect(MobEffectCategory.BENEFICIAL, 0));
 

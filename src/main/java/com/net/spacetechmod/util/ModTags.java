@@ -19,8 +19,6 @@ public class ModTags {
         }
         //block tags here
 
-        public static final TagKey<Block> PORTAL_FRAME_BLOCKS
-                = tag("portal_frame_blocks");
     }
     public static class ModItemTags {
         public static TagKey<Item> tag(String name) {
