@@ -6,6 +6,7 @@ import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -26,9 +27,11 @@ public class AirMachineBlock extends BaseEntityBlock {
         super(properties);
     }
 
+    public static final MapCodec<AirMachineBlock> CODEC = simpleCodec(AirMachineBlock::new);
+
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+        return CODEC;
     }
 
     @Nullable
@@ -37,7 +40,19 @@ public class AirMachineBlock extends BaseEntityBlock {
         return new AirMachineBlockEntity(pos, state);
     }
 
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+        use(level, pos, player);
+        return super.useWithoutItem(state, level, pos, player, result);
+    }
+
+    @Override
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        use(level, pos, player);
+        return super.useItemOn(stack, state, level, pos, player, hand, result);
+    }
+
+    public void use(Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof AirMachineBlockEntity) {
             if(player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
@@ -46,10 +61,6 @@ public class AirMachineBlock extends BaseEntityBlock {
             else {
                 ((AirMachineBlockEntity) entity).getTimeRemaining(player);
             }
-            return InteractionResult.SUCCESS;
-        }
-        else {
-            return InteractionResult.FAIL;
         }
     }
 

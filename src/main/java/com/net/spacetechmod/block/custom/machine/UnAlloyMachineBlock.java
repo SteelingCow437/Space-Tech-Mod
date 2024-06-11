@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -26,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 public class UnAlloyMachineBlock extends BaseEntityBlock {
 
     private static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+    public static final MapCodec<UnAlloyMachineBlock> CODEC = simpleCodec(UnAlloyMachineBlock::new);
 
     public boolean active = false;
 
@@ -46,7 +48,7 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+        return CODEC;
     }
 
     public UnAlloyMachineBlock(Properties properties) {
@@ -54,14 +56,24 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
         this.registerDefaultState(this.getStateDefinition().any().setValue(ACTIVE, active));
     }
 
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+        use(state, level, pos, player);
+        return super.useWithoutItem(state, level, pos, player, result);
+    }
+
+    @Override
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        use(state, level, pos, player);
+        return super.useItemOn(stack, state, level, pos, player, hand, result);
+    }
+
+    public void use(BlockState state, Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof UnAlloyMachineBlockEntity) {
             ItemStack stack = player.getMainHandItem();
             ((UnAlloyMachineBlockEntity) entity).use(player, stack);
-            return InteractionResult.SUCCESS;
         }
-        return InteractionResult.FAIL;
     }
 
     public void setState(BlockPos pos, BlockState state, Level level, boolean active) {

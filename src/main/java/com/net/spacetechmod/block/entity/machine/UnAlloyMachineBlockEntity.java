@@ -30,7 +30,7 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
     public int fuelTime = 0;
 
     public void use(Player player, ItemStack input) {
-        if(ModLists.FORGING_TABLE_INGREDIENT_LIST.contains(input.getItem()) && input.getBurnTime(RecipeType.SMELTING) > 0) {
+        if(input.getBurnTime(RecipeType.SMELTING) > 0) {
             fuelTime += input.getBurnTime(RecipeType.SMELTING);
             input.shrink(input.getCount());
         }
