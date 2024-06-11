@@ -13,6 +13,8 @@ and modder, so bear with me here.
 
 FAQ:
 
+Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion.CommitNumber
+
 "What versions?"  1.21 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
 

@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "spacetechmod:block/un_alloy_machine" }
+    "active=false": {
+      "model": "spacetechmod:block/un_alloy_machine"
+    },
+    "active=true": {
+      "model": "spacetechmod:block/un_alloy_machine_1"
+    }
   }
 }
