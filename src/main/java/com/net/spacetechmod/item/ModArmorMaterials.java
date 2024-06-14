@@ -1,5 +1,6 @@
 package com.net.spacetechmod.item;
 
+import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -60,7 +61,7 @@ public class ModArmorMaterials {
             float knockbackResistance,
             Supplier<Ingredient> repairIngredient
     ) {
-        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(new ResourceLocation(name)));
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name)));
         return register(name, healthPerSlot, durabilityMultiplier, sound, toughness, knockbackResistance, repairIngredient, list);
     }
 
@@ -82,7 +83,7 @@ public class ModArmorMaterials {
 
         return Registry.registerForHolder(
                 BuiltInRegistries.ARMOR_MATERIAL,
-                new ResourceLocation(name),
+                ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name),
                 new ArmorMaterial(enummap, durabilityMultiplier, sound, repairIngredient, layer, toughness, knockbackResistance)
         );
     }

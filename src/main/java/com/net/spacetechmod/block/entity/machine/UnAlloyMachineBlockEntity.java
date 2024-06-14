@@ -5,7 +5,6 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.CommonHooks;
 
 public class UnAlloyMachineBlockEntity extends BlockEntity {
     public UnAlloyMachineBlockEntity(BlockPos pos, BlockState state) {

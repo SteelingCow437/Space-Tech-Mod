@@ -1,23 +1,16 @@
 package com.net.spacetechmod.item.custom.tool;
 
 import com.net.spacetechmod.effect.ModEffects;
-import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.util.ModLists;
-import com.net.spacetechmod.world.dimension.ModDimensions;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.util.ITeleporter;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 
 public class ModArmorItem extends ArmorItem {
@@ -60,18 +53,22 @@ public class ModArmorItem extends ArmorItem {
             return false;
         }
     }
+
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (!world.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player)) {
-                for(int i = 0; i < ModLists.ARMOR_MATERIAL_INDEX.size(); ++i) {
-                    if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i).value(), player)) {
-                        setEffects(player, world);
-                        break;
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int number, boolean bool) {
+        if (!level.isClientSide()) {
+            if(entity instanceof Player player) {
+                if (hasFullSuitOfArmorOn(player)) {
+                    for(int i = 0; i < ModLists.ARMOR_MATERIAL_INDEX.size(); ++i) {
+                        if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i).value(), player)) {
+                            setEffects(player, level);
+                            break;
+                        }
                     }
                 }
             }
         }
+        super.inventoryTick(stack, level, entity, number, bool);
     }
 
     public void setEffects(Player player, Level world) {

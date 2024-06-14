@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.block.entity.machine.UnAlloyMachineBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;

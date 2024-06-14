@@ -11,22 +11,22 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class ModBlockTags {
         public static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name));
         }
 
         public static TagKey<Block> forgeTag(String name) {
-            return BlockTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name));
         }
         //block tags here
 
     }
     public static class ModItemTags {
         public static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name));
         }
 
         public static TagKey<Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation(Spacetechmod.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name));
         }
         //item tags here
     }

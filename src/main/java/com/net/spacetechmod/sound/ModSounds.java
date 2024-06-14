@@ -15,7 +15,7 @@ public class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> CANNED_BREAD = registerSoundEvent("canned_bread");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name) {
-        ResourceLocation id = new ResourceLocation(Spacetechmod.MOD_ID, name);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name);
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
     }
 

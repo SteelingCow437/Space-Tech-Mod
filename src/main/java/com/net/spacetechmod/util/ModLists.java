@@ -1,6 +1,5 @@
 package com.net.spacetechmod.util;
 
-import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModArmorMaterials;
@@ -8,8 +7,6 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;

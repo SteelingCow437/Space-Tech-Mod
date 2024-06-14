@@ -2,7 +2,9 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
-import com.net.spacetechmod.block.custom.machine.*;
+import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
+import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
+import com.net.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

@@ -1,7 +1,6 @@
 package com.net.spacetechmod.block.custom.fluid;
 
 import com.mojang.serialization.MapCodec;
-import com.net.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;

@@ -12,7 +12,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -21,11 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.LogicalSide;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.NeoForgeMod;
-import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.EnumSet;
@@ -40,9 +35,7 @@ public class ModEvents {
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if(!event.getEntity().level().isClientSide) {
-                if(event.getEntity() instanceof Player) {
-                    player = event.getEntity();
-                }
+                player = event.getEntity();
                 if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild) {
                     if(playerBreathTimer >= 40) {
                         if(!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT.getDelegate())) {
@@ -84,13 +77,13 @@ public class ModEvents {
             switch(ModLists.PLANET_LIST.indexOf(planet)) {
                 default -> {
                     for(int i = 0; i < ModLists.GRAVITY_CONSTANTS.size(); ++i) {
-                        if(gravity.hasModifier(ModLists.GRAVITY_CONSTANTS.get(i))) {
+                        if(gravity.hasModifier(ModLists.GRAVITY_CONSTANTS.get(i).id())) {
                             gravity.removeModifier(ModLists.GRAVITY_CONSTANTS.get(i));
                         }
                     }
                 }
                 case 1 -> {
-                    if(!gravity.hasModifier(ModAttributeModifiers.MOON_GRAVITY)) {
+                    if(!gravity.hasModifier(ModAttributeModifiers.MOON_GRAVITY.id())) {
                         gravity.addTransientModifier(ModAttributeModifiers.MOON_GRAVITY);
                     }
                 }

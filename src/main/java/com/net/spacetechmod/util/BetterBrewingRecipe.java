@@ -1,16 +1,11 @@
 package com.net.spacetechmod.util;
 
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
-import net.neoforged.neoforge.event.brewing.PotionBrewEvent;
 
 public class BetterBrewingRecipe implements IBrewingRecipe
 {

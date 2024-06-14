@@ -2,11 +2,10 @@
   "required": true,
   "package": "com.net.spacetechmod.mixin",
   "compatibilityLevel": "JAVA_21",
-  "refmap": "modid.refmap.json",
+  "refmap": "spacetechmod.refmap.json",
   "mixins": [
-
   ],
   "client": [
   ],
-  "minVersion": "0.8"
+  "minVersion": "0.8.5"
 }
