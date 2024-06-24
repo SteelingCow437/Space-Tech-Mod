@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "spacetechmod:item/lightning_staff"
+    "layer0": "spacetechmod:item/energy_shield"
   }
 }

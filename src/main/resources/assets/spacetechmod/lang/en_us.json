@@ -63,7 +63,6 @@
   "item.spacetechmod.copper_redstide_ingot": "Copper Redstide Ingot",
   "item.spacetechmod.copper_powder": "Copper Powder",
   "item.spacetechmod.titanium_powder": "Titanium Powder",
-  "enchantment.spacetechmod.magic_repair": "Self-Healing",
   "item.spacetechmod.canada": "Canadian Flag",
   "block.spacetechmod.tin_ore": "Tin Ore",
   "block.spacetechmod.tin_ore_deepslate": "Deepslate Tin Ore",
@@ -93,5 +92,6 @@
   "effect.spacetechmod.space_breathing": "Air Supply",
   "block.spacetechmod.planet_directory": "Star Map",
   "block.spacetechmod.un_alloy_machine": "Alloy Separator",
-  "block.spacetechmod.air_machine": "Air Machine"
+  "block.spacetechmod.air_machine": "Air Machine",
+  "item.spacetechmod.energy_shield": "Energy Shields"
 }

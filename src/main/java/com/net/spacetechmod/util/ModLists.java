@@ -21,13 +21,13 @@ import java.util.Arrays;
 
 public class ModLists {
 
-    //A class that contains the lists of things that I use to improve the performance of things
-    //that benefit from using switches, such as barrels and the hammer. These lists didn't
-    //want to play nice in any other class, so here they are. Consider this to be the mod's "API"
-    //I guess. I don't feel like learning how to make an API/implement a proper Neoforged
-    //one, so here this is.
+    /*A class that contains the lists of things that I use to improve the performance of things
+    that benefit from using switches, such as barrels and the hammer. These lists didn't
+    want to play nice in any other class, so here they are. Consider this to be the mod's "API"
+    I guess. I don't feel like learning how to make an API/implement a proper Neoforged
+    one, so here this is. */
 
-    //general lists
+    //Fluids
     public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>();
 
     public static final ArrayList<Item> BOTTLE_LIST = new ArrayList<Item>(
@@ -37,6 +37,7 @@ public class ModLists {
             Arrays.asList(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA,
                     ModFluids.HONEY.get()));
 
+    //Machines / Recipes
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
             (Arrays.asList(ModBlockEntities.FORGING_TABLE.get(), ModBlockEntities.AIR_MACHINE.get(), ModBlockEntities.UN_ALLOY_MACHINE.get()));
 
@@ -50,10 +51,12 @@ public class ModLists {
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
 
+    //Armor Materials
     public static final ArrayList<Holder<ArmorMaterial>> ARMOR_MATERIAL_INDEX = new ArrayList<Holder<ArmorMaterial>>(
             Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
                     ModArmorMaterials.SPACESUIT));
 
+    //Space stuff
     public static final ArrayList<ResourceKey<Level>> SAFE_BREATHING_LIST = new ArrayList<ResourceKey<Level>>(
             Arrays.asList(Level.OVERWORLD, Level.NETHER, Level.END)
     );

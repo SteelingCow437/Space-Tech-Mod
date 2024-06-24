@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
+import com.net.spacetechmod.block.custom.machine.PlanetDirectoryBlock;
 import com.net.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -88,7 +89,7 @@ public class ModBlocks {
 
     //Space equipment stuffs
     public static final DeferredBlock<Block> PLANET_DIRECTORY = registerBlock("planet_directory",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CARTOGRAPHY_TABLE)
+            () -> new PlanetDirectoryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CARTOGRAPHY_TABLE)
                     .strength(5.0f)));
 
 

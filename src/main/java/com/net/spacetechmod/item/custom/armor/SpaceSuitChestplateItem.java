@@ -21,27 +21,8 @@ public class SpaceSuitChestplateItem extends ModArmorItem {
     public SpaceSuitChestplateItem() {
         super(ModArmorMaterials.SPACESUIT, Type.CHESTPLATE, new Properties().fireResistant());
     }
-    Level level;
-    Player player;
-    public int selectedPlanetNumber = 0;
-    private ResourceKey<Level> selectedPlanet;
 
-    @Override
-    public InteractionResult useOn(UseOnContext context) {
-        if(context.getLevel().getBlockState(context.getClickedPos()).getBlock() == ModBlocks.PLANET_DIRECTORY.get()) {
-            level = context.getLevel();
-            player = context.getPlayer();
-            ++selectedPlanetNumber;
-            if(selectedPlanetNumber > ModLists.PLANET_LIST.size()) {
-                selectedPlanetNumber = 0;
-            }
-            else {
-                selectedPlanet = ModLists.PLANET_LIST.get(selectedPlanetNumber);
-            }
-            player.sendSystemMessage(Component.literal("Planet Selected: " + getPlanetNames()));
-        }
-        return super.useOn(context);
-    }
+    public ResourceKey<Level> selectedPlanet;
 
     public ResourceKey<Level> getSelectedPlanet() {
         if(selectedPlanet == null) {
