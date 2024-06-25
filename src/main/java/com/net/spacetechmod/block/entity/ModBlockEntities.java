@@ -5,6 +5,7 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
+import com.net.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
 import com.net.spacetechmod.block.entity.machine.UnAlloyMachineBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,6 +31,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("un_alloy_machine", () ->
                     BlockEntityType.Builder.of(UnAlloyMachineBlockEntity::new,
                             ModBlocks.ALLOY_REVERSAL_MACHINE.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlanetDirectoryBlockEntity>> PLANET_DIRECTORY =
+            BLOCK_ENTITIES.register("planet_directory", () ->
+                    BlockEntityType.Builder.of(PlanetDirectoryBlockEntity::new,
+                            ModBlocks.PLANET_DIRECTORY.get()).build(null));
     //Fluid container blocks
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
