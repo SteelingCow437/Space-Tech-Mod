@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bronze_blend",
+  "ingredients": [
+    {
+      "item": "spacetechmod:copper_powder"
+    },
+    {
+      "item": "spacetechmod:tin_powder"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "spacetechmod:bronze_blend"
+  }
+}

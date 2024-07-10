@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "copper_redstide_blend",
+  "ingredients": [
+    {
+      "item": "spacetechmod:copper_powder"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "spacetechmod:copper_redstide_blend"
+  }
+}

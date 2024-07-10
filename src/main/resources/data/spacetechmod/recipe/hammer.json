@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "*": {
+      "tag": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:hammer"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
+    },
+
+    "!": {
+      "item": "spacetechmod:lean"
+    },
+
+    "@": {
+      "item": "spacetechmod:steel_plate"
+    }
+
+  },
+  "pattern": [
+    "###",
+    "#!#",
+    "#@#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:antidote"
+  }
+}

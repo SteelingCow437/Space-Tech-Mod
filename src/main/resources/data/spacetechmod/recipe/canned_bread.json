@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "canned_bread",
+  "ingredients": [
+    {
+      "item": "spacetechmod:tin_can"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:canned_bread"
+  }
+}

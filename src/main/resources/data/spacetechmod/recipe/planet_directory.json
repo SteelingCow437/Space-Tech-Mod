@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "*": {
+      "item": "minecraft:compass"
+    },
+    "%": {
+      "item": "spacetechmod:titan_steel_ingot"
+    }
+  },
+  "pattern": [
+    "%%%",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:planet_directory"
+  }
+}

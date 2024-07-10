@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "plate_stamp",
+  "ingredients": [
+    {
+      "item": "spacetechmod:plate_stamp"
+    },
+    {
+      "item": "spacetechmod:steel_ingot"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "spacetechmod:plate_stamp"
+  }
+}

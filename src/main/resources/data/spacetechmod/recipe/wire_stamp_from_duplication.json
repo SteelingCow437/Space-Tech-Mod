@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wire_stamp",
+  "ingredients": [
+    {
+      "item": "spacetechmod:wire_stamp"
+    },
+    {
+      "item": "spacetechmod:steel_ingot"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "spacetechmod:wire_stamp"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "titanium_ingot",
+  "ingredient": {
+    "item": "spacetechmod:raw_titanium"
+  },
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:titanium_ingot"
+  }
+}

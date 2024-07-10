@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "spacetechmod:hammer"
+  },
+  "base": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:copper_plate"
+  },
+  "template": {
+    "item": "spacetechmod:plate_stamp"
+  }
+}

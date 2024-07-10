@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "copper_redstide_ingot",
+  "ingredient": {
+    "item": "spacetechmod:copper_redstide_blend"
+  },
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:copper_redstide_ingot"
+  }
+}
