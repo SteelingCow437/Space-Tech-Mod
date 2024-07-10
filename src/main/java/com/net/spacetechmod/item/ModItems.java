@@ -1,7 +1,6 @@
 package com.net.spacetechmod.item;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.item.custom.armor.EnergyShieldItem;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
@@ -220,9 +219,6 @@ public class ModItems {
     public static final DeferredItem<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS,
                     new Item.Properties().fireResistant()));
-
-    public static final DeferredItem<Item> ENERGY_SHIELD = ITEMS.register("energy_shield",
-            EnergyShieldItem::new);
 
     public static final DeferredItem<Item> MOON_KEY = ITEMS.register("moon_key",
             () -> new PlanetKeyItem(ModDimensions.MOON));

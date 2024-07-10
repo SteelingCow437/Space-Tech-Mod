@@ -2,7 +2,7 @@
   "type": "spacetechmod:moon_type",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:overworld",
+    "settings": "spacetechmod:moon_noise",
     "biome_source": {
       "type": "minecraft:fixed",
       "biome": "spacetechmod:moon_biome"

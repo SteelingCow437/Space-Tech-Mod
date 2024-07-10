@@ -10,8 +10,6 @@ import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
 import com.net.spacetechmod.potion.ModPotions;
 import com.net.spacetechmod.sound.ModSounds;
-import com.net.spacetechmod.world.biome.ModTerraBlender;
-import com.net.spacetechmod.world.biome.surface.MoonSurfaceRules;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -25,7 +23,6 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @SuppressWarnings("ALL")
@@ -53,7 +50,6 @@ public class Spacetechmod {
         ModFluids.register(eventBus);
         ModSounds.register(eventBus);
         ModCreativeModeTab.register(eventBus);
-        ModTerraBlender.registerBiomes();
 
         // Register ourselves for server and other game events we are interested in
         NeoForge.EVENT_BUS.register(this);
@@ -69,7 +65,6 @@ public class Spacetechmod {
             PotionBrewing.addRecipe(new BetterBrewingRecipe(Potions.THICK.value(),
                             Items.WHEAT, ModPotions.OIL.get()));
             */
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, MoonSurfaceRules.makeRules());
             //And above this line
         });
 

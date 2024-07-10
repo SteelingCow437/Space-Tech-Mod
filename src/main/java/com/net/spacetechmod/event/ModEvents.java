@@ -3,7 +3,6 @@ package com.net.spacetechmod.event;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.effect.ModEffects;
 import com.net.spacetechmod.item.ModItems;
-import com.net.spacetechmod.item.custom.armor.EnergyShieldItem;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.util.ModAttributeModifiers;
 import com.net.spacetechmod.util.ModLists;
@@ -16,7 +15,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -26,11 +24,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.EnumSet;
-import java.util.List;
 
 public class ModEvents {
     @EventBusSubscriber(modid = Spacetechmod.MOD_ID)
@@ -40,11 +36,6 @@ public class ModEvents {
         private static int playerGravityTimer = 0;
         private static float playerHealth;
         private static Player player;
-
-        //energy shield stuff
-        private static Entity entity;
-        private static DamageSource source;
-        private static float damage;
 
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
@@ -100,29 +91,6 @@ public class ModEvents {
                     }
                 }
 
-            }
-        }
-
-        @SubscribeEvent
-        public static void onLivingHurt(LivingHurtEvent event) {
-            entity = event.getEntity();
-            source = event.getSource();
-            damage = event.getAmount();
-
-            if(entity instanceof Player) {
-                if(((Player) entity).getInventory().contains(ModItems.ENERGY_SHIELD.toStack())) {
-                    int slot = ((Player) entity).getInventory().findSlotMatchingItem(ModItems.ENERGY_SHIELD.toStack());
-                    if(source.getWeaponItem().getItem() == Items.MACE && damage > 10) {
-                        if(((EnergyShieldItem) ((Player) entity).getInventory().getItem(slot).getItem()).checkDamage() < 99) {
-                            ((EnergyShieldItem) ((Player) entity).getInventory().getItem(slot).getItem()).damage(99);
-                        }
-                    }
-                    else {
-                        if(((EnergyShieldItem) ((Player) entity).getInventory().getItem(slot).getItem()).checkDamage() < 99) {
-                            ((EnergyShieldItem) ((Player) entity).getInventory().getItem(slot).getItem()).damage((int) (damage * 5));
-                        }
-                    }
-                }
             }
         }
     }

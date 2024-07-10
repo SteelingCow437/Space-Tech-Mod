@@ -14,9 +14,6 @@ public class ModDimensions {
 
     public static final ResourceKey<DimensionType> MOON_TYPE = register("moon_type");
 
-
-
-
     private static ResourceKey<DimensionType> register(String register) {
         return ResourceKey.create(Registries.DIMENSION_TYPE, ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, register));
     }

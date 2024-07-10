@@ -57,13 +57,6 @@ versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.spacetechmod]]
-modId="terrablender"
-type="required"
-versionRange="${terrablender_version_range}"
-ordering="NONE"
-side="BOTH"
-
 [[accessTransformers]]
 file="META-INF/accesstransformer.cfg"
 
