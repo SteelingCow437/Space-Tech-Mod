@@ -1,6 +1,7 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
+import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
@@ -37,7 +38,7 @@ public class ModBlocks {
     //Register blocks below this line
     //The stuff above is just to declare the block class
 
-    //IMPORTANT: DO NOT USE ANY "Properties.copy(Blocks.FURNACE)" IT WILL CRASH THE GAME!!!
+    //IMPORTANT: DO NOT ofFullCopy any block entities, the game won't start!
 
     //titanium
     public static final DeferredBlock<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
@@ -101,4 +102,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MOON_ROCK = registerBlock("moon_rock",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(1.5f)));
+
+    //Dungeon blocks
+    public static final DeferredBlock<Block> MOD_TRIAL_SPAWNER = registerBlock("mod_trial_spawner",
+            () -> new ModTrialSpawnerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                    .strength(50f).noLootTable()));
 }

@@ -1,17 +1,13 @@
 package com.net.spacetechmod.item.custom.armor;
 
-import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
 import com.net.spacetechmod.util.ModLists;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 import java.util.List;

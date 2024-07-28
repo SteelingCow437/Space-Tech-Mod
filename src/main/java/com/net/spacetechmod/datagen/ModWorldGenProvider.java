@@ -1,7 +1,6 @@
 package com.net.spacetechmod.datagen;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.world.biome.ModBiomes;
 import com.net.spacetechmod.world.feature.ModConfiguredFeatures;
 import com.net.spacetechmod.world.feature.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;

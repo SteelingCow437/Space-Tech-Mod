@@ -3,6 +3,7 @@ package com.net.spacetechmod.item;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
+import com.net.spacetechmod.item.custom.space.VaultKeyItem;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
 import com.net.spacetechmod.world.dimension.ModDimensions;
@@ -222,4 +223,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> MOON_KEY = ITEMS.register("moon_key",
             () -> new PlanetKeyItem(ModDimensions.MOON));
+
+    //Vault key, not to be confused with PLANET KEYS
+    public static final DeferredItem<Item> VAULT_KEY = ITEMS.register("vault_key",
+            () -> new VaultKeyItem(false));
 }

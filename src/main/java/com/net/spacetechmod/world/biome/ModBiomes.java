@@ -2,14 +2,9 @@ package com.net.spacetechmod.world.biome;
 
 import com.net.spacetechmod.Spacetechmod;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.Musics;
-import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.biome.Biome;
 
 public class ModBiomes {
 
