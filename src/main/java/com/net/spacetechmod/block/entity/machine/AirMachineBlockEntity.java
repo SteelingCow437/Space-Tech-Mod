@@ -1,5 +1,7 @@
 package com.net.spacetechmod.block.entity.machine;
 
+import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
+import com.net.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
 import net.minecraft.core.BlockPos;
@@ -12,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -47,6 +50,15 @@ public class AirMachineBlockEntity extends BlockEntity {
         AABB bounds = new AABB(x - 25, y - 25, z - 25, x + 25, y + 25, z + 25);
         List<Player> list = level.getEntitiesOfClass(Player.class, bounds);
         return list;
+    }
+
+    public void updateBlock() {
+        boolean active = (timeRemaining > 0);
+        BlockEntity entity = level.getBlockEntity(worldPosition);
+        Block block = level.getBlockState(worldPosition).getBlock();
+        if(entity instanceof AirMachineBlockEntity && block instanceof AirMachineBlock) {
+            ((AirMachineBlock) block).setState(worldPosition, this.getBlockState(), level, active);
+        }
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, AirMachineBlockEntity entity) {

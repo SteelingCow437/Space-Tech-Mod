@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "spacetechmod:block/planet_directory_bottom",
     "side": "spacetechmod:block/planet_directory_side",
-    "top": "spacetechmod:block/planet_directory_top"
+    "top": "spacetechmod:block/planet_directory_moon"
   }
 }

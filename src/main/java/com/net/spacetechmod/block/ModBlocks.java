@@ -2,6 +2,7 @@ package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
+import com.net.spacetechmod.block.custom.dungeon.ModVaultBlock;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
@@ -106,5 +107,9 @@ public class ModBlocks {
     //Dungeon blocks
     public static final DeferredBlock<Block> MOD_TRIAL_SPAWNER = registerBlock("mod_trial_spawner",
             () -> new ModTrialSpawnerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                    .strength(50f).noLootTable()));
+
+    public static final DeferredBlock<Block> MOD_VAULT = registerBlock("mod_vault",
+            () -> new ModVaultBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(50f).noLootTable()));
 }

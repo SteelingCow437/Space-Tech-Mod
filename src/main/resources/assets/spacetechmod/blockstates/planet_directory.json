@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "spacetechmod:block/planet_directory" }
+    "selected_planet=0": {
+      "model": "spacetechmod:block/planet_directory_0"
+    },
+    "selected_planet=1": {
+      "model": "spacetechmod:block/planet_directory_1"
+    }
   }
 }

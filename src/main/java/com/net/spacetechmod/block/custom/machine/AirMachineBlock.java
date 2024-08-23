@@ -9,19 +9,36 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class AirMachineBlock extends BaseEntityBlock {
     public AirMachineBlock(Properties properties) {
         super(properties);
+    }
+
+    private static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+
+    private boolean isActive = false;
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState();
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, Rotation rotation) {
+        return state.setValue(ACTIVE, isActive);
     }
 
     public static final MapCodec<AirMachineBlock> CODEC = simpleCodec(AirMachineBlock::new);
@@ -49,7 +66,7 @@ public class AirMachineBlock extends BaseEntityBlock {
         return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
-    public void use(Level level, BlockPos pos, Player player) {
+    private void use(Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof AirMachineBlockEntity) {
             if(player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
@@ -59,6 +76,10 @@ public class AirMachineBlock extends BaseEntityBlock {
                 ((AirMachineBlockEntity) entity).getTimeRemaining(player);
             }
         }
+    }
+
+    public void setState(BlockPos pos, BlockState state, Level level, boolean active) {
+        level.setBlock(pos, state.setValue(ACTIVE, active), 1);
     }
 
     @Nullable

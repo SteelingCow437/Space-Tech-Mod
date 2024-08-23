@@ -1,12 +1,15 @@
 package com.net.spacetechmod.block.entity.dungeon;
 
+import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.item.custom.space.VaultKeyItem;
+import com.net.spacetechmod.item.custom.space.dungeon.VaultKeyItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -14,6 +17,7 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -53,6 +57,10 @@ public class ModTrialSpawnerBlockEntity extends BlockEntity {
 
     public void setBoss() {
         isBoss = !isBoss;
+        Block block = level.getBlockState(worldPosition).getBlock();
+        if(block instanceof ModTrialSpawnerBlock) {
+            ((ModTrialSpawnerBlock) block).setState(worldPosition, this.getBlockState(), level, isBoss);
+        }
     }
 
     public void tryStartBattle() {
@@ -83,10 +91,15 @@ public class ModTrialSpawnerBlockEntity extends BlockEntity {
         level.addFreshEntity(entity);
         level.playSound(null, pos, SoundEvents.TRIAL_SPAWNER_EJECT_ITEM, SoundSource.BLOCKS,2.0f,2.0f);
         spawnCount = 0;
+        enemy.removeAllEffects();
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, ModTrialSpawnerBlockEntity entity) {
         if(entity.isActive) {
+            if(entity.isBoss) {
+                entity.enemy.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 6000, 2));
+                entity.enemy.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 6000, 2));
+            }
             if(entity.spawnCount < 30 && tick >= 20) {
                 entity.enemy.setPos(entity.getNewEnemyPos());
                 level.addFreshEntity(entity.enemy);

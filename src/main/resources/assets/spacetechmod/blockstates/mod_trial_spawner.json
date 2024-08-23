@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "boss=false": {
+      "model": "spacetechmod:block/mod_trial_spawner"
+    },
+    "boss=true": {
+      "model": "spacetechmod:block/mod_trial_spawner_boss"
+    }
+  }
+}

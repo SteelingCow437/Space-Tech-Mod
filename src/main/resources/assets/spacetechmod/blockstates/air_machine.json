@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "spacetechmod:block/air_machine" }
+    "active=false": {
+      "model": "spacetechmod:block/air_machine_on"
+    },
+    "active=true": {
+      "model": "spacetechmod:block/air_machine_off"
+    }
   }
 }

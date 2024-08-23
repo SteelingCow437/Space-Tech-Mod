@@ -6,12 +6,17 @@ import com.net.spacetechmod.block.entity.dungeon.ModTrialSpawnerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,6 +24,26 @@ public class ModTrialSpawnerBlock extends BaseEntityBlock {
 
     public ModTrialSpawnerBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(BOSS, boss));
+    }
+
+    private static final BooleanProperty BOSS = BooleanProperty.create("boss");
+
+    public boolean boss = false;
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState();
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(BOSS);
     }
 
     public static final MapCodec<ModTrialSpawnerBlock> CODEC = simpleCodec(ModTrialSpawnerBlock::new);
@@ -50,6 +75,10 @@ public class ModTrialSpawnerBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ModTrialSpawnerBlockEntity(pos, state);
+    }
+
+    public void setState(BlockPos pos, BlockState state, Level level, boolean active) {
+        level.setBlock(pos, state.setValue(BOSS, boss), 1);
     }
 
     @Nullable

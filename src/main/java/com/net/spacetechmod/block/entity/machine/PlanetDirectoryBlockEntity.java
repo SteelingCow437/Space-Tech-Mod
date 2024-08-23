@@ -27,6 +27,10 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
 
     private int selectedPlanet = 0;
 
+    public int getSelectedPlanet() {
+        return selectedPlanet;
+    }
+
     public ItemInteractionResult useItem(ItemStack stack, Player player) {
         PlanetKeyItem item;
         SpaceSuitChestplateItem plate;

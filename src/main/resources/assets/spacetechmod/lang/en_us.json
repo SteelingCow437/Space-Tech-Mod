@@ -93,5 +93,8 @@
   "block.spacetechmod.planet_directory": "Star Map",
   "block.spacetechmod.un_alloy_machine": "Alloy Separator",
   "block.spacetechmod.air_machine": "Air Machine",
-  "item.spacetechmod.energy_shield": "Energy Shields"
+  "item.spacetechmod.moon_key": "Moon Coordinates",
+  "item.spacetechmod.vault_key": "Vault Key",
+  "block.spacetechmod.mod_trial_spawner": "Dungeon Spawner",
+  "block.spacetechmod.mod_vault": "Space Vault"
 }

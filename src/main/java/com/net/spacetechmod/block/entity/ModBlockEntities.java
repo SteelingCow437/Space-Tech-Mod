@@ -3,6 +3,7 @@ package com.net.spacetechmod.block.entity;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.dungeon.ModTrialSpawnerBlockEntity;
+import com.net.spacetechmod.block.entity.dungeon.ModVaultBlockEntity;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
@@ -48,6 +49,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("mod_trial_spawner", () ->
                     BlockEntityType.Builder.of(ModTrialSpawnerBlockEntity::new,
                             ModBlocks.MOD_TRIAL_SPAWNER.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModVaultBlockEntity>> MOD_VAULT =
+            BLOCK_ENTITIES.register("mod_vault", () ->
+                    BlockEntityType.Builder.of(ModVaultBlockEntity::new,
+                            ModBlocks.MOD_VAULT.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

@@ -3,7 +3,7 @@ package com.net.spacetechmod.item;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
-import com.net.spacetechmod.item.custom.space.VaultKeyItem;
+import com.net.spacetechmod.item.custom.space.dungeon.VaultKeyItem;
 import com.net.spacetechmod.item.custom.tool.HammerItem;
 import com.net.spacetechmod.item.custom.tool.ModArmorItem;
 import com.net.spacetechmod.world.dimension.ModDimensions;
