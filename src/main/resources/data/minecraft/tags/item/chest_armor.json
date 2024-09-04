@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spacetechmod:titanium_chestplate",
+    "spacetechmod:copper_chestplate",
+    "spacetechmod:turtle_master_chestplate",
+    "spacetechmod:spacesuit_chestplate"
+  ]
+}

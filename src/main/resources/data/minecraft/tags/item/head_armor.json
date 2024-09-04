@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spacetechmod:titanium_helmet",
+    "spacetechmod:copper_helmet",
+    "spacetechmod:turtle_master_helmet",
+    "spacetechmod:spacesuit_helmet"
+  ]
+}
