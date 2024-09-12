@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=z": { "model": "spacetechmod:block/stargate_portal_ew"},
+    "axis=x": { "model": "spacetechmod:block/stargate_portal_ns"}
+  }
+}

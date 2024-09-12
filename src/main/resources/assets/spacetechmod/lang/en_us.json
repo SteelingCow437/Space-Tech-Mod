@@ -96,5 +96,8 @@
   "item.spacetechmod.moon_key": "Moon Coordinates",
   "item.spacetechmod.vault_key": "Vault Key",
   "block.spacetechmod.mod_trial_spawner": "Dungeon Spawner",
-  "block.spacetechmod.mod_vault": "Space Vault"
+  "block.spacetechmod.mod_vault": "Space Vault",
+  "block.spacetechmod.stargate_core": "Stargate Core",
+  "block.spacetechmod.stargate_frame": "Stargate Frame",
+  "block.spacetechmod.stargate_portal": "Stargate Portal"
 }

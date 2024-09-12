@@ -4,13 +4,17 @@ import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.net.spacetechmod.util.ModLists;
+import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -29,6 +33,18 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
 
     public int getSelectedPlanet() {
         return selectedPlanet;
+    }
+
+    public void drops(Level level) {
+        ItemEntity toDrop = new ItemEntity(EntityType.ITEM, level);
+        ItemStack stack;
+        toDrop.setPos(worldPosition.getX(), worldPosition.getY() + 1, worldPosition.getZ());
+        if(moon) {
+            PlanetKeyItem item = new PlanetKeyItem(ModDimensions.MOON);
+            stack = new ItemStack(item, 1);
+            toDrop.setItem(stack);
+            level.addFreshEntity(toDrop);
+        }
     }
 
     public ItemInteractionResult useItem(ItemStack stack, Player player) {

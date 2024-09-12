@@ -56,6 +56,15 @@ public class PlanetDirectoryBlock extends BaseEntityBlock {
     public int selectedPlanet = 0;
 
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof PlanetDirectoryBlockEntity) {
+            ((PlanetDirectoryBlockEntity) entity).drops(level);
+        }
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
+    @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         entity = level.getBlockEntity(pos);
         if(entity instanceof PlanetDirectoryBlockEntity) {

@@ -26,9 +26,9 @@ I humanly can.
 for issues, not for suggestions. If you want something, make a pull request, or make it a really good
 suggestion.
 
-"When will X be done?" IDK. I work at my own pace. I have school, a job, and a life to live, and all of those come first.
+"When will X be done?" It won't :)
 
-"I hate you and this mod is stupid!" Then don't download it.
+"But Stellaris exists!" This is better.
 
 "How do I make X?" Use the mod Just Enough Items / JEI / whatever it's called now.
 If it's not in there, chances are you either have to find it or it's made at a special

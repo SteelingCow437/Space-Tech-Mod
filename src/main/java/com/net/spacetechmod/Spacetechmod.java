@@ -3,8 +3,6 @@ package com.net.spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.ModBlockEntities;
 import com.net.spacetechmod.effect.ModEffects;
-import com.net.spacetechmod.fluid.ModFluidTypes;
-import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModCreativeModeTab;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.painting.ModPaintings;
@@ -45,9 +43,6 @@ public class Spacetechmod {
         ModPaintings.register(eventBus);
         ModEffects.register(eventBus);
         ModBlockEntities.register(eventBus);
-        //ModEnchantments.register(eventBus);
-        ModFluidTypes.register(eventBus);
-        ModFluids.register(eventBus);
         ModSounds.register(eventBus);
         ModCreativeModeTab.register(eventBus);
 

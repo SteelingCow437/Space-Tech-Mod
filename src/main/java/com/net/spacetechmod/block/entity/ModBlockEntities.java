@@ -4,6 +4,7 @@ import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.dungeon.ModTrialSpawnerBlockEntity;
 import com.net.spacetechmod.block.entity.dungeon.ModVaultBlockEntity;
+import com.net.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
 import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
@@ -54,6 +55,12 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("mod_vault", () ->
                     BlockEntityType.Builder.of(ModVaultBlockEntity::new,
                             ModBlocks.MOD_VAULT.get()).build(null));
+
+    //StarGate Core
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StarGateCoreBlockEntity>> STARGATE_CORE =
+            BLOCK_ENTITIES.register("stargate_core", () ->
+                    BlockEntityType.Builder.of(StarGateCoreBlockEntity::new,
+                            ModBlocks.STARGATE_CORE.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

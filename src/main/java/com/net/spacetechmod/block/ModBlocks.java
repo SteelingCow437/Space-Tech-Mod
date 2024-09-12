@@ -3,6 +3,8 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
 import com.net.spacetechmod.block.custom.dungeon.ModVaultBlock;
+import com.net.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
+import com.net.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
@@ -112,4 +114,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MOD_VAULT = registerBlock("mod_vault",
             () -> new ModVaultBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(50f).noLootTable()));
+
+    //Stargate stuff
+    public static final DeferredBlock<Block> STARGATE_CORE = registerBlock("stargate_core",
+            () -> new StarGateCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
+                    .strength(8f).requiresCorrectToolForDrops().explosionResistance(99f)));
+
+    public static final DeferredBlock<Block> STARGATE_FRAME = registerBlock("stargate_frame",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)
+                    .strength(8f).requiresCorrectToolForDrops().explosionResistance(99f)));
+
+    public static final DeferredBlock<Block> STARGATE_PORTAL = registerBlockWithoutBlockItem("stargate_portal",
+            () -> new StarGatePortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
+                    .strength(99f).noLootTable()));
 }
