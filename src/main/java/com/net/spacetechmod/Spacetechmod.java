@@ -144,15 +144,15 @@ public class Spacetechmod {
             event.accept(ModItems.CANNED_BREAD);
         }
         if(event.getTab() == ModCreativeModeTab.STM_MACHINES.get()) {
-            event.accept(ModBlocks.IRON_BARREL);
+            //event.accept(ModBlocks.IRON_BARREL);
             event.accept(ModBlocks.FORGING_TABLE);
             event.accept(ModBlocks.PLANET_DIRECTORY);
             event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
             event.accept(ModBlocks.AIR_MACHINE);
         }
-        if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
+        /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);
-        }
+        }*/
     }
 
     @SubscribeEvent

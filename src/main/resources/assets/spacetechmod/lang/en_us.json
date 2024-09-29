@@ -99,5 +99,6 @@
   "block.spacetechmod.mod_vault": "Space Vault",
   "block.spacetechmod.stargate_core": "Stargate Core",
   "block.spacetechmod.stargate_frame": "Stargate Frame",
-  "block.spacetechmod.stargate_portal": "Stargate Portal"
+  "block.spacetechmod.stargate_portal": "Stargate Portal",
+  "item.spacetechmod.stargate_controller": "Stargate Controller"
 }

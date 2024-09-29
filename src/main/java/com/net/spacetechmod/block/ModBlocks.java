@@ -5,7 +5,6 @@ import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
 import com.net.spacetechmod.block.custom.dungeon.ModVaultBlock;
 import com.net.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.net.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
-import com.net.spacetechmod.block.custom.fluid.IronBarrelBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
 import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
 import com.net.spacetechmod.block.custom.machine.PlanetDirectoryBlock;
@@ -74,9 +73,9 @@ public class ModBlocks {
                     .strength(5f).requiresCorrectToolForDrops()));
 
     //Fluid Tanks
-    public static final DeferredBlock<Block> IRON_BARREL = registerBlock("iron_barrel",
+    /*public static final DeferredBlock<Block> IRON_BARREL = registerBlock("iron_barrel",
             () -> new IronBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(5f).requiresCorrectToolForDrops()));*/
 
     //machines
     public static final DeferredBlock<Block> FORGING_TABLE = registerBlock("forging_table",

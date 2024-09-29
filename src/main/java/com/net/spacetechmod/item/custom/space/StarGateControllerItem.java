@@ -6,7 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,14 +31,16 @@ public class StarGateControllerItem extends Item {
     public int Y = 0;
     public int Z = 0;
     private int selectedParameter = 0;
+    private int useCooldown = 0;
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if(player.isShiftKeyDown()) {
+        if(player.isShiftKeyDown() && useCooldown == 0) {
             player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
             X = 0;
             Y = 0;
             Z = 0;
+            useCooldown = 5;
             return InteractionResultHolder.success(player.getMainHandItem());
         }
         return InteractionResultHolder.fail(player.getMainHandItem());
@@ -48,32 +50,73 @@ public class StarGateControllerItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockEntity entity = level.getBlockEntity(context.getClickedPos());
-        if(entity instanceof SignBlockEntity) {
+        if(entity instanceof SignBlockEntity && useCooldown == 0) {
             String message = ((SignBlockEntity) entity).getFrontText().getMessage(0, false).getString();
-            int coordinate = Integer.parseInt(message);
+            int coordinate;
+            try {
+                coordinate = Integer.parseInt(message);
+            }
+            catch (NumberFormatException e) {
+                coordinate = 0;
+            }
             switch(selectedParameter) {
-                case 0 -> X = coordinate;
-                case 1 -> Y = coordinate;
-                case 2 -> Z = coordinate;
+                case 0 -> {
+                    X = coordinate;
+                    useCooldown = 5;
+                }
+                case 1 -> {
+                    Y = coordinate;
+                    useCooldown = 5;
+                }
+                case 2 -> {
+                    Z = coordinate;
+                    useCooldown = 5;
+                }
             }
             if(selectedParameter < 2) {
                 ++selectedParameter;
+                useCooldown = 5;
             }
             else {
                 selectedParameter = 0;
+                useCooldown = 5;
             }
-            return InteractionResult.SUCCESS_NO_ITEM_USED;
-        }
-        else if(entity instanceof StarGateCoreBlockEntity) {
-            ((StarGateCoreBlockEntity) entity).setDestination(X, Y, Z);
             return InteractionResult.SUCCESS_NO_ITEM_USED;
         }
         return InteractionResult.FAIL;
     }
 
+    public int getX() {return X;}
+    public int getY() {return Y;}
+    public int getZ() {return Z;}
+
+
+    private String getSelectedParameter() {
+        switch(selectedParameter) {
+            case 0 -> {
+                return "X";
+            }
+            case 1 -> {
+                return "Y";
+            }
+            case 2 -> {
+                return "Z";
+            }
+        }
+        return "NULL";
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.literal("Destination: " + X + ", " + Y + ", " + Z));
+        list.add(Component.literal("Destination: " + X + ", " + Y + ", " + Z + ", " +
+                "Selected Parameter: " + getSelectedParameter()));
         super.appendHoverText(stack, context, list, flag);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int number_, boolean simulate) {
+        if(useCooldown > 0) {
+            --useCooldown;
+        }
     }
 }

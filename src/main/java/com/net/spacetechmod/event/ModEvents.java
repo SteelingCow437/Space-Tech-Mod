@@ -38,7 +38,7 @@ public class ModEvents {
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!event.getEntity().level().isClientSide) {
                 player = event.getEntity();
-                if (!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild && !player.getAbilities().invulnerable) {
+                if (ModLists.NO_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild && !player.getAbilities().invulnerable) {
                     if (playerBreathTimer >= 40) {
                         if (!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT.getDelegate())) {
                             player.sendSystemMessage(Component.literal(

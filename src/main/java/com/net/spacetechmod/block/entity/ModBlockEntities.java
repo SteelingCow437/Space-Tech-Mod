@@ -5,7 +5,6 @@ import com.net.spacetechmod.block.ModBlocks;
 import com.net.spacetechmod.block.entity.dungeon.ModTrialSpawnerBlockEntity;
 import com.net.spacetechmod.block.entity.dungeon.ModVaultBlockEntity;
 import com.net.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
-import com.net.spacetechmod.block.entity.fluid.BasicFluidBarrelBlockEntity;
 import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
@@ -40,10 +39,10 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(PlanetDirectoryBlockEntity::new,
                             ModBlocks.PLANET_DIRECTORY.get()).build(null));
     //Fluid container blocks
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
+     /*public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
-                            ModBlocks.IRON_BARREL.get()).build(null));
+                            ModBlocks.IRON_BARREL.get()).build(null)); */
 
     //Planet Dungeon blocks
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModTrialSpawnerBlockEntity>> MOD_TRIAL_SPAWNER =

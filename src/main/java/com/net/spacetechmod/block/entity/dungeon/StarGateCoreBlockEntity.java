@@ -128,7 +128,7 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         for(int i = 0; i < 9; ++i) {
             for(int e = 0; e < 9; ++e) {
                 setAt = new BlockPos(origin.getX() + i, origin.getY() - e, origin.getZ());
-                level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+                level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
                 block = level.getBlockState(setAt).getBlock();
                 ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
             }
@@ -137,29 +137,29 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         origin = new BlockPos(worldPosition.getX() - 5, worldPosition.getY() + 8, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY() - i, worldPosition.getZ());
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
         origin = new BlockPos(worldPosition.getX() + 5, worldPosition.getY() + 8, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY() - i, worldPosition.getZ());
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
         //top and bottom
         origin = new BlockPos(worldPosition.getX() - 2, worldPosition.getY() + 1, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
-            setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            setAt = new BlockPos(origin.getX() + i, origin.getY(), worldPosition.getZ());
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
         origin = new BlockPos(worldPosition.getX() - 2, worldPosition.getY() + 11, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
-            setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            setAt = new BlockPos(origin.getX() + i, origin.getY(), worldPosition.getZ());
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
@@ -173,7 +173,7 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         for(int i = 0; i < 9; ++i) {
             for(int e = 0; e < 9; ++e) {
                 setAt = new BlockPos(origin.getX(), origin.getY() - e, origin.getZ() + i);
-                level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+                level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
                 block = level.getBlockState(setAt).getBlock();
                 ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
             }
@@ -182,14 +182,14 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         origin = new BlockPos(worldPosition.getX(), worldPosition.getY() + 8, worldPosition.getZ() - 5);
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY() - i, worldPosition.getZ());
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
         origin = new BlockPos(worldPosition.getX(), worldPosition.getY() + 8, worldPosition.getZ() + 5);
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY() - i, worldPosition.getZ());
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
@@ -197,14 +197,14 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         origin = new BlockPos(worldPosition.getX(), worldPosition.getY() + 1, worldPosition.getZ() - 2);
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
         origin = new BlockPos(worldPosition.getX(), worldPosition.getY() + 11, worldPosition.getZ() - 2);
         for(int i = 0; i < 5; ++i) {
             setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
-            level.setBlock(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState(), 1);
+            level.setBlockAndUpdate(setAt, ModBlocks.STARGATE_PORTAL.get().defaultBlockState());
             block = level.getBlockState(setAt).getBlock();
             ((StarGatePortalBlock) block).setDestination(destinationX, destinationY, destinationZ);
         }
@@ -214,7 +214,6 @@ public class StarGateCoreBlockEntity extends BlockEntity {
     private void breakPortalOnX() {
         BlockPos origin = new BlockPos(worldPosition.getX() - 4, worldPosition.getY() + 10, worldPosition.getZ());
         BlockPos setAt;
-        Block block;
         for(int i = 0; i < 9; ++i) {
             for(int e = 0; e < 9; ++e) {
                 setAt = new BlockPos(origin.getX() + i, origin.getY() - e, origin.getZ());
@@ -235,12 +234,12 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         //top and bottom
         origin = new BlockPos(worldPosition.getX() - 2, worldPosition.getY() + 1, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
-            setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
+            setAt = new BlockPos(origin.getX() + i, origin.getY(), worldPosition.getZ());
             level.removeBlock(setAt, false);
         }
         origin = new BlockPos(worldPosition.getX() - 2, worldPosition.getY() + 11, worldPosition.getZ());
         for(int i = 0; i < 5; ++i) {
-            setAt = new BlockPos(origin.getX(), origin.getY(), worldPosition.getZ() + i);
+            setAt = new BlockPos(origin.getX() + i, origin.getY(), worldPosition.getZ());
             level.removeBlock(setAt, false);
         }
         ACTIVE = false;

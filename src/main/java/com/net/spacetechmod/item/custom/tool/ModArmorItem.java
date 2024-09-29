@@ -88,7 +88,7 @@ public class ModArmorItem extends ArmorItem {
                 }
             }
             case 3 -> {
-                if(!ModLists.SAFE_BREATHING_LIST.contains(player.level().dimension())) {
+                if(ModLists.NO_BREATHING_LIST.contains(player.level().dimension())) {
                     spaceSuit(player);
                 }
             }

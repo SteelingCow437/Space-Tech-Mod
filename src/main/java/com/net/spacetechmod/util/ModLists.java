@@ -1,7 +1,6 @@
 package com.net.spacetechmod.util;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.fluid.ModFluids;
 import com.net.spacetechmod.item.ModArmorMaterials;
 import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.world.dimension.ModDimensions;
@@ -13,8 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +24,7 @@ public class ModLists {
     I guess. I don't feel like learning how to make an API/implement a proper Neoforged
     one, so here this is. */
 
+    /* Fluids gone until further notice!
     //Fluids
     public static final ArrayList<Item> BUCKET_LIST = new ArrayList<Item>();
 
@@ -36,6 +34,7 @@ public class ModLists {
     public static final ArrayList<Fluid> FLUIDS_INDEX = new ArrayList<Fluid>(
             Arrays.asList(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA,
                     ModFluids.HONEY.get()));
+     */
 
     //Machines / Recipes
     public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
@@ -57,8 +56,8 @@ public class ModLists {
                     ModArmorMaterials.SPACESUIT));
 
     //Space stuff
-    public static final ArrayList<ResourceKey<Level>> SAFE_BREATHING_LIST = new ArrayList<ResourceKey<Level>>(
-            Arrays.asList(Level.OVERWORLD, Level.NETHER, Level.END)
+    public static final ArrayList<ResourceKey<Level>> NO_BREATHING_LIST = new ArrayList<ResourceKey<Level>>(
+            Arrays.asList(ModDimensions.MOON)
     );
 
     public static final ArrayList<ResourceKey<Level>> PLANET_LIST = new ArrayList<ResourceKey<Level>>(

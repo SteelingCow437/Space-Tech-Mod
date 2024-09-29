@@ -194,11 +194,9 @@ public class ModItems {
     public static final DeferredItem<Item> TIN_CAN = ITEMS.register("tin_can",
             () -> new Item(new Item.Properties()));
 
-    //Fluid buckets
-
-    //Fluid bottles
+    /*Fluid bottles GONE FOR NOW
     public static final DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle",
-            () -> new Item(new Item.Properties().stacksTo(64)));
+            () -> new Item(new Item.Properties().stacksTo(64))); */
 
     //Aeronautics
     public static final DeferredItem<Item> TITAN_STEEL_INGOT = ITEMS.register("titan_steel_ingot",
