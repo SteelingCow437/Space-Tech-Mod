@@ -1,19 +1,20 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
-import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
+import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,81 +25,83 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
         super(ModBlockEntities.PLANET_DIRECTORY.get(), pos, state);
     }
 
-    //Planets
-    private boolean overworld = true;
-    private boolean moon = false;
-
-
+    private final int PLANET_COUNT = ModLists.PLANET_LIST.size() - 1;
     private int selectedPlanet = 0;
 
-    public int getSelectedPlanet() {
+    private final boolean overworld = true;
+    private boolean moon = false;
+
+    public int getSelectedPlanetNumber() {
         return selectedPlanet;
     }
 
-    public void drops(Level level) {
-        ItemEntity toDrop = new ItemEntity(EntityType.ITEM, level);
-        ItemStack stack;
-        toDrop.setPos(worldPosition.getX(), worldPosition.getY() + 1, worldPosition.getZ());
-        if(moon) {
-            PlanetKeyItem item = new PlanetKeyItem(ModDimensions.MOON);
-            stack = new ItemStack(item, 1);
-            toDrop.setItem(stack);
-            level.addFreshEntity(toDrop);
-        }
-    }
-
-    public ItemInteractionResult useItem(ItemStack stack, Player player) {
-        PlanetKeyItem item;
-        SpaceSuitChestplateItem plate;
-        if(stack.getItem() instanceof PlanetKeyItem) {
-            item = (PlanetKeyItem) stack.getItem();
-            switch(ModLists.PLANET_LIST.indexOf(item.getDestination())) {
-                case 1 -> {if(!moon) {moon = true; return ItemInteractionResult.CONSUME;}}
-            }
-            return ItemInteractionResult.FAIL;
-        }
-        if(stack.getItem() instanceof SpaceSuitChestplateItem) {
-            plate = (SpaceSuitChestplateItem) stack.getItem();
-            if(checkUnlockStatus()) {
-                plate.selectedPlanet = ModLists.PLANET_LIST.get(selectedPlanet);
-            }
-            else {
-                player.sendSystemMessage(Component.literal("Planet locked!"));
-            }
-            return ItemInteractionResult.SUCCESS;
-        }
-        return ItemInteractionResult.FAIL;
-    }
-
-    private boolean checkUnlockStatus() {
+    public ResourceKey<Level> getSelectedPlanet() {
         switch(selectedPlanet) {
-            case 0 -> {if(overworld) {return true;}}
-            case 1 -> {if(moon) {return true;}}
+            case 1 -> {
+                return ModDimensions.MOON;
+            }
+            default -> {
+                return Level.OVERWORLD;
+            }
         }
-        return false;
     }
 
-    public void useWithoutItem(Player player) {
-        if(!player.isShiftKeyDown()) {
-            ++selectedPlanet;
-            if(selectedPlanet > ModLists.PLANET_LIST.size()) {
-                selectedPlanet = 0;
+    public void unlockPlanet(ResourceKey<Level> planet, ItemStack stack) {
+        switch(ModLists.PLANET_LIST.indexOf(planet)) {
+            case 1 -> {
+                if(!moon) {moon = true;}
             }
-            player.sendSystemMessage(Component.literal("Planet selected: " + ModLists.PLANET_LIST.get(selectedPlanet)));
+        }
+    }
+
+    public void selectNewPlanet(Player player) {
+        if(checkUnlockStatus(selectedPlanet + 1)) {
+            ++selectedPlanet;
+        }
+        else {
+            selectedPlanet = 0;
+        }
+    }
+
+    private boolean checkUnlockStatus(int number) {
+        switch(number) {
+            case 0 -> {
+                return overworld;
+            }
+            case 1 -> {
+                return moon;
+            }
+            default -> {
+                return false;
+            }
+        }
+    }
+
+
+
+    //one day, one day ;)
+    private String getSelectedPlanetName(ResourceKey<Level> selectedPlanet) {
+        switch(ModLists.PLANET_LIST.indexOf(selectedPlanet)) {
+            case 1 -> {
+                return "The Moon";
+            }
+            default -> {
+                return "Overworld";
+            }
         }
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
-        tag.putBoolean("overworld", overworld);
         tag.putBoolean("moon", moon);
+        tag.putInt("selected_planet", selectedPlanet);
         super.saveAdditional(tag, provider);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
-        overworld = tag.getBoolean("overworld");
         moon = tag.getBoolean("moon");
+        selectedPlanet = tag.getInt("selected_planet");
         super.loadAdditional(tag, provider);
     }
 }

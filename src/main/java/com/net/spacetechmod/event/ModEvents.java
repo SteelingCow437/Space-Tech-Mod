@@ -65,7 +65,7 @@ public class ModEvents {
                         ResourceKey<Level> selectedPlanet = ((SpaceSuitChestplateItem) item).getSelectedPlanet();
                         ServerLevel destinationLevel = server.getLevel(selectedPlanet);
                         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9, 2));
-                        player.teleportTo(destinationLevel, 0, 100, 0, EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);
+                        player.teleportTo(destinationLevel, player.getX(), 1500, player.getZ(), EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);
                         handleGravity(player, destinationLevel.dimension());
                     }
                 }
