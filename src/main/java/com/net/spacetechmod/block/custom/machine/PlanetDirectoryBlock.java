@@ -1,9 +1,6 @@
 package com.net.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
-import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
-import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.net.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
 import com.net.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.net.spacetechmod.item.custom.space.PlanetKeyItem;
@@ -11,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,8 +17,6 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;

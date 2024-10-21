@@ -1,20 +1,14 @@
 package com.net.spacetechmod.block.entity.machine;
 
 import com.net.spacetechmod.block.entity.ModBlockEntities;
-import com.net.spacetechmod.item.ModItems;
 import com.net.spacetechmod.util.ModLists;
 import com.net.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

@@ -2,8 +2,6 @@ package com.net.spacetechmod.block.entity;
 
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.ModBlocks;
-import com.net.spacetechmod.block.entity.dungeon.ModTrialSpawnerBlockEntity;
-import com.net.spacetechmod.block.entity.dungeon.ModVaultBlockEntity;
 import com.net.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
 import com.net.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.net.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
@@ -45,15 +43,7 @@ public class ModBlockEntities {
                             ModBlocks.IRON_BARREL.get()).build(null)); */
 
     //Planet Dungeon blocks
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModTrialSpawnerBlockEntity>> MOD_TRIAL_SPAWNER =
-            BLOCK_ENTITIES.register("mod_trial_spawner", () ->
-                    BlockEntityType.Builder.of(ModTrialSpawnerBlockEntity::new,
-                            ModBlocks.MOD_TRIAL_SPAWNER.get()).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModVaultBlockEntity>> MOD_VAULT =
-            BLOCK_ENTITIES.register("mod_vault", () ->
-                    BlockEntityType.Builder.of(ModVaultBlockEntity::new,
-                            ModBlocks.MOD_VAULT.get()).build(null));
 
     //StarGate Core
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StarGateCoreBlockEntity>> STARGATE_CORE =

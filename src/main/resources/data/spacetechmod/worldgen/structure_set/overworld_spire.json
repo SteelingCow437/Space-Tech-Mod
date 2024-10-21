@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "salt": 100001,
+    "spacing": 32,
+    "separation": 28,
+    "type": "minecraft:random_spread"
+  },
+  "structures": [
+    {
+      "structure": "spacetechmod:overworld_spire",
+      "weight": 1
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 package com.net.spacetechmod.item.custom.space;
 
-import com.net.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;

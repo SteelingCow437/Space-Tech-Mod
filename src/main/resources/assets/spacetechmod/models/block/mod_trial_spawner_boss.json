@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "spacetechmod:block/mod_trial_spawner_bottom",
-    "side": "spacetechmod:block/mod_trial_spawner_side_boss",
-    "top": "spacetechmod:block/mod_trial_spawner_top"
-  }
-}

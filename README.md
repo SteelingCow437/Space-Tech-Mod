@@ -8,12 +8,12 @@ as possible and easy to understand while still maintaining a high level of techn
 you would expect from a tech mod.
 
 If you see something that either looks gross, works poorly, or just needs improvement, make a pull request
-or open up an issue, so I can know what's going on. Things will be broked/janky, I'm an amateur programmer
+or open up an issue, so I can know what's going on. Things will be broken/janky, I'm an amateur programmer
 and modder, so bear with me here.
 
 FAQ:
 
-Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion
+Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion-modifier
 
 "What versions?" 1.21.1 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
@@ -28,7 +28,7 @@ suggestion.
 
 "When will X be done?" It won't :)
 
-"But Stellaris exists!" This is better.
+"But Stellaris exists!" Let me have my fun. I'm the only one working on this.
 
 "How do I make X?" Use the mod Just Enough Items / JEI / whatever it's called now.
 If it's not in there, chances are you either have to find it or it's made at a special

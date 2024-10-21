@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "minecraft:block/vault_bottom",
-    "side": "minecraft:block/vault_front_on",
-    "top": "minecraft:block/nether_portal"
-  }
-}

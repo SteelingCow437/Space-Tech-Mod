@@ -1,8 +1,6 @@
 package com.net.spacetechmod.block;
 
 import com.net.spacetechmod.Spacetechmod;
-import com.net.spacetechmod.block.custom.dungeon.ModTrialSpawnerBlock;
-import com.net.spacetechmod.block.custom.dungeon.ModVaultBlock;
 import com.net.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.net.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
@@ -104,15 +102,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MOON_ROCK = registerBlock("moon_rock",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(1.5f)));
-
-    //Dungeon blocks
-    public static final DeferredBlock<Block> MOD_TRIAL_SPAWNER = registerBlock("mod_trial_spawner",
-            () -> new ModTrialSpawnerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
-                    .strength(50f).noLootTable()));
-
-    public static final DeferredBlock<Block> MOD_VAULT = registerBlock("mod_vault",
-            () -> new ModVaultBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
-                    .strength(50f).noLootTable()));
+    
 
     //Stargate stuff
     public static final DeferredBlock<Block> STARGATE_CORE = registerBlock("stargate_core",

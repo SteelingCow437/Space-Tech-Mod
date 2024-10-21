@@ -1,7 +1,7 @@
 --launchTarget
 forgejunituserdev
 --version
-21.1.65
+21.1.72
 --assetIndex
 asset-index
 --assetsDir
@@ -9,9 +9,9 @@ asset-index
 --gameDir
 .
 --fml.neoForgeVersion
-21.1.65
+21.1.72
 --fml.fmlVersion
-4.0.24
+4.0.29
 --fml.mcVersion
 1.21.1
 --fml.neoFormVersion
