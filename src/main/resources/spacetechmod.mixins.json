@@ -1,8 +1,8 @@
 {
   "required": true,
-  "minVersion": "0.8.5",
-  "package": "com.net.spacetechmod.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "package": "com.spacetechmod.mixin",
+  "compatibilityLevel": "JAVA_8",
   "refmap": "spacetechmod.refmap.json",
   "mixins": [
   ],
