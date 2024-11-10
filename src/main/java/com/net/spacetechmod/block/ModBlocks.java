@@ -3,10 +3,7 @@ package com.net.spacetechmod.block;
 import com.net.spacetechmod.Spacetechmod;
 import com.net.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.net.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
-import com.net.spacetechmod.block.custom.machine.AirMachineBlock;
-import com.net.spacetechmod.block.custom.machine.ForgingTableBlock;
-import com.net.spacetechmod.block.custom.machine.PlanetDirectoryBlock;
-import com.net.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
+import com.net.spacetechmod.block.custom.machine.*;
 import com.net.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -102,7 +99,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MOON_ROCK = registerBlock("moon_rock",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(1.5f)));
-    
+
 
     //Stargate stuff
     public static final DeferredBlock<Block> STARGATE_CORE = registerBlock("stargate_core",
@@ -116,4 +113,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> STARGATE_PORTAL = registerBlockWithoutBlockItem("stargate_portal",
             () -> new StarGatePortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)
                     .strength(99f).noLootTable()));
+
+    //Rocketman!
+    public static final DeferredBlock<Block> TNT_COMPRESSOR = registerBlock("tnt_compressor",
+            () -> new TNTCompressorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK)
+                    .requiresCorrectToolForDrops().explosionResistance(1200f)));
+
 }
