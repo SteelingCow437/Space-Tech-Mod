@@ -6,6 +6,7 @@ import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
 import com.spacetechmod.item.custom.tool.ModArmorItem;
+import com.spacetechmod.item.custom.space.BigKahunaItem;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -226,4 +227,14 @@ public class ModItems {
     //Stargate controller
     public static final DeferredItem<Item> STARGATE_CONTROLLER = ITEMS.register("stargate_controller",
             StarGateControllerItem::new);
+
+    //The Big Kahuna
+    public static final DeferredItem<Item> BIG_KAHUNA = ITEMS.register("big_kahuna",
+            BigKahunaItem::new);
+
+    public static final DeferredItem<Item> KAHUNA_CHARGE = ITEMS.register("kahuna_charge",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> KAHUNA_SHELL = ITEMS.register("kahuna_shell",
+            () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
 }

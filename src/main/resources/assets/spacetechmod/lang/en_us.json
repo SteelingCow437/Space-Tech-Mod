@@ -97,5 +97,9 @@
   "block.spacetechmod.stargate_core": "Stargate Core",
   "block.spacetechmod.stargate_frame": "Stargate Frame",
   "block.spacetechmod.stargate_portal": "Stargate Portal",
-  "item.spacetechmod.stargate_controller": "Stargate Controller"
+  "item.spacetechmod.stargate_controller": "Stargate Controller",
+  "block.spacetechmod.tnt_compressor": "TNT Compressor",
+  "item.spacetechmod.big_kahuna": "The Big Kahuna",
+  "item.spacetechmod.kahuna_charge": "Kahuna Charge",
+  "item.spacetechmod.kahuna_shell": "Kahuna Casing"
 }

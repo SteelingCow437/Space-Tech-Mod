@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
+import java.awt.*;
 import java.util.List;
 
 public class AirMachineBlockEntity extends BlockEntity {
@@ -49,15 +50,6 @@ public class AirMachineBlockEntity extends BlockEntity {
         AABB bounds = new AABB(x - 25, y - 25, z - 25, x + 25, y + 25, z + 25);
         List<Player> list = level.getEntitiesOfClass(Player.class, bounds);
         return list;
-    }
-
-    public void updateBlock() {
-        boolean active = (timeRemaining > 0);
-        BlockEntity entity = level.getBlockEntity(worldPosition);
-        Block block = level.getBlockState(worldPosition).getBlock();
-        if(entity instanceof AirMachineBlockEntity && block instanceof AirMachineBlock) {
-            ((AirMachineBlock) block).setState(worldPosition, this.getBlockState(), level, active);
-        }
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, AirMachineBlockEntity entity) {

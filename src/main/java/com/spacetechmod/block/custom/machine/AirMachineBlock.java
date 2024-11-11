@@ -4,6 +4,8 @@ import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -13,6 +15,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -23,13 +26,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class AirMachineBlock extends BaseEntityBlock {
-    public AirMachineBlock(Properties properties) {
-        super(properties);
-    }
-
-    private static final BooleanProperty ACTIVE = BooleanProperty.create("active");
-
-    private boolean isActive = false;
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -37,8 +33,8 @@ public class AirMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState rotate(BlockState state, Rotation rotation) {
-        return state.setValue(ACTIVE, isActive);
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     public static final MapCodec<AirMachineBlock> CODEC = simpleCodec(AirMachineBlock::new);
@@ -46,6 +42,10 @@ public class AirMachineBlock extends BaseEntityBlock {
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
+    }
+
+    public AirMachineBlock(Properties properties) {
+        super(properties);
     }
 
     @Nullable
@@ -76,10 +76,6 @@ public class AirMachineBlock extends BaseEntityBlock {
                 ((AirMachineBlockEntity) entity).getTimeRemaining(player);
             }
         }
-    }
-
-    public void setState(BlockPos pos, BlockState state, Level level, boolean active) {
-        level.setBlock(pos, state.setValue(ACTIVE, active), 1);
     }
 
     @Nullable

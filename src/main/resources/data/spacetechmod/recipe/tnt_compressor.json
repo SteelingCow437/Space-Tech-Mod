@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "spacetechmod:copper_redstide_ingot"
+    },
+    "*": {
+      "item": "minecraft:piston"
+    },
+    "$": {
+      "item": "spacetechmod:bronze_plate"
+    }
+  },
+  "pattern": [
+    "$#$",
+    "$*$",
+    "$#$"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:tnt_compressor"
+  }
+}

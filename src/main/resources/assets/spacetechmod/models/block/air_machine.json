@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "spacetechmod:block/air_machine_bottom",
     "side": "spacetechmod:block/air_machine_side",
-    "top": "spacetechmod:block/air_machine_off_top"
+    "top": "spacetechmod:block/air_machine_top"
   }
 }

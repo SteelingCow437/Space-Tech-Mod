@@ -1,6 +1,3 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "spacetechmod:block/air_machine_off"
-  }
+  "parent": "spacetechmod:block/air_machine"
 }

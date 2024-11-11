@@ -58,7 +58,7 @@ public class ModEvents {
                 } else {
                     ++playerGravityTimer;
                 }
-                if (player.getY() >= 70000) {
+                if (player.getY() >= 50000) {
                     Item item = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
                     if (item == ModItems.SPACESUIT_CHESTPLATE.get()) {
                         MinecraftServer server = player.getServer();

@@ -2,11 +2,6 @@ Space-Tech-Mod
 
 A mod about space and tech, for 1.21 and beyond
 
-Space stuff won't be here for quite a while,
-as this is my first mod and I want to make sure that I make everything as vanilla-feeling
-as possible and easy to understand while still maintaining a high level of technicality that
-you would expect from a tech mod.
-
 If you see something that either looks gross, works poorly, or just needs improvement, make a pull request
 or open up an issue, so I can know what's going on. Things will be broken/janky, I'm an amateur programmer
 and modder, so bear with me here.

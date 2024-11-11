@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "charged=false": {
+      "model": "spacetechmod:block/tnt_compressor_off"
+    },
+    "charged=true": {
+      "model": "spacetechmod:block/tnt_compressor_on"
+    }
+  }
+}

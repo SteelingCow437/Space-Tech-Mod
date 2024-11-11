@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "spacetechmod:steel_ingot"
+    },
+    "*": {
+      "item": "spacetechmod:bronze_plate"
+    },
+    "$": {
+      "tag": "minecraft:leaves"
+    },
+    "%": {
+      "item": "spacetechmod:copper_redstide_ingot"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "#$#",
+    "#%#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:air_machine"
+  }
+}

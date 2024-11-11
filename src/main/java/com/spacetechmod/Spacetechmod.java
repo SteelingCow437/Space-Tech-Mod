@@ -105,6 +105,9 @@ public class Spacetechmod {
             event.accept(ModItems.COPPER_REDSTIDE_WIRING);
             event.accept(ModItems.TITAN_STEEL_BLEND);
             event.accept(ModItems.TITAN_STEEL_INGOT);
+            event.accept(ModItems.KAHUNA_CHARGE);
+            event.accept(ModItems.KAHUNA_SHELL);
+            event.accept(ModItems.BIG_KAHUNA);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -149,6 +152,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.PLANET_DIRECTORY);
             event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
             event.accept(ModBlocks.AIR_MACHINE);
+            event.accept(ModBlocks.TNT_COMPRESSOR);
         }
         /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);

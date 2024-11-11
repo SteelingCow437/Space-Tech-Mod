@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "big_kahuna",
+  "ingredients": [
+    {
+      "item": "spacetechmod:kahuna_shell"
+    },
+    {
+      "item": "spacetechmod:kahuna_charge"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:big_kahuna"
+  }
+}

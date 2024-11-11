@@ -1,13 +1,19 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
+import com.spacetechmod.item.ModItems;
+import com.sun.jna.platform.win32.WinDef;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -37,7 +43,6 @@ public class TNTCompressorBlock extends Block {
     }
 
     private static final BooleanProperty CHARGED = BooleanProperty.create("charged");
-    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -54,78 +59,38 @@ public class TNTCompressorBlock extends Block {
         return this.defaultBlockState();
     }
 
-    private int charge = 0;
-    private static final int maxCharge = 512;
-    private Level blockLevel;
-    private BlockPos worldPosition;
-
     @Override
-    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState newState, boolean simulate) {
-        blockLevel = level;
-        worldPosition = pos;
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        charge = 0;
     }
 
+    private int charge = 0;
+    private static final int maxCharge = 512;
+
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if(stack.getItem() == Items.TNT) {
-            if(player.isShiftKeyDown() && (charge + stack.getCount() <= maxCharge)) {
-                charge += stack.getCount();
-                stack.shrink(stack.getCount());
-            }
-            else if(charge + 1 <= maxCharge){
-                stack.shrink(1);
-                ++charge;
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if(stack.getItem() == Items.TNT && stack.getCount() == 64) {
+            charge += 64;
+            stack.shrink(64);
+            if(charge >= maxCharge) {
+                level.setBlock(pos, state.setValue(CHARGED, true), 1);
+                level.scheduleTick(pos, this, 10);
+                player.addItem(new ItemStack(ModItems.KAHUNA_CHARGE.get(), 1));
+                charge -= 512;
             }
             return ItemInteractionResult.SUCCESS;
-        }
-        if(charge == 512) {
-            level.setBlock(pos, state.setValue(CHARGED, true), 1);
         }
         return ItemInteractionResult.FAIL;
     }
 
-
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if(!player.isShiftKeyDown()) {
-            player.sendSystemMessage(Component.literal("Charge: " + charge + " / " + maxCharge));
-            return InteractionResult.SUCCESS;
-        }
-        else if(charge > 0){
-            int odd = charge % 64;
-            ItemStack stack = new ItemStack(Items.TNT, 64);
-            for(int i = 0; i < charge / 64; ++i) {
-                player.addItem(stack);
-                charge -= 64;
-            }
-            stack.setCount(odd);
-            player.addItem(stack);
-            charge = 0;
-            return InteractionResult.SUCCESS;
-        }
-        return InteractionResult.FAIL;
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        player.sendSystemMessage(Component.literal("Charge: " + charge + " / " + maxCharge));
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
-        boolean lit = state.getValue(LIT);
-        if(lit) {
-            tryFireCannon();
-        }
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        level.setBlockAndUpdate(pos, state.setValue(CHARGED, false));
     }
-
-    private void tryFireCannon() {
-        if(charge == maxCharge) {
-            blockLevel.explode(null, worldPosition.getX(), worldPosition.getY() + 1,
-                    worldPosition.getZ(), 2048, Level.ExplosionInteraction.TNT);
-            charge = 0;
-        }
-        else {
-            blockLevel.playSound(null, worldPosition, SoundEvents.VILLAGER_NO, SoundSource.BLOCKS, 2.0f, 2.0f);
-        }
-    }
-
-
 }
-
-
