@@ -19,7 +19,6 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
         super(ModBlockEntities.PLANET_DIRECTORY.get(), pos, state);
     }
 
-    private final int PLANET_COUNT = ModLists.PLANET_LIST.size() - 1;
     private int selectedPlanet = 0;
 
     private final boolean overworld = true;
@@ -40,7 +39,7 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
         }
     }
 
-    public void unlockPlanet(ResourceKey<Level> planet, ItemStack stack) {
+    public void unlockPlanet(ResourceKey<Level> planet) {
         switch(ModLists.PLANET_LIST.indexOf(planet)) {
             case 1 -> {
                 if(!moon) {moon = true;}
@@ -48,7 +47,7 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
         }
     }
 
-    public void selectNewPlanet(Player player) {
+    public void selectNewPlanet() {
         if(checkUnlockStatus(selectedPlanet + 1)) {
             ++selectedPlanet;
         }

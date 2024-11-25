@@ -6,7 +6,7 @@
       "item": "minecraft:stick"
     },
     "*": {
-      "tag": "minecraft:iron_block"
+      "item": "minecraft:iron_block"
     }
   },
   "pattern": [

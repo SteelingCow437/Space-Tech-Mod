@@ -35,6 +35,7 @@ public class HammerItem extends Item {
                     case 1, 2 -> {player.addItem(ModItems.CARBON_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     case 3 -> {player.addItem(ModItems.COPPER_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     case 4 -> {player.addItem(ModItems.TIN_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
+                    case 5 -> {player.addItem(ModItems.TITANIUM_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     default -> {return InteractionResult.FAIL;}
                 }
             }

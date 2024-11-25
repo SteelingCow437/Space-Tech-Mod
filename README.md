@@ -6,6 +6,8 @@ If you see something that either looks gross, works poorly, or just needs improv
 or open up an issue, so I can know what's going on. Things will be broken/janky, I'm an amateur programmer
 and modder, so bear with me here.
 
+IMPORTANT: On multiplayer worlds, the gamerule "disableElytraMovementCheck" MUST be set to "true"
+
 FAQ:
 
 Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion-modifier

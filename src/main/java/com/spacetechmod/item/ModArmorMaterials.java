@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -21,19 +22,19 @@ public class ModArmorMaterials {
 
     public static final Holder<ArmorMaterial> TITANIUM = register("titanium", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
         health.put(ArmorItem.Type.BOOTS, 3);
-        health.put(ArmorItem.Type.LEGGINGS, 6);
+        health.put(ArmorItem.Type.LEGGINGS, 5);
         health.put(ArmorItem.Type.CHESTPLATE, 7);
         health.put(ArmorItem.Type.HELMET, 3);
         health.put(ArmorItem.Type.BODY, 6);
-    }), 78, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> Ingredient.of(ModItems.TITANIUM_INGOT.get()),
+    }), 25, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> Ingredient.of(ModItems.TITANIUM_INGOT.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "titanium"))));
 
     public static final Holder<ArmorMaterial> COPPER = register("copper", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
         health.put(ArmorItem.Type.BOOTS, 1);
-        health.put(ArmorItem.Type.LEGGINGS, 5);
-        health.put(ArmorItem.Type.CHESTPLATE, 6);
+        health.put(ArmorItem.Type.LEGGINGS, 4);
+        health.put(ArmorItem.Type.CHESTPLATE, 5);
         health.put(ArmorItem.Type.HELMET, 2);
-        health.put(ArmorItem.Type.BODY, 5);
+        health.put(ArmorItem.Type.BODY, 4);
     }), 29, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F,
             () -> Ingredient.of(Items.COPPER_INGOT),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "copper"))));
@@ -45,7 +46,7 @@ public class ModArmorMaterials {
         health.put(ArmorItem.Type.CHESTPLATE, 9);
         health.put(ArmorItem.Type.HELMET, 4);
         health.put(ArmorItem.Type.BODY, 8);
-    }), 156, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> Ingredient.of(Items.TURTLE_HELMET),
+    }), 100, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> Ingredient.of(Items.TURTLE_HELMET),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "turtle"))));
 
     public static final Holder<ArmorMaterial> SPACESUIT = register("spacesuit", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
@@ -54,43 +55,43 @@ public class ModArmorMaterials {
         health.put(ArmorItem.Type.CHESTPLATE, 8);
         health.put(ArmorItem.Type.HELMET, 4);
         health.put(ArmorItem.Type.BODY, 7);
-    }), 90, SoundEvents.ARMOR_EQUIP_IRON, 1.2F, 0.4F, () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()),
+    }), 40, SoundEvents.ARMOR_EQUIP_IRON, 1.2F, 0.4F, () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "spacesuit"))));
 
 
     private static Holder<ArmorMaterial> register(
             String name,
-            EnumMap<ArmorItem.Type, Integer> healthPerSlot,
-            int durabilityMultiplier,
-            Holder<SoundEvent> sound,
+            EnumMap<ArmorItem.Type, Integer> defense,
+            int enchantmentValue,
+            Holder<SoundEvent> equipSound,
             float toughness,
             float knockbackResistance,
             Supplier<Ingredient> repairIngredient
     ) {
-        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name)));
-        return register(name, healthPerSlot, durabilityMultiplier, sound, toughness, knockbackResistance, repairIngredient, list);
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(ResourceLocation.withDefaultNamespace(name)));
+        return register(name, defense, enchantmentValue, equipSound, toughness, knockbackResistance, repairIngredient, list);
     }
 
     private static Holder<ArmorMaterial> register(
             String name,
-            EnumMap<ArmorItem.Type, Integer> healthPerSlot,
-            int durabilityMultiplier,
-            Holder<SoundEvent> sound,
+            EnumMap<ArmorItem.Type, Integer> defense,
+            int enchantmentValue,
+            Holder<SoundEvent> equipSound,
             float toughness,
             float knockbackResistance,
-            Supplier<Ingredient> repairIngredient,
-            List<ArmorMaterial.Layer> layer
+            Supplier<Ingredient> repairIngridient,
+            List<ArmorMaterial.Layer> layers
     ) {
         EnumMap<ArmorItem.Type, Integer> enummap = new EnumMap<>(ArmorItem.Type.class);
 
         for (ArmorItem.Type armoritem$type : ArmorItem.Type.values()) {
-            enummap.put(armoritem$type, healthPerSlot.get(armoritem$type));
+            enummap.put(armoritem$type, defense.get(armoritem$type));
         }
 
         return Registry.registerForHolder(
                 BuiltInRegistries.ARMOR_MATERIAL,
-                ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name),
-                new ArmorMaterial(enummap, durabilityMultiplier, sound, repairIngredient, layer, toughness, knockbackResistance)
+                ResourceLocation.withDefaultNamespace(name),
+                new ArmorMaterial(enummap, enchantmentValue, equipSound, repairIngridient, layers, toughness, knockbackResistance)
         );
     }
 }

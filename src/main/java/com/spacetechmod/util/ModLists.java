@@ -37,11 +37,12 @@ public class ModLists {
      */
 
     //Machines / Recipes
-    public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
-            (Arrays.asList(ModBlockEntities.FORGING_TABLE.get(), ModBlockEntities.AIR_MACHINE.get(), ModBlockEntities.UN_ALLOY_MACHINE.get()));
+   /* public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
+            (Arrays.asList(ModBlockEntities.FORGING_TABLE.get(), ModBlockEntities.AIR_MACHINE.get(), ModBlockEntities.UN_ALLOY_MACHINE.get())); */
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
-            Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get()));
+            Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get(),
+                    ModItems.TITANIUM_INGOT.get()));
 
     public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
@@ -50,7 +51,7 @@ public class ModLists {
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
             Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
 
-    //Armor Materials
+    //Armor
     public static final ArrayList<Holder<ArmorMaterial>> ARMOR_MATERIAL_INDEX = new ArrayList<Holder<ArmorMaterial>>(
             Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
                     ModArmorMaterials.SPACESUIT));

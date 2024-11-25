@@ -17,6 +17,8 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModBlockTagProvider(packOutput, lookupProvider, null));
     }
 }

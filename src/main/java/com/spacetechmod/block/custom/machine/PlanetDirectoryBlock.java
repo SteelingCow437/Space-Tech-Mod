@@ -65,29 +65,28 @@ public class PlanetDirectoryBlock extends BaseEntityBlock {
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        entity = level.getBlockEntity(pos);
-        Item item = stack.getItem();
-        if(entity instanceof PlanetDirectoryBlockEntity) {
-            if(item instanceof PlanetKeyItem) {
-                ((PlanetDirectoryBlockEntity) entity).unlockPlanet(((PlanetKeyItem) item).getDestination(), stack);
+            entity = level.getBlockEntity(pos);
+            Item item = stack.getItem();
+            if (entity instanceof PlanetDirectoryBlockEntity) {
+                if (item instanceof PlanetKeyItem) {
+                    ((PlanetDirectoryBlockEntity) entity).unlockPlanet(((PlanetKeyItem) item).getDestination());
+                    return ItemInteractionResult.SUCCESS;
+                }
+                if (item instanceof SpaceSuitChestplateItem) {
+                    ((SpaceSuitChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
+                    return ItemInteractionResult.SUCCESS;
+                } else {
+                    use(state, level, pos, player);
+                }
                 return ItemInteractionResult.SUCCESS;
             }
-            if(item instanceof SpaceSuitChestplateItem) {
-                ((SpaceSuitChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
-                return ItemInteractionResult.SUCCESS;
-            }
-            else {
-                use(state, level, pos, player);
-            }
-            return ItemInteractionResult.SUCCESS;
-        }
-        return ItemInteractionResult.FAIL;
+            return ItemInteractionResult.FAIL;
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player) {
         entity = level.getBlockEntity(pos);
         if(entity instanceof PlanetDirectoryBlockEntity) {
-            ((PlanetDirectoryBlockEntity) entity).selectNewPlanet(player);
+            ((PlanetDirectoryBlockEntity) entity).selectNewPlanet();
             selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanetNumber();
             level.setBlock(pos, state.setValue(SELECTED_PLANET, ((PlanetDirectoryBlockEntity) entity).getSelectedPlanetNumber()), 1);
             return InteractionResult.SUCCESS;

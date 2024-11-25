@@ -55,9 +55,10 @@ public class StarGateCoreBlock extends BaseEntityBlock {
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockEntity entity = level.getBlockEntity(pos);
         Item item = stack.getItem();
+        if(!level.isClientSide) {
         if(entity instanceof StarGateCoreBlockEntity) {
-            if(item == ModItems.STARGATE_CONTROLLER.get() && !((StarGateCoreBlockEntity) entity).ACTIVE) {
-                if(((StarGateCoreBlockEntity) entity).checkForCompletion(player)) {
+            if (item == ModItems.STARGATE_CONTROLLER.get() && !((StarGateCoreBlockEntity) entity).ACTIVE) {
+                if (((StarGateCoreBlockEntity) entity).checkForCompletion(player)) {
                     x = ((StarGateControllerItem) item).getX();
                     y = ((StarGateControllerItem) item).getY();
                     z = ((StarGateControllerItem) item).getZ();
@@ -65,17 +66,24 @@ public class StarGateCoreBlock extends BaseEntityBlock {
                     ((StarGateCoreBlockEntity) entity).makePortalOnDirection();
                     level.playSound(player, player.getOnPos(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.BLOCKS, 2.0f, 2.0f);
                 }
-            }
-            else if(item == Items.NETHER_STAR) {
+            } else if (item == Items.NETHER_STAR) {
                 stack.shrink(1);
                 player.addItem(new ItemStack(ModItems.STARGATE_CONTROLLER.get(), 1));
-            }
-            else {
+            } else {
                 ((StarGateCoreBlockEntity) entity).breakPortalOnDirection();
                 level.playSound(player, player.getOnPos(), SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 2.0f, 2.0f);
             }
         }
+        }
         return ItemInteractionResult.FAIL;
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof StarGateCoreBlockEntity) {
+            ((StarGateCoreBlockEntity) entity).breakPortalOnDirection();
+        }
     }
 
     @Override

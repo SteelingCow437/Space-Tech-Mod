@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,27 +29,29 @@ public class BigKahunaItem extends Item {
                 .rarity(Rarity.UNCOMMON));
     }
 
-    private ExplosionDamageCalculator calculator = new SimpleExplosionDamageCalculator(
-            true, false, Optional.of(256f), BuiltInRegistries.BLOCK.getTag(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
+    private final ExplosionDamageCalculator calculator = new SimpleExplosionDamageCalculator(
+            false, false, Optional.of(512f), BuiltInRegistries.BLOCK.getTag(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-        if(player.getY() >= 10000) {
-            level.explode(null, null, calculator, player.getX(),
-                    player.getY() - 1, player.getZ(), 128f, true,
-                    Level.ExplosionInteraction.TRIGGER, ParticleTypes.GUST_EMITTER_SMALL,
-                    ParticleTypes.GUST_EMITTER_LARGE, SoundEvents.GENERIC_EXPLODE);
-            player.getItemInHand(usedHand).shrink(1);
+        if(!level.isClientSide) {
+            if(player.getY() >= 300) {
+                level.explode(null, null, calculator, player.getX(),
+                        player.getY() - 5, player.getZ(), 192f, false,
+                        Level.ExplosionInteraction.TRIGGER, ParticleTypes.EXPLOSION,
+                        ParticleTypes.EXPLOSION, SoundEvents.GENERIC_EXPLODE);
+                player.getItemInHand(usedHand).shrink(1);
+            }
+            else {
+                player.sendSystemMessage(Component.literal("You must be at or above Y: 300 to use this!"));
+            }
         }
-        else {
-            player.sendSystemMessage(Component.literal("You must be at or above Y: 10,000 to use this!"));
-        }
-        return super.use(level, player, usedHand);
+        return InteractionResultHolder.success(player.getItemInHand(usedHand));
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.literal("Use at Y: 10,000 or above!"));
+        tooltipComponents.add(Component.literal("Use at Y: 300 or above!"));
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

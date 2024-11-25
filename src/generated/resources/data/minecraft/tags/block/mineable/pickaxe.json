@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "spacetechmod:titanium_block",
     "spacetechmod:raw_titanium_block",
@@ -8,10 +7,13 @@
     "spacetechmod:aquamarine_ore",
     "spacetechmod:tin_ore",
     "spacetechmod:tin_ore_deepslate",
-    "spacetechmod:iron_barrel",
     "spacetechmod:forging_table",
+    "spacetechmod:un_alloy_machine",
+    "spacetechmod:air_machine",
+    "spacetechmod:tnt_compressor",
     "spacetechmod:moon_rock",
     "spacetechmod:planet_directory",
-    "spacetechmod:un_alloy_machine"
+    "spacetechmod:stargate_core",
+    "spacetechmod:stargate_frame"
   ]
 }

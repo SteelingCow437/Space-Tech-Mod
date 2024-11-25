@@ -68,14 +68,15 @@ public class ForgingTableBlockEntity extends BlockEntity {
         }
     }
 
-    public void addIngredient(Item item, Player player, int count) {
+    public void addIngredient(Player player) {
         if(level != null && !level.isClientSide) {
-            if (ModLists.FORGING_TABLE_INGREDIENT_LIST.contains(item)) {
+            ItemStack stack = player.getMainHandItem();
+            if (ModLists.FORGING_TABLE_INGREDIENT_LIST.contains(stack.getItem())) {
                 if (ingredient == null || ingredient == ItemStack.EMPTY) {
-                    ingredient = new ItemStack(item, count);
+                    ingredient = new ItemStack(player.getMainHandItem().getItem(), 1);
                     player.getMainHandItem().shrink(1);
-                } else if (ingredient.is(item)) {
-                    ingredient.setCount(ingredient.getCount() + count);
+                } else if (ingredient.is(stack.getItem())) {
+                    ingredient.grow(1);
                     player.getMainHandItem().shrink(1);
                 }
             }
@@ -95,20 +96,17 @@ public class ForgingTableBlockEntity extends BlockEntity {
     }
 
     public void removeItem(Player player) {
-        if(level != null && !level.isClientSide) {
-            if (stamp != null && ingredient != null) {
-                player.addItem(new ItemStack(stamp, 1));
-                player.addItem(ingredient);
-                stamp = null;
-                ingredient = null;
-            } else if (ingredient != null) {
+        if(!player.level().isClientSide) {
+            if(ingredient != null) {
                 player.addItem(ingredient);
                 ingredient = null;
-            } else if (stamp != null) {
+            }
+            if(stamp != null) {
                 player.addItem(new ItemStack(stamp, 1));
                 stamp = null;
             }
         }
+        setChanged();
     }
     @Override
     public void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
@@ -138,7 +136,6 @@ public class ForgingTableBlockEntity extends BlockEntity {
         }
         super.loadAdditional(nbt, provider);
     }
-
 
     public int getStamp() {
         if(stamp == null) {

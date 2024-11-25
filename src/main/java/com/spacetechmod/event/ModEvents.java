@@ -10,17 +10,22 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.EnumSet;
@@ -38,14 +43,15 @@ public class ModEvents {
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!event.getEntity().level().isClientSide) {
                 player = event.getEntity();
+                handleFalls(player, player.level().dimension());
                 if (ModLists.NO_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild && !player.getAbilities().invulnerable) {
-                    if (playerBreathTimer >= 40) {
-                        if (!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT.getDelegate())) {
+                    if (playerBreathTimer >= 200) {
+                        if (!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT)) {
                             player.sendSystemMessage(Component.literal(
                                     "You can't breathe in space!"
                             ));
                             playerHealth = player.getHealth();
-                            player.setHealth(playerHealth -= 2);
+                            player.setHealth(playerHealth -= 10);
                         }
                         playerBreathTimer = 0;
                     } else {
@@ -87,7 +93,12 @@ public class ModEvents {
                         gravity.addTransientModifier(ModAttributeModifiers.MOON_GRAVITY);
                     }
                 }
+            }
+        }
 
+        private static void handleFalls(Player player, ResourceKey<Level> dimension) {
+            switch(ModLists.PLANET_LIST.indexOf(dimension)) {
+                case 1 -> player.resetFallDistance();
             }
         }
     }

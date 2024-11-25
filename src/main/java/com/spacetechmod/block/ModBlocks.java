@@ -117,6 +117,6 @@ public class ModBlocks {
     //Rocketman!
     public static final DeferredBlock<Block> TNT_COMPRESSOR = registerBlock("tnt_compressor",
             () -> new TNTCompressorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK)
-                    .requiresCorrectToolForDrops().explosionResistance(1200f)));
+                    .requiresCorrectToolForDrops()));
 
 }

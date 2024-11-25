@@ -6,6 +6,7 @@ import com.spacetechmod.util.ModLists;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -15,7 +16,8 @@ import java.util.List;
 public class SpaceSuitChestplateItem extends ModArmorItem {
 
     public SpaceSuitChestplateItem() {
-        super(ModArmorMaterials.SPACESUIT, Type.CHESTPLATE, new Properties().fireResistant());
+        super(ModArmorMaterials.SPACESUIT, Type.CHESTPLATE, new Properties().fireResistant()
+                .durability(ArmorItem.Type.CHESTPLATE.getDurability(28)));
     }
 
     public ResourceKey<Level> selectedPlanet;

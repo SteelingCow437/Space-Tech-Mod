@@ -65,20 +65,22 @@ public class TNTCompressorBlock extends Block {
     }
 
     private int charge = 0;
-    private static final int maxCharge = 512;
+    private static final int maxCharge = 4;
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(stack.getItem() == Items.TNT && stack.getCount() == 64) {
-            charge += 64;
-            stack.shrink(64);
-            if(charge >= maxCharge) {
-                level.setBlock(pos, state.setValue(CHARGED, true), 1);
-                level.scheduleTick(pos, this, 10);
-                player.addItem(new ItemStack(ModItems.KAHUNA_CHARGE.get(), 1));
-                charge -= 512;
+        if(!level.isClientSide) {
+            if (stack.getItem() == Items.TNT && stack.getCount() == 64) {
+                charge++;
+                stack.shrink(64);
+                if (charge >= maxCharge) {
+                    level.setBlock(pos, state.setValue(CHARGED, true), 1);
+                    level.scheduleTick(pos, this, 20);
+                    player.addItem(new ItemStack(ModItems.KAHUNA_CHARGE.get(), 1));
+                    charge -= 4;
+                }
+                return ItemInteractionResult.SUCCESS;
             }
-            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
     }

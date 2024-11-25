@@ -5,8 +5,8 @@ import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
-import com.spacetechmod.item.custom.tool.ModArmorItem;
 import com.spacetechmod.item.custom.space.BigKahunaItem;
+import com.spacetechmod.item.custom.tool.ModArmorItem;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -23,42 +23,55 @@ public class ModItems {
 
     //begin of titanium stuff
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer", HammerItem::new);
+
     public static final DeferredItem<Item> TITANIUM_INGOT = ITEMS.register( "titanium_ingot",
             () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> RAW_TITANIUM = ITEMS.register("raw_titanium",
             () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword",
             () -> new SwordItem(ModTiers.TITANIUM,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.TITANIUM, 4, -2.4f))));
+
     public static final DeferredItem<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe",
             () -> new PickaxeItem(ModTiers.TITANIUM,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModTiers.TITANIUM, 1, -2.8f))));
+
     public static final DeferredItem<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",
             () -> new AxeItem(ModTiers.TITANIUM,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(AxeItem.createAttributes(ModTiers.TITANIUM, 4, -3f))));
+
     public static final DeferredItem<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel",
             () -> new ShovelItem(ModTiers.TITANIUM,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(ShovelItem.createAttributes(ModTiers.TITANIUM, 1.5f, -3f))));
+
     public static final DeferredItem<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe",
             () -> new HoeItem(ModTiers.TITANIUM,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(HoeItem.createAttributes(ModTiers.TITANIUM, 1.5f, -3.0f))));
+
     public static final DeferredItem<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(22))));
+
     public static final DeferredItem<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+
     public static final DeferredItem<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+
     public static final DeferredItem<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
             () -> new ModArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(22))));
+
     //end of titanium stuff
 
     //begin of foodstuffs
     public static final DeferredItem<Item> CANADA = ITEMS.register("canada",
             () -> new Item(new Item.Properties().food(ModFoods.CANADA)));
+
     public static final DeferredItem<Item> LEAN = ITEMS.register( "lean",
             () -> new Item(new Item.Properties().food(ModFoods.LEAN)));
 
@@ -76,56 +89,60 @@ public class ModItems {
     //begin of copper stuff
     public static final DeferredItem<Item> COPPER_SWORD = ITEMS.register("copper_sword",
             () -> new SwordItem(ModTiers.COPPER,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.COPPER, 3, -2.4f))));
 
     public static final DeferredItem<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
             () -> new PickaxeItem(ModTiers.COPPER,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(ModTiers.COPPER, 1, -2.8f))));
 
     public static final DeferredItem<Item> COPPER_AXE = ITEMS.register("copper_axe",
             () -> new AxeItem(ModTiers.COPPER,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(AxeItem.createAttributes(ModTiers.COPPER, 4, -3f))));
 
     public static final DeferredItem<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
             () -> new ShovelItem(ModTiers.COPPER,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(ShovelItem.createAttributes(ModTiers.COPPER, 1.5f, -3f))));
 
     public static final DeferredItem<Item> COPPER_HOE = ITEMS.register("copper_hoe",
             () -> new HoeItem(ModTiers.COPPER,
-                    new Item.Properties()));
+                    new Item.Properties().attributes(HoeItem.createAttributes(ModTiers.COPPER, -1, 0))));
 
     public static final DeferredItem<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16))));
 
     public static final DeferredItem<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16))));
 
     public static final DeferredItem<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16))));
 
     public static final DeferredItem<Item> COPPER_BOOTS = ITEMS.register("copper_boots",
             () -> new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16))));
     //end of copper stuff
 
     //begin of turtle master stuff
     public static final DeferredItem<Item> AQUAMARINE = ITEMS.register("aquamarine",
             () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> TURTLE_MASTER_HELMET = ITEMS.register("turtle_master_helmet",
             () -> new ModArmorItem(ModArmorMaterials.TURTLE, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(45))));
+
     public static final DeferredItem<Item> TURTLE_MASTER_CHESTPLATE = ITEMS.register("turtle_master_chestplate",
             () -> new ModArmorItem(ModArmorMaterials.TURTLE, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(45))));
+
     public static final DeferredItem<Item> TURTLE_MASTER_LEGGINGS = ITEMS.register("turtle_master_leggings",
             () -> new ModArmorItem(ModArmorMaterials.TURTLE, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(45))));
+
     public static final DeferredItem<Item> TURTLE_MASTER_BOOTS = ITEMS.register("turtle_master_boots",
             () -> new ModArmorItem(ModArmorMaterials.TURTLE, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(45))));
     //end of turtle master stuff
 
     //stamps
@@ -207,18 +224,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> SPACESUIT_HELMET = ITEMS.register("spacesuit_helmet",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.HELMET,
-                    new Item.Properties().fireResistant()));
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.HELMET.getDurability(28))));
 
     public static final DeferredItem<Item> SPACESUIT_CHESTPLATE = ITEMS.register("spacesuit_chestplate",
             SpaceSuitChestplateItem::new);
 
     public static final DeferredItem<Item> SPACESUIT_LEGS = ITEMS.register("spacesuit_legs",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().fireResistant()));
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.LEGGINGS.getDurability(28))));
 
     public static final DeferredItem<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS,
-                    new Item.Properties().fireResistant()));
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.BOOTS.getDurability(28))));
 
     //planet keys
     public static final DeferredItem<Item> MOON_KEY = ITEMS.register("moon_key",

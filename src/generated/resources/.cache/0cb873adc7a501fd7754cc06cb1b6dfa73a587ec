@@ -1,0 +1,6 @@
+// 1.21.1	2024-11-24T16:31:13.391242112	Tags for minecraft:block mod id spacetechmod
+c2c1bbb880d2b617994d321c4935bb2310a10c67 data/minecraft/tags/block/mineable/pickaxe.json
+b06d50c85b943e0bb78f4c39b23f64627a98fd53 data/minecraft/tags/block/mineable/shovel.json
+9fa5f09b8bdcfd1a4b8a483768762e4fde313172 data/minecraft/tags/block/needs_diamond_tool.json
+50518e3da748258dcb73027951106ce8174ab112 data/minecraft/tags/block/needs_iron_tool.json
+dccea417190f3e9a934dca51a4169cbc0063e09b data/minecraft/tags/block/needs_stone_tool.json

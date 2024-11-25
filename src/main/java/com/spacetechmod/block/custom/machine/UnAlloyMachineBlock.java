@@ -57,13 +57,17 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        use(state, level, pos, player);
+        if(!level.isClientSide) {
+            use(state, level, pos, player);
+        }
         return super.useWithoutItem(state, level, pos, player, result);
     }
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        use(state, level, pos, player);
+        if(!level.isClientSide) {
+            use(state, level, pos, player);
+        }
         return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 

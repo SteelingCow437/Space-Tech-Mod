@@ -1,13 +1,17 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
+import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.spacetechmod.item.ModItems;
+import com.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -20,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgingTableBlock extends BaseEntityBlock {
@@ -70,31 +75,53 @@ public class ForgingTableBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        use(state, level, pos, player);
+        if(!level.isClientSide) {
+            use(state, level, pos, player);
+        }
         return super.useWithoutItem(state, level, pos, player, result);
     }
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        use(state, level, pos, player);
+        if(!level.isClientSide) {
+            use(state, level, pos, player);
+        }
         return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
     public void use(BlockState state, Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof ForgingTableBlockEntity) {
-            if(player.getMainHandItem().getItem() == ModItems.HAMMER.get()) {
-                ((ForgingTableBlockEntity) entity).craft(player);
-            }
-            else if(player.getMainHandItem() == ItemStack.EMPTY) {
+        if(entity instanceof ForgingTableBlockEntity && !level.isClientSide) {
+            if(player.isShiftKeyDown()) {
                 ((ForgingTableBlockEntity) entity).removeItem(player);
             }
             else {
-                ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
-                ((ForgingTableBlockEntity) entity).addIngredient(player.getMainHandItem().getItem(), player, player.getMainHandItem().getCount());
+                if(player.getMainHandItem().getItem() == ModItems.HAMMER.get()) {
+                    ((ForgingTableBlockEntity) entity).craft(player);
+                }
+                else {
+                    ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
+                    ((ForgingTableBlockEntity) entity).addIngredient(player);
+                }
             }
             stampNumber = ((ForgingTableBlockEntity) entity).getStamp();
             level.setBlock(pos, state.setValue(STAMP, ((ForgingTableBlockEntity) entity).getStamp()), 1);
+        }
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        ItemEntity stamp = new ItemEntity(EntityType.ITEM, level);
+        ItemEntity ingredient = new ItemEntity(EntityType.ITEM, level);
+        Block block = newState.getBlock();
+        if(entity instanceof ForgingTableBlockEntity && block != ModBlocks.FORGING_TABLE.get()) {
+            stamp.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
+            ingredient.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
+            stamp.setItem(new ItemStack(((ForgingTableBlockEntity) entity).stamp, 1));
+            ingredient.setItem(((ForgingTableBlockEntity) entity).ingredient);
+            level.addFreshEntity(stamp);
+            level.addFreshEntity(ingredient);
         }
     }
 

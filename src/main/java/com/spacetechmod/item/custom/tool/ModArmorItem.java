@@ -15,93 +15,90 @@ import net.minecraft.world.level.Level;
 
 public class ModArmorItem extends ArmorItem {
 
-    public ModArmorItem(Holder<ArmorMaterial> material, Type type, Properties settings) {
+    public ModArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Properties settings) {
         super(material, type, settings);
     }
 
-    public ArmorMaterial fullSetMaterial;
-
-    private boolean hasFullSuitOfArmorOn(Player player) {
-        ItemStack boots = player.getInventory().getArmor(0);
-        ItemStack leggings = player.getInventory().getArmor(1);
-        ItemStack breastplate = player.getInventory().getArmor(2);
-        ItemStack helmet = player.getInventory().getArmor(3);
-
-        return !helmet.isEmpty() && !breastplate.isEmpty()
-                && !leggings.isEmpty() && !boots.isEmpty();
-    }
-
-    private boolean hasSameSetOfArmorOn(ArmorMaterial material, Player player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
-                return false;
-            }
-        }
-
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmor(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmor(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmor(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmor(3).getItem());
-
-        if(helmet.getMaterial().value() == material && breastplate.getMaterial().value() == material &&
-                leggings.getMaterial().value() == material && boots.getMaterial().value() == material) {
-            fullSetMaterial = helmet.getMaterial().value();
-            return true;
-        }
-        else {
-            fullSetMaterial = null;
-            return false;
-        }
-    }
+    private int timer = 0;
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int number, boolean bool) {
-        if (!level.isClientSide()) {
-            if(entity instanceof Player player) {
-                if (hasFullSuitOfArmorOn(player)) {
-                    for(int i = 0; i < ModLists.ARMOR_MATERIAL_INDEX.size(); ++i) {
-                        if(hasSameSetOfArmorOn(ModLists.ARMOR_MATERIAL_INDEX.get(i).value(), player)) {
-                            setEffects(player, level);
-                            break;
-                        }
-                    }
-                }
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if(entity instanceof Player player && !level.isClientSide() && hasFullSuitOfArmorOn(player)) {
+            if(timer >= 180) {
+                evaluateArmorEffects(player);
+                timer = 0;
+            }
+            else {
+                ++timer;
             }
         }
-        super.inventoryTick(stack, level, entity, number, bool);
     }
 
-    public void setEffects(Player player, Level world) {
-        switch(ModLists.ARMOR_MATERIAL_INDEX.indexOf(fullSetMaterial)) {
+    private void evaluateArmorEffects(Player player) {
+        for(Holder<ArmorMaterial> material : ModLists.ARMOR_MATERIAL_INDEX) {
+            if(hasSameSetOfArmorOn(material, player)) {
+                addEffectToPlayer(player, material);
+            }
+        }
+    }
+
+    private void addEffectToPlayer(Player player, Holder<ArmorMaterial> material) {
+        switch(ModLists.ARMOR_MATERIAL_INDEX.indexOf(material)) {
             case 1 -> {
-                if(world.isThundering()) {
-                    copperArmor(player);
+                if(player.level().isRaining()) {
+                    copperEffect(player);
                 }
             }
-
             case 2 -> {
-                if(player.isUnderWater()) {
+                if(player.isInWaterRainOrBubble()) {
                     turtleMasterArmorInWater(player);
                 }
                 else {
                     turtleMasterArmorOnLand(player);
                 }
             }
-            case 3 -> {
-                if(ModLists.NO_BREATHING_LIST.contains(player.level().dimension())) {
-                    spaceSuit(player);
-                }
-            }
+            case 3 -> spaceSuit(player);
         }
     }
 
-    //add methods for set bonuses here!
-    private void spaceSuit(Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT.getDelegate(), 40, 0));
+    private boolean hasFullSuitOfArmorOn(Player player) {
+        ItemStack boots = player.getInventory().getArmor(0);
+        ItemStack leggings = player.getInventory().getArmor(1);
+        ItemStack chestplate = player.getInventory().getArmor(2);
+        ItemStack helmet = player.getInventory().getArmor(3);
+
+        return !boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty();
     }
-    private void copperArmor(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1));
+
+    private boolean hasSameSetOfArmorOn(Holder<ArmorMaterial> material, Player player) {
+        for(ItemStack armorStack : player.getArmorSlots()) {
+            if(!(armorStack.getItem() instanceof ArmorItem)) {
+                return false;
+            }
+        }
+
+        ArmorItem boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
+        ArmorItem leggings = ((ArmorItem) player.getInventory().getArmor(1).getItem());
+        ArmorItem chestplate = ((ArmorItem) player.getInventory().getArmor(2).getItem());
+        ArmorItem helmet = ((ArmorItem) player.getInventory().getArmor(3).getItem());
+
+        if(boots.getMaterial() == material && leggings.getMaterial() == material
+                && chestplate.getMaterial() == material && helmet.getMaterial() == material) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //Lists of armor effects!
+    private void copperEffect(Player player) {
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0));
+    }
+
+    private void spaceSuit(Player player) {
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT, 200, 0));
     }
 
     private void turtleMasterArmorInWater(Player player) {
@@ -114,7 +111,8 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private void turtleMasterArmorOnLand(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2));
     }
+
 }
 

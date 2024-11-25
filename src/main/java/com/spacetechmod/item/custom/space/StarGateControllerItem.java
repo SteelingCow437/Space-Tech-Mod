@@ -30,16 +30,14 @@ public class StarGateControllerItem extends Item {
     public int Y = 0;
     public int Z = 0;
     private int selectedParameter = 0;
-    private int useCooldown = 0;
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if(player.isShiftKeyDown() && useCooldown == 0) {
+        if(!player.isShiftKeyDown() && !level.isClientSide) {
             player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
             X = 0;
             Y = 0;
             Z = 0;
-            useCooldown = 5;
             return InteractionResultHolder.success(player.getMainHandItem());
         }
         return InteractionResultHolder.fail(player.getMainHandItem());
@@ -49,38 +47,25 @@ public class StarGateControllerItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockEntity entity = level.getBlockEntity(context.getClickedPos());
-        if(entity instanceof SignBlockEntity && useCooldown == 0) {
+        if (entity instanceof SignBlockEntity && !level.isClientSide) {
             String message = ((SignBlockEntity) entity).getFrontText().getMessage(0, false).getString();
             int coordinate;
             try {
                 coordinate = Integer.parseInt(message);
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 coordinate = 0;
             }
-            switch(selectedParameter) {
-                case 0 -> {
-                    X = coordinate;
-                    useCooldown = 5;
-                }
-                case 1 -> {
-                    Y = coordinate;
-                    useCooldown = 5;
-                }
-                case 2 -> {
-                    Z = coordinate;
-                    useCooldown = 5;
-                }
+            switch (selectedParameter) {
+                case 0 -> X = coordinate;
+                case 1 -> Y = coordinate;
+                case 2 -> Z = coordinate;
             }
-            if(selectedParameter < 2) {
+            if (selectedParameter < 2) {
                 ++selectedParameter;
-                useCooldown = 5;
-            }
-            else {
+            } else {
                 selectedParameter = 0;
-                useCooldown = 5;
             }
-            return InteractionResult.SUCCESS_NO_ITEM_USED;
+            return InteractionResult.SUCCESS;
         }
         return InteractionResult.FAIL;
     }
@@ -110,12 +95,5 @@ public class StarGateControllerItem extends Item {
         list.add(Component.literal("Destination: " + X + ", " + Y + ", " + Z + ", " +
                 "Selected Parameter: " + getSelectedParameter()));
         super.appendHoverText(stack, context, list, flag);
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int number_, boolean simulate) {
-        if(useCooldown > 0) {
-            --useCooldown;
-        }
     }
 }
