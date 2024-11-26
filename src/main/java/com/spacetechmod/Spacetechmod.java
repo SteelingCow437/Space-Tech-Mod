@@ -74,6 +74,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.AQUAMARINE_ORE);
             event.accept(ModBlocks.TIN_ORE);
             event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
+            event.accept(ModBlocks.STARGATE_FRAME);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -108,6 +109,7 @@ public class Spacetechmod {
             event.accept(ModItems.KAHUNA_CHARGE);
             event.accept(ModItems.KAHUNA_SHELL);
             event.accept(ModItems.BIG_KAHUNA);
+            event.accept(ModItems.MOON_KEY);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -153,6 +155,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.ALLOY_REVERSAL_MACHINE);
             event.accept(ModBlocks.AIR_MACHINE);
             event.accept(ModBlocks.TNT_COMPRESSOR);
+            event.accept(ModBlocks.STARGATE_CORE);
         }
         /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);

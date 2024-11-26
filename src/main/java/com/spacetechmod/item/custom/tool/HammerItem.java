@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.Block;
 public class HammerItem extends Item {
     public HammerItem() {
         super(new Properties()
-                .stacksTo(64)
+                .stacksTo(1)
                 .rarity(Rarity.COMMON));
     }
 

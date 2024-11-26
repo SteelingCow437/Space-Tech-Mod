@@ -123,6 +123,7 @@ public class ForgingTableBlock extends BaseEntityBlock {
             level.addFreshEntity(stamp);
             level.addFreshEntity(ingredient);
         }
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Nullable

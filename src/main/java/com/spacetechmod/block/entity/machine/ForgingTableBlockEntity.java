@@ -36,7 +36,6 @@ public class ForgingTableBlockEntity extends BlockEntity {
                         case 3 -> result = ModItems.STEEL_PLATE.get();
                         case 4 -> result = ModItems.BRONZE_PLATE.get();
                         case 6 -> result = ModItems.TITAN_STEEL_PLATE.get();
-                        default -> player.sendSystemMessage(Component.literal("Invalid recipe!"));
                     }
                     givePlate(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
@@ -44,7 +43,6 @@ public class ForgingTableBlockEntity extends BlockEntity {
                     switch (ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem())) {
                         case 1 -> result = ModItems.COPPER_WIRING.get();
                         case 5 -> result = ModItems.COPPER_REDSTIDE_WIRING.get();
-                        default -> player.sendSystemMessage(Component.literal("Invalid recipe!"));
                     }
                     giveWire(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);

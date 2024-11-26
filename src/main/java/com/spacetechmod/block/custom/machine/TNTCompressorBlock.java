@@ -95,4 +95,15 @@ public class TNTCompressorBlock extends Block {
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         level.setBlockAndUpdate(pos, state.setValue(CHARGED, false));
     }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        ItemEntity item = new ItemEntity(EntityType.ITEM, level);
+        item.setItem(new ItemStack(Items.TNT, 64));
+        item.setPos(pos.getX(), pos.getY() + 1, pos.getZ());
+        for(int i = 0; i < charge; ++i) {
+            level.addFreshEntity(item);
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
 }
