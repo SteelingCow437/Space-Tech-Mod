@@ -11,7 +11,7 @@
   "ambient_light": 12,
   "fixed_time": 1000,
   "logical_height": 384,
-  "effects": "minecraft:the_end",
+  "effects": "minecraft:the_nether",
   "infiniburn": "#minecraft:infiniburn_overworld",
   "min_y": -64,
   "height": 384,

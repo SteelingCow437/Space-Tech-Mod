@@ -119,4 +119,8 @@ public class ModBlocks {
             () -> new TNTCompressorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK)
                     .requiresCorrectToolForDrops()));
 
+    //Deco blocks
+    public static final DeferredBlock<Block> STEEL_DECO_BLOCK = registerBlock("steel_deco_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(3f).requiresCorrectToolForDrops()));
+
 }

@@ -1,6 +1,7 @@
 Space-Tech-Mod
 
-A mod about space and tech, for 1.21.1 and beyond
+A mod about space and tech, for 1.21.1 and beyond, made for the Minecraft server that
+my friends and I play on.
 
 If you see something that either looks gross, works poorly, or just needs improvement, make a pull request
 or open up an issue, so I can know what's going on. Things will be broken/janky, I'm an amateur programmer

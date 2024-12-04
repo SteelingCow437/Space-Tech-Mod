@@ -101,5 +101,6 @@
   "block.spacetechmod.tnt_compressor": "TNT Compressor",
   "item.spacetechmod.big_kahuna": "The Big Kahuna",
   "item.spacetechmod.kahuna_charge": "Kahuna Charge",
-  "item.spacetechmod.kahuna_shell": "Kahuna Casing"
+  "item.spacetechmod.kahuna_shell": "Kahuna Casing",
+  "block.spacetechmod.steel_deco_block": "Steel Deco Block"
 }
