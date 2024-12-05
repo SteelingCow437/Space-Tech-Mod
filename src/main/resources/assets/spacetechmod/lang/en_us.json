@@ -102,5 +102,7 @@
   "item.spacetechmod.big_kahuna": "The Big Kahuna",
   "item.spacetechmod.kahuna_charge": "Kahuna Charge",
   "item.spacetechmod.kahuna_shell": "Kahuna Casing",
-  "block.spacetechmod.steel_deco_block": "Steel Deco Block"
+  "block.spacetechmod.steel_deco_block": "Steel Deco Block",
+  "block.spacetechmod.orbital_tnt_core": "Orbital TNT Cannon Core",
+  "item.spacetechmod.orbital_marker": "Orbital Marker"
 }

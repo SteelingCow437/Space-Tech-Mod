@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.spacetechmod.item.ModItems;
-import com.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;

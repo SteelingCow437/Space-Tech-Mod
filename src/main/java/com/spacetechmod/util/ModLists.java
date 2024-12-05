@@ -1,6 +1,6 @@
 package com.spacetechmod.util;
 
-import com.spacetechmod.block.entity.ModBlockEntities;
+import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.item.ModArmorMaterials;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.world.dimension.ModDimensions;
@@ -11,7 +11,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,4 +77,8 @@ public class ModLists {
                     -6, 6, 6, 6, -6, 5, 6, 5, -6, 4, 6, 4, -5, 3, 5, 3, -5, 2,
                     5, 2, -4, 1, 4, 1, -3, 1, 3, 1, -2, 0, 2, 0, 1, 0, -1, 0)
     ); //good Lord that was horrible to make
+
+    public static final ArrayList<Block> ORBITAL_CORES = new ArrayList<Block>(
+            Arrays.asList(ModBlocks.ORBITAL_TNT_CORE.get())
+    );
 }

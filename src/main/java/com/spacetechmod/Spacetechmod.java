@@ -2,6 +2,7 @@ package com.spacetechmod;
 
 import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.ModBlockEntities;
+import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.effect.ModEffects;
 import com.spacetechmod.item.ModCreativeModeTab;
 import com.spacetechmod.item.ModItems;
@@ -45,6 +46,7 @@ public class Spacetechmod {
         ModBlockEntities.register(eventBus);
         ModSounds.register(eventBus);
         ModCreativeModeTab.register(eventBus);
+        ModDataStorage.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         NeoForge.EVENT_BUS.register(this);

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "spacetechmod:titan_steel_ingot"
+    },
+    "*": {
+      "item": "minecraft:redstone_block"
+    },
+    "%": {
+      "item": "spacetechmod:copper_redstide_ingot"
+    }
+  },
+  "pattern": [
+    "%#%",
+    "#*#",
+    "%#%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:orbital_tnt_core"
+  }
+}

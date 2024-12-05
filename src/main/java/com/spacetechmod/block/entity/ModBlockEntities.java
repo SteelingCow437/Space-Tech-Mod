@@ -42,9 +42,6 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(BasicFluidBarrelBlockEntity::new,
                             ModBlocks.IRON_BARREL.get()).build(null)); */
 
-    //Planet Dungeon blocks
-
-
     //StarGate Core
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StarGateCoreBlockEntity>> STARGATE_CORE =
             BLOCK_ENTITIES.register("stargate_core", () ->

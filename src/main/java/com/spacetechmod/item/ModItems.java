@@ -2,10 +2,11 @@ package com.spacetechmod.item;
 
 import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
+import com.spacetechmod.item.custom.space.BigKahunaItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.spacetechmod.item.custom.space.StarGateControllerItem;
+import com.spacetechmod.item.custom.space.orbital.OrbitalMarkerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
-import com.spacetechmod.item.custom.space.BigKahunaItem;
 import com.spacetechmod.item.custom.tool.ModArmorItem;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.world.item.*;
@@ -254,4 +255,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> KAHUNA_SHELL = ITEMS.register("kahuna_shell",
             () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
+
+    //My life for Super Earth!
+    public static final DeferredItem<Item> ORBITAL_MARKER = ITEMS.register("orbital_marker",
+            OrbitalMarkerItem::new);
 }
