@@ -77,6 +77,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.TIN_ORE);
             event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
             event.accept(ModBlocks.STARGATE_FRAME);
+            event.accept(ModBlocks.STEEL_DECO_BLOCK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);
@@ -158,6 +159,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.AIR_MACHINE);
             event.accept(ModBlocks.TNT_COMPRESSOR);
             event.accept(ModBlocks.STARGATE_CORE);
+            event.accept(ModBlocks.ORBITAL_TNT_CORE);
         }
         /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);

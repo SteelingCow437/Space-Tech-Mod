@@ -5,6 +5,7 @@ import com.spacetechmod.item.ModItems;
 import com.spacetechmod.item.custom.space.orbital.OrbitalMarkerItem;
 import com.spacetechmod.util.MultiBlockPart;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -46,7 +47,7 @@ public class OrbitalTNTCoreBlock extends Block {
         return ItemInteractionResult.FAIL;
     }
 
-    public boolean isStructureValid(ArrayList<MultiBlockPart> structure, Level level, BlockPos originPos) {
+    public boolean isStructureValid(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
         for(int i = 0; i < structure.size(); ++i) {
             if(level.getBlockState(new BlockPos(originPos.getX() + structure.get(i).relativeX, originPos.getY() + structure.get(i).relativeY, originPos.getZ() + structure.get(i).relativeZ)).getBlock() != structure.get(i).block) {
                 return false;
