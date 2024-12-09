@@ -11,7 +11,7 @@ IMPORTANT: On multiplayer worlds, the gamerule "disableElytraMovementCheck" MUST
 
 FAQ:
 
-Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion-modifier
+Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion-Modifier (optional)
 
 "What versions?" 1.21.1 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I humanly can.
@@ -21,12 +21,13 @@ I humanly can.
 "Hotel?" Trivago.
 
 "Can you add X?"  If it's a good suggestion, maybe. Don't put suggestions in the issues tab, that's
-for issues, not for suggestions. If you want something, make a pull request, or make it a really good
+for issues, not for suggestions. If you want something, make a pull request, or make it a REALLY good
 suggestion.
 
 "When will X be done?" It won't :)
 
-"But Stellaris exists!" Let me have my fun. I'm the only one working on this.
+"But Stellaris exists!" Let me have my fun. This mod is primarily for the server that my friends and I play on,
+so I wanted to custom-make stuff that they would find fun / easy to understand / "out of the way" / balanced.
 
 "How do I make X?" Use the mod Just Enough Items / JEI / whatever it's called now.
 If it's not in there, chances are you either have to find it or it's made at a special

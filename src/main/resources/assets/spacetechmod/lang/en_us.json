@@ -108,5 +108,9 @@
   "item.spacetechmod.orbital_marker": "Orbital Marker",
   "item.spacetechmod.orbital_casing": "Orbital Shell Casing",
   "item.spacetechmod.orbital_tnt_shell": "Orbital TNT Shell",
-  "item.spacetechmod.orbital_flame_shell": "Orbital Flame Shell"
+  "item.spacetechmod.orbital_flame_shell": "Orbital Flame Shell",
+  "painting.spacetechmod.saul_goodman.title": "Saul Goodman",
+  "painting.spacetechmod.saul_goodman.author": "SteelingCow437",
+  "painting.spacetechmod.troll.title": "Silly Skeleton",
+  "painting.spacetechmod.troll.author": "SteelingCow437"
 }

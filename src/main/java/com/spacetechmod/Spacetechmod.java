@@ -6,7 +6,6 @@ import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.effect.ModEffects;
 import com.spacetechmod.item.ModCreativeModeTab;
 import com.spacetechmod.item.ModItems;
-import com.spacetechmod.painting.ModPaintings;
 import com.spacetechmod.potion.ModPotions;
 import com.spacetechmod.sound.ModSounds;
 import net.neoforged.api.distmarker.Dist;
@@ -41,7 +40,6 @@ public class Spacetechmod {
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModPotions.register(eventBus);
-        ModPaintings.register(eventBus);
         ModEffects.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModSounds.register(eventBus);
