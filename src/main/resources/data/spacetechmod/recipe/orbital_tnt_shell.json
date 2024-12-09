@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "spacetechmod:iron_plate"
+      "item": "spacetechmod:orbital_casing"
     },
     "*": {
       "item": "minecraft:tnt"
