@@ -14,6 +14,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.LargeFireball;
@@ -95,7 +96,7 @@ public class OrbitalMarkerItem extends Item {
                 tntCannonActive = false;
                 flameCannonActive = false;
                 useTimer = 0;
-                stack.shrink(1);
+                ((Player) entity).getMainHandItem().shrink(1);
             }
             if (tntCannonActive) {
                 PrimedTnt tnt = new PrimedTnt(EntityType.TNT, level);
