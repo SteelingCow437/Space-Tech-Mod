@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:diamond_meteor",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 100004,
+    "spacing": 64,
+    "separation": 48,
+    "type": "minecraft:random_spread"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:redstone_meteor",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 100007,
+    "spacing": 64,
+    "separation": 48,
+    "type": "minecraft:random_spread"
+  }
+}

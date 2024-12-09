@@ -16,9 +16,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.ArrayList;
 
-public class OrbitalTNTCoreBlock extends Block {
+public class OrbitalFlameCoreBlock extends Block {
 
-    public OrbitalTNTCoreBlock(Properties properties) {
+    public OrbitalFlameCoreBlock(Properties properties) {
         super(properties);
     }
 
@@ -27,7 +27,7 @@ public class OrbitalTNTCoreBlock extends Block {
         if(!level.isClientSide()) {
             ItemStack marker = new ItemStack(ModItems.ORBITAL_MARKER.get(), 1);
             marker.set(ModDataStorage.LINKED_ORBITAL_CORE, pos);
-            if(stack.getItem() == ModItems.ORBITAL_TNT_SHELL.get() && stack.getCount() >= 1) {
+            if(stack.getItem() == ModItems.ORBITAL_FLAME_SHELL.get() && stack.getCount() >= 1) {
                 player.addItem(marker);
                 stack.shrink(1);
                 return ItemInteractionResult.SUCCESS;

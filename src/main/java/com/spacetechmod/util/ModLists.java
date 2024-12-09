@@ -79,6 +79,6 @@ public class ModLists {
     ); //good Lord that was horrible to make
 
     public static final ArrayList<Block> ORBITAL_CORES = new ArrayList<Block>(
-            Arrays.asList(ModBlocks.ORBITAL_TNT_CORE.get())
+            Arrays.asList(ModBlocks.ORBITAL_TNT_CORE.get(), ModBlocks.ORBITAL_FLAME_CORE.get())
     );
 }

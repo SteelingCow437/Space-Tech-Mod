@@ -4,6 +4,7 @@ import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.spacetechmod.block.custom.machine.*;
+import com.spacetechmod.block.custom.multiblock.OrbitalFlameCoreBlock;
 import com.spacetechmod.block.custom.multiblock.OrbitalTNTCoreBlock;
 import com.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -128,4 +129,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ORBITAL_TNT_CORE = registerBlock("orbital_tnt_core",
             () -> new OrbitalTNTCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> ORBITAL_FLAME_CORE = registerBlock("orbital_flame_core",
+            () -> new OrbitalFlameCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(3f).requiresCorrectToolForDrops()));
 }

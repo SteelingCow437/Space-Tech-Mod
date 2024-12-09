@@ -36,7 +36,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.STARGATE_CORE.get())
                 .add(ModBlocks.STARGATE_FRAME.get())
                 .add(ModBlocks.STEEL_DECO_BLOCK.get())
-                .add(ModBlocks.ORBITAL_TNT_CORE.get());
+                .add(ModBlocks.ORBITAL_TNT_CORE.get())
+                .add(ModBlocks.ORBITAL_FLAME_CORE.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.MOON_DIRT.get());

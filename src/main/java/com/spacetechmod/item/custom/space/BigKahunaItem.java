@@ -29,14 +29,14 @@ public class BigKahunaItem extends Item {
     }
 
     private final ExplosionDamageCalculator calculator = new SimpleExplosionDamageCalculator(
-            false, false, Optional.of(512f), BuiltInRegistries.BLOCK.getTag(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
+            false, false, Optional.of(768f), BuiltInRegistries.BLOCK.getTag(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         if(!level.isClientSide) {
             if(player.getY() >= 300) {
                 level.explode(null, null, calculator, player.getX(),
-                        player.getY() - 5, player.getZ(), 192f, false,
+                        player.getY() - 5, player.getZ(), 128f, false,
                         Level.ExplosionInteraction.TRIGGER, ParticleTypes.EXPLOSION,
                         ParticleTypes.EXPLOSION, SoundEvents.GENERIC_EXPLODE);
                 player.getItemInHand(usedHand).shrink(1);

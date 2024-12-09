@@ -104,5 +104,9 @@
   "item.spacetechmod.kahuna_shell": "Kahuna Casing",
   "block.spacetechmod.steel_deco_block": "Steel Deco Block",
   "block.spacetechmod.orbital_tnt_core": "Orbital TNT Cannon Core",
-  "item.spacetechmod.orbital_marker": "Orbital Marker"
+  "block.spacetechmod.orbital_flame_core": "Orbital Flame Cannon Core",
+  "item.spacetechmod.orbital_marker": "Orbital Marker",
+  "item.spacetechmod.orbital_casing": "Orbital Shell Casing",
+  "item.spacetechmod.orbital_tnt_shell": "Orbital TNT Shell",
+  "item.spacetechmod.orbital_flame_shell": "Orbital Flame Shell"
 }

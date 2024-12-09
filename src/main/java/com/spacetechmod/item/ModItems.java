@@ -256,6 +256,17 @@ public class ModItems {
     public static final DeferredItem<Item> KAHUNA_SHELL = ITEMS.register("kahuna_shell",
             () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
 
+
+    //Orbital shells
+    public static final DeferredItem<Item> ORBITAL_CASING = ITEMS.register("orbital_casing",
+            () -> new Item(new Item.Properties().stacksTo(64)));
+
+    public static final DeferredItem<Item> ORBITAL_TNT_SHELL = ITEMS.register("orbital_tnt_shell",
+            () -> new Item(new Item.Properties().stacksTo(8)));
+
+    public static final DeferredItem<Item> ORBITAL_FLAME_SHELL = ITEMS.register("orbital_flame_shell",
+            () -> new Item(new Item.Properties().stacksTo(8)));
+
     //My life for Super Earth!
     public static final DeferredItem<Item> ORBITAL_MARKER = ITEMS.register("orbital_marker",
             OrbitalMarkerItem::new);

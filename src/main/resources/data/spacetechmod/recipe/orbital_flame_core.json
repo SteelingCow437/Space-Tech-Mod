@@ -6,7 +6,7 @@
       "item": "spacetechmod:steel_plate"
     },
     "*": {
-      "item": "minecraft:redstone_block"
+      "item": "minecraft:end_crystal"
     },
     "%": {
       "item": "spacetechmod:copper_redstide_ingot"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "spacetechmod:orbital_tnt_core"
+    "id": "spacetechmod:orbital_flame_core"
   }
 }
