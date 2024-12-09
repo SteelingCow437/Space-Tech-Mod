@@ -110,6 +110,7 @@ public class ForgingTableBlock extends BaseEntityBlock {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        super.onRemove(state, level, pos, newState, movedByPiston);
         BlockEntity entity = level.getBlockEntity(pos);
         ItemEntity stamp = new ItemEntity(EntityType.ITEM, level);
         ItemEntity ingredient = new ItemEntity(EntityType.ITEM, level);
@@ -122,7 +123,6 @@ public class ForgingTableBlock extends BaseEntityBlock {
             level.addFreshEntity(stamp);
             level.addFreshEntity(ingredient);
         }
-        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Nullable

@@ -1,12 +1,8 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "down": "minecraft:block/smithing_table_bottom",
-    "east": "minecraft:block/smithing_table_side",
-    "north": "minecraft:block/smithing_table_front",
-    "particle": "minecraft:block/smithing_table_front",
-    "south": "minecraft:block/smithing_table_front",
-    "up": "spacetechmod:block/forging_table_wire",
-    "west": "minecraft:block/smithing_table_side"
+    "bottom": "minecraft:block/oak_planks",
+    "side": "spacetechmod:block/forging_table_side",
+    "top": "spacetechmod:block/forging_table_wire"
   }
 }
