@@ -7,6 +7,7 @@ import com.spacetechmod.util.ModLists;
 import com.spacetechmod.util.ModMultiBlockStructures;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -14,15 +15,16 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
+import java.util.List;
 import java.util.Random;
 
 public class OrbitalMarkerItem extends Item {
@@ -30,10 +32,13 @@ public class OrbitalMarkerItem extends Item {
     //instance stuff
     Random random = new Random();
 
-    private int useTimer = 0;
+    private int timer = 0;
+    private int firedShells = 0;
 
     private boolean tntCannonActive = false;
     private boolean flameCannonActive = false;
+
+    private Level textLevel;
 
     private BlockPos setPos;
 
@@ -45,7 +50,8 @@ public class OrbitalMarkerItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-        player.getCooldowns().addCooldown(this, 20);
+        player.getCooldowns().addCooldown(this, 60);
+        player.getItemInHand(usedHand).shrink(1);
         MinecraftServer server = level.getServer();
         ServerLevel moon;
         try {
@@ -92,27 +98,60 @@ public class OrbitalMarkerItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if(!level.isClientSide) {
-            if (useTimer >= 8) {
+            textLevel = level;
+            ++timer;
+            if (timer >= 20) {
+                timer = 0;
+            }
+            if(firedShells >= 32) {
                 tntCannonActive = false;
                 flameCannonActive = false;
-                useTimer = 0;
-                ((Player) entity).getMainHandItem().shrink(1);
+                firedShells = 0;
             }
             if (tntCannonActive) {
                 PrimedTnt tnt = new PrimedTnt(EntityType.TNT, level);
-                tnt.setFuse(200);
-                tnt.setDeltaMovement(0.0, -10, 0.0);
-                tnt.setPos(setPos.getX() + random.nextInt(-5, 5), setPos.getY() + 100, setPos.getZ() + random.nextInt(-5, 5));
+                tnt.setFuse(400);
+                tnt.setDeltaMovement(0.0, -2, 0.0);
+                tnt.setPos(setPos.getX() + random.nextInt(-15, 15), setPos.getY() + 100, setPos.getZ() + random.nextInt(-15, 15));
                 level.addFreshEntity(tnt);
-                ++useTimer;
+                ++firedShells;
             }
             if (flameCannonActive) {
                 LargeFireball fireball = new LargeFireball(EntityType.FIREBALL, level);
                 fireball.setDeltaMovement(0.0, -0.01, 0.0);
-                fireball.setPos(setPos.getX() + random.nextInt(-8, 8), setPos.getY() + 100, setPos.getZ() + random.nextInt(-8, 8));
+                fireball.setPos(setPos.getX() + random.nextInt(-15, 15), setPos.getY() + 100, setPos.getZ() + random.nextInt(-15, 15));
                 level.addFreshEntity(fireball);
-                ++useTimer;
+                ++firedShells;
             }
         }
+    }
+
+    private String getCannonName(ItemStack stack) {
+        MinecraftServer server = textLevel.getServer();
+        ServerLevel moon;
+        Block core;
+        BlockPos pos;
+        try {
+            moon = server.getLevel(ModDimensions.MOON);
+            pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
+            core = moon.getBlockState(pos).getBlock();
+        } catch (Exception e) {
+            return "I should be crashing right now!";
+        }
+        switch(ModLists.ORBITAL_CORES.indexOf(core)) {
+            case 0 -> {
+                return "Orbital TNT Cannon";
+            }
+
+            case 1 -> {
+                return "Orbital Flame Cannon";
+            }
+        }
+        return "Nothing!";
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
+        list.add(Component.literal("Linked to " + getCannonName(stack)));
     }
 }

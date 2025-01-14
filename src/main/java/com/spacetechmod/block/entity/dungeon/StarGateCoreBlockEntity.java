@@ -4,6 +4,7 @@ import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.util.ModLists;
+import com.spacetechmod.util.ModMultiBlockStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -94,7 +95,7 @@ public class StarGateCoreBlockEntity extends BlockEntity {
             BlockPos origin = worldPosition;
             BlockPos pos;
             for(int i = 0; i < 36; i += 2) {
-                pos = new BlockPos(origin.getX() + ModLists.STARGATE_FRAME_POSITIONS.get(i), origin.getY() + ModLists.STARGATE_FRAME_POSITIONS.get(i + 1), origin.getZ());
+                pos = new BlockPos(origin.getX() + ModMultiBlockStructures.STARGATE_FRAME_POSITIONS.get(i), origin.getY() + ModMultiBlockStructures.STARGATE_FRAME_POSITIONS.get(i + 1), origin.getZ());
                 if(level.getBlockState(pos).getBlock() != ModBlocks.STARGATE_FRAME.get()) {
                     toReturn = false;
                 }
@@ -107,7 +108,7 @@ public class StarGateCoreBlockEntity extends BlockEntity {
         BlockPos origin = worldPosition;
         BlockPos pos;
         for(int i = 0; i < 36; i += 2) {
-            pos = new BlockPos(origin.getX(), origin.getY() + ModLists.STARGATE_FRAME_POSITIONS.get(i + 1), origin.getZ() + ModLists.STARGATE_FRAME_POSITIONS.get(i));
+            pos = new BlockPos(origin.getX(), origin.getY() + ModMultiBlockStructures.STARGATE_FRAME_POSITIONS.get(i + 1), origin.getZ() + ModMultiBlockStructures.STARGATE_FRAME_POSITIONS.get(i));
             if(level.getBlockState(pos).getBlock() != ModBlocks.STARGATE_FRAME.get()) {
                 toReturn = false;
             }

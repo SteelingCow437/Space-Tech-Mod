@@ -43,6 +43,15 @@ public class ModMultiBlockStructures {
    With all of that being said, declare multiblocks below this line! :)
     */
 
+    //Stargate frame position constants
+    public static final ArrayList<Integer> STARGATE_FRAME_POSITIONS = new ArrayList<>(
+            Arrays.asList(
+                    -2, 12, -1, 12, 0, 12, 1, 12, 2, 12, -4, 11, -3, 11, 3, 11,
+                    4, 11, -5, 10, 5, 10, -5, 9, 5, 9, -6, 8, 6, 8, -6, 7, 6, 7,
+                    -6, 6, 6, 6, -6, 5, 6, 5, -6, 4, 6, 4, -5, 3, 5, 3, -5, 2,
+                    5, 2, -4, 1, 4, 1, -3, 1, 3, 1, -2, 0, 2, 0, 1, 0, -1, 0)
+    ); //good Lord that was horrible to make
+
     public static final ArrayList<MultiBlockPart> ORBITAL_TNT_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(
                     new MultiBlockPart(Blocks.DISPENSER, 0, 2, 0),
@@ -89,10 +98,5 @@ public class ModMultiBlockStructures {
                     new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -2, 1),
                     new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -2, 1),
                     new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -2, 1)
-
     ));
-
-
-
-    
 }
