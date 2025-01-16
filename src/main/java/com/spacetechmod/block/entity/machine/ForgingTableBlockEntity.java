@@ -48,6 +48,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                 }
             }
         }
+        setChanged();
     }
     public void givePlate(Player player) {
         if(result != null) {
@@ -55,6 +56,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
             ingredient = ItemStack.EMPTY;
             result = null;
         }
+        setChanged();
     }
 
     public void giveWire(Player player) {
@@ -63,6 +65,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
             ingredient = ItemStack.EMPTY;
             result = null;
         }
+        setChanged();
     }
 
     public void addIngredient(Player player) {
@@ -77,6 +80,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                     player.getMainHandItem().shrink(1);
                 }
             }
+            setChanged();
         }
     }
 
@@ -89,6 +93,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                 stamp = item;
                 player.getMainHandItem().shrink(1);
             }
+            setChanged();
         }
     }
 

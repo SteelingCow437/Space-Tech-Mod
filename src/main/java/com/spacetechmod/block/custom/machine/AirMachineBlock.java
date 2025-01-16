@@ -52,30 +52,25 @@ public class AirMachineBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(level, pos, player);
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof AirMachineBlockEntity && !level.isClientSide()) {
+            if(player.isShiftKeyDown()) {
+                ((AirMachineBlockEntity) entity).setRange();
+            }
+            ((AirMachineBlockEntity) entity).getTimeRemaining(player);
         }
         return super.useWithoutItem(state, level, pos, player, result);
     }
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(level, pos, player);
-        }
-        return super.useItemOn(stack, state, level, pos, player, hand, result);
-    }
-
-    private void use(Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof AirMachineBlockEntity) {
-            if(player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
+        if(entity instanceof AirMachineBlockEntity && !level.isClientSide()) {
+            if (player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
                 ((AirMachineBlockEntity) entity).addFuel(player);
             }
-            else {
-                ((AirMachineBlockEntity) entity).getTimeRemaining(player);
-            }
         }
+        return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
     @Nullable

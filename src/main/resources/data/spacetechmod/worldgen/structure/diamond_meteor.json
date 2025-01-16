@@ -8,7 +8,7 @@
   "start_height": {
     "type": "minecraft:very_biased_to_bottom",
     "min_inclusive": {
-      "absolute": -4
+      "absolute": -2
     },
     "max_inclusive": {
       "absolute": 0

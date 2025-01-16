@@ -3,6 +3,8 @@ package com.spacetechmod.block.entity.machine;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.effect.ModEffects;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,6 +28,8 @@ public class AirMachineBlockEntity extends BlockEntity {
 
     private static int timer = 0;
 
+    private int range = 1;
+
     public int timeRemaining = 0;
 
     private int x = worldPosition.getX();
@@ -33,7 +37,8 @@ public class AirMachineBlockEntity extends BlockEntity {
     private int z = worldPosition.getZ();
 
     public void getTimeRemaining(Player player) {
-        player.sendSystemMessage(Component.literal("Time remaining: " + timeRemaining / 20 + " seconds"));
+        player.sendSystemMessage(Component.literal("Time remaining: " + timeRemaining / 20 + " seconds" +
+                "\n Range: " + range + " blocks"));
     }
 
     public void addFuel(Player player) {
@@ -41,10 +46,11 @@ public class AirMachineBlockEntity extends BlockEntity {
         timeRemaining += input.getBurnTime(RecipeType.SMELTING);
         level.playSound(null, worldPosition, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
         player.getMainHandItem().shrink(1);
+        setChanged();
     }
 
     public List getPlayersInRange(Level level) {
-        AABB bounds = new AABB(x - 25, y - 25, z - 25, x + 25, y + 25, z + 25);
+        AABB bounds = new AABB(x - range, y - range, z - range, x + range, y + range, z + range);
         List<Player> list = level.getEntitiesOfClass(Player.class, bounds);
         return list;
     }
@@ -73,5 +79,29 @@ public class AirMachineBlockEntity extends BlockEntity {
         }
     }
 
+    public void setRange() {
+        if(range < 20) {
+            ++range;
+        }
+        else {
+            range = 1;
+        }
+        setChanged();
+    }
 
+
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        tag.putInt("time", timeRemaining);
+        tag.putInt("range", range);
+        super.saveAdditional(tag, provider);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        timeRemaining = tag.getInt("time");
+        range = tag.getInt("range");
+        super.loadAdditional(tag, provider);
+    }
 }

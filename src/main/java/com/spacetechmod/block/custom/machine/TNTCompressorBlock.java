@@ -1,6 +1,7 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
+import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -93,11 +94,13 @@ public class TNTCompressorBlock extends Block {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        ItemEntity item = new ItemEntity(EntityType.ITEM, level);
-        item.setItem(new ItemStack(Items.TNT, 64));
-        item.setPos(pos.getX(), pos.getY() + 1, pos.getZ());
-        for(int i = 0; i < charge; ++i) {
-            level.addFreshEntity(item);
+        if(newState.getBlock() != ModBlocks.TNT_COMPRESSOR.get()) {
+            ItemEntity item = new ItemEntity(EntityType.ITEM, level);
+            item.setItem(new ItemStack(Items.TNT, 64));
+            item.setPos(pos.getX(), pos.getY() + 1, pos.getZ());
+            for(int i = 0; i < charge; ++i) {
+                level.addFreshEntity(item);
+            }
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }

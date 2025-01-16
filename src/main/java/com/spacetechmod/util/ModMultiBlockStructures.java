@@ -55,7 +55,9 @@ public class ModMultiBlockStructures {
     public static final ArrayList<MultiBlockPart> ORBITAL_TNT_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(
                     new MultiBlockPart(Blocks.DISPENSER, 0, 2, 0),
+
                     new MultiBlockPart(ModBlocks.TNT_COMPRESSOR.get(), 0, 1, 0),
+
                     new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, -1),
                     new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, -1),
                     new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, -1),
@@ -65,6 +67,7 @@ public class ModMultiBlockStructures {
                     new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, 1),
                     new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, 1),
                     new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, 1),
+
                     new MultiBlockPart(Blocks.IRON_BLOCK, -1, -2, -1),
                     new MultiBlockPart(Blocks.OBSIDIAN, 0, -2, -1),
                     new MultiBlockPart(Blocks.IRON_BLOCK, 1, -2, -1),
@@ -79,7 +82,9 @@ public class ModMultiBlockStructures {
     public static final ArrayList<MultiBlockPart> ORBITAL_FLAME_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(
                     new MultiBlockPart(Blocks.DISPENSER, 0, 2, 0),
+
                     new MultiBlockPart(Blocks.CRYING_OBSIDIAN, 0, 1, 0),
+
                     new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -1, -1),
                     new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -1, -1),
                     new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -1, -1),
@@ -89,6 +94,7 @@ public class ModMultiBlockStructures {
                     new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -1, 1),
                     new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -1, 1),
                     new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -1, 1),
+
                     new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -2, -1),
                     new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -2, -1),
                     new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -2, -1),

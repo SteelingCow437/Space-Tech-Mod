@@ -43,6 +43,7 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
                 if(!moon) {moon = true;}
             }
         }
+        setChanged();
     }
 
     public void selectNewPlanet() {
@@ -52,6 +53,7 @@ public class PlanetDirectoryBlockEntity extends BlockEntity {
         else {
             selectedPlanet = 0;
         }
+        setChanged();
     }
 
     private boolean checkUnlockStatus(int number) {
