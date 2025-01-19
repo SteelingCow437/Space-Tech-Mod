@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ForgingTableBlock extends BaseEntityBlock {
 
-    private static final IntegerProperty STAMP = IntegerProperty.create("stamp", 0, 2);
+    private static final IntegerProperty STAMP = IntegerProperty.create("stamp", 0, 3);
 
     public static final MapCodec<ForgingTableBlock> CODEC = simpleCodec(ForgingTableBlock::new);
 
@@ -74,48 +74,41 @@ public class ForgingTableBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(state, level, pos, player);
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof ForgingTableBlockEntity && !level.isClientSide) {
+            if(player.isShiftKeyDown()) {
+                ((ForgingTableBlockEntity) entity).removeItem(player);
+            }
+            stampNumber = ((ForgingTableBlockEntity) entity).getStamp();
+            level.setBlock(pos, state.setValue(STAMP, ((ForgingTableBlockEntity) entity).getStamp()), 1);
         }
         return super.useWithoutItem(state, level, pos, player, result);
     }
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(state, level, pos, player);
-        }
-        return super.useItemOn(stack, state, level, pos, player, hand, result);
-    }
-
-    public void use(BlockState state, Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof ForgingTableBlockEntity && !level.isClientSide) {
-            if(player.isShiftKeyDown()) {
-                ((ForgingTableBlockEntity) entity).removeItem(player);
+            if(player.getMainHandItem().getItem() == ModItems.HAMMER.get()) {
+                ((ForgingTableBlockEntity) entity).craft(player);
             }
             else {
-                if(player.getMainHandItem().getItem() == ModItems.HAMMER.get()) {
-                    ((ForgingTableBlockEntity) entity).craft(player);
-                }
-                else {
-                    ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
-                    ((ForgingTableBlockEntity) entity).addIngredient(player);
-                }
+                ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
+                ((ForgingTableBlockEntity) entity).addIngredient(player);
             }
             stampNumber = ((ForgingTableBlockEntity) entity).getStamp();
             level.setBlock(pos, state.setValue(STAMP, ((ForgingTableBlockEntity) entity).getStamp()), 1);
         }
+        return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        super.onRemove(state, level, pos, newState, movedByPiston);
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         BlockEntity entity = level.getBlockEntity(pos);
         ItemEntity stamp = new ItemEntity(EntityType.ITEM, level);
         ItemEntity ingredient = new ItemEntity(EntityType.ITEM, level);
         Block block = newState.getBlock();
-        if(entity instanceof ForgingTableBlockEntity && block != ModBlocks.FORGING_TABLE.get()) {
+        if(block != ModBlocks.FORGING_TABLE.get()) {
             stamp.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
             ingredient.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
             stamp.setItem(new ItemStack(((ForgingTableBlockEntity) entity).stamp, 1));
@@ -123,6 +116,7 @@ public class ForgingTableBlock extends BaseEntityBlock {
             level.addFreshEntity(stamp);
             level.addFreshEntity(ingredient);
         }
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Nullable

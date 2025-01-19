@@ -14,6 +14,9 @@
     "spacetechmod:moon_rock",
     "spacetechmod:planet_directory",
     "spacetechmod:stargate_core",
-    "spacetechmod:stargate_frame"
+    "spacetechmod:stargate_frame",
+    "spacetechmod:steel_deco_block",
+    "spacetechmod:orbital_tnt_core",
+    "spacetechmod:orbital_flame_core"
   ]
 }

@@ -112,6 +112,9 @@ public class Spacetechmod {
             event.accept(ModItems.BIG_KAHUNA);
             event.accept(ModItems.MOON_KEY);
             event.accept(ModItems.ORBITAL_CASING);
+            event.accept(ModItems.BYZANIUM_INGOT);
+            event.accept(ModItems.INGOT_STAMP);
+            event.accept(ModItems.VAULT_KEY);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);
@@ -144,6 +147,7 @@ public class Spacetechmod {
             event.accept(ModItems.SPACESUIT_BOOTS);
             event.accept(ModItems.ORBITAL_TNT_SHELL);
             event.accept(ModItems.ORBITAL_FLAME_SHELL);
+            event.accept(ModItems.AQUAMARINE_RESONATOR);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS.get()) {
             event.accept(ModItems.BAGUETTE);

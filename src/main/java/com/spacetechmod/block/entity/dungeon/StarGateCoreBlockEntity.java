@@ -3,7 +3,6 @@ package com.spacetechmod.block.entity.dungeon;
 import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.spacetechmod.block.entity.ModBlockEntities;
-import com.spacetechmod.util.ModLists;
 import com.spacetechmod.util.ModMultiBlockStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

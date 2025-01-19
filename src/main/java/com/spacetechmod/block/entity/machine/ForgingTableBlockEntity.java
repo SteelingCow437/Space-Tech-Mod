@@ -36,7 +36,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                         case 4 -> result = ModItems.BRONZE_PLATE.get();
                         case 6 -> result = ModItems.TITAN_STEEL_PLATE.get();
                     }
-                    givePlate(player);
+                    givePlateOrIngot(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
                 } else if (stamp == ModItems.WIRE_STAMP.get()) {
                     switch (ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem())) {
@@ -46,11 +46,23 @@ public class ForgingTableBlockEntity extends BlockEntity {
                     giveWire(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
                 }
+                else if(stamp == ModItems.INGOT_STAMP.get()) {
+                    switch(ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem())) {
+                        case 7 -> result = Items.IRON_INGOT;
+                        case 8 -> result = Items.COPPER_INGOT;
+                        case 9 -> result = ModItems.TITANIUM_INGOT.get();
+                        case 10 -> result = ModItems.STEEL_INGOT.get();
+                        case 11 -> result = ModItems.BRONZE_INGOT.get();
+                        case 12 -> result = ModItems.TITAN_STEEL_INGOT.get();
+                    }
+                    givePlateOrIngot(player);
+                    level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
+                }
             }
         }
         setChanged();
     }
-    public void givePlate(Player player) {
+    public void givePlateOrIngot(Player player) {
         if(result != null) {
             player.addItem(new ItemStack(result, ingredient.getCount()));
             ingredient = ItemStack.EMPTY;
@@ -86,7 +98,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
 
     public void setStamp(Item item, Player player) {
         if(level != null && !level.isClientSide) {
-            if (item == ModItems.PLATE_STAMP.get() || item == ModItems.WIRE_STAMP.get()) {
+            if (ModLists.FORGING_TABLE_STAMP_LIST.contains(item)) {
                 if (stamp != null) {
                     player.addItem(new ItemStack(stamp, 1));
                 }
@@ -124,6 +136,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
             case 0 -> stamp = null;
             case 1 -> stamp = ModItems.PLATE_STAMP.get();
             case 2 -> stamp = ModItems.WIRE_STAMP.get();
+            case 3 -> stamp = ModItems.INGOT_STAMP.get();
         }
         Item tempItem = null;
         switch(nbt.getInt("ingredient")) {

@@ -34,7 +34,6 @@ public class SpaceSuitChestplateItem extends ModArmorItem {
             case 0 -> {
                 return "Overworld / Earth";
             }
-
             case 1 -> {
                 return "The Moon";
             }

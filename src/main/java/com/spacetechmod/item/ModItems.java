@@ -1,6 +1,7 @@
 package com.spacetechmod.item;
 
 import com.spacetechmod.Spacetechmod;
+import com.spacetechmod.item.custom.armor.AquamarineResonatorItem;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.spacetechmod.item.custom.space.BigKahunaItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
@@ -149,10 +150,16 @@ public class ModItems {
     //stamps
     public static final DeferredItem<Item> BLANK_STAMP = ITEMS.register("blank_stamp",
             () -> new Item(new Item.Properties().stacksTo(1)));
+
     public static final DeferredItem<Item> PLATE_STAMP = ITEMS.register("plate_stamp",
             () -> new Item(new Item.Properties().stacksTo(1)));
+
     public static final DeferredItem<Item> WIRE_STAMP = ITEMS.register("wire_stamp",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> INGOT_STAMP = ITEMS.register("ingot_stamp",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
     //steel stuff
     public static final DeferredItem<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties()));
@@ -270,4 +277,14 @@ public class ModItems {
     //My life for Super Earth!
     public static final DeferredItem<Item> ORBITAL_MARKER = ITEMS.register("orbital_marker",
             OrbitalMarkerItem::new);
+
+    //Byzanium!
+    public static final DeferredItem<Item> BYZANIUM_INGOT = ITEMS.register("byzanium_ingot",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+
+    public static final DeferredItem<Item> AQUAMARINE_RESONATOR = ITEMS.register("aquamarine_resonator",
+            AquamarineResonatorItem::new);
+
+    public static final DeferredItem<Item> VAULT_KEY = ITEMS.register("vault_key",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
 }

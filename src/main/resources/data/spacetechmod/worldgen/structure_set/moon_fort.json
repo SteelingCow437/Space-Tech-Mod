@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacetechmod:moon_fort",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 100009,
+    "spacing": 64,
+    "separation": 48,
+    "type": "minecraft:random_spread"
+  }
+}

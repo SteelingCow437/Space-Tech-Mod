@@ -57,6 +57,15 @@ public class ModArmorMaterials {
     }), 40, SoundEvents.ARMOR_EQUIP_IRON, 1.2F, 0.4F, () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "spacesuit"))));
 
+    public static final Holder<ArmorMaterial> RESONATOR = register("resonator", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
+                health.put(ArmorItem.Type.BOOTS, 0);
+                health.put(ArmorItem.Type.LEGGINGS, 0);
+                health.put(ArmorItem.Type.CHESTPLATE, 4);
+                health.put(ArmorItem.Type.HELMET, 0);
+                health.put(ArmorItem.Type.BODY, 0);
+            }), 40, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.of(ModItems.AQUAMARINE_RESONATOR.get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "resonator"))));
+
 
     private static Holder<ArmorMaterial> register(
             String name,

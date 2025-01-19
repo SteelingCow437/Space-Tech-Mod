@@ -7,7 +7,6 @@ import com.spacetechmod.util.ModLists;
 import com.spacetechmod.util.ModMultiBlockStructures;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;

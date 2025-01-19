@@ -112,5 +112,10 @@
   "painting.spacetechmod.saul_goodman.title": "Saul Goodman",
   "painting.spacetechmod.saul_goodman.author": "SteelingCow437",
   "painting.spacetechmod.troll.title": "Silly Skeleton",
-  "painting.spacetechmod.troll.author": "SteelingCow437"
+  "painting.spacetechmod.troll.author": "SteelingCow437",
+  "item.spacetechmod.aquamarine_resonator": "Aquamarine Resonator",
+  "item.spacetechmod.byzanium_ingot": "Byzanium Ingot",
+  "item.spacetechmod.vault_key": "Vault Key",
+  "item.spacetechmod.ingot_stamp": "Ingot Stamp",
+  "block.spacetechmod.vault_door": "Vault Door"
 }

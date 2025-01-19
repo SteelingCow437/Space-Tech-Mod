@@ -3,6 +3,7 @@ package com.spacetechmod.block;
 import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
+import com.spacetechmod.block.custom.dungeon.VaultDoorBlock;
 import com.spacetechmod.block.custom.machine.*;
 import com.spacetechmod.block.custom.multiblock.OrbitalFlameCoreBlock;
 import com.spacetechmod.block.custom.multiblock.OrbitalTNTCoreBlock;
@@ -101,6 +102,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MOON_ROCK = registerBlock("moon_rock",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(1.5f)));
+
+    public static final DeferredBlock<Block> VAULT_DOOR = registerBlock("vault_door",
+            () -> new VaultDoorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)
+                    .strength(99f).noLootTable().explosionResistance(99f)));
 
 
     //Stargate stuff

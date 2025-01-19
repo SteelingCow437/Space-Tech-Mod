@@ -46,10 +46,12 @@ public class ModLists {
 
     public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
-                    ModItems.BRONZE_INGOT.get(), ModItems.COPPER_REDSTIDE_INGOT.get(), ModItems.TITAN_STEEL_INGOT.get()));
+                    ModItems.BRONZE_INGOT.get(), ModItems.COPPER_REDSTIDE_INGOT.get(), ModItems.TITAN_STEEL_INGOT.get(),
+                    ModItems.IRON_PLATE.get(), ModItems.COPPER_PLATE.get(), ModItems.TITANIUM_PLATE.get(), ModItems.STEEL_PLATE.get(),
+                    ModItems.BRONZE_PLATE.get(), ModItems.TITAN_STEEL_PLATE.get()));
 
     public static final ArrayList<Item> FORGING_TABLE_STAMP_LIST = new ArrayList<Item>(
-            Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get()));
+            Arrays.asList(ModItems.DEBUG_STICK.get(), ModItems.PLATE_STAMP.get(), ModItems.WIRE_STAMP.get(), ModItems.INGOT_STAMP.get()));
 
     //Armor
     public static final ArrayList<Holder<ArmorMaterial>> ARMOR_MATERIAL_INDEX = new ArrayList<Holder<ArmorMaterial>>(
