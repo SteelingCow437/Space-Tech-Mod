@@ -148,6 +148,10 @@ public class Spacetechmod {
             event.accept(ModItems.ORBITAL_TNT_SHELL);
             event.accept(ModItems.ORBITAL_FLAME_SHELL);
             event.accept(ModItems.AQUAMARINE_RESONATOR);
+            event.accept(ModItems.Z7_HELMET);
+            event.accept(ModItems.Z7_CHESTPLATE);
+            event.accept(ModItems.Z7_LEGGINGS);
+            event.accept(ModItems.Z7_BOOTS);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS.get()) {
             event.accept(ModItems.BAGUETTE);

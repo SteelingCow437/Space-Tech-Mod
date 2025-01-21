@@ -14,7 +14,4 @@ public class ModAttributeModifiers {
 
     //Gravity modifiers
     public static final AttributeModifier MOON_GRAVITY = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "lunar_surface_gravity"), -0.066, AttributeModifier.Operation.ADD_VALUE);
-
-    public static final AttributeModifier MARS_GRAVITY = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "mars_surface_gravity"), -0.049, AttributeModifier.Operation.ADD_VALUE);
-
 }

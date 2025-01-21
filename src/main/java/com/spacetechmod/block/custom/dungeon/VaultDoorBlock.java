@@ -4,7 +4,6 @@ import com.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -22,14 +21,16 @@ public class VaultDoorBlock extends Block {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        Item item = stack.getItem();
-        if(item == ModItems.VAULT_KEY.get()) {
-            openDoor(level, pos);
-            player.getItemInHand(hand).shrink(1);
-            return ItemInteractionResult.CONSUME;
-        }
-        else {
-            player.sendSystemMessage(Component.literal("Requires a Vault Key to open!"));
+        if(!level.isClientSide) {
+            Item item = stack.getItem();
+            if (item == ModItems.VAULT_KEY.get()) {
+                openDoor(level, pos);
+                player.getItemInHand(hand).shrink(1);
+                return ItemInteractionResult.CONSUME;
+            } else {
+                player.sendSystemMessage(Component.literal("Requires a Vault Key to open!"));
+            }
+            return ItemInteractionResult.FAIL;
         }
         return ItemInteractionResult.FAIL;
     }

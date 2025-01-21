@@ -10,12 +10,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 
 
 public class ModArmorItem extends ArmorItem {
 
-    public ModArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Properties settings) {
+    public ModArmorItem(Holder<ArmorMaterial> material, Type type, Properties settings) {
         super(material, type, settings);
     }
 
@@ -24,7 +25,7 @@ public class ModArmorItem extends ArmorItem {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if(entity instanceof Player player && !level.isClientSide() && hasFullSuitOfArmorOn(player)) {
-            if(timer >= 180) {
+            if(timer >= 90) {
                 evaluateArmorEffects(player);
                 timer = 0;
             }
@@ -32,6 +33,11 @@ public class ModArmorItem extends ArmorItem {
                 ++timer;
             }
         }
+    }
+
+    @Override
+    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        return true;
     }
 
     private void evaluateArmorEffects(Player player) {
@@ -58,10 +64,11 @@ public class ModArmorItem extends ArmorItem {
                 }
             }
             case 3 -> spaceSuit(player);
+            case 4 -> evaluateZ7Effect(player);
         }
     }
 
-    private boolean hasFullSuitOfArmorOn(Player player) {
+    protected boolean hasFullSuitOfArmorOn(Player player) {
         ItemStack boots = player.getInventory().getArmor(0);
         ItemStack leggings = player.getInventory().getArmor(1);
         ItemStack chestplate = player.getInventory().getArmor(2);
@@ -70,7 +77,7 @@ public class ModArmorItem extends ArmorItem {
         return !boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty();
     }
 
-    private boolean hasSameSetOfArmorOn(Holder<ArmorMaterial> material, Player player) {
+    protected boolean hasSameSetOfArmorOn(Holder<ArmorMaterial> material, Player player) {
         for(ItemStack armorStack : player.getArmorSlots()) {
             if(!(armorStack.getItem() instanceof ArmorItem)) {
                 return false;
@@ -93,26 +100,37 @@ public class ModArmorItem extends ArmorItem {
 
     //Lists of armor effects!
     private void copperEffect(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0));
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 0, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false));
     }
 
     private void spaceSuit(Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT, 200, 0));
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT, 100, 0, false, false));
     }
 
     private void turtleMasterArmorInWater(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 200, 1));
-        player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 1));
-        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 200, 0));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
-        player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 100, 1, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 100, 1, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100, 0, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 1, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 1, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 100, 1, false, false));
     }
 
     private void turtleMasterArmorOnLand(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2, false, false));
     }
 
+    private void evaluateZ7Effect(Player player) {
+        player.addEffect(new MobEffectInstance(ModEffects.SPACE_BREATHING_EFFECT, 100, 0, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 4, false, false));
+        if(player.isInWaterRainOrBubble()) {
+            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 100, 0, false, false));
+            player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 100, 0, false, false));
+        }
+        if(player.isOnFire()) {
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100, 0, false, false));
+        }
+    }
 }
 

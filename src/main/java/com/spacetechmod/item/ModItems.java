@@ -3,6 +3,7 @@ package com.spacetechmod.item;
 import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.item.custom.armor.AquamarineResonatorItem;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
+import com.spacetechmod.item.custom.armor.Z7ChestplateItem;
 import com.spacetechmod.item.custom.space.BigKahunaItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.spacetechmod.item.custom.space.StarGateControllerItem;
@@ -244,6 +245,22 @@ public class ModItems {
     public static final DeferredItem<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
             () -> new ModArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS,
                     new Item.Properties().fireResistant().durability(ArmorItem.Type.BOOTS.getDurability(28))));
+
+    //Z7 Suit! (Yes I know it's a Garden Warfare 2, Mass Effect, AND NASA reference, stop bitching about it!)
+    public static final DeferredItem<Item> Z7_HELMET = ITEMS.register("z7_helmet",
+            () -> new ModArmorItem(ModArmorMaterials.Z7, ArmorItem.Type.HELMET,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.HELMET.getDurability(50))));
+
+    public static final DeferredItem<Item> Z7_CHESTPLATE = ITEMS.register("z7_chestplate",
+            Z7ChestplateItem::new);
+
+    public static final DeferredItem<Item> Z7_LEGGINGS = ITEMS.register("z7_leggings",
+            () -> new ModArmorItem(ModArmorMaterials.Z7, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.HELMET.getDurability(50))));
+
+    public static final DeferredItem<Item> Z7_BOOTS = ITEMS.register("z7_boots",
+            () -> new ModArmorItem(ModArmorMaterials.Z7, ArmorItem.Type.BOOTS,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.HELMET.getDurability(50))));
 
     //planet keys
     public static final DeferredItem<Item> MOON_KEY = ITEMS.register("moon_key",

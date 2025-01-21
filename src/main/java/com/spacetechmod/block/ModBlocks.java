@@ -104,9 +104,12 @@ public class ModBlocks {
                     .strength(1.5f)));
 
     public static final DeferredBlock<Block> VAULT_DOOR = registerBlock("vault_door",
-            () -> new VaultDoorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)
+            () -> new VaultDoorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)
                     .strength(99f).noLootTable().explosionResistance(99f)));
 
+    public static final DeferredBlock<Block> VAULT_BRICK = registerBlock("vault_brick",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)
+                    .strength(-1.0f).explosionResistance(3600000f).noLootTable().isValidSpawn(Blocks::never)));
 
     //Stargate stuff
     public static final DeferredBlock<Block> STARGATE_CORE = registerBlock("stargate_core",

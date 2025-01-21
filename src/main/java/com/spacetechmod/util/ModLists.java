@@ -56,7 +56,7 @@ public class ModLists {
     //Armor
     public static final ArrayList<Holder<ArmorMaterial>> ARMOR_MATERIAL_INDEX = new ArrayList<Holder<ArmorMaterial>>(
             Arrays.asList(ModArmorMaterials.TITANIUM, ModArmorMaterials.COPPER, ModArmorMaterials.TURTLE,
-                    ModArmorMaterials.SPACESUIT));
+                    ModArmorMaterials.SPACESUIT, ModArmorMaterials.Z7));
 
     //Space stuff
     public static final ArrayList<ResourceKey<Level>> NO_BREATHING_LIST = new ArrayList<ResourceKey<Level>>(

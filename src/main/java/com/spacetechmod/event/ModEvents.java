@@ -4,6 +4,7 @@ import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.effect.ModEffects;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
+import com.spacetechmod.item.custom.armor.Z7ChestplateItem;
 import com.spacetechmod.util.ModAttributeModifiers;
 import com.spacetechmod.util.ModLists;
 import net.minecraft.network.chat.Component;
@@ -61,9 +62,14 @@ public class ModEvents {
                 }
                 if (player.getY() >= 50000) {
                     Item item = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
-                    if (item == ModItems.SPACESUIT_CHESTPLATE.get()) {
+                    if (item == ModItems.SPACESUIT_CHESTPLATE.get() || item == ModItems.Z7_CHESTPLATE.get()) {
                         MinecraftServer server = player.getServer();
-                        ResourceKey<Level> selectedPlanet = ((SpaceSuitChestplateItem) item).getSelectedPlanet();
+                        ResourceKey<Level> selectedPlanet;
+                        try {
+                            selectedPlanet = ((SpaceSuitChestplateItem) item).getSelectedPlanet();
+                        } catch (Exception e) {
+                            selectedPlanet = ((Z7ChestplateItem) item).getSelectedPlanet();
+                        }
                         ServerLevel destinationLevel = server.getLevel(selectedPlanet);
                         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9, 2));
                         player.teleportTo(destinationLevel, player.getX(), 1500, player.getZ(), EnumSet.noneOf(RelativeMovement.class), 2.0f, 2.0f);

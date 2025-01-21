@@ -117,5 +117,10 @@
   "item.spacetechmod.byzanium_ingot": "Byzanium Ingot",
   "item.spacetechmod.vault_key": "Vault Key",
   "item.spacetechmod.ingot_stamp": "Ingot Stamp",
-  "block.spacetechmod.vault_door": "Vault Door"
+  "block.spacetechmod.vault_door": "Vault Door",
+  "block.spacetechmod.vault_brick": "Vault Brick",
+  "item.spacetechmod.z7_helmet": "Z7 Helmet",
+  "item.spacetechmod.z7_chestplate": "Z7 Chestplate",
+  "item.spacetechmod.z7_leggings": "Z7 Leggings",
+  "item.spacetechmod.z7_boots": "Z7 Boots"
 }

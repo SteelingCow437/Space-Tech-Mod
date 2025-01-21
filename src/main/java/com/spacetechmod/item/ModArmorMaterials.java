@@ -45,7 +45,7 @@ public class ModArmorMaterials {
         health.put(ArmorItem.Type.CHESTPLATE, 9);
         health.put(ArmorItem.Type.HELMET, 4);
         health.put(ArmorItem.Type.BODY, 8);
-    }), 100, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.5F, () -> Ingredient.of(Items.TURTLE_HELMET),
+    }), 100, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.25F, () -> Ingredient.of(Items.TURTLE_HELMET),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "turtle"))));
 
     public static final Holder<ArmorMaterial> SPACESUIT = register("spacesuit", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
@@ -54,7 +54,7 @@ public class ModArmorMaterials {
         health.put(ArmorItem.Type.CHESTPLATE, 8);
         health.put(ArmorItem.Type.HELMET, 4);
         health.put(ArmorItem.Type.BODY, 7);
-    }), 40, SoundEvents.ARMOR_EQUIP_IRON, 1.2F, 0.4F, () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()),
+    }), 40, SoundEvents.ARMOR_EQUIP_IRON, 1.2F, 0.1F, () -> Ingredient.of(ModItems.TITAN_STEEL_INGOT.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "spacesuit"))));
 
     public static final Holder<ArmorMaterial> RESONATOR = register("resonator", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
@@ -65,6 +65,16 @@ public class ModArmorMaterials {
                 health.put(ArmorItem.Type.BODY, 0);
             }), 40, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.of(ModItems.AQUAMARINE_RESONATOR.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "resonator"))));
+
+    public static final Holder<ArmorMaterial> Z7 = register("z7", Util.make(new EnumMap<>(ArmorItem.Type.class), health -> {
+                health.put(ArmorItem.Type.BOOTS, 5);
+                health.put(ArmorItem.Type.LEGGINGS, 8);
+                health.put(ArmorItem.Type.CHESTPLATE, 10);
+                health.put(ArmorItem.Type.HELMET, 5);
+                health.put(ArmorItem.Type.BODY, 8);
+            }), 50, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.25f, () -> Ingredient.of(ModItems.BYZANIUM_INGOT.get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "z7"))));
+
 
 
     private static Holder<ArmorMaterial> register(

@@ -3,6 +3,7 @@ package com.spacetechmod.block.custom.machine;
 import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
+import com.spacetechmod.item.custom.armor.Z7ChestplateItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -72,8 +73,12 @@ public class PlanetDirectoryBlock extends BaseEntityBlock {
                     ((PlanetDirectoryBlockEntity) entity).unlockPlanet(((PlanetKeyItem) item).getDestination());
                     return ItemInteractionResult.SUCCESS;
                 }
-                if (item instanceof SpaceSuitChestplateItem) {
-                    ((SpaceSuitChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
+                if (item instanceof SpaceSuitChestplateItem || item instanceof Z7ChestplateItem) {
+                    try {
+                        ((SpaceSuitChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
+                    } catch (ClassCastException e) {
+                        ((Z7ChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
+                    }
                     return ItemInteractionResult.SUCCESS;
                 } else {
                     use(state, level, pos, player);
