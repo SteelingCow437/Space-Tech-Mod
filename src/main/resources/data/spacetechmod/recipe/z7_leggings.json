@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "*": {
+      "item": "spacetechmod:bronze_ingot"
+    },
+    "$": {
+      "item": "spacetechmod:spacesuit_legs"
+    },
+    "&": {
+      "item": "spacetechmod:byzanium_ingot"
+    }
+  },
+  "pattern": [
+    "&*&",
+    "#$#",
+    "*&*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:z7_leggings"
+  }
+}

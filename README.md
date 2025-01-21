@@ -13,7 +13,7 @@ ALSO IMPORTANT: As of version 21.1.2, "Sky Aesthetics" will be a REQUIRED depend
 
 FAQ:
 
-Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion-Modifier (optional)
+Versioning structure: NeoforgeVersion.MajorModVersion.MinorModVersion +Letter (A, B, C, etc. Used for playtesting.)
 
 "What versions?" 1.21.1 Neoforged, as of now. I'll update to the latest versions of everything as soon as
 I reasonably can.

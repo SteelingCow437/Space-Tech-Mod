@@ -21,7 +21,7 @@ public class VaultDoorBlock extends Block {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(!level.isClientSide) {
+        if(!level.isClientSide()) {
             Item item = stack.getItem();
             if (item == ModItems.VAULT_KEY.get()) {
                 openDoor(level, pos);
