@@ -2,6 +2,7 @@ package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
+import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.item.custom.armor.SpaceSuitChestplateItem;
 import com.spacetechmod.item.custom.armor.Z7ChestplateItem;
 import com.spacetechmod.item.custom.space.PlanetKeyItem;
@@ -79,6 +80,7 @@ public class PlanetDirectoryBlock extends BaseEntityBlock {
                     } catch (ClassCastException e) {
                         ((Z7ChestplateItem) item).selectedPlanet = ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet();
                     }
+                    stack.set(ModDataStorage.SELECTED_PLANET, ((PlanetDirectoryBlockEntity) entity).getSelectedPlanet());
                     return ItemInteractionResult.SUCCESS;
                 } else {
                     use(state, level, pos, player);
