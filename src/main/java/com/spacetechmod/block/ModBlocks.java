@@ -5,6 +5,7 @@ import com.spacetechmod.block.custom.dungeon.StarGateCoreBlock;
 import com.spacetechmod.block.custom.dungeon.StarGatePortalBlock;
 import com.spacetechmod.block.custom.dungeon.VaultDoorBlock;
 import com.spacetechmod.block.custom.machine.*;
+import com.spacetechmod.block.custom.multiblock.AutoMinerCoreBlock;
 import com.spacetechmod.block.custom.multiblock.OrbitalFlameCoreBlock;
 import com.spacetechmod.block.custom.multiblock.OrbitalTNTCoreBlock;
 import com.spacetechmod.item.ModItems;
@@ -140,4 +141,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ORBITAL_FLAME_CORE = registerBlock("orbital_flame_core",
             () -> new OrbitalFlameCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(3f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> AUTO_MINER_CORE = registerBlock("auto_miner_core",
+            () -> new AutoMinerCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(4.5f).requiresCorrectToolForDrops()));
 }

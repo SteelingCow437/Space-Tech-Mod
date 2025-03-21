@@ -1,7 +1,7 @@
-// 1.21.1	2024-11-10T17:38:47.497813657	Registries
+// 1.21.1	2025-02-21T13:36:08.727578302	Registries
 7917ad70c80bf9a39bb206bc8964c2622a35f053 data/spacetechmod/worldgen/configured_feature/aquamarine_ore.json
-990f110f4616cb703162583ad2a045d557c5471a data/spacetechmod/worldgen/configured_feature/tin_ore.json
-793869123b8e8a757a24d1c6b25e1c236b91ab54 data/spacetechmod/worldgen/configured_feature/titanium_ore.json
+889faf2f91e81b1a04e0912b6c849d41acb3004d data/spacetechmod/worldgen/configured_feature/tin_ore.json
+493c6a0617221e079510cf014266b80afc09b340 data/spacetechmod/worldgen/configured_feature/titanium_ore.json
 2a716bd42c2408c8d8d750c4e91bc3c08691e0e5 data/spacetechmod/worldgen/placed_feature/aquamarine_placed.json
-8be5e1b4b98e79913ed9b743e6839b2b4ed9dbd8 data/spacetechmod/worldgen/placed_feature/tin_placed.json
-739bb6658964773991a82eed5ac792cc6babdde0 data/spacetechmod/worldgen/placed_feature/titanium_placed.json
+6b60ae24c3f421b7ac6e18fa732011bbe6d099bd data/spacetechmod/worldgen/placed_feature/tin_placed.json
+4e270dc0d2cd190e068cfe52e5bca29b8f02a7e2 data/spacetechmod/worldgen/placed_feature/titanium_placed.json

@@ -27,7 +27,7 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, TITANIUM_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TITANIUM_ORE_KEY),
-                commonOrePlacement(12, //veins per chunk
+                commonOrePlacement(9, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-51), VerticalAnchor.absolute(120))));
 
         register(context, AQUAMARINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.AQUAMARINE_ORE_KEY),
@@ -35,7 +35,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(30))));
 
         register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
-                commonOrePlacement(6, //veins per chunk
+                commonOrePlacement(10, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-63), VerticalAnchor.absolute(45))));
     }
 

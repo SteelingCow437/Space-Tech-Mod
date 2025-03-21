@@ -122,5 +122,7 @@
   "item.spacetechmod.z7_helmet": "Z7 Helmet",
   "item.spacetechmod.z7_chestplate": "Z7 Chestplate",
   "item.spacetechmod.z7_leggings": "Z7 Leggings",
-  "item.spacetechmod.z7_boots": "Z7 Boots"
+  "item.spacetechmod.z7_boots": "Z7 Boots",
+  "block.spacetechmod.moon_dirt": "Moon Dirt",
+  "block.spacetechmod.moon_rock": "Moon Stone"
 }

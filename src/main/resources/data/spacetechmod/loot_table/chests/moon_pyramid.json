@@ -7,7 +7,7 @@
         {
           "type": "minecraft:item",
           "name": "spacetechmod:aquamarine",
-          "weight": 3
+          "weight": 1
         }
       ],
       "rolls": 1

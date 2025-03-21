@@ -7,6 +7,7 @@ import com.spacetechmod.block.entity.machine.AirMachineBlockEntity;
 import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
 import com.spacetechmod.block.entity.machine.UnAlloyMachineBlockEntity;
+import com.spacetechmod.block.entity.multiblock.AutoMinerCoreBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -47,6 +48,12 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("stargate_core", () ->
                     BlockEntityType.Builder.of(StarGateCoreBlockEntity::new,
                             ModBlocks.STARGATE_CORE.get()).build(null));
+
+    //Multiblocks
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AutoMinerCoreBlockEntity>> AUTO_MINER =
+            BLOCK_ENTITIES.register("auto_miner", () ->
+                    BlockEntityType.Builder.of(AutoMinerCoreBlockEntity::new,
+                            ModBlocks.AUTO_MINER_CORE.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
