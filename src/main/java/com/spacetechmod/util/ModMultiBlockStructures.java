@@ -112,53 +112,41 @@ public class ModMultiBlockStructures {
                     new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -2, 1)
     ));
 
-    //The drill
+    //The quarry
     public static final ArrayList<MultiBlockPart> AUTO_MINER = new ArrayList<MultiBlockPart>(
             List.of(
-                    //top
-                    new MultiBlockPart(Blocks.REDSTONE_BLOCK, 0, 1, 0),
-                    //near core
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, 0, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, 0, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, 0, 1),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, 0, -1),
-                    //platform base
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 1, -1, -1),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 1, -1, 0),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 1, -1, 1),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, -1),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, 0),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, 1),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, -1, -1),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, -1, 0),
-                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, -1, 1),
-                    //drill
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -2, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -3, 0),
-                    //legs
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -1, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -1, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -1, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -1, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -1, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, -1, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -1, -1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, -1, -1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -2, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -2, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -2, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -2, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -2, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2,  -2, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -2, -1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, -2, -1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -3, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, -3, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -3, -2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -1, -3, 2),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -3, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, -3, 1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, -2, -3, -1),
-                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, -3, -1)
+                    //THIS ONE IS NOT SYMMETRICAL
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 1, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 2, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 3, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 4, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 5, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 6, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 7, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 8, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 9, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 10, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 11, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 12, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 13, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 14, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 15, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 16, 0, 0),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 1),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 2),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 3),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 4),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 5),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 6),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 7),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 8),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 9),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 10),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 11),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 12),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 13),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 14),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 15),
+                    new MultiBlockPart(Blocks.COBBLESTONE_WALL, 0, 0, 16)
             ));
 }
