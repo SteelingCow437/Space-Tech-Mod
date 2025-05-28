@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,5 +74,15 @@ public class ModLists {
 
     public static final ArrayList<Block> ORBITAL_CORES = new ArrayList<Block>(
             Arrays.asList(ModBlocks.ORBITAL_TNT_CORE.get(), ModBlocks.ORBITAL_FLAME_CORE.get())
+    );
+
+    public static final ArrayList<Block> WARP_DRIVE_EXCLUSION_LIST = new ArrayList<Block>(
+            Arrays.asList(ModBlocks.WARP_DRIVE.get(), Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.BARRIER, Blocks.WATER, Blocks.LAVA,
+                    Blocks.STRUCTURE_BLOCK, Blocks.STRUCTURE_VOID, Blocks.FLOWERING_AZALEA, Blocks.FLOWERING_AZALEA_LEAVES,
+                    Blocks.POTTED_FLOWERING_AZALEA, Blocks.CHORUS_FLOWER, Blocks.CHORUS_PLANT, Blocks.CORNFLOWER,
+                    Blocks.POTTED_CORNFLOWER, Blocks.POTTED_TORCHFLOWER, Blocks.SUNFLOWER, Blocks.TORCHFLOWER,
+                    Blocks.TORCHFLOWER_CROP, Blocks.ROSE_BUSH, Blocks.WITHER_ROSE, Blocks.POTTED_WITHER_ROSE,
+                    Blocks.SHORT_GRASS, Blocks.TALL_GRASS, Blocks.SEAGRASS, Blocks.TALL_SEAGRASS, Blocks.DEAD_BUSH,
+                    Blocks.SWEET_BERRY_BUSH, Blocks.POTTED_DEAD_BUSH) //what a mouthful lol
     );
 }

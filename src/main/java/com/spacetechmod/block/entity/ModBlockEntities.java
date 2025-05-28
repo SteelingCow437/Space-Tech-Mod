@@ -3,10 +3,7 @@ package com.spacetechmod.block.entity;
 import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
-import com.spacetechmod.block.entity.machine.AirMachineBlockEntity;
-import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
-import com.spacetechmod.block.entity.machine.PlanetDirectoryBlockEntity;
-import com.spacetechmod.block.entity.machine.UnAlloyMachineBlockEntity;
+import com.spacetechmod.block.entity.machine.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -36,6 +33,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("planet_directory", () ->
                     BlockEntityType.Builder.of(PlanetDirectoryBlockEntity::new,
                             ModBlocks.PLANET_DIRECTORY.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WarpDriveBlockEntity>> WARP_DRIVE =
+            BLOCK_ENTITIES.register("warp_drive", () ->
+                    BlockEntityType.Builder.of(WarpDriveBlockEntity::new,
+                            ModBlocks.WARP_DRIVE.get()).build(null));
     //Fluid container blocks
      /*public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BasicFluidBarrelBlockEntity>> IRON_BARREL =
             BLOCK_ENTITIES.register("basic_fluid_barrel", () -> //what a mouthful

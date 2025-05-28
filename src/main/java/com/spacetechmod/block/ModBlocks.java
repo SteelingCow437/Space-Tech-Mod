@@ -88,6 +88,10 @@ public class ModBlocks {
             () -> new UnAlloyMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
                     .strength(4.5f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> WARP_DRIVE = registerBlock("warp_drive",
+            () -> new WarpDriveBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE)
+                    .strength(4.5f).requiresCorrectToolForDrops().explosionResistance(999f)));
+
     //Space equipment stuffs
     public static final DeferredBlock<Block> PLANET_DIRECTORY = registerBlock("planet_directory",
             () -> new PlanetDirectoryBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CARTOGRAPHY_TABLE)
