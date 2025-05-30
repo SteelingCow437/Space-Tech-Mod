@@ -25,9 +25,9 @@ public class StarGateControllerItem extends Item {
                 .rarity(Rarity.EPIC));
     }
 
-    public int X = 0;
-    public int Y = 0;
-    public int Z = 0;
+    private int X = 0;
+    private int Y = 0;
+    private int Z = 0;
     private int selectedParameter = 0;
 
     @Override
