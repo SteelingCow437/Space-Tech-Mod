@@ -36,9 +36,9 @@ public class WarpDriveBlock extends BaseEntityBlock {
         if(!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
             if(entity instanceof WarpDriveBlockEntity) {
-                if(player.isShiftKeyDown()) {
+                if(!player.isShiftKeyDown() && player.getMainHandItem().isEmpty()) {
                     ((WarpDriveBlockEntity) entity).changeDirection();
-                    player.sendSystemMessage(Component.literal("Direction Changed, Direction = " + ((WarpDriveBlockEntity) entity).direction));
+                    player.sendSystemMessage(Component.literal("Direction Changed, Direction = " + ((WarpDriveBlockEntity) entity).getDirectionName()));
                 }
                 else {
                     ((WarpDriveBlockEntity) entity).warp(level);

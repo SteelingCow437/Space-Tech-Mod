@@ -10,6 +10,7 @@ import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import com.spacetechmod.item.custom.space.orbital.OrbitalMarkerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
 import com.spacetechmod.item.custom.tool.ModArmorItem;
+import com.spacetechmod.item.custom.tool.ShipBlueprintItem;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
@@ -269,6 +270,9 @@ public class ModItems {
     //Stargate controller
     public static final DeferredItem<Item> STARGATE_CONTROLLER = ITEMS.register("stargate_controller",
             StarGateControllerItem::new);
+
+    public static final DeferredItem<Item> SHIP_BLUEPRINT = ITEMS.register("ship_blueprint",
+            ShipBlueprintItem::new);
 
     //The Big Kahuna
     public static final DeferredItem<Item> BIG_KAHUNA = ITEMS.register("big_kahuna",
