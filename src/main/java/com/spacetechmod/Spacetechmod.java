@@ -170,6 +170,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.STARGATE_CORE);
             event.accept(ModBlocks.ORBITAL_TNT_CORE);
             event.accept(ModBlocks.ORBITAL_FLAME_CORE);
+            event.accept(ModBlocks.WARP_DRIVE);
         }
         /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);
