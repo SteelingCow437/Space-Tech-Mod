@@ -126,5 +126,7 @@
   "block.spacetechmod.moon_dirt": "Moon Dirt",
   "block.spacetechmod.moon_rock": "Moon Stone",
   "block.spacetechmod.warp_drive": "Warp Drive",
-  "item.spacetechmod.ship_blueprint": "Ship Blueprint"
+  "item.spacetechmod.ship_blueprint": "Ship Blueprint",
+  "item.spacetechmod.red_coil": "Copper Redstide Coil",
+  "item.spacetechmod.transfunctioner": "Continuum Transfunctioner"
 }

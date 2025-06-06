@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "spacetechmod:iron_plate"
+    },
+    "*": {
+      "item": "spacetechmod:copper_redstide_wiring"
+    }
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    "***"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:red_coil"
+  }
+}

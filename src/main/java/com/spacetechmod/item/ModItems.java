@@ -308,4 +308,11 @@ public class ModItems {
 
     public static final DeferredItem<Item> VAULT_KEY = ITEMS.register("vault_key",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
+
+    //Microcrafting
+    public static final DeferredItem<Item> RED_COIL = ITEMS.register("red_coil",
+            () -> new Item(new Item.Properties().stacksTo(64)));
+
+    public static final DeferredItem<Item> TRANSFUNCTIONER = ITEMS.register("transfunctioner",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 }
