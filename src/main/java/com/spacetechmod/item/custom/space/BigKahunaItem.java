@@ -33,24 +33,19 @@ public class BigKahunaItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-        if(!level.isClientSide) {
-            if(player.getY() >= 300) {
-                level.explode(null, null, calculator, player.getX(),
-                        player.getY() - 5, player.getZ(), 128f, false,
-                        Level.ExplosionInteraction.TRIGGER, ParticleTypes.EXPLOSION,
-                        ParticleTypes.EXPLOSION, SoundEvents.GENERIC_EXPLODE);
+            if(player.getY() >= 500) {
+                player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y * 12000, player.getDeltaMovement().z);
                 player.getItemInHand(usedHand).shrink(1);
             }
             else {
-                player.sendSystemMessage(Component.literal("You must be at or above Y: 300 to use this!"));
+                player.sendSystemMessage(Component.literal("You must be at or above Y: 500 to use this!"));
             }
-        }
         return InteractionResultHolder.success(player.getItemInHand(usedHand));
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.literal("Use at Y: 300 or above!"));
+        tooltipComponents.add(Component.literal("Use at Y: 500 or above!"));
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }
