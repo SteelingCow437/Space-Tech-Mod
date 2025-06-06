@@ -20,7 +20,7 @@ public class ModDataStorage {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> LINKED_ORBITAL_CORE = register("linked_orbital_core",
             builder -> builder.persistent(BlockPos.CODEC));
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceKey<Level>>> SELECTED_PLANET = register("" +
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceKey<Level>>> SELECTED_PLANET = register(
             "selected_planet", builder -> builder.persistent(Level.RESOURCE_KEY_CODEC));
 
 

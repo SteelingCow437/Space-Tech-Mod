@@ -1,6 +1,5 @@
 package com.spacetechmod.block.entity.machine;
 
-import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
@@ -10,17 +9,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 
-import java.util.ArrayList;
+import javax.annotation.Nullable;
 
 public class WarpDriveBlockEntity extends BlockEntity {
     public WarpDriveBlockEntity(BlockPos pos, BlockState blockState) {
@@ -30,12 +26,12 @@ public class WarpDriveBlockEntity extends BlockEntity {
     public int direction = 0;
     //0 = forward, 1 = right, 2 = left, 3 = backward
 
-    int shipSizeY = 0;
-    int shipSizeX = 0;
-    int shipSizeZ = 0;
+    int shipSizeY;
+    int shipSizeX;
+    int shipSizeZ;
     //SHIP SIZE IS INCLUSIVE OF CORE
 
-    BlockPos oldCorePos = worldPosition;
+    final BlockPos oldCorePos = worldPosition;
     BlockPos newCorePos;
     BlockPos NEW_POS;
 
@@ -51,33 +47,21 @@ public class WarpDriveBlockEntity extends BlockEntity {
     int deltaY;
     int deltaZ;
 
-    public void setInitialSize(int x, int y, int z, Player player) {
+    public void setInitialSize(int x, int y, int z, @Nullable Player player, boolean announce) {
         shipSizeX = x;
         shipSizeY = y;
         shipSizeZ = z;
-        player.sendSystemMessage(Component.literal("Ship dimensions set to: " + x + ", " + y + ", " + z));
+        if(announce) {
+            player.sendSystemMessage(Component.literal("Ship dimensions set to: " + x + ", " + y + ", " + z));
+        }
         setChanged();
     }
 
-    private void setSizeAfterWarp(int x, int y, int z, int dir) {
+    public void rotateSize(int ix, int iy, int iz, int dir) {
         switch(dir) {
-            case 1 -> {
-                shipSizeX = -z;
-                shipSizeZ = x;
-
-            }
-            case 2 -> {
-                shipSizeX = -x;
-                shipSizeZ = -z;
-
-            }
-            case 3 -> {
-                shipSizeX = z;
-                shipSizeZ = -x;
-
-            }
+            case 1, 3 -> setInitialSize(iz, iy, ix, null, false);
+            default -> setInitialSize(ix, iy, iz, null, false);
         }
-        shipSizeY = y;
         setChanged();
     }
 
@@ -89,7 +73,6 @@ public class WarpDriveBlockEntity extends BlockEntity {
             NEW_POS = new BlockPos(x, y, z);
             player.sendSystemMessage(Component.literal("Destination set to: " + x + ", " + y + ", " + z));
         }
-        setChanged();
     }
 
     public void changeDirection() {
@@ -99,7 +82,6 @@ public class WarpDriveBlockEntity extends BlockEntity {
         else {
             ++direction;
         }
-        setChanged();
     }
 
     public String getDirectionName() {
@@ -156,10 +138,13 @@ public class WarpDriveBlockEntity extends BlockEntity {
         return Rotation.NONE;
     }
 
+    private boolean getShipSize() {
+        return (shipSizeX > 0 && shipSizeY > 0 && shipSizeZ > 0);
+    }
+
     public void warp(Level level) {
-        if(NEW_POS != null && NEW_POS != oldCorePos) {
+        if(NEW_POS != null && NEW_POS != oldCorePos && getShipSize()) {
             AABB bounds = new AABB(oldCorePos.getX() - shipSizeX, oldCorePos.getY() - shipSizeY, oldCorePos.getZ() - shipSizeZ, oldCorePos.getX() + shipSizeX, oldCorePos.getY() + shipSizeY, oldCorePos.getZ() + shipSizeZ);
-            BlockEntity newEntity;
             newCorePos = NEW_POS;
             scanOriginPos = new BlockPos(oldCorePos.getX() - shipSizeX, oldCorePos.getY() - shipSizeY, oldCorePos.getZ() - shipSizeZ);
             for (int y = 0; y < 2 * shipSizeY; ++y) {
@@ -173,6 +158,9 @@ public class WarpDriveBlockEntity extends BlockEntity {
                             level.setBlock(newPos, scratchState.rotate(level, newPos, getBlockRotation()), 2);
                             if (scratchEntity instanceof ChestBlockEntity && level.getBlockEntity(newPos) instanceof ChestBlockEntity) {
                                 ChestBlockEntity.swapContents(((ChestBlockEntity) scratchEntity), ((ChestBlockEntity) level.getBlockEntity(newPos)));
+                            }
+                            if(scratchEntity instanceof WarpDriveBlockEntity && level.getBlockEntity(newPos) instanceof WarpDriveBlockEntity) {
+                                ((WarpDriveBlockEntity) level.getBlockEntity(newPos)).rotateSize(shipSizeX, shipSizeY, shipSizeZ, direction);
                             }
                         }
                     }
@@ -189,12 +177,6 @@ public class WarpDriveBlockEntity extends BlockEntity {
             for(Player player : level.getEntitiesOfClass(Player.class, bounds)) {
                 player.teleportTo(newCorePos.getX(), newCorePos.getY(), newCorePos.getZ() - 1);
             }
-            level.setBlock(newCorePos, ModBlocks.WARP_DRIVE.get().defaultBlockState(), 2);
-            newEntity = level.getBlockEntity(newCorePos);
-            ((WarpDriveBlockEntity) newEntity).setSizeAfterWarp(shipSizeX, shipSizeY, shipSizeZ, direction);
-            level.setBlock(oldCorePos, Blocks.AIR.defaultBlockState(), 2);
-
-            setChanged();
         }
     }
 
@@ -215,5 +197,4 @@ public class WarpDriveBlockEntity extends BlockEntity {
         shipSizeZ = tag.getInt("size_z");
         direction = tag.getInt("direction");
     }
-    //TODO: fix things
 }

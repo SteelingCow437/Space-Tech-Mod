@@ -29,7 +29,7 @@ public class ShipBlueprintItem extends Item {
         BlockEntity entity = level.getBlockEntity(context.getClickedPos());
         if (entity instanceof SignBlockEntity && !level.isClientSide) {
             String messageX = ((SignBlockEntity) entity).getFrontText().getMessage(0, false).getString();
-            String messageY = ((SignBlockEntity) entity).getFrontText().getMessage(1, false).getString();;
+            String messageY = ((SignBlockEntity) entity).getFrontText().getMessage(1, false).getString();
             String messageZ = ((SignBlockEntity) entity).getFrontText().getMessage(2, false).getString();
             try {
                 sizeX = Integer.parseInt(messageX);
@@ -43,7 +43,7 @@ public class ShipBlueprintItem extends Item {
             return InteractionResult.SUCCESS;
         }
         else if(entity instanceof WarpDriveBlockEntity && !level.isClientSide) {
-            ((WarpDriveBlockEntity) entity).setInitialSize(sizeX, sizeY, sizeZ, context.getPlayer());
+            ((WarpDriveBlockEntity) entity).setInitialSize(sizeX, sizeY, sizeZ, context.getPlayer(), true);
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.FAIL;

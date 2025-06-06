@@ -9,7 +9,6 @@ import com.spacetechmod.item.custom.space.PlanetKeyItem;
 import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import com.spacetechmod.item.custom.space.orbital.OrbitalMarkerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
-import com.spacetechmod.item.custom.space.WarpDriveToolItem;
 import com.spacetechmod.item.custom.tool.ModArmorItem;
 import com.spacetechmod.item.custom.tool.ShipBlueprintItem;
 import com.spacetechmod.world.dimension.ModDimensions;
@@ -221,9 +220,6 @@ public class ModItems {
     //misc. items
     public static final DeferredItem<Item> TIN_CAN = ITEMS.register("tin_can",
             () -> new Item(new Item.Properties()));
-
-    public static final DeferredItem<Item> WARP_DRIVE_PROGRAMMER = ITEMS.register("warp_drive_tool",
-            WarpDriveToolItem::new);
 
     /*Fluid bottles GONE FOR NOW
     public static final DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle",
