@@ -24,7 +24,7 @@
       "base_color": [0, 0, 0],
       "rain_color": [0, 0, 0],
       "storm_color": [0, 0, 0],
-      "always_base_color": false
+      "always_base_color": true
     }
   },
   "stars": {

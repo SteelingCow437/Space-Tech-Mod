@@ -13,7 +13,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -33,13 +35,15 @@ public class ModEvents {
         private static int playerBreathTimer = 0;
         private static int playerGravityTimer = 0;
         private static float playerHealth;
+        private static LivingEntity entity;
         private static Player player;
 
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!event.getEntity().level().isClientSide) {
-                player = event.getEntity();
-                handleFalls(player, player.level().dimension());
+                entity = event.getEntity();
+                player = ((Player) entity);
+                handleFalls(player, entity.level().dimension());
                 if (ModLists.NO_BREATHING_LIST.contains(player.level().dimension()) && !player.getAbilities().instabuild && !player.getAbilities().invulnerable) {
                     if (playerBreathTimer >= 200) {
                         if (!player.hasEffect(ModEffects.SPACE_BREATHING_EFFECT)) {
@@ -79,8 +83,8 @@ public class ModEvents {
             }
         }
 
-        private static void handleGravity(Player player, ResourceKey<Level> planet) {
-            AttributeInstance gravity = player.getAttribute(Attributes.GRAVITY.getDelegate());
+        private static void handleGravity(LivingEntity entity, ResourceKey<Level> planet) {
+            AttributeInstance gravity = entity.getAttribute(Attributes.GRAVITY.getDelegate());
             switch (ModLists.PLANET_LIST.indexOf(planet)) {
                 default -> {
                     for (int i = 0; i < ModLists.GRAVITY_CONSTANTS.size(); ++i) {
@@ -97,9 +101,9 @@ public class ModEvents {
             }
         }
 
-        private static void handleFalls(Player player, ResourceKey<Level> dimension) {
+        private static void handleFalls(LivingEntity entity, ResourceKey<Level> dimension) {
             switch(ModLists.PLANET_LIST.indexOf(dimension)) {
-                case 1 -> player.resetFallDistance();
+                case 1 -> entity.resetFallDistance();
             }
         }
     }

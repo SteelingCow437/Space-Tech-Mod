@@ -73,7 +73,7 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
 
     public void use(BlockState state, Level level, BlockPos pos, Player player) {
         BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof UnAlloyMachineBlockEntity) {
+        if(entity instanceof UnAlloyMachineBlockEntity && !level.isClientSide()) {
             ItemStack stack = player.getMainHandItem();
             ((UnAlloyMachineBlockEntity) entity).use(player, stack);
         }

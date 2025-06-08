@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -23,6 +24,22 @@ public class ForgingTableBlockEntity extends BlockEntity {
 
     public ItemStack ingredient = ItemStack.EMPTY;
     private Item result = null;
+
+    private float rotation = 0;
+    public float getRenderingRotation() {
+        rotation += 0.5f;
+        if(rotation >= 360) {
+            rotation = 0;
+        }
+        return rotation;
+    }
+
+    public ItemStack getIngredient() {
+        if(ingredient != ItemStack.EMPTY) {
+            return ingredient;
+        }
+        return ItemStack.EMPTY;
+    }
 
     public void craft(Player player) {
         if (level != null && !level.isClientSide) {
@@ -80,30 +97,30 @@ public class ForgingTableBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    public void addIngredient(Player player) {
+    public void addIngredient(Player player, InteractionHand hand) {
         if(level != null && !level.isClientSide) {
-            ItemStack stack = player.getMainHandItem();
+            ItemStack stack = player.getItemInHand(hand);
             if (ModLists.FORGING_TABLE_INGREDIENT_LIST.contains(stack.getItem())) {
                 if (ingredient == null || ingredient == ItemStack.EMPTY) {
-                    ingredient = new ItemStack(player.getMainHandItem().getItem(), 1);
-                    player.getMainHandItem().shrink(1);
+                    ingredient = new ItemStack(player.getItemInHand(hand).getItem(), 1);
+                    player.getItemInHand(hand).shrink(1);
                 } else if (ingredient.is(stack.getItem())) {
                     ingredient.grow(1);
-                    player.getMainHandItem().shrink(1);
+                    player.getItemInHand(hand).shrink(1);
                 }
             }
             setChanged();
         }
     }
 
-    public void setStamp(Item item, Player player) {
+    public void setStamp(Item item, Player player, InteractionHand hand) {
         if(level != null && !level.isClientSide) {
             if (ModLists.FORGING_TABLE_STAMP_LIST.contains(item)) {
                 if (stamp != null) {
                     player.addItem(new ItemStack(stamp, 1));
                 }
                 stamp = item;
-                player.getMainHandItem().shrink(1);
+                player.getItemInHand(hand).shrink(1);
             }
             setChanged();
         }

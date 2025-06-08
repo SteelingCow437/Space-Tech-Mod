@@ -1,7 +1,6 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
-import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -9,8 +8,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgingTableBlock extends BaseEntityBlock {
@@ -93,8 +89,8 @@ public class ForgingTableBlock extends BaseEntityBlock {
                 ((ForgingTableBlockEntity) entity).craft(player);
             }
             else {
-                ((ForgingTableBlockEntity) entity).setStamp(player.getMainHandItem().getItem(), player);
-                ((ForgingTableBlockEntity) entity).addIngredient(player);
+                ((ForgingTableBlockEntity) entity).setStamp(player.getItemInHand(hand).getItem(), player, hand);
+                ((ForgingTableBlockEntity) entity).addIngredient(player, hand);
             }
             stampNumber = ((ForgingTableBlockEntity) entity).getStamp();
             level.setBlock(pos, state.setValue(STAMP, ((ForgingTableBlockEntity) entity).getStamp()), 1);
@@ -104,18 +100,6 @@ public class ForgingTableBlock extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        BlockEntity entity = level.getBlockEntity(pos);
-        ItemEntity stamp = new ItemEntity(EntityType.ITEM, level);
-        ItemEntity ingredient = new ItemEntity(EntityType.ITEM, level);
-        Block block = newState.getBlock();
-        if(block != ModBlocks.FORGING_TABLE.get()) {
-            stamp.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
-            ingredient.setPos(new Vec3(pos.getX(), pos.getY() + 1, pos.getZ()));
-            stamp.setItem(new ItemStack(((ForgingTableBlockEntity) entity).stamp, 1));
-            ingredient.setItem(((ForgingTableBlockEntity) entity).ingredient);
-            level.addFreshEntity(stamp);
-            level.addFreshEntity(ingredient);
-        }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 

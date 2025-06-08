@@ -67,7 +67,7 @@ public class TNTCompressorBlock extends Block {
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if(!level.isClientSide) {
             if (stack.getItem() == Items.TNT && stack.getCount() == 64) {
-                charge++;
+                ++charge;
                 stack.shrink(64);
                 if (charge >= maxCharge) {
                     level.setBlock(pos, state.setValue(CHARGED, true), 1);

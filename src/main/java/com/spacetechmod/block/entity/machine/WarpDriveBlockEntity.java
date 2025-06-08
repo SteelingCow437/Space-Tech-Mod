@@ -32,7 +32,6 @@ public class WarpDriveBlockEntity extends BlockEntity {
     //SHIP SIZE IS INCLUSIVE OF CORE
 
     final BlockPos oldCorePos = worldPosition;
-    BlockPos newCorePos;
     BlockPos NEW_POS;
 
     BlockPos scanOriginPos;
@@ -145,16 +144,15 @@ public class WarpDriveBlockEntity extends BlockEntity {
     public void warp(Level level) {
         if(NEW_POS != null && NEW_POS != oldCorePos && getShipSize()) {
             AABB bounds = new AABB(oldCorePos.getX() - shipSizeX, oldCorePos.getY() - shipSizeY, oldCorePos.getZ() - shipSizeZ, oldCorePos.getX() + shipSizeX, oldCorePos.getY() + shipSizeY, oldCorePos.getZ() + shipSizeZ);
-            newCorePos = NEW_POS;
             scanOriginPos = new BlockPos(oldCorePos.getX() - shipSizeX, oldCorePos.getY() - shipSizeY, oldCorePos.getZ() - shipSizeZ);
-            for (int y = 0; y < 2 * shipSizeY; ++y) {
-                for (int x = 0; x < 2 * shipSizeX; ++x) {
-                    for (int z = 0; z < 2 * shipSizeZ; ++z) {
+            for (int y = 0; y < 2 * shipSizeY + 1; ++y) {
+                for (int x = 0; x < 2 * shipSizeX + 1; ++x) {
+                    for (int z = 0; z < 2 * shipSizeZ + 1; ++z) {
                         scratchPos = new BlockPos(scanOriginPos.getX() + x, scanOriginPos.getY() + y, scanOriginPos.getZ() + z);
                         scratchState = level.getBlockState(scratchPos);
                         scratchEntity = level.getBlockEntity(scratchPos);
                         if (!ModLists.WARP_DRIVE_EXCLUSION_LIST.contains(scratchState.getBlock())) {
-                            newPos = newCorePos.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
+                            newPos = NEW_POS.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
                             level.setBlock(newPos, scratchState.rotate(level, newPos, getBlockRotation()), 2);
                             if (scratchEntity instanceof ChestBlockEntity && level.getBlockEntity(newPos) instanceof ChestBlockEntity) {
                                 ChestBlockEntity.swapContents(((ChestBlockEntity) scratchEntity), ((ChestBlockEntity) level.getBlockEntity(newPos)));
@@ -166,16 +164,16 @@ public class WarpDriveBlockEntity extends BlockEntity {
                     }
                 }
             }
-            for (int y = 0; y < 2 * shipSizeY; ++y) {
-                for (int x = 0; x < 2 * shipSizeX; ++x) {
-                    for (int z = 0; z < 2 * shipSizeZ; ++z) {
+            for (int y = 0; y < 2 * shipSizeY + 1; ++y) {
+                for (int x = 0; x < 2 * shipSizeX + 1; ++x) {
+                    for (int z = 0; z < 2 * shipSizeZ + 1; ++z) {
                         scratchPos = new BlockPos(scanOriginPos.getX() + x, scanOriginPos.getY() + y, scanOriginPos.getZ() + z);
                         level.setBlock(scratchPos, Blocks.AIR.defaultBlockState(), 2);
                     }
                 }
             }
             for(Player player : level.getEntitiesOfClass(Player.class, bounds)) {
-                player.teleportTo(newCorePos.getX(), newCorePos.getY(), newCorePos.getZ() - 1);
+                player.teleportTo(NEW_POS.getX(), NEW_POS.getY(), NEW_POS.getZ() - 1);
             }
         }
     }

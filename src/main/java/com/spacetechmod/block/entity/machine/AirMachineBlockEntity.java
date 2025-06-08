@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
@@ -41,12 +42,14 @@ public class AirMachineBlockEntity extends BlockEntity {
                 "\n Range: " + range + " blocks"));
     }
 
-    public void addFuel(Player player) {
-        ItemStack input = new ItemStack(player.getMainHandItem().getItem(), 1);
-        timeRemaining += input.getBurnTime(RecipeType.SMELTING);
-        level.playSound(null, worldPosition, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
-        player.getMainHandItem().shrink(1);
-        setChanged();
+    public void addFuel(Level level, Player player, InteractionHand hand) {
+        if(!level.isClientSide) {
+            ItemStack input = player.getItemInHand(hand);
+            timeRemaining += input.getBurnTime(RecipeType.SMELTING);
+            level.playSound(null, worldPosition, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
+            player.getItemInHand(hand).shrink(1);
+            setChanged();
+        }
     }
 
     public List getPlayersInRange(Level level) {

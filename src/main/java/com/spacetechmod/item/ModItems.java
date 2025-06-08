@@ -314,5 +314,5 @@ public class ModItems {
             () -> new Item(new Item.Properties().stacksTo(64)));
 
     public static final DeferredItem<Item> TRANSFUNCTIONER = ITEMS.register("transfunctioner",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 }

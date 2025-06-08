@@ -67,7 +67,7 @@ public class AirMachineBlock extends BaseEntityBlock {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof AirMachineBlockEntity && !level.isClientSide()) {
             if (player.getMainHandItem().getBurnTime(RecipeType.SMELTING) > 0) {
-                ((AirMachineBlockEntity) entity).addFuel(player);
+                ((AirMachineBlockEntity) entity).addFuel(level, player, hand);
             }
         }
         return super.useItemOn(stack, state, level, pos, player, hand, result);
