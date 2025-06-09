@@ -18,6 +18,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> TITANIUM_PLACED_KEY = createKey("titanium_placed");
     public static final ResourceKey<PlacedFeature> AQUAMARINE_PLACED_KEY = createKey("aquamarine_placed");
     public static final ResourceKey<PlacedFeature> TIN_PLACED_KEY = createKey("tin_placed");
+    //moon
+    public static final ResourceKey<PlacedFeature> ENRICHED_STONE_PLACED_KEY = createKey("enriched_stone_placed");
 
     //geodes
 
@@ -31,12 +33,16 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-51), VerticalAnchor.absolute(120))));
 
         register(context, AQUAMARINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.AQUAMARINE_ORE_KEY),
-                commonOrePlacement(4, //veins per chunk
+                commonOrePlacement(6, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(30))));
 
         register(context, TIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 commonOrePlacement(10, //veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-63), VerticalAnchor.absolute(45))));
+
+        register(context, ENRICHED_STONE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ENRICHED_STONE_KEY),
+                commonOrePlacement(30, //veins per chunk
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(20), VerticalAnchor.absolute(90))));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

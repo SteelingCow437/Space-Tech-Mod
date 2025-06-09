@@ -76,6 +76,9 @@ public class Spacetechmod {
             event.accept(ModBlocks.TIN_ORE_DEEPSLATE);
             event.accept(ModBlocks.STARGATE_FRAME);
             event.accept(ModBlocks.STEEL_DECO_BLOCK);
+            event.accept(ModBlocks.MOON_DIRT);
+            event.accept(ModBlocks.MOON_ROCK);
+            event.accept(ModBlocks.ENRICHED_MOON_ROCK);
         }
         if(event.getTab() == ModCreativeModeTab.STM_ITEMS.get()) {
             event.accept(ModItems.TITANIUM_INGOT);

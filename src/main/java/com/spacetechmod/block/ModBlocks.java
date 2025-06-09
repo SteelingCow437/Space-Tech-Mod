@@ -107,6 +107,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
                     .strength(1.5f)));
 
+    public static final DeferredBlock<Block> ENRICHED_MOON_ROCK = registerBlock("enriched_moon_rock",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BEDROCK)
+                    .strength(2.0f)));
+
     public static final DeferredBlock<Block> VAULT_DOOR = registerBlock("vault_door",
             () -> new VaultDoorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)
                     .strength(99f).noLootTable().explosionResistance(99f)));

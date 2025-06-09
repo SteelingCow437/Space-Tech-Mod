@@ -2,6 +2,7 @@ package com.spacetechmod.datagen;
 
 import com.spacetechmod.Spacetechmod;
 import com.spacetechmod.block.ModBlocks;
+import com.spacetechmod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -38,7 +39,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.STEEL_DECO_BLOCK.get())
                 .add(ModBlocks.ORBITAL_TNT_CORE.get())
                 .add(ModBlocks.ORBITAL_FLAME_CORE.get())
-                .add(ModBlocks.WARP_DRIVE.get());
+                .add(ModBlocks.WARP_DRIVE.get())
+                .add(ModBlocks.ENRICHED_MOON_ROCK.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.MOON_DIRT.get());
@@ -52,10 +54,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TITANIUM_BLOCK.get())
                 .add(ModBlocks.RAW_TITANIUM_BLOCK.get())
                 .add(ModBlocks.TITANIUM_ORE.get())
-                .add(ModBlocks.TITANIUM_ORE_DEEPSLATE.get());
+                .add(ModBlocks.TITANIUM_ORE_DEEPSLATE.get())
+                .add(ModBlocks.ENRICHED_MOON_ROCK.get());
 
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_ORE.get())
                 .add(ModBlocks.TIN_ORE_DEEPSLATE.get());
+
+        tag(ModTags.ModBlockTags.MOON_STONE_REPLACEABLES)
+                .add(ModBlocks.MOON_ROCK.get());
     }
 }

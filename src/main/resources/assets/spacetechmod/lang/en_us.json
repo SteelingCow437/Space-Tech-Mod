@@ -128,5 +128,6 @@
   "block.spacetechmod.warp_drive": "Warp Drive",
   "item.spacetechmod.ship_blueprint": "Ship Blueprint",
   "item.spacetechmod.red_coil": "Copper Redstide Coil",
-  "item.spacetechmod.transfunctioner": "Continuum Transfunctioner"
+  "item.spacetechmod.transfunctioner": "Continuum Transfunctioner",
+  "block.spacetechmod.enriched_moon_rock": "Mineral-Rich Moon Rock"
 }

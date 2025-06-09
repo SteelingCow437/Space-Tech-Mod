@@ -1,9 +1,9 @@
 {
-  "feature": "spacetechmod:aquamarine_ore",
+  "feature": "spacetechmod:enriched_stone",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 6
+      "count": 30
     },
     {
       "type": "minecraft:in_square"
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 30
+          "absolute": 90
         },
         "min_inclusive": {
-          "absolute": 0
+          "absolute": 20
         }
       }
     },

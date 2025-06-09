@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "spacetechmod:moon_biome",
+  "features": "spacetechmod:enriched_stone_placed",
+  "step": "underground_ores"
+}

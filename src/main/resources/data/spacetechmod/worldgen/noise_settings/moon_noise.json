@@ -1,22 +1,22 @@
 {
-  "sea_level": 184,
+  "sea_level": 100,
   "disable_mob_generation": true,
-  "aquifers_enabled": true,
-  "ore_veins_enabled": true,
-  "legacy_random_source": true,
+  "aquifers_enabled": false,
+  "ore_veins_enabled": false,
+  "legacy_random_source": false,
   "default_block": {
     "Name": "spacetechmod:moon_rock"
   },
   "default_fluid": {
-    "Name": "spacetechmod:moon_dirt",
+    "Name": "minecraft:bedrock",
     "Properties": {
       "level": "0"
     }
   },
   "noise": {
     "min_y": 0,
-    "height": 256,
-    "size_horizontal": 2,
+    "height": 384,
+    "size_horizontal": 4,
     "size_vertical": 1
   },
   "noise_router": {
@@ -78,15 +78,15 @@
                       "type": "minecraft:mul",
                       "argument1": {
                         "type": "minecraft:y_clamped_gradient",
-                        "from_y": 184,
-                        "to_y": 440,
+                        "from_y": 140,
+                        "to_y": 384,
                         "from_value": 1,
                         "to_value": 0
                       },
                       "argument2": {
                         "type": "minecraft:add",
-                        "argument1": 23.44,
-                        "argument2": "minecraft:end/base_3d_noise"
+                        "argument1": 24.99,
+                        "argument2": "minecraft:end/sloped_cheese"
                       }
                     }
                   }
@@ -110,9 +110,9 @@
         "if_true": {
           "type": "minecraft:y_above",
           "anchor": {
-            "above_bottom": 120
+            "above_bottom": 105
           },
-          "surface_depth_multiplier": 6,
+          "surface_depth_multiplier": 8,
           "add_stone_depth": false
         },
         "then_run": {
@@ -125,4 +125,3 @@
     ]
   }
 }
-

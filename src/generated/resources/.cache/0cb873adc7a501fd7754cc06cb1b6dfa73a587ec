@@ -1,6 +1,7 @@
-// 1.21.1	2025-06-07T22:21:00.114762761	Tags for minecraft:block mod id spacetechmod
-44abd64dc3fcb9185e3b4a0ff982f2f14534ffaf data/minecraft/tags/block/mineable/pickaxe.json
+// 1.21.1	2025-06-08T20:06:28.930792535	Tags for minecraft:block mod id spacetechmod
+e7f1383e5c15199c447536e6df2126365d4f6edd data/minecraft/tags/block/mineable/pickaxe.json
 b06d50c85b943e0bb78f4c39b23f64627a98fd53 data/minecraft/tags/block/mineable/shovel.json
 9fa5f09b8bdcfd1a4b8a483768762e4fde313172 data/minecraft/tags/block/needs_diamond_tool.json
-50518e3da748258dcb73027951106ce8174ab112 data/minecraft/tags/block/needs_iron_tool.json
+4f8e23140e42b24656e9f77c4e319cab2dedbecb data/minecraft/tags/block/needs_iron_tool.json
 dccea417190f3e9a934dca51a4169cbc0063e09b data/minecraft/tags/block/needs_stone_tool.json
+20d16badc652afe368448181d45c3c51ea842fd6 data/spacetechmod/tags/block/moon_stone_replaceables.json

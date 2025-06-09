@@ -18,6 +18,7 @@ public class ModTags {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, name));
         }
         //block tags here
+        public static final TagKey<Block> MOON_STONE_REPLACEABLES = tag("moon_stone_replaceables");
 
     }
     public static class ModItemTags {
