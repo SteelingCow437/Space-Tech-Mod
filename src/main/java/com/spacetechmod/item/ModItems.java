@@ -315,4 +315,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> TRANSFUNCTIONER = ITEMS.register("transfunctioner",
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final DeferredItem<Item> COPPER_COIL = ITEMS.register("copper_coil",
+            () -> new Item(new Item.Properties().stacksTo(64)));
 }

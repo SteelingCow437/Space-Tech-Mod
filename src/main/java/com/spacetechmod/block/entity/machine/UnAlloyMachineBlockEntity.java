@@ -1,6 +1,5 @@
 package com.spacetechmod.block.entity.machine;
 
-import com.spacetechmod.block.custom.machine.UnAlloyMachineBlock;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.util.ModLists;
@@ -8,13 +7,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -27,10 +26,16 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
     private static int tick = 0;
     public int fuelTime = 0;
 
-    public void use(Player player, ItemStack input) {
+    public void use(Player player, ItemStack input, InteractionHand hand) {
         if(input.getBurnTime(RecipeType.SMELTING) > 0) {
-            fuelTime += input.getBurnTime(RecipeType.SMELTING);
-            input.shrink(input.getCount());
+            ItemStack fuel = new ItemStack(player.getItemInHand(hand).getItem(), 1);
+            fuelTime += fuel.getBurnTime(RecipeType.SMELTING);
+            level.playSound(player, worldPosition, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 2.0f, 2.0f);
+            if(!fuel.getCraftingRemainingItem().isEmpty()) {
+                player.addItem(fuel.getCraftingRemainingItem());
+            }
+            player.getItemInHand(hand).shrink(1);
+            setChanged();
         }
         else if(ModLists.FORGING_TABLE_INGREDIENT_LIST.contains(input.getItem())) {
             if(input.getCount() % 2 == 0 && player != null && timer >= 100) {
@@ -38,36 +43,34 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
                 int total = count / 2;
                 Item item = input.getItem();
                 switch(ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(item)) {
-                    default -> {
-                        player.sendSystemMessage(Component.literal("Invalid Recipe!"));
-                    }
+                    default -> player.sendSystemMessage(Component.literal("Invalid Recipe!"));
 
                     case 3 -> {
                         player.addItem(new ItemStack(Items.IRON_INGOT, total));
                         player.addItem(new ItemStack(Items.COAL, total));
                         timer -= 100;
-                        player.getMainHandItem().shrink(count);
+                        player.getItemInHand(hand).shrink(count);
                     }
 
                     case 4 -> {
                         player.addItem(new ItemStack(Items.COPPER_INGOT, total));
                         player.addItem(new ItemStack(ModItems.TIN_INGOT.get(), total));
                         timer -= 100;
-                        player.getMainHandItem().shrink(count);
+                        player.getItemInHand(hand).shrink(count);
                     }
 
                     case 5 -> {
                         player.addItem(new ItemStack(Items.COPPER_INGOT, total));
                         player.addItem(new ItemStack(Items.REDSTONE, total));
                         timer -= 100;
-                        player.getMainHandItem().shrink(count);
+                        player.getItemInHand(hand).shrink(count);
                     }
 
                     case 6 -> {
                         player.addItem(new ItemStack(ModItems.TITANIUM_INGOT.get(), total));
                         player.addItem(new ItemStack(ModItems.STEEL_INGOT.get(), total));
                         timer -= 100;
-                        player.getMainHandItem().shrink(count);
+                        player.getItemInHand(hand).shrink(count);
                     }
                 }
             }
@@ -75,27 +78,16 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
                 level.playSound(null, worldPosition, SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 2.0f, 2.0f);
             }
         }
-        else {
-            player.sendSystemMessage(Component.literal("Time remaining: " + fuelTime / 20 + " seconds"));
-        }
-    }
-
-    public void updateBlock() {
-        boolean active = (fuelTime > 0);
-        BlockEntity entity = level.getBlockEntity(worldPosition);
-        Block block = level.getBlockState(worldPosition).getBlock();
-        if(entity instanceof UnAlloyMachineBlockEntity && block instanceof UnAlloyMachineBlock) {
-            ((UnAlloyMachineBlock) block).setState(worldPosition, this.getBlockState(), level, active);
-        }
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, UnAlloyMachineBlockEntity entity) {
-        if(tick >= 20 && entity.fuelTime > 0) {
-            level.playSound(null, pos, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 3.0f, 3.0f);
+        if(tick >= 20) {
+            if(entity.fuelTime > 0) {
+                level.playSound(null, pos, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 3.0f, 3.0f);
+            }
             tick = 0;
-            entity.updateBlock();
         }
-        else if(tick < 20) {
+        else {
             ++tick;
         }
         if(entity.fuelTime > 0) {

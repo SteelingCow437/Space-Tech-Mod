@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.block.entity.machine.UnAlloyMachineBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -56,31 +57,26 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(state, level, pos, player);
-        }
-        return super.useWithoutItem(state, level, pos, player, result);
-    }
-
-    @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if(!level.isClientSide) {
-            use(state, level, pos, player);
+        if (!level.isClientSide) {
+            BlockEntity entity = level.getBlockEntity(pos);
+            if(entity instanceof UnAlloyMachineBlockEntity) {
+                ((UnAlloyMachineBlockEntity) entity).use(player, stack, hand);
+            }
         }
         return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
-    public void use(BlockState state, Level level, BlockPos pos, Player player) {
-        BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof UnAlloyMachineBlockEntity && !level.isClientSide()) {
-            ItemStack stack = player.getMainHandItem();
-            ((UnAlloyMachineBlockEntity) entity).use(player, stack);
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if(!level.isClientSide()) {
+            BlockEntity entity = level.getBlockEntity(pos);
+            if(entity instanceof UnAlloyMachineBlockEntity) {
+                player.sendSystemMessage(Component.literal("Time remaining: " + ((UnAlloyMachineBlockEntity) entity).fuelTime / 20 + " seconds"));
+                return InteractionResult.SUCCESS;
+            }
         }
-    }
-
-    public void setState(BlockPos pos, BlockState state, Level level, boolean active) {
-        level.setBlock(pos, state.setValue(ACTIVE, active), 1);
+        return InteractionResult.FAIL;
     }
 
     @Nullable

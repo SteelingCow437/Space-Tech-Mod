@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "spacetechmod:block/un_alloy_machine_topbottom",
-    "side": "spacetechmod:block/un_alloy_machine_side_1",
-    "top": "spacetechmod:block/un_alloy_machine_topbottom"
-  }
-}

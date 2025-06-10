@@ -3,18 +3,21 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "spacetechmod:titan_steel_plate"
+      "item": "spacetechmod:steel_ingot"
     },
     "*": {
       "item": "spacetechmod:tin_ingot"
     },
     "$": {
       "item": "spacetechmod:copper_redstide_ingot"
+    },
+    "@": {
+      "item": "spacetechmod:copper_coil"
     }
   },
   "pattern": [
     "#*#",
-    "*$*",
+    "@$@",
     "#*#"
   ],
   "result": {

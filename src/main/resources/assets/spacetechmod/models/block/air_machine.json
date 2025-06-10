@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "spacetechmod:block/air_machine_bottom",
+    "bottom": "spacetechmod:block/steel_deco_block",
     "side": "spacetechmod:block/air_machine_side",
     "top": "spacetechmod:block/air_machine_top"
   }
