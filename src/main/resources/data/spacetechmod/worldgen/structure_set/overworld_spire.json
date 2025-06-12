@@ -1,14 +1,14 @@
 {
-  "placement": {
-    "salt": 100001,
-    "spacing": 32,
-    "separation": 24,
-    "type": "minecraft:random_spread"
-  },
   "structures": [
     {
       "structure": "spacetechmod:overworld_spire",
       "weight": 1
     }
-  ]
+  ],
+  "placement": {
+    "salt": 179446,
+    "spacing": 32,
+    "separation": 24,
+    "type": "minecraft:random_spread"
+  }
 }

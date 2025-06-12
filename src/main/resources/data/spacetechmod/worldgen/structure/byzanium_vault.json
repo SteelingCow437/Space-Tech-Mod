@@ -8,13 +8,13 @@
   "start_height": {
     "type": "minecraft:very_biased_to_bottom",
     "min_inclusive": {
-      "absolute": -15
+      "absolute": 0
     },
     "max_inclusive": {
-      "absolute": -25
+      "absolute": 1
     }
   },
-  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
   "use_expansion_hack": false,
 
   "spawn_overrides": {

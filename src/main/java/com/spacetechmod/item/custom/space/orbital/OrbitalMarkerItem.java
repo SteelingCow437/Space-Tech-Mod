@@ -50,7 +50,6 @@ public class OrbitalMarkerItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         player.getCooldowns().addCooldown(this, 60);
-        player.getItemInHand(usedHand).shrink(1);
         MinecraftServer server = level.getServer();
         ServerLevel moon;
         try {
@@ -64,9 +63,15 @@ public class OrbitalMarkerItem extends Item {
         Block block = moon.getBlockState(pos).getBlock();
         if (!moon.isClientSide && !player.level().isClientSide) {
             switch (ModLists.ORBITAL_CORES.indexOf(block)) {
-                case 0 -> orbitalTntCannon(moon, pos, block, dropPos, player);
+                case 0 -> {
+                    orbitalTntCannon(moon, pos, block, dropPos, player);
+                    player.getItemInHand(usedHand).shrink(1);
+                }
 
-                case 1 -> orbitalFlameCannon(moon, pos, block, dropPos, player);
+                case 1 -> {
+                    orbitalFlameCannon(moon, pos, block, dropPos, player);
+                    player.getItemInHand(usedHand).shrink(1);
+                }
 
                 default -> player.sendSystemMessage(Component.literal("Cannon core is missing!"));
             }

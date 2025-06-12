@@ -130,6 +130,5 @@
   "item.spacetechmod.red_coil": "Copper Redstide Coil",
   "item.spacetechmod.transfunctioner": "Continuum Transfunctioner",
   "block.spacetechmod.enriched_moon_rock": "Mineral-Rich Moon Stone",
-  "block.spacetechmod.copper_coil": "Copper Coil",
-  "block.spacetechmod.refinery_core": "Refinery Core"
+  "item.spacetechmod.copper_coil": "Copper Coil"
 }

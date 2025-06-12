@@ -6,9 +6,15 @@
     }
   ],
   "placement": {
-    "salt": 100002,
+    "type": "minecraft:random_spread",
+    "salt": 117629,
+    "frequency": 0.5,
     "spacing": 48,
     "separation": 42,
-    "type": "minecraft:random_spread"
+    "spread_type": "triangular"
+  },
+  "exclusion_zone": {
+    "chunk_count": 16,
+    "other_set": "spacetechmod:moon_fort"
   }
 }
