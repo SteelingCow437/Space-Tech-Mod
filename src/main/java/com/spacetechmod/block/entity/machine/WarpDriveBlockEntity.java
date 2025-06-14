@@ -8,11 +8,12 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
@@ -160,6 +161,14 @@ public class WarpDriveBlockEntity extends BlockEntity {
                             if(scratchEntity instanceof WarpDriveBlockEntity && level.getBlockEntity(newPos) instanceof WarpDriveBlockEntity) {
                                 ((WarpDriveBlockEntity) level.getBlockEntity(newPos)).rotateSize(shipSizeX, shipSizeY, shipSizeZ, direction);
                             }
+                            if(scratchEntity instanceof DispenserBlockEntity && level.getBlockEntity(newPos) instanceof DispenserBlockEntity) {
+                                ItemStack stack;
+                                for(int i = 0; i < ((DispenserBlockEntity) level.getBlockEntity(newPos)).getContainerSize(); ++i) {
+                                    stack = ((DispenserBlockEntity) scratchEntity).getItem(i);
+                                    ((DispenserBlockEntity) level.getBlockEntity(newPos)).setItem(i, stack);
+                                    ((DispenserBlockEntity) scratchEntity).setItem(i, ItemStack.EMPTY);
+                                }
+                            }
                         }
                     }
                 }
@@ -172,8 +181,10 @@ public class WarpDriveBlockEntity extends BlockEntity {
                     }
                 }
             }
+            Vec3i newPlayerPos;
             for(Player player : level.getEntitiesOfClass(Player.class, bounds)) {
-                player.teleportTo(NEW_POS.getX(), NEW_POS.getY(), NEW_POS.getZ() - 1);
+                newPlayerPos = findBlockDeltaFromCore(player.getOnPos(), oldCorePos);
+                player.teleportTo(NEW_POS.offset(newPlayerPos).getX(), NEW_POS.offset(newPlayerPos).getY() + 1, NEW_POS.offset(newPlayerPos).getZ());
             }
         }
     }
