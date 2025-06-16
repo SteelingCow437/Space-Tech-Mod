@@ -105,7 +105,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
     private Vec3i findBlockDeltaFromCore(BlockPos block, BlockPos oldCorePos) {
         deltaX = block.getX() - oldCorePos.getX();
         deltaY = block.getY() - oldCorePos.getY();
-        deltaZ = block.getZ() - oldCorePos.getX();
+        deltaZ = block.getZ() - oldCorePos.getZ();
         switch(direction) {
             case 1 -> {
                 return new Vec3i(-deltaZ, deltaY, deltaX);
