@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class TNTCompressorBlock extends Block {
 
@@ -96,11 +98,9 @@ public class TNTCompressorBlock extends Block {
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if(newState.getBlock() != ModBlocks.TNT_COMPRESSOR.get()) {
             ItemEntity item = new ItemEntity(EntityType.ITEM, level);
-            item.setItem(new ItemStack(Items.TNT, 64));
-            item.setPos(pos.getX(), pos.getY() + 1, pos.getZ());
-            for(int i = 0; i < charge; ++i) {
-                level.addFreshEntity(item);
-            }
+            item.setItem(new ItemStack(Items.TNT, (64 * charge)));
+            item.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
+            level.addFreshEntity(item);
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }

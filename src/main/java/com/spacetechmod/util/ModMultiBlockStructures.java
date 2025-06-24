@@ -1,6 +1,5 @@
 package com.spacetechmod.util;
 
-import com.spacetechmod.block.ModBlocks;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
