@@ -135,8 +135,8 @@ public class ForgingTableBlock extends BaseEntityBlock {
             stamp.setItem(getStamp(level, pos));
             ingredient.setItem(getIngredient(level, pos));
 
-            stamp.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY() + 1, pos.getZ())));
-            ingredient.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY() + 1, pos.getZ())));
+            stamp.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
+            ingredient.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
 
             level.addFreshEntity(stamp);
             level.addFreshEntity(ingredient);

@@ -66,13 +66,13 @@ public class WarpDriveBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    public void setDestination(int x, int y, int z, Player player) {
-        if(x == 0 || z == 0) {
+    public void setDestination(BlockPos d, Player player) {
+        if(d.getX() == 0 || d.getZ() == 0) {
             player.sendSystemMessage(Component.literal("ERROR: X or Z coordinate cannot equal Zero!"));
         }
         else {
-            NEW_POS = new BlockPos(x, y, z);
-            player.sendSystemMessage(Component.literal("Destination set to: " + x + ", " + y + ", " + z));
+            NEW_POS = d;
+            player.sendSystemMessage(Component.literal("Destination set to: " + d.getX() + ", " + d.getY() + ", " + d.getZ()));
         }
     }
 
@@ -140,7 +140,9 @@ public class WarpDriveBlockEntity extends BlockEntity {
     }
 
     private boolean getShipSize() {
-        return (shipSizeX > 0 && shipSizeY > 0 && shipSizeZ > 0);
+        boolean zero = (shipSizeX > 0 && shipSizeY > 0 && shipSizeZ > 0);
+        boolean one = shipSizeX < 50 && shipSizeY < 50 && shipSizeZ < 50;
+        return zero && one;
     }
 
     public void warp(Level level) {

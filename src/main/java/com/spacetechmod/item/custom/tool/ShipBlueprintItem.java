@@ -1,6 +1,8 @@
 package com.spacetechmod.item.custom.tool;
 
 import com.spacetechmod.block.entity.machine.WarpDriveBlockEntity;
+import com.spacetechmod.data.ModDataStorage;
+import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -19,10 +21,6 @@ public class ShipBlueprintItem extends Item {
                 .stacksTo(1));
     }
 
-    private int sizeX = 0;
-    private int sizeY = 0;
-    private int sizeZ = 0;
-
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
@@ -32,17 +30,17 @@ public class ShipBlueprintItem extends Item {
             String messageY = ((SignBlockEntity) entity).getFrontText().getMessage(1, false).getString();
             String messageZ = ((SignBlockEntity) entity).getFrontText().getMessage(2, false).getString();
             try {
-                sizeX = Integer.parseInt(messageX);
-                sizeY = Integer.parseInt(messageY);
-                sizeZ = Integer.parseInt(messageZ);
+                context.getItemInHand().set(ModDataStorage.SHIP_SIZE, new Vec3i(
+                        Integer.parseInt(messageX), Integer.parseInt(messageY), Integer.parseInt(messageZ)));
             } catch (Exception e) {
-                sizeX = 0;
-                sizeY = 0;
-                sizeZ = 0;
+                context.getItemInHand().set(ModDataStorage.SHIP_SIZE, new Vec3i(0, 0, 0));
             }
             return InteractionResult.SUCCESS;
         }
         else if(entity instanceof WarpDriveBlockEntity && !level.isClientSide) {
+            int sizeX = context.getItemInHand().get(ModDataStorage.SHIP_SIZE).getX();
+            int sizeY = context.getItemInHand().get(ModDataStorage.SHIP_SIZE).getY();
+            int sizeZ = context.getItemInHand().get(ModDataStorage.SHIP_SIZE).getZ();
             ((WarpDriveBlockEntity) entity).setInitialSize(sizeX, sizeY, sizeZ, context.getPlayer(), true);
             return InteractionResult.SUCCESS;
         }
@@ -51,7 +49,21 @@ public class ShipBlueprintItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.literal("Ship Dimensions: " + sizeX + ", " + sizeY + ", " + sizeZ));
+        int x;
+        int y;
+        int z;
+        try {
+            x = stack.get(ModDataStorage.SHIP_SIZE).getX();
+            y = stack.get(ModDataStorage.SHIP_SIZE).getY();
+            z = stack.get(ModDataStorage.SHIP_SIZE).getZ();
+        }
+        catch(Exception e) {
+            x = 0;
+            y = 0;
+            z = 0;
+        }
+        list.add(Component.literal("Ship Dimensions: " + x + ", " +
+                y + ", " + z));
         super.appendHoverText(stack, context, list, flag);
     }
 }

@@ -1,6 +1,8 @@
 package com.spacetechmod.item.custom.space;
 
 import com.spacetechmod.block.entity.machine.WarpDriveBlockEntity;
+import com.spacetechmod.data.ModDataStorage;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -26,18 +28,15 @@ public class StarGateControllerItem extends Item {
                 .rarity(Rarity.EPIC));
     }
 
-    public int X = 0;
-    public int Y = 0;
-    public int Z = 0;
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(!player.isShiftKeyDown() && !level.isClientSide) {
-            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
-            X = 0;
-            Y = 0;
-            Z = 0;
-            return InteractionResultHolder.success(player.getMainHandItem());
+            Item item = player.getItemInHand(hand).getItem();
+            if(item instanceof StarGateControllerItem) {
+                player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
+                player.getItemInHand(hand).set(ModDataStorage.SGC_DESTINATION, new BlockPos(0, 0, 0));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
+            }
         }
         return InteractionResultHolder.fail(player.getMainHandItem());
     }
@@ -51,31 +50,38 @@ public class StarGateControllerItem extends Item {
             String messageY = ((SignBlockEntity) entity).getFrontText().getMessage(1, false).getString();;
             String messageZ = ((SignBlockEntity) entity).getFrontText().getMessage(2, false).getString();
             try {
-                X = Integer.parseInt(messageX);
-                Y = Integer.parseInt(messageY);
-                Z = Integer.parseInt(messageZ);
+                context.getItemInHand().set(ModDataStorage.SGC_DESTINATION, new BlockPos(
+                        Integer.parseInt(messageX), Integer.parseInt(messageY), Integer.parseInt(messageZ)
+                ));
             } catch (Exception e) {
-                X = 0;
-                Y = 0;
-                Z = 0;
+                context.getItemInHand().set(ModDataStorage.SGC_DESTINATION, new BlockPos(0, 0, 0));
             }
             return InteractionResult.SUCCESS;
         }
-        else if(entity instanceof WarpDriveBlockEntity && !level.isClientSide) {
-            ((WarpDriveBlockEntity) entity).setDestination(X, Y, Z, context.getPlayer());
+        else if(entity instanceof WarpDriveBlockEntity && !level.isClientSide && context.getItemInHand().get(ModDataStorage.SGC_DESTINATION) != null) {
+            ((WarpDriveBlockEntity) entity).setDestination(context.getItemInHand().get(ModDataStorage.SGC_DESTINATION), context.getPlayer());
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.FAIL;
     }
 
-    public int getX() {return X;}
-    public int getY() {return Y;}
-    public int getZ() {return Z;}
-
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.literal("Destination: " + X + ", " + Y + ", " + Z));
+        int x;
+        int y;
+        int z;
+        try {
+            x = stack.get(ModDataStorage.SGC_DESTINATION).getX();
+            y = stack.get(ModDataStorage.SGC_DESTINATION).getY();
+            z = stack.get(ModDataStorage.SGC_DESTINATION).getZ();
+        }
+        catch(Exception e) {
+            x = 0;
+            y = 0;
+            z = 0;
+        }
+        list.add(Component.literal("Destination: " + x + ", " + y + ", " + z));
         super.appendHoverText(stack, context, list, flag);
     }
 }

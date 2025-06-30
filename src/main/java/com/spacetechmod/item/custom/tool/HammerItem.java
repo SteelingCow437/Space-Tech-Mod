@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -36,6 +37,12 @@ public class HammerItem extends Item {
                     case 3 -> {player.addItem(ModItems.COPPER_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     case 4 -> {player.addItem(ModItems.TIN_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
                     case 5 -> {player.addItem(ModItems.TITANIUM_POWDER.get().getDefaultInstance()); offhand.shrink(1); return InteractionResult.SUCCESS;}
+
+                    case 6 -> {
+                        player.addItem(new ItemStack(Items.COBBLESTONE, offhand.getCount()));
+                        offhand.shrink(offhand.getCount());
+                        return InteractionResult.SUCCESS;
+                    }
                     default -> {return InteractionResult.FAIL;}
                 }
             }

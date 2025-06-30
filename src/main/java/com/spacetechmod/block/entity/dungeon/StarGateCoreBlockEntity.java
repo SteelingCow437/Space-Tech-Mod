@@ -24,10 +24,10 @@ public class StarGateCoreBlockEntity extends BlockEntity {
     public int destinationY = 0;
     public int destinationZ = 0;
 
-    public void setDestination(int x, int y, int z) {
-        destinationX = x;
-        destinationY = y;
-        destinationZ = z;
+    public void setDestination(BlockPos d) {
+        destinationX = d.getX();
+        destinationY = d.getY();
+        destinationZ = d.getZ();
     }
 
 

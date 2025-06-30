@@ -63,5 +63,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(ModTags.ModBlockTags.MOON_STONE_REPLACEABLES)
                 .add(ModBlocks.MOON_ROCK.get());
+
+        tag(BlockTags.BEACON_BASE_BLOCKS)
+                .add(ModBlocks.TITANIUM_BLOCK.get())
+                .add(ModBlocks.STEEL_DECO_BLOCK.get());
     }
 }

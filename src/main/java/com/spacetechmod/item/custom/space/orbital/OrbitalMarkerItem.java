@@ -131,16 +131,17 @@ public class OrbitalMarkerItem extends Item {
     }
 
     private String getCannonName(ItemStack stack) {
-        MinecraftServer server = textLevel.getServer();
+        MinecraftServer server;
         ServerLevel moon;
         Block core;
         BlockPos pos;
         try {
+            server = textLevel.getServer();
             moon = server.getLevel(ModDimensions.MOON);
             pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
             core = moon.getBlockState(pos).getBlock();
         } catch (Exception e) {
-            return "I should be crashing right now!";
+            return "";
         }
         switch(ModLists.ORBITAL_CORES.indexOf(core)) {
             case 0 -> {
@@ -156,6 +157,6 @@ public class OrbitalMarkerItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
-        list.add(Component.literal("Linked to " + getCannonName(stack)));
+        list.add(Component.literal("Linked to: " + getCannonName(stack)));
     }
 }

@@ -3,8 +3,8 @@ package com.spacetechmod.block.custom.dungeon;
 import com.mojang.serialization.MapCodec;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.block.entity.dungeon.StarGateCoreBlockEntity;
+import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.item.ModItems;
-import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -59,10 +59,7 @@ public class StarGateCoreBlock extends BaseEntityBlock {
         if(entity instanceof StarGateCoreBlockEntity) {
             if (item == ModItems.STARGATE_CONTROLLER.get() && !((StarGateCoreBlockEntity) entity).ACTIVE) {
                 if (((StarGateCoreBlockEntity) entity).checkForCompletion(player)) {
-                    x = ((StarGateControllerItem) item).getX();
-                    y = ((StarGateControllerItem) item).getY();
-                    z = ((StarGateControllerItem) item).getZ();
-                    ((StarGateCoreBlockEntity) entity).setDestination(x, y, z);
+                    ((StarGateCoreBlockEntity) entity).setDestination(stack.get(ModDataStorage.SGC_DESTINATION));
                     ((StarGateCoreBlockEntity) entity).makePortalOnDirection();
                     level.playSound(player, player.getOnPos(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.BLOCKS, 2.0f, 2.0f);
                 }

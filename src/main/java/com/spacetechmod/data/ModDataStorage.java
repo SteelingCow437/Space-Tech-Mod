@@ -2,6 +2,7 @@ package com.spacetechmod.data;
 
 import com.spacetechmod.Spacetechmod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
@@ -22,6 +23,12 @@ public class ModDataStorage {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceKey<Level>>> SELECTED_PLANET = register(
             "selected_planet", builder -> builder.persistent(Level.RESOURCE_KEY_CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Vec3i>> SHIP_SIZE = register(
+            "ship_size", builder -> builder.persistent(Vec3i.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> SGC_DESTINATION = register(
+            "sgc_destination", builder -> builder.persistent(BlockPos.CODEC));
 
 
     private static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,

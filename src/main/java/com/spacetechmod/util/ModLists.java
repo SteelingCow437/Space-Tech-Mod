@@ -43,7 +43,7 @@ public class ModLists {
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get(),
-                    ModItems.TITANIUM_INGOT.get()));
+                    ModItems.TITANIUM_INGOT.get(), ModBlocks.MOON_ROCK.asItem()));
 
     public static final ArrayList<Item> FORGING_TABLE_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COPPER_INGOT, ModItems.TITANIUM_INGOT.get(), ModItems.STEEL_INGOT.get(),
