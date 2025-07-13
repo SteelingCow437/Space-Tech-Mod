@@ -1,22 +1,19 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
-import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.machine.ForgingTableBlockEntity;
 import com.spacetechmod.item.ModItems;
-import com.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,7 +22,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgingTableBlock extends BaseEntityBlock {
@@ -104,44 +100,37 @@ public class ForgingTableBlock extends BaseEntityBlock {
         return super.useItemOn(stack, state, level, pos, player, hand, result);
     }
 
-    private ItemStack getIngredient(Level level, BlockPos pos) {
-        if(!level.isClientSide()) {
-            BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof ForgingTableBlockEntity) {
-                return ((ForgingTableBlockEntity) entity).getIngredient();
-            }
-        }
-        return ItemStack.EMPTY;
+    private boolean isRenderEntityValid(Level level, BlockPos pos, ForgingTableBlockEntity entity) {
+        return entity.getRenderItem() != null;
     }
 
-    private ItemStack getStamp(Level level, BlockPos pos) {
-        if(!level.isClientSide()) {
-            BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof ForgingTableBlockEntity) {
-                if(((ForgingTableBlockEntity) entity).getStamp() > 0) {
-                    return new ItemStack(ModLists.FORGING_TABLE_STAMP_LIST.get(((ForgingTableBlockEntity) entity).getStamp()).asItem(), 1);
-                }
-            }
-        }
-        return ItemStack.EMPTY;
+    @Override
+    public void destroy(LevelAccessor level, BlockPos pos, BlockState state) {
+        super.destroy(level, pos, state);
     }
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if(newState.getBlock() != ModBlocks.FORGING_TABLE.get()) {
-            ItemEntity stamp = new ItemEntity(EntityType.ITEM, level);
-            ItemEntity ingredient = new ItemEntity(EntityType.ITEM, level);
-
-            stamp.setItem(getStamp(level, pos));
-            ingredient.setItem(getIngredient(level, pos));
-
-            stamp.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
-            ingredient.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
-
-            level.addFreshEntity(stamp);
-            level.addFreshEntity(ingredient);
+        if(state.getBlock() != newState.getBlock() && !level.isClientSide()) {
+            if(level.getBlockEntity(pos) instanceof ForgingTableBlockEntity entity) {
+                if(level instanceof ServerLevel && !level.isClientSide()) {
+                    entity.drops(level, pos);
+                    entity.removeRenderItem();
+                }
+                super.onRemove(state, level, pos, newState, movedByPiston);
+            }
+            else {
+                super.onRemove(state, level, pos, newState, movedByPiston);
+            }
         }
-        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        if(level.getBlockEntity(pos) instanceof ForgingTableBlockEntity entity) {
+            entity.setupItemEntities(level);
+        }
+        super.onPlace(state, level, pos, oldState, movedByPiston);
     }
 
     @Nullable

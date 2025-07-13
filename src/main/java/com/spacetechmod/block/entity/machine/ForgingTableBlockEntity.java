@@ -5,22 +5,33 @@ import com.spacetechmod.item.ModItems;
 import com.spacetechmod.util.ModLists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 public class ForgingTableBlockEntity extends BlockEntity {
+
+    private ItemEntity renderItem;
+    ItemEntity dStamp;
+    ItemEntity dIngredient;
+
     public ForgingTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FORGING_TABLE.get(), pos, state);
     }
     public Item stamp = null;
+
 
     public ItemStack ingredient = ItemStack.EMPTY;
     private Item result = null;
@@ -39,6 +50,10 @@ public class ForgingTableBlockEntity extends BlockEntity {
             return ingredient;
         }
         return ItemStack.EMPTY;
+    }
+
+    public ItemEntity getRenderItem() {
+        return renderItem;
     }
 
     public void craft(Player player) {
@@ -75,26 +90,28 @@ public class ForgingTableBlockEntity extends BlockEntity {
                     givePlateOrIngot(player);
                     level.playSound(player, player.getOnPos(), SoundEvents.ANVIL_HIT, SoundSource.BLOCKS, 2.0f, 2.0f);
                 }
+                setChanged();
             }
         }
-        setChanged();
     }
     public void givePlateOrIngot(Player player) {
         if(result != null) {
             player.addItem(new ItemStack(result, ingredient.getCount()));
             ingredient = ItemStack.EMPTY;
+            removeRenderItem();
             result = null;
+            setChanged();
         }
-        setChanged();
     }
 
     public void giveWire(Player player) {
         if(result != null) {
             player.addItem(new ItemStack(result, 8 * ingredient.getCount()));
             ingredient = ItemStack.EMPTY;
+            removeRenderItem();
             result = null;
+            setChanged();
         }
-        setChanged();
     }
 
     public void addIngredient(Player player, InteractionHand hand) {
@@ -104,6 +121,7 @@ public class ForgingTableBlockEntity extends BlockEntity {
                 if (ingredient == null || ingredient == ItemStack.EMPTY) {
                     ingredient = new ItemStack(player.getItemInHand(hand).getItem(), 1);
                     player.getItemInHand(hand).shrink(1);
+                    setRenderItem(player.level());
                 } else if (ingredient.is(stack.getItem())) {
                     ingredient.grow(1);
                     player.getItemInHand(hand).shrink(1);
@@ -131,19 +149,26 @@ public class ForgingTableBlockEntity extends BlockEntity {
             if(ingredient != null) {
                 player.addItem(ingredient);
                 ingredient = null;
+                removeRenderItem();
             }
             if(stamp != null) {
                 player.addItem(new ItemStack(stamp, 1));
                 stamp = null;
             }
+            setChanged();
         }
-        setChanged();
     }
     @Override
     public void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
-        nbt.putInt("stamp_type", ModLists.FORGING_TABLE_STAMP_LIST.indexOf(stamp));
-        nbt.putInt("ingredient", ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem()));
-        nbt.putInt("ingredient_count", ingredient.getCount());
+        if(ModLists.FORGING_TABLE_STAMP_LIST.indexOf(stamp) != 0) {
+            nbt.putInt("stamp_type", ModLists.FORGING_TABLE_STAMP_LIST.indexOf(stamp));
+        }
+        if(!ingredient.isEmpty()) {
+            nbt.putInt("ingredient", ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(ingredient.getItem()));
+        }
+        if(ingredient.getCount() > 0) {
+            nbt.putInt("ingredient_count", ingredient.getCount());
+        }
         super.saveAdditional(nbt, provider);
     }
 
@@ -162,6 +187,14 @@ public class ForgingTableBlockEntity extends BlockEntity {
             case 2 -> tempItem = ModItems.TITANIUM_INGOT.get();
             case 3 -> tempItem = ModItems.STEEL_INGOT.get();
             case 4 -> tempItem = ModItems.BRONZE_INGOT.get();
+            case 5 -> tempItem = ModItems.COPPER_REDSTIDE_INGOT.get();
+            case 6 -> tempItem = ModItems.TITAN_STEEL_INGOT.get();
+            case 7 -> tempItem = ModItems.IRON_PLATE.get();
+            case 8 -> tempItem = ModItems.COPPER_PLATE.get();
+            case 9 -> tempItem = ModItems.TITANIUM_PLATE.get();
+            case 10 -> tempItem = ModItems.STEEL_PLATE.get();
+            case 11 -> tempItem = ModItems.BRONZE_PLATE.get();
+            case 12 -> tempItem = ModItems.TITAN_STEEL_PLATE.get();
         }
         if(tempItem != null) {
             ingredient = new ItemStack(tempItem, nbt.getInt("ingredient_count"));
@@ -176,5 +209,39 @@ public class ForgingTableBlockEntity extends BlockEntity {
         else {
             return ModLists.FORGING_TABLE_STAMP_LIST.indexOf(stamp);
         }
+    }
+
+    private void setRenderItem(Level level) {
+        renderItem.setItem(ingredient);
+        renderItem.setPos(Vec3.atCenterOf(worldPosition.above()));
+        renderItem.setNeverPickUp();
+        renderItem.setUnlimitedLifetime();
+        level.addFreshEntity(renderItem);
+    }
+
+    public void removeRenderItem() {
+        renderItem.kill();
+    }
+
+    public void drops(Level level, BlockPos pos) {
+        if(renderItem.isAlive()) {
+            removeRenderItem();
+        }
+        if(stamp != null) {
+            dStamp.setItem(new ItemStack(stamp, 1));
+            dStamp.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
+            level.addFreshEntity(dStamp);
+        }
+        if(ingredient != null) {
+            dIngredient.setItem(getIngredient());
+            dIngredient.setPos(Vec3.atCenterOf(new Vec3i(pos.getX(), pos.getY(), pos.getZ())));
+            level.addFreshEntity(dIngredient);
+        }
+    }
+
+    public void setupItemEntities(Level level) {
+        renderItem = new ItemEntity(EntityType.ITEM, level);
+        dIngredient = new ItemEntity(EntityType.ITEM, level);
+        dStamp = new ItemEntity(EntityType.ITEM, level);
     }
 }
