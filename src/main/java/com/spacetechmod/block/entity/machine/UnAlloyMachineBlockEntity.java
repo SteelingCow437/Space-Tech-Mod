@@ -17,6 +17,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.Random;
+
 public class UnAlloyMachineBlockEntity extends BlockEntity {
     public UnAlloyMachineBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.UN_ALLOY_MACHINE.get(), pos, state);
@@ -25,6 +27,8 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
     private int timer = 0;
     private static int tick = 0;
     public int fuelTime = 0;
+
+    private Random random = new Random();
 
     public void use(Player player, ItemStack input, InteractionHand hand) {
         if(input.getBurnTime(RecipeType.SMELTING) > 0) {
@@ -43,39 +47,61 @@ public class UnAlloyMachineBlockEntity extends BlockEntity {
                 int total = count / 2;
                 Item item = input.getItem();
                 switch(ModLists.FORGING_TABLE_INGREDIENT_LIST.indexOf(item)) {
-                    default -> player.sendSystemMessage(Component.literal("Invalid Recipe!"));
-
                     case 3 -> {
                         player.addItem(new ItemStack(Items.IRON_INGOT, total));
                         player.addItem(new ItemStack(Items.COAL, total));
-                        timer -= 100;
                         player.getItemInHand(hand).shrink(count);
                     }
 
                     case 4 -> {
                         player.addItem(new ItemStack(Items.COPPER_INGOT, total));
                         player.addItem(new ItemStack(ModItems.TIN_INGOT.get(), total));
-                        timer -= 100;
                         player.getItemInHand(hand).shrink(count);
                     }
 
                     case 5 -> {
                         player.addItem(new ItemStack(Items.COPPER_INGOT, total));
                         player.addItem(new ItemStack(Items.REDSTONE, total));
-                        timer -= 100;
                         player.getItemInHand(hand).shrink(count);
                     }
 
                     case 6 -> {
                         player.addItem(new ItemStack(ModItems.TITANIUM_INGOT.get(), total));
                         player.addItem(new ItemStack(ModItems.STEEL_INGOT.get(), total));
-                        timer -= 100;
                         player.getItemInHand(hand).shrink(count);
                     }
+                    default -> player.sendSystemMessage(Component.literal("Invalid Recipe!"));
                 }
             }
             else if(player == null) {
                 level.playSound(null, worldPosition, SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 2.0f, 2.0f);
+            }
+        }
+        else if(input.getItem() == ModItems.MINERAL_CLUMP.asItem() && player != null && timer >= 100) {
+            int r = random.nextInt(0, 100);
+            if(r <= 19) {
+                player.addItem(new ItemStack(Items.LAPIS_LAZULI, 1));
+                player.getItemInHand(hand).shrink(1);
+            }
+            if(r >= 20 && r <= 38) {
+                player.addItem(new ItemStack(Items.AMETHYST_SHARD, 1));
+                player.getItemInHand(hand).shrink(1);
+            }
+            if(r > 39 && r <= 57) {
+                player.addItem(new ItemStack(Items.EMERALD, 1));
+                player.getItemInHand(hand).shrink(1);
+            }
+            if(r > 58 && r <= 77) {
+                player.addItem(new ItemStack(Items.GOLD_INGOT, 1));
+                player.getItemInHand(hand).shrink(1);
+            }
+            if(r > 78 && r <= 97) {
+                player.addItem(new ItemStack(Items.DIAMOND, 1));
+                player.getItemInHand(hand).shrink(1);
+            }
+            if(r >= 98) {
+                player.addItem(new ItemStack(Items.NETHERITE_SCRAP, 1));
+                player.getItemInHand(hand).shrink(1);
             }
         }
     }

@@ -122,6 +122,7 @@ public class Spacetechmod {
             event.accept(ModItems.TRANSFUNCTIONER);
             event.accept(ModItems.TITAN_STEEL_PLATE);
             event.accept(ModItems.COPPER_COIL);
+            event.accept(ModItems.MINERAL_CLUMP);
         }
         if(event.getTab() == ModCreativeModeTab.STM_TOOLS.get()) {
             event.accept(ModItems.TITANIUM_SWORD);

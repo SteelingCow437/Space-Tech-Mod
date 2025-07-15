@@ -6,17 +6,6 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spacetechmod:aquamarine",
-          "weight": 1
-        }
-      ],
-      "rolls": 1
-    },
-    {
-      "bonus_rolls": 0,
-      "entries": [
-        {
-          "type": "minecraft:item",
           "name": "minecraft:music_disc_mall",
           "weight": 2
         },
@@ -98,7 +87,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:netherite_scrap",
+          "name": "spacetechmod:mineral_clump",
           "weight": 2
         },
         {

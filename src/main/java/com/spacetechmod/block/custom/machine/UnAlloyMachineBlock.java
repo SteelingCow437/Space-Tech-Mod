@@ -71,7 +71,7 @@ public class UnAlloyMachineBlock extends BaseEntityBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof UnAlloyMachineBlockEntity) {
+            if(entity instanceof UnAlloyMachineBlockEntity && player.isShiftKeyDown()) {
                 player.sendSystemMessage(Component.literal("Time remaining: " + ((UnAlloyMachineBlockEntity) entity).fuelTime / 20 + " seconds"));
                 return InteractionResult.SUCCESS;
             }

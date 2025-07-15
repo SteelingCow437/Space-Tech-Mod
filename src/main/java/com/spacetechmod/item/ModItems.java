@@ -204,6 +204,9 @@ public class ModItems {
     public static final DeferredItem<Item> TIN_POWDER = ITEMS.register("tin_powder",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> MINERAL_CLUMP = ITEMS.register("mineral_clump",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> TITAN_STEEL_BLEND = ITEMS.register("titan_steel_blend",
             () -> new Item(new Item.Properties()));
     //tin stuff

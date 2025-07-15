@@ -38,8 +38,6 @@ public class ModLists {
      */
 
     //Machines / Recipes
-   /* public static final ArrayList<BlockEntityType> MACHINE_INDEX = new ArrayList<BlockEntityType>
-            (Arrays.asList(ModBlockEntities.FORGING_TABLE.get(), ModBlockEntities.AIR_MACHINE.get(), ModBlockEntities.UN_ALLOY_MACHINE.get())); */
 
     public static final ArrayList<Item> HAMMER_INGREDIENT_LIST = new ArrayList<Item>(
             Arrays.asList(Items.IRON_INGOT, Items.COAL, Items.CHARCOAL, Items.COPPER_INGOT, ModItems.TIN_INGOT.get(),

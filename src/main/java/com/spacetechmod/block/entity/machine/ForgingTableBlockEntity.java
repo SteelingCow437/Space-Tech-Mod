@@ -212,6 +212,9 @@ public class ForgingTableBlockEntity extends BlockEntity {
     }
 
     private void setRenderItem(Level level) {
+        if(renderItem.isRemoved()) {
+            renderItem = new ItemEntity(EntityType.ITEM, level);
+        }
         renderItem.setItem(ingredient);
         renderItem.setPos(Vec3.atCenterOf(worldPosition.above()));
         renderItem.setNeverPickUp();
