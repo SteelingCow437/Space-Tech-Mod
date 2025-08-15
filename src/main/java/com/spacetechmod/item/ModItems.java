@@ -10,6 +10,7 @@ import com.spacetechmod.item.custom.space.StarGateControllerItem;
 import com.spacetechmod.item.custom.space.orbital.OrbitalMarkerItem;
 import com.spacetechmod.item.custom.tool.HammerItem;
 import com.spacetechmod.item.custom.tool.ModArmorItem;
+import com.spacetechmod.item.custom.tool.ResourceScannerItem;
 import com.spacetechmod.item.custom.tool.ShipBlueprintItem;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.world.item.*;
@@ -302,6 +303,9 @@ public class ModItems {
     public static final DeferredItem<Item> ORBITAL_MARKER = ITEMS.register("orbital_marker",
             OrbitalMarkerItem::new);
 
+    public static final DeferredItem<Item> RESOURCE_SCANNER = ITEMS.register("resource_scanner",
+            ResourceScannerItem::new);
+
     //Byzanium!
     public static final DeferredItem<Item> BYZANIUM_INGOT = ITEMS.register("byzanium_ingot",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).fireResistant()));
@@ -312,7 +316,7 @@ public class ModItems {
     public static final DeferredItem<Item> VAULT_KEY = ITEMS.register("vault_key",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
 
-    //Microcrafting
+    //I HATE MICROCRAFTING
     public static final DeferredItem<Item> RED_COIL = ITEMS.register("red_coil",
             () -> new Item(new Item.Properties().stacksTo(64)));
 

@@ -7,6 +7,7 @@ import com.spacetechmod.block.custom.dungeon.VaultDoorBlock;
 import com.spacetechmod.block.custom.machine.*;
 import com.spacetechmod.block.custom.multiblock.OrbitalFlameCoreBlock;
 import com.spacetechmod.block.custom.multiblock.OrbitalTNTCoreBlock;
+import com.spacetechmod.block.custom.multiblock.ResourceRadarBlock;
 import com.spacetechmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -148,4 +149,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ORBITAL_FLAME_CORE = registerBlock("orbital_flame_core",
             () -> new OrbitalFlameCoreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(3f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> RESOURCE_RADAR = registerBlock("resource_radar",
+            ()-> new ResourceRadarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(3f).requiresCorrectToolForDrops()));
 }
