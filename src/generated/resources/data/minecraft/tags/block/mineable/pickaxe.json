@@ -19,6 +19,7 @@
     "spacetechmod:orbital_tnt_core",
     "spacetechmod:orbital_flame_core",
     "spacetechmod:warp_drive",
-    "spacetechmod:enriched_moon_rock"
+    "spacetechmod:enriched_moon_rock",
+    "spacetechmod:resource_radar"
   ]
 }

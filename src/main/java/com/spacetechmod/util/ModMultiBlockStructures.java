@@ -55,6 +55,12 @@ public class ModMultiBlockStructures {
                     5, 2, -4, 1, 4, 1, -3, 1, 3, 1, -2, 0, 2, 0, 1, 0, -1, 0)
     ); //good Lord that was horrible to make
 
+    //Radar
+    public static final ArrayList<MultiBlockPart> RESOURCE_RADAR = new ArrayList<>(
+            Arrays.asList(
+                    new MultiBlockPart(Blocks.STONE, 0, -1, 0)
+    ));
+
     //cannons
     public static final ArrayList<MultiBlockPart> ORBITAL_TNT_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(

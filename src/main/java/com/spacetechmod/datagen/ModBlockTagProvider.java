@@ -40,7 +40,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ORBITAL_TNT_CORE.get())
                 .add(ModBlocks.ORBITAL_FLAME_CORE.get())
                 .add(ModBlocks.WARP_DRIVE.get())
-                .add(ModBlocks.ENRICHED_MOON_ROCK.get());
+                .add(ModBlocks.ENRICHED_MOON_ROCK.get())
+                .add(ModBlocks.RESOURCE_RADAR.get());
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.MOON_DIRT.get());

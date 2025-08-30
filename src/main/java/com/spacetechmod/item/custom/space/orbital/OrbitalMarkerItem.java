@@ -49,34 +49,37 @@ public class OrbitalMarkerItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-        player.getCooldowns().addCooldown(this, 60);
-        MinecraftServer server = level.getServer();
-        ServerLevel moon;
-        try {
-            moon = server.getLevel(ModDimensions.MOON);
-        } catch (NullPointerException exception) {
-            return InteractionResultHolder.fail(player.getMainHandItem());
-        }
-        ItemStack stack = player.getItemInHand(usedHand);
-        BlockPos dropPos = player.getOnPos();
-        BlockPos pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
-        Block block = moon.getBlockState(pos).getBlock();
-        if (!moon.isClientSide && !player.level().isClientSide) {
-            switch (ModLists.ORBITAL_CORES.indexOf(block)) {
-                case 0 -> {
-                    orbitalTntCannon(moon, pos, block, dropPos, player);
-                    player.getItemInHand(usedHand).shrink(1);
-                }
-
-                case 1 -> {
-                    orbitalFlameCannon(moon, pos, block, dropPos, player);
-                    player.getItemInHand(usedHand).shrink(1);
-                }
-
-                default -> player.sendSystemMessage(Component.literal("Cannon core is missing!"));
+        if (!level.isClientSide) {
+            player.getCooldowns().addCooldown(this, 60);
+            MinecraftServer server = level.getServer();
+            ServerLevel moon;
+            try {
+                moon = server.getLevel(ModDimensions.MOON);
+            } catch (NullPointerException exception) {
+                return InteractionResultHolder.fail(player.getMainHandItem());
             }
+            ItemStack stack = player.getItemInHand(usedHand);
+            BlockPos dropPos = player.getOnPos();
+            BlockPos pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
+            Block block = moon.getBlockState(pos).getBlock();
+            if (!moon.isClientSide && !player.level().isClientSide) {
+                switch (ModLists.ORBITAL_CORES.indexOf(block)) {
+                    case 0 -> {
+                        orbitalTntCannon(moon, pos, block, dropPos, player);
+                        player.getItemInHand(usedHand).shrink(1);
+                    }
+
+                    case 1 -> {
+                        orbitalFlameCannon(moon, pos, block, dropPos, player);
+                        player.getItemInHand(usedHand).shrink(1);
+                    }
+
+                    default -> player.sendSystemMessage(Component.literal("Cannon core is missing!"));
+                }
+            }
+            return InteractionResultHolder.success(player.getMainHandItem());
         }
-        return InteractionResultHolder.success(player.getMainHandItem());
+        return InteractionResultHolder.fail(player.getMainHandItem());
     }
 
     private void orbitalTntCannon(ServerLevel level, BlockPos pos, Block block, BlockPos dropPos, Player player) {

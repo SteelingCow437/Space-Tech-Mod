@@ -1,6 +1,6 @@
-// 1.21.1	2025-06-29T20:03:25.166989626	Tags for minecraft:block mod id spacetechmod
+// 1.21.1	2025-08-19T16:35:24.284415627	Tags for minecraft:block mod id spacetechmod
 eafe89a05bb72cef9525adb8a4936a99e7158de8 data/minecraft/tags/block/beacon_base_blocks.json
-e7f1383e5c15199c447536e6df2126365d4f6edd data/minecraft/tags/block/mineable/pickaxe.json
+46ba5a6335f9c7f0df061dd0fcfefdd406601121 data/minecraft/tags/block/mineable/pickaxe.json
 b06d50c85b943e0bb78f4c39b23f64627a98fd53 data/minecraft/tags/block/mineable/shovel.json
 9fa5f09b8bdcfd1a4b8a483768762e4fde313172 data/minecraft/tags/block/needs_diamond_tool.json
 4f8e23140e42b24656e9f77c4e319cab2dedbecb data/minecraft/tags/block/needs_iron_tool.json

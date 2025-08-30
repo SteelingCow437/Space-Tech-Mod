@@ -162,6 +162,7 @@ public class Spacetechmod {
             event.accept(ModItems.Z7_BOOTS);
             event.accept(ModItems.SHIP_BLUEPRINT);
             event.accept(ModItems.STARGATE_CONTROLLER);
+            event.accept(ModItems.RESOURCE_SCANNER);
         }
         if(event.getTab() == ModCreativeModeTab.STM_FOODS.get()) {
             event.accept(ModItems.BAGUETTE);
@@ -181,6 +182,7 @@ public class Spacetechmod {
             event.accept(ModBlocks.ORBITAL_TNT_CORE);
             event.accept(ModBlocks.ORBITAL_FLAME_CORE);
             event.accept(ModBlocks.WARP_DRIVE);
+            event.accept(ModBlocks.RESOURCE_RADAR);
         }
         /*if(event.getTab() == ModCreativeModeTab.STM_FLUIDS.get()) {
             event.accept(ModItems.LAVA_BOTTLE);

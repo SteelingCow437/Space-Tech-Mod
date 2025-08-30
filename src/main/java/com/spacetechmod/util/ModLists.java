@@ -83,4 +83,13 @@ public class ModLists {
                     Blocks.SHORT_GRASS, Blocks.TALL_GRASS, Blocks.SEAGRASS, Blocks.TALL_SEAGRASS, Blocks.DEAD_BUSH,
                     Blocks.SWEET_BERRY_BUSH, Blocks.POTTED_DEAD_BUSH) //what a mouthful lol
     );
+
+    public static final ArrayList<Block> RESOURCE_SCANNER_TARGETS = new ArrayList<Block>(
+            Arrays.asList(Blocks.COAL_ORE, Blocks.DEEPSLATE_COAL_ORE, Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE, Blocks.COPPER_ORE,
+                    Blocks.DEEPSLATE_COPPER_ORE, Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE, Blocks.REDSTONE_ORE,
+                    Blocks.DEEPSLATE_REDSTONE_ORE, Blocks.EMERALD_ORE, Blocks.DEEPSLATE_EMERALD_ORE, Blocks.LAPIS_ORE,
+                    Blocks.DEEPSLATE_LAPIS_ORE, Blocks.DIAMOND_ORE, Blocks.DEEPSLATE_DIAMOND_ORE, ModBlocks.TITANIUM_ORE.get(),
+                    ModBlocks.TITANIUM_ORE_DEEPSLATE.get(), ModBlocks.TIN_ORE.get(), ModBlocks.TIN_ORE_DEEPSLATE.get(),
+                    ModBlocks.AQUAMARINE_ORE.get())
+    );
 }

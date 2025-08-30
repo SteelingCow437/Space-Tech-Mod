@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "spacetechmod:steel_plate"
+    },
+    "*": {
+      "item": "spacetechmod:steel_deco_block"
+    },
+    "%": {
+      "item": "spacetechmod:red_coil"
+    },
+    "$": {
+      "item": "spacetechmod:bronze_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "%$%",
+    "%*%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spacetechmod:resource_radar"
+  }
+}

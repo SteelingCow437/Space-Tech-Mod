@@ -1,5 +1,6 @@
 package com.spacetechmod.item.custom.tool;
 
+import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.util.ModLists;
 import com.spacetechmod.world.dimension.ModDimensions;
@@ -14,12 +15,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
-import java.util.function.Predicate;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ResourceScannerItem extends Item {
 
@@ -30,27 +31,31 @@ public class ResourceScannerItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-        player.getCooldowns().addCooldown(this, 60);
-        MinecraftServer server = level.getServer();
-        ServerLevel moon;
-        try {
-            moon = server.getLevel(ModDimensions.MOON);
-        } catch (NullPointerException exception) {
-            return InteractionResultHolder.fail(player.getMainHandItem());
+        if (!level.isClientSide) {
+            player.getCooldowns().addCooldown(this, 60);
+            MinecraftServer server = level.getServer();
+            ServerLevel moon;
+            try {
+                moon = server.getLevel(ModDimensions.MOON);
+            } catch (NullPointerException exception) {
+                return InteractionResultHolder.fail(player.getMainHandItem());
+            }
+            ItemStack stack = player.getItemInHand(usedHand);
+            BlockPos dropPos = player.getOnPos();
+            BlockPos pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
+            Block block = moon.getBlockState(pos).getBlock();
+            boolean correctCore = block == ModBlocks.RESOURCE_RADAR.get();
+            if (!moon.isClientSide && !player.level().isClientSide && correctCore) {
+                AABB bounds = new AABB(dropPos.getX() - 16, -62, dropPos.getZ() - 16, dropPos.getX() + 16, dropPos.getY() + 1, dropPos.getZ() + 16);
+                List<BlockState> B = new ArrayList<BlockState>(level.getBlockStates(bounds).toList());
+                String s;
+                for (int i = 0; i < ModLists.RESOURCE_SCANNER_TARGETS.size(); ++i) {
+                    s = ModLists.RESOURCE_SCANNER_TARGETS.get(i).getName().getString() + ": " + Collections.frequency(B, ModLists.RESOURCE_SCANNER_TARGETS.get(i).defaultBlockState());
+                    player.sendSystemMessage(Component.literal(s));
+                }
+            }
+            return InteractionResultHolder.success(player.getMainHandItem());
         }
-        ItemStack stack = player.getItemInHand(usedHand);
-        BlockPos dropPos = player.getOnPos();
-        BlockPos pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
-        Block block = moon.getBlockState(pos).getBlock();
-
-        //needs a check for the block at the core position
-        AABB bounds = new AABB(player.getX() - 16, -62, player.getZ() - 16, player.getX() + 16, player.getY(), player.getZ() + 16);
-        if (!moon.isClientSide && !player.level().isClientSide) {
-
-            //TODO: this lol
-
-        }
-        return InteractionResultHolder.success(player.getMainHandItem());
+        return InteractionResultHolder.fail(player.getMainHandItem());
     }
-
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "spacetechmod:block/resource_radar_bottom",
+    "side": "spacetechmod:block/resource_radar_side",
+    "top": "spacetechmod:block/resource_radar_top"
+  }
+}

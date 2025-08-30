@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -188,6 +189,9 @@ public class WarpDriveBlockEntity extends BlockEntity {
             for(Player player : level.getEntitiesOfClass(Player.class, bounds)) {
                 newPlayerPos = findBlockDeltaFromCore(player.getOnPos(), oldCorePos);
                 player.teleportTo(NEW_POS.offset(newPlayerPos).getX(), NEW_POS.offset(newPlayerPos).getY() + 1, NEW_POS.offset(newPlayerPos).getZ());
+            }
+            for(ItemEntity item : level.getEntitiesOfClass(ItemEntity.class, bounds)) {
+                item.kill();
             }
         }
     }

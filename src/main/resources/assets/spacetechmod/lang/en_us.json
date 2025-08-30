@@ -131,5 +131,7 @@
   "item.spacetechmod.transfunctioner": "Continuum Transfunctioner",
   "block.spacetechmod.enriched_moon_rock": "Mineral-Rich Moon Stone",
   "item.spacetechmod.copper_coil": "Copper Coil",
-  "item.spacetechmod.mineral_clump": "Clump Of Minerals"
+  "item.spacetechmod.mineral_clump": "Clump Of Minerals",
+  "item.spacetechmod.resource_scanner": "Resource Scanner",
+  "block.spacetechmod.resource_radar": "Resource Radar"
 }
