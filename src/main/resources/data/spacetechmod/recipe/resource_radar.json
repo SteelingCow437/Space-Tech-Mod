@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "spacetechmod:steel_plate"
+      "item": "minecraft:quartz"
     },
     "*": {
       "item": "spacetechmod:steel_deco_block"

@@ -8,7 +8,6 @@ import com.spacetechmod.item.ModCreativeModeTab;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.potion.ModPotions;
 import com.spacetechmod.sound.ModSounds;
-import cpw.mods.modlauncher.EnumerationHelper;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;

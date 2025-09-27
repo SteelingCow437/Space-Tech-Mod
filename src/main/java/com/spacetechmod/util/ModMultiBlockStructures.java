@@ -32,14 +32,50 @@ public class ModMultiBlockStructures {
     ));
 
 
-    Use this method to test if a structure is valid!
+    Use these methods to test if a structure is valid!
 
-    public boolean isStructureValid(ArrayList<MultiBlockPart> structure, Level level, BlockPos originPos) {
-        for(int i = 0; i < structure.size(); ++i) {
-            if(level.getBlockState(new BlockPos(originPos.getX() + structure.get(i).relativeX, originPos.getY() + structure.get(i).relativeY, originPos.getZ() + structure.get(i).relativeZ)).getBlock() != structure.get(i).block) {
+    public boolean isStructureValid(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        return isStructureValid0(structure, level, originPos) || isStructureValid1(structure, level, originPos) ||
+                isStructureValid2(structure, level, originPos) || isStructureValid3(structure, level, originPos);
+    }
+
+    public boolean isStructureValid0(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        for (MultiBlockPart multiBlockPart : structure) {
+            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
                 return false;
             }
         }
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 0 Success!")); debug
+        return true;
+    }
+
+    public boolean isStructureValid1(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        for (MultiBlockPart multiBlockPart : structure) {
+            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+                return false;
+            }
+        }
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 1 Success!")); debug
+        return true;
+    }
+
+    public boolean isStructureValid2(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        for (MultiBlockPart multiBlockPart : structure) {
+            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
+                return false;
+            }
+        }
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!")); debug
+        return true;
+    }
+
+    public boolean isStructureValid3(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        for (MultiBlockPart multiBlockPart : structure) {
+            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+                return false;
+            }
+        }
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!")); debug
         return true;
     }
 

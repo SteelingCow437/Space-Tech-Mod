@@ -27,7 +27,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
     }
 
     public int direction = 0;
-    //0 = forward, 1 = right, 2 = left, 3 = backward
+    //0 = forward, 1 = right, 2 = backward, 3 = left
 
     int shipSizeY;
     int shipSizeX;

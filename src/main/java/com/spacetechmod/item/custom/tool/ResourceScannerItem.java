@@ -1,8 +1,10 @@
 package com.spacetechmod.item.custom.tool;
 
 import com.spacetechmod.block.ModBlocks;
+import com.spacetechmod.block.custom.multiblock.ResourceRadarBlock;
 import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.util.ModLists;
+import com.spacetechmod.util.ModMultiBlockStructures;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -44,7 +46,10 @@ public class ResourceScannerItem extends Item {
             BlockPos dropPos = player.getOnPos();
             BlockPos pos = stack.get(ModDataStorage.LINKED_ORBITAL_CORE);
             Block block = moon.getBlockState(pos).getBlock();
-            boolean correctCore = block == ModBlocks.RESOURCE_RADAR.get();
+            boolean correctCore = false;
+            if(block instanceof ResourceRadarBlock) {
+                correctCore = ((ResourceRadarBlock) block).isStructureValid(ModMultiBlockStructures.RESOURCE_RADAR, moon, pos);
+            }
             if (!moon.isClientSide && !player.level().isClientSide && correctCore) {
                 AABB bounds = new AABB(dropPos.getX() - 16, -62, dropPos.getZ() - 16, dropPos.getX() + 16, dropPos.getY() + 1, dropPos.getZ() + 16);
                 List<BlockState> B = new ArrayList<BlockState>(level.getBlockStates(bounds).toList());
