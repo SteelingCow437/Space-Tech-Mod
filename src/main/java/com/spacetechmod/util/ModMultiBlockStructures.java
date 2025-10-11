@@ -1,5 +1,6 @@
 package com.spacetechmod.util;
 
+import com.spacetechmod.block.ModBlocks;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class ModMultiBlockStructures {
     Multiblocks should be symmetrical across the X and Z axes to prevent the
     need for duplicates or specific instructions on what plane to build them in!
 
-    This file will be either very large or have a shitload of lines, but that's ok! Some lines of this game's
+    This file will be either very large or have a shitload of lines, but that's ok! Some files of this game's
     code have over 2,000 lines! This mod should be < 2MB anyway! Hopefully the multiblock checks don't eat too
     much RAM or CPU.
 
@@ -35,49 +36,34 @@ public class ModMultiBlockStructures {
     Use these methods to test if a structure is valid!
 
     public boolean isStructureValid(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        return isStructureValid0(structure, level, originPos) || isStructureValid1(structure, level, originPos) ||
-                isStructureValid2(structure, level, originPos) || isStructureValid3(structure, level, originPos);
-    }
-
-    public boolean isStructureValid0(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        boolean v0 = true;
+        boolean v1 = true;
+        boolean v2 = true;
+        boolean v3 = true;
         for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
-                return false;
+                v0 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 0 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid1(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
-                return false;
+                v1 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 1 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid2(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
-                return false;
+                v2 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid3(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
-                return false;
+                v3 = false;
             }
+
         }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!")); debug
-        return true;
-    }
+
+        //For debugging purposes only!
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 0 Success!"));
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 1 Success!"));
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!"));
+        //level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!"));
+
+        return v0 || v1 || v2 || v3;
+}
 
    With all of that being said, declare multiblocks below this line! :)
     */
@@ -89,62 +75,265 @@ public class ModMultiBlockStructures {
                     4, 11, -5, 10, 5, 10, -5, 9, 5, 9, -6, 8, 6, 8, -6, 7, 6, 7,
                     -6, 6, 6, 6, -6, 5, 6, 5, -6, 4, 6, 4, -5, 3, 5, 3, -5, 2,
                     5, 2, -4, 1, 4, 1, -3, 1, 3, 1, -2, 0, 2, 0, 1, 0, -1, 0)
-    ); //good Lord that was horrible to make
+    ); //good Lord that was horrible to make. NO TOUCHY!
 
-    //Radar
+    //Radar *TEMPORARY*
     public static final ArrayList<MultiBlockPart> RESOURCE_RADAR = new ArrayList<>(
             Arrays.asList(
-                    new MultiBlockPart(Blocks.STONE, 0, -1, 0)
+                    //layer 0
+                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, 1),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, 0),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, -1),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -1, 1),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -1, -1),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, 1),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, 0),
+                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, -1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 2, -1, 2),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(),2, -1, -2),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -2, -1, 2),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -2, -1, -2),
+                    //layer 1
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 1, 0, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 1, 0, -1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 0, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 0, -1),
+                    //layer 2 & 3
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 2, 0),
+                    //layer 4 & 6
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 3, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 1, 3, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, -1, 3, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 3, 1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 3, -1),
+
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 5, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 1, 5, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, -1, 5, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 5, 1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 5, -1),
+                    //layer 5
+                    new MultiBlockPart(Blocks.AMETHYST_BLOCK, 0, 4, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 1, 4, 1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 1, 4, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 1, 4, -1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0, 4, 1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, 0,4, -1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, -1, 4, 1),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, -1, 4, 0),
+                    new MultiBlockPart(Blocks.QUARTZ_BLOCK, -1, 4, -1)
     ));
 
     //cannons
     public static final ArrayList<MultiBlockPart> ORBITAL_TNT_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(
-                    new MultiBlockPart(Blocks.DISPENSER, 0, 1, 0),
-
-                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, -1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, -1),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, -1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, -1, -1, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -1, 0),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 1, -1, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -1, 1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, 1),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -1, 1),
-
-                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -2, -1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -2, -1),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -2, -1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, -1, -2, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 0, -2, 0),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 1, -2, 0),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, -1, -2, 1),
-                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -2, 1),
-                    new MultiBlockPart(Blocks.IRON_BLOCK, 1, -2, 1)
+                    //layer 0
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, -1 ,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, -1 ,1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, -1 ,0),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, -1 ,-1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, -1 ,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, -1 ,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, -1 ,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, -1 ,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, -1 ,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, -1 ,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, -1 ,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, -1 ,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, -1 ,1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, -1 ,0),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, -1 ,-1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, -1 ,-2),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, -1, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, -1, -1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, -1, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, -1, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, -1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, -1, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, -1, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, -1, 0),
+                    new MultiBlockPart(Blocks.DISPENSER, -3, -1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, -1, -1),
+                    //layer 1
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 0,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 0,1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 0,0),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 0,-1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 0,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, 0,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, 0,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, 0,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, 0,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, 0,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, 0,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, 0,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, 0,1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, 0,0),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, 0,-1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -1, 0,-2),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 0, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 0, -1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 0, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 0, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 0, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 0, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 0, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 0, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 0, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 0, -1),
+                    //layer 2
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 1,1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 1,0),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -5, 1,-1),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, 1,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -4, 1,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, 1,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -3, 1,-2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, 1,2),
+                    new MultiBlockPart(Blocks.STONE_BRICKS, -2, 1,2),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 1, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 1, -1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 1, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 1, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 1, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 1, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 1, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 1, -1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 1, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 1, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), 0, 1, -1),
+                    //layer 3
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 2, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -4, 2, -1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 2, 1),
+                    new MultiBlockPart(ModBlocks.TITANIUM_BLOCK.get(), -2, 2, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 2, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 2, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 2, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 2, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 2, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 2, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -1, 2, -1),
+                    //layer 4
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -4, 3, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -4, 3, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -4, 3, -1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -3, 3, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -3, 3, -1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -2, 3, 1),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -2, 3, 0),
+                    new MultiBlockPart(ModBlocks.STEEL_DECO_BLOCK.get(), -2, 3, -1)
     ));
 
     public static final ArrayList<MultiBlockPart> ORBITAL_FLAME_CANNON = new ArrayList<MultiBlockPart>(
             Arrays.asList(
-                    new MultiBlockPart(Blocks.DISPENSER, 0, 1, 0),
-
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -1, -1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -1, -1),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -1, -1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, -1, -1, 0),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 0, -1, 0),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 1, -1, 0),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -1, 1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -1, 1),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -1, 1),
-
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -2, -1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -2, -1),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -2, -1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, -1, -2, 0),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 0, -2, 0),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 1, -2, 0),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, -1, -2, 1),
-                    new MultiBlockPart(Blocks.NETHER_BRICKS, 0, -2, 1),
-                    new MultiBlockPart(Blocks.GOLD_BLOCK, 1, -2, 1)
+                    //layer 0
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, -1 ,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, -1 ,1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, -1 ,0),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, -1 ,-1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, -1 ,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, -1 ,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, -1 ,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, -1 ,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, -1 ,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, -1 ,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, -1 ,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, -1 ,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, -1 ,1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, -1 ,0),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, -1 ,-1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, -1 ,-2),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, -1, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, -1, -1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, -1, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, -1, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -4, -1, 0),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, -1, 1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, -1, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -2, -1, 0),
+                    new MultiBlockPart(Blocks.DISPENSER, -3, -1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, -1, -1),
+                    //layer 1
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 0,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 0,1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 0,0),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 0,-1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 0,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, 0,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, 0,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, 0,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, 0,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, 0,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, 0,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, 0,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, 0,1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, 0,0),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, 0,-1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -1, 0,-2),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 0, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 0, -1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 0, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 0, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -4, 0, 0),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 0, 1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 0, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -2, 0, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, 0, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, 0, -1),
+                    //layer 2
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 1,1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 1,0),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -5, 1,-1),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, 1,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -4, 1,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, 1,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -3, 1,-2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, 1,2),
+                    new MultiBlockPart(Blocks.DEEPSLATE_BRICKS, -2, 1,2),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 1, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 1, -1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 1, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 1, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -4, 1, 0),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 1, 1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 1, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -2, 1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 1, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 1, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, 1, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, 1, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, 0, 1, -1),
+                    //layer 3
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 2, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -4, 2, -1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 2, 1),
+                    new MultiBlockPart(Blocks.GOLD_BLOCK, -2, 2, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -4, 2, 0),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 2, 1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -3, 2, -1),
+                    new MultiBlockPart(Blocks.NETHER_BRICKS, -2, 2, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 2, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 2, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -1, 2, -1),
+                    //layer 4
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 3, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 3, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -4, 3, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 3, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -3, 3, -1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 3, 1),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 3, 0),
+                    new MultiBlockPart(Blocks.OBSIDIAN, -2, 3, -1)
     ));
 }

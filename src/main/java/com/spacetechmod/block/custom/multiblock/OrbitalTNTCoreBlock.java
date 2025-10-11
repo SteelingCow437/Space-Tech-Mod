@@ -38,49 +38,32 @@ public class OrbitalTNTCoreBlock extends Block {
     }
 
     public boolean isStructureValid(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        return isStructureValid0(structure, level, originPos) || isStructureValid1(structure, level, originPos) ||
-                isStructureValid2(structure, level, originPos) || isStructureValid3(structure, level, originPos);
-    }
-
-    public boolean isStructureValid0(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
+        boolean v0 = true;
+        boolean v1 = true;
+        boolean v2 = true;
+        boolean v3 = true;
         for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
-                return false;
+                v0 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 0 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid1(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
-                return false;
+                v1 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 1 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid2(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
-                return false;
+                v2 = false;
             }
-        }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!")); debug
-        return true;
-    }
-
-    public boolean isStructureValid3(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
-        for (MultiBlockPart multiBlockPart : structure) {
             if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
-                return false;
+                v3 = false;
             }
+
         }
-        //level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!")); debug
-        return true;
+        /*
+        For debugging purposes only!
+        level.players().getFirst().sendSystemMessage(Component.literal("Test 0 Success!"));
+        level.players().getFirst().sendSystemMessage(Component.literal("Test 1 Success!"));
+        level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!"));
+        level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!"));
+         */
+        return v0 || v1 || v2 || v3;
     }
-
-
 }
