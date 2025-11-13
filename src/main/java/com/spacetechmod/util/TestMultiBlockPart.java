@@ -1,5 +1,7 @@
 package com.spacetechmod.util;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
@@ -18,16 +20,17 @@ public class TestMultiBlockPart {
         tRelativeZ = rZ;
     }
 
-    private boolean isStructureValid(ArrayList<TestMultiBlockPart> tStructure) {
-        for(int i = 0; i < tStructure.size(); ++i) {
-
-
-
-
-        }
-        return false;
+    public Block getBlock() {
+        return testB;
     }
-
-    //TODO: This. Just save it for the next update.
-
+    public ArrayList<Integer> getRelativeX() {
+        return tRelativeX;
+    }
+    public ArrayList<Integer> getRelativeY() {
+        return tRelativeY;
+    }
+    public ArrayList<Integer> getRelativeZ() {
+        return tRelativeZ;
+    }
+    //todo: structure validity check
 }

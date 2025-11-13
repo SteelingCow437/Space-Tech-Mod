@@ -6,6 +6,7 @@ import com.spacetechmod.util.MultiBlockPart;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -38,23 +39,26 @@ public class OrbitalFlameCoreBlock extends Block {
 
     public boolean isStructureValid(ArrayList<MultiBlockPart> structure, ServerLevel level, BlockPos originPos) {
         boolean v0 = true;
+        /*
         boolean v1 = true;
         boolean v2 = true;
         boolean v3 = true;
+         */
         for (MultiBlockPart multiBlockPart : structure) {
-            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(multiBlockPart.relativeX, multiBlockPart.relativeY, multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
                 v0 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+            /*
+            if (level.getBlockState(originPos.offset(-multiBlockPart.relativeZ, multiBlockPart.relativeY, multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
                 v1 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(-multiBlockPart.relativeX, multiBlockPart.relativeY, -multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
                 v2 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(multiBlockPart.relativeZ, multiBlockPart.relativeY, -multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
                 v3 = false;
             }
-
+            */
         }
         /*
         For debugging purposes only!
@@ -63,6 +67,6 @@ public class OrbitalFlameCoreBlock extends Block {
         level.players().getFirst().sendSystemMessage(Component.literal("Test 2 Success!"));
         level.players().getFirst().sendSystemMessage(Component.literal("Test 3 Success!"));
          */
-        return v0 || v1 || v2 || v3;
+        return v0; // || v1 || v2 || v3;
     }
 }

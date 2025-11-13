@@ -40,17 +40,16 @@ public class ModMultiBlockStructures {
         boolean v1 = true;
         boolean v2 = true;
         boolean v3 = true;
-        for (MultiBlockPart multiBlockPart : structure) {
-            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
+        if (level.getBlockState(originPos.offset(multiBlockPart.relativeX, multiBlockPart.relativeY, multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
                 v0 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() + multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(-multiBlockPart.relativeZ, multiBlockPart.relativeY, multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
                 v1 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() - multiBlockPart.relativeX, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(-multiBlockPart.relativeX, multiBlockPart.relativeY, -multiBlockPart.relativeZ)).getBlock() != multiBlockPart.block) {
                 v2 = false;
             }
-            if (level.getBlockState(new BlockPos(originPos.getX() + multiBlockPart.relativeZ, originPos.getY() + multiBlockPart.relativeY, originPos.getZ() - multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
+            if (level.getBlockState(originPos.offset(multiBlockPart.relativeZ, multiBlockPart.relativeY, -multiBlockPart.relativeX)).getBlock() != multiBlockPart.block) {
                 v3 = false;
             }
 
