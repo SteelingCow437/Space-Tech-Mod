@@ -75,7 +75,7 @@ public class ModLists {
     );
 
     public static final ArrayList<Block> WARP_DRIVE_EXCLUSION_LIST = new ArrayList<Block>(
-            Arrays.asList(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.BARRIER, Blocks.WATER, Blocks.LAVA,
+            Arrays.asList(Blocks.CHEST, Blocks.DISPENSER, ModBlocks.WARP_DRIVE.get(), Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.BARRIER, Blocks.WATER, Blocks.LAVA,
                     Blocks.STRUCTURE_BLOCK, Blocks.STRUCTURE_VOID, Blocks.FLOWERING_AZALEA, Blocks.FLOWERING_AZALEA_LEAVES,
                     Blocks.POTTED_FLOWERING_AZALEA, Blocks.CHORUS_FLOWER, Blocks.CHORUS_PLANT, Blocks.CORNFLOWER,
                     Blocks.POTTED_CORNFLOWER, Blocks.POTTED_TORCHFLOWER, Blocks.SUNFLOWER, Blocks.TORCHFLOWER,

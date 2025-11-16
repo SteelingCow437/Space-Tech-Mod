@@ -1,6 +1,7 @@
 package com.spacetechmod.block.custom.machine;
 
 import com.mojang.serialization.MapCodec;
+import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.block.entity.machine.WarpDriveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -47,6 +50,13 @@ public class WarpDriveBlock extends BaseEntityBlock {
             }
         }
         return InteractionResult.FAIL;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTickerHelper(type, ModBlockEntities.WARP_DRIVE.get(),
+                WarpDriveBlockEntity::tick);
     }
 
     @Override

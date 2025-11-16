@@ -4,7 +4,6 @@ import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.util.MultiBlockPart;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
