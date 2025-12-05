@@ -7,11 +7,13 @@ public class ShipPart {
 
     private BlockState block;
     private BlockPos pos;
+    private BlockPos oldPos;
 
 
-    public ShipPart(BlockState b, BlockPos p) {
+    public ShipPart(BlockState b, BlockPos p, BlockPos oP) {
         block = b;
         pos = p;
+        oldPos = oP;
     }
 
     public BlockState getBlock() {
@@ -20,6 +22,10 @@ public class ShipPart {
 
     public BlockPos getPos() {
         return pos;
+    }
+
+    public BlockPos getOldPos() {
+        return oldPos;
     }
 
     /*

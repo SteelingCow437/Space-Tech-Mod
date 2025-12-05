@@ -4,6 +4,7 @@ import com.spacetechmod.block.ModBlocks;
 import com.spacetechmod.block.entity.ModBlockEntities;
 import com.spacetechmod.data.ModDataStorage;
 import com.spacetechmod.effect.ModEffects;
+import com.spacetechmod.event.ModEvents;
 import com.spacetechmod.item.ModCreativeModeTab;
 import com.spacetechmod.item.ModItems;
 import com.spacetechmod.potion.ModPotions;
@@ -34,7 +35,7 @@ public class Spacetechmod {
     public Spacetechmod(IEventBus eventBus, ModContainer modContainer) {
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
-
+        ModEvents.initModBusEvents(eventBus);
         // Register the eventbus for all of the items and such
 
         ModItems.register(eventBus);

@@ -2,6 +2,7 @@ package com.spacetechmod.data;
 
 import com.spacetechmod.Spacetechmod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceKey;
@@ -29,6 +30,9 @@ public class ModDataStorage {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> SGC_DESTINATION = register(
             "sgc_destination", builder -> builder.persistent(BlockPos.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Direction>> ORBITAL_CANNON_DIRECTION = register(
+            "orbital_cannon_direction", builder -> builder.persistent(Direction.CODEC));
 
 
     private static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,

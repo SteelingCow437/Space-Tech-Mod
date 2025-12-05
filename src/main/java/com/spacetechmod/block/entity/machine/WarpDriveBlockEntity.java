@@ -5,7 +5,6 @@ import com.spacetechmod.util.ModLists;
 import com.spacetechmod.util.ShipPart;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -16,7 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
@@ -39,7 +37,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
     private int shipSizeY;
     private int shipSizeX;
     private int shipSizeZ;
-    //SHIP SIZE IS INCLUSIVE OF CORE
+    //SHIP SIZE IS INCLUSIVE OF CORE. It's more like the ship radius
 
     //scanning stuff
     private final BlockPos oldCorePos = worldPosition;
@@ -187,6 +185,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
                             newPos = NEW_POS.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
                             level.setBlock(newPos, scratchState.rotate(level, newPos, getBlockRotation()), 2);
                             ChestBlockEntity.swapContents(((ChestBlockEntity) scratchEntity), ((ChestBlockEntity) level.getBlockEntity(newPos)));
+                            level.setBlock(scratchPos, Blocks.AIR.defaultBlockState(), 2);
                         }
                         if(scratchEntity instanceof DispenserBlockEntity) {
                             newPos = NEW_POS.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
@@ -197,6 +196,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
                                 ((DispenserBlockEntity) level.getBlockEntity(newPos)).setItem(i, stack);
                                 ((DispenserBlockEntity) scratchEntity).setItem(i, ItemStack.EMPTY);
                             }
+                            level.setBlock(scratchPos, Blocks.AIR.defaultBlockState(), 2);
                         }
                         if(scratchEntity instanceof WarpDriveBlockEntity) {
                             newPos = NEW_POS.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
@@ -206,7 +206,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
 
                         if (!ModLists.WARP_DRIVE_EXCLUSION_LIST.contains(scratchState.getBlock())) {
                             newPos = NEW_POS.offset(findBlockDeltaFromCore(scratchPos, oldCorePos));
-                            SHIP_PARTS.add(new ShipPart(scratchState.rotate(level, newPos, getBlockRotation()), newPos));
+                            SHIP_PARTS.add(new ShipPart(scratchState.rotate(level, newPos, getBlockRotation()), newPos, scratchPos));
                         }
                     }
                 }
@@ -236,12 +236,16 @@ public class WarpDriveBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, WarpDriveBlockEntity entity) {
         if(entity.warping && !entity.SHIP_PARTS.isEmpty()) {
             for(int i = 0; i < 10; ++i) {
-                try {
+                if(!entity.SHIP_PARTS.isEmpty()) {
                     entity.sp = entity.SHIP_PARTS.getFirst();
                     level.setBlock(entity.sp.getPos(), entity.sp.getBlock(), 2);
                     entity.SHIP_PARTS.removeFirst();
-                } catch (Exception e) {
-                    entity.SHIP_PARTS.clear();
+                    level.setBlock(entity.sp.getOldPos(), Blocks.AIR.defaultBlockState(), 2);
+                    if(ModLists.WARP_DRIVE_EXCLUSION_LIST.contains(entity.sp.getBlock().getBlock()) && entity.sp.getBlock().getBlock() != Blocks.AIR) {
+                        for(ItemEntity item : level.getEntitiesOfClass(ItemEntity.class, entity.bounds)) {
+                            item.kill();
+                        }
+                    }
                 }
             }
         }
@@ -254,17 +258,7 @@ public class WarpDriveBlockEntity extends BlockEntity {
                     player.removeEffect(entity.invis.getEffect());
             }
             entity.warping = false;
-            for (int y = 0; y < 2 * entity.shipSizeY + 1; ++y) {
-                for (int x = 0; x < 2 * entity.shipSizeX + 1; ++x) {
-                    for (int z = 0; z < 2 * entity.shipSizeZ + 1; ++z) {
-                        entity.scratchPos = new BlockPos(entity.scanOriginPos.getX() + x, entity.scanOriginPos.getY() + y, entity.scanOriginPos.getZ() + z);
-                        level.setBlock(entity.scratchPos, Blocks.AIR.defaultBlockState(), 2);
-                    }
-                }
-            }
-            for(ItemEntity item : level.getEntitiesOfClass(ItemEntity.class, entity.bounds)) {
-                item.kill();
-            }
+            level.setBlock(entity.oldCorePos, Blocks.AIR.defaultBlockState(), 2);
         }
     }
 }
