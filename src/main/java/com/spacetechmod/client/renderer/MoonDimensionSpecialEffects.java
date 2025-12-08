@@ -1,24 +1,30 @@
 package com.spacetechmod.client.renderer;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Axis;
 import com.spacetechmod.Spacetechmod;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Matrix4f;
 
 public class MoonDimensionSpecialEffects extends DimensionSpecialEffects {
 
     private final Minecraft minecraft = Minecraft.getInstance();
 
-    private static final ResourceLocation SUN_LOCATION = ResourceLocation.withDefaultNamespace("textures/environment/sun.png");
+    private static final ResourceLocation SUN_LOCATION = ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID,"textures/environment/moon/sun.png");
     private static final ResourceLocation EARTH_LOCATION = ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "textures/environment/moon/earth.png");
-    private static final ResourceLocation SKY_LOCATION = ResourceLocation.withDefaultNamespace("end_sky");
+    private static final ResourceLocation SKY_LOCATION = ResourceLocation.fromNamespaceAndPath(Spacetechmod.MOD_ID, "textures/environment/moon/moon_sky.png");
 
     public MoonDimensionSpecialEffects() {
-        super(Float.NaN, true, SkyType.NORMAL, false, true);
+        super(Float.NaN, true, SkyType.END, false, true);
     }
 
-    public Vec3 getBrightnessDependentFogColor(Vec3 pFogColor, float pBrightness) {
+    public Vec3 getBrightnessDependentFogColor(Vec3 color, float brightness) {
         return Vec3.ZERO;
     }
 
@@ -26,7 +32,6 @@ public class MoonDimensionSpecialEffects extends DimensionSpecialEffects {
         return false;
     }
 
-    /*
     public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
         PoseStack posestack = new PoseStack();
         posestack.mulPose(modelViewMatrix);
@@ -53,7 +58,7 @@ public class MoonDimensionSpecialEffects extends DimensionSpecialEffects {
             posestack.popPose();
         }
 
-        RenderSystem.depthMask(true);
+        RenderSystem.depthMask(false); // fixed it!
         RenderSystem.disableBlend();
         posestack.pushPose();
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -89,5 +94,4 @@ public class MoonDimensionSpecialEffects extends DimensionSpecialEffects {
         RenderSystem.depthMask(true);
         return true;
     }
-     */
 }

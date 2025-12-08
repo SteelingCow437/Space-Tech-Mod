@@ -7,6 +7,7 @@ import com.spacetechmod.util.ModLists;
 import com.spacetechmod.util.ModMultiBlockStructures;
 import com.spacetechmod.world.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -64,15 +65,9 @@ public class OrbitalMarkerItem extends Item {
             Block block = moon.getBlockState(pos).getBlock();
             if (!moon.isClientSide && !player.level().isClientSide) {
                 switch (ModLists.ORBITAL_CORES.indexOf(block)) {
-                    case 0 -> {
-                        orbitalTntCannon(moon, pos, block, dropPos, player);
-                        player.getItemInHand(usedHand).shrink(1);
-                    }
+                    case 0 -> orbitalTntCannon(moon, pos, block, dropPos, player, usedHand);
 
-                    case 1 -> {
-                        orbitalFlameCannon(moon, pos, block, dropPos, player);
-                        player.getItemInHand(usedHand).shrink(1);
-                    }
+                    case 1 -> orbitalFlameCannon(moon, pos, block, dropPos, player, usedHand);
 
                     default -> player.sendSystemMessage(Component.literal("Cannon core is missing!"));
                 }
@@ -82,20 +77,22 @@ public class OrbitalMarkerItem extends Item {
         return InteractionResultHolder.fail(player.getMainHandItem());
     }
 
-    private void orbitalTntCannon(ServerLevel level, BlockPos pos, Block block, BlockPos dropPos, Player player) {
+    private void orbitalTntCannon(ServerLevel level, BlockPos pos, Block block, BlockPos dropPos, Player player, InteractionHand usedHand) {
         setPos = dropPos;
         if(((OrbitalTNTCoreBlock) block).isStructureValid(ModMultiBlockStructures.ORBITAL_TNT_CANNON, level, pos)) {
             tntCannonActive = true;
+            player.getItemInHand(usedHand).shrink(1);
         }
         else {
             player.sendSystemMessage(Component.literal("Cannon is incomplete!"));
         }
     }
 
-    private void orbitalFlameCannon(ServerLevel level, BlockPos pos, Block block, BlockPos dropPos, Player player) {
+    private void orbitalFlameCannon(ServerLevel level, BlockPos pos, Block block, BlockPos dropPos, Player player, InteractionHand usedHand) {
         setPos = dropPos;
-        if(((OrbitalFlameCoreBlock) block).isStructureValid(ModMultiBlockStructures.ORBITAL_FLAME_CANNON, level, pos)) {
+        if(((OrbitalFlameCoreBlock) block).isStructureValid(ModMultiBlockStructures.ORBITAL_FLAME_CANNON, level, pos)) { //stack.get(ModDataStorage.ORBITAL_CANNON_DIRECTION)
             flameCannonActive = true;
+            player.getItemInHand(usedHand).shrink(1);
         }
         else {
             player.sendSystemMessage(Component.literal("Cannon is incomplete!"));
