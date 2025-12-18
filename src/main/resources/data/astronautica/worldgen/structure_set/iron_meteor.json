@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:iron_meteor",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 152697,
+    "frequency": 0.8,
+    "spacing": 80,
+    "separation": 64,
+    "type": "minecraft:random_spread"
+  }
+}

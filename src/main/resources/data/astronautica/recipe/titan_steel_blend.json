@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "titan_steel_blend",
+  "ingredients": [
+    {
+      "item": "astronautica:steel_blend"
+    },
+    {
+      "item": "astronautica:titanium_powder"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "astronautica:titan_steel_blend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "astronautica:block/steel_deco_block",
+    "side": "astronautica:block/air_machine_side",
+    "top": "astronautica:block/air_machine_top"
+  }
+}

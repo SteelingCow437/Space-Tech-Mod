@@ -1,7 +1,7 @@
 {
   "values": [
-    "spacetechmod:aquamarine_ore",
-    "spacetechmod:stargate_core",
-    "spacetechmod:stargate_frame"
+    "astronautica:aquamarine_ore",
+    "astronautica:stargate_core",
+    "astronautica:stargate_frame"
   ]
 }

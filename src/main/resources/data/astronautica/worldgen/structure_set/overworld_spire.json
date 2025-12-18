@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:overworld_spire",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 179446,
+    "spacing": 32,
+    "separation": 24,
+    "type": "minecraft:random_spread"
+  }
+}

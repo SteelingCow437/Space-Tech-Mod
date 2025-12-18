@@ -1,9 +1,9 @@
 {
   "values": [
-    "spacetechmod:titanium_block",
-    "spacetechmod:raw_titanium_block",
-    "spacetechmod:titanium_ore",
-    "spacetechmod:titanium_ore_deepslate",
-    "spacetechmod:enriched_moon_rock"
+    "astronautica:titanium_block",
+    "astronautica:raw_titanium_block",
+    "astronautica:titanium_ore",
+    "astronautica:titanium_ore_deepslate",
+    "astronautica:enriched_moon_rock"
   ]
 }

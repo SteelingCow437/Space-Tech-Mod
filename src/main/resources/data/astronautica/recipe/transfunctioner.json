@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:aquamarine_resonator"
+    },
+    "*": {
+      "item": "astronautica:red_coil"
+    },
+    "$": {
+      "item": "astronautica:titan_steel_ingot"
+    }
+  },
+  "pattern": [
+    "$*$",
+    "*#*",
+    "$*$"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:transfunctioner"
+  }
+}

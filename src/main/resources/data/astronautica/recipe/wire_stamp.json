@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wire_stamp",
+  "ingredients": [
+    {
+      "item": "astronautica:blank_stamp"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:wire_stamp"
+  }
+}

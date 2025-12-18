@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "ingot_stamp",
+  "ingredients": [
+    {
+      "item": "astronautica:blank_stamp"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:ingot_stamp"
+  }
+}

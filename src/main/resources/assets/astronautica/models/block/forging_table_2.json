@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/oak_planks",
+    "side": "astronautica:block/forging_table_side",
+    "top": "astronautica:block/forging_table_wire"
+  }
+}

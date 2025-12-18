@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "raw_titanium",
+  "ingredients": [
+    {
+      "item": "astronautica:raw_titanium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "astronautica:raw_titanium"
+  }
+}

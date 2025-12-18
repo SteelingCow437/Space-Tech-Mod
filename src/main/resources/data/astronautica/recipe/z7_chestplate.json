@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "*": {
+      "item": "astronautica:bronze_ingot"
+    },
+    "$": {
+      "item": "astronautica:spacesuit_chestplate"
+    },
+    "&": {
+      "item": "astronautica:byzanium_ingot"
+    },
+    "^": {
+      "item": "astronautica:aquamarine_resonator"
+    }
+  },
+  "pattern": [
+    "&^&",
+    "#$#",
+    "*&*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:z7_chestplate"
+  }
+}

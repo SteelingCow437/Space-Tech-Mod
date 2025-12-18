@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "iron_ingot",
+  "ingredient": {
+    "item": "astronautica:enriched_moon_rock"
+  },
+  "result": {
+    "count": 1,
+    "id": "astronautica:mineral_clump"
+  }
+}

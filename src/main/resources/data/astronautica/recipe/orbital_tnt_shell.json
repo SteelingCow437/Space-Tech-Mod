@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:orbital_casing"
+    },
+    "*": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    "***"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:orbital_tnt_shell"
+  }
+}

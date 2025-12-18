@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "astronautica:moon_biome",
+  "features": "astronautica:enriched_stone_placed",
+  "step": "underground_ores"
+}

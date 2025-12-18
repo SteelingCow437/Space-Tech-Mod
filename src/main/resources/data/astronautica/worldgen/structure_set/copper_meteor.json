@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:copper_meteor",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 148724,
+    "frequency": 0.8,
+    "spacing": 80,
+    "separation": 64,
+    "type": "minecraft:random_spread"
+  }
+}

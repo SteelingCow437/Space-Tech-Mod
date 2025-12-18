@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "stamp=0": {
+      "model": "astronautica:block/forging_table_0"
+    },
+    "stamp=1": {
+      "model": "astronautica:block/forging_table_1"
+    },
+    "stamp=2": {
+      "model": "astronautica:block/forging_table_2"
+    },
+    "stamp=3": {
+      "model": "astronautica:block/forging_table_3"
+    }
+  }
+}

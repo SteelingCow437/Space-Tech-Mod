@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "*": {
+      "item": "minecraft:compass"
+    },
+    "%": {
+      "item": "astronautica:titan_steel_ingot"
+    }
+  },
+  "pattern": [
+    "%%%",
+    "#*#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:planet_directory"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:transfunctioner"
+    },
+    "*": {
+      "item": "astronautica:titan_steel_plate"
+    },
+    "$": {
+      "item": "minecraft:diamond"
+    },
+    "@": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    "*@*",
+    "$#$",
+    "*@*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:warp_drive"
+  }
+}

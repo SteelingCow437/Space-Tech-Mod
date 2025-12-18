@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "charged=false": {
+      "model": "astronautica:block/tnt_compressor_off"
+    },
+    "charged=true": {
+      "model": "astronautica:block/tnt_compressor_on"
+    }
+  }
+}

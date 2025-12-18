@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:steel_plate"
+    },
+    "*": {
+      "item": "minecraft:redstone_block"
+    },
+    "%": {
+      "item": "astronautica:copper_redstide_ingot"
+    }
+  },
+  "pattern": [
+    "%#%",
+    "#*#",
+    "%#%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:orbital_tnt_core"
+  }
+}

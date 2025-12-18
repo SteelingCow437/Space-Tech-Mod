@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:byzanium_vault",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 184604,
+    "spacing": 64,
+    "separation": 48,
+    "type": "minecraft:random_spread"
+  }
+}

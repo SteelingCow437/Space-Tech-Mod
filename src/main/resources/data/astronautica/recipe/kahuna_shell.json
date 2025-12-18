@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:steel_plate"
+    },
+    "*": {
+      "item": "astronautica:bronze_plate"
+    },
+    "$": {
+      "item": "astronautica:titan_steel_plate"
+    }
+  },
+  "pattern": [
+    " * ",
+    "$#$",
+    "$#$"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:kahuna_shell"
+  }
+}

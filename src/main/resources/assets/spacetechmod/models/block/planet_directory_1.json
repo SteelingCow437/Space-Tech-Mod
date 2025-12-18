@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "minecraft:block/dark_oak_planks",
-    "side": "spacetechmod:block/star_map_side",
-    "top": "spacetechmod:block/star_map_top_moon"
-  }
-}

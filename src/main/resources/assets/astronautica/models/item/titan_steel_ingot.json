@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "astronautica:item/titan_steel_ingot"
+  }
+}

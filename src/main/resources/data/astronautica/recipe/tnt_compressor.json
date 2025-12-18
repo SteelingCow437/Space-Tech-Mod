@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:copper_redstide_ingot"
+    },
+    "*": {
+      "item": "minecraft:piston"
+    },
+    "$": {
+      "item": "astronautica:bronze_plate"
+    }
+  },
+  "pattern": [
+    "$#$",
+    "$*$",
+    "$#$"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:tnt_compressor"
+  }
+}

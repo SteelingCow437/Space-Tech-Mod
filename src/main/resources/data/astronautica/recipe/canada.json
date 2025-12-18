@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:paper"
+    },
+    "*": {
+      "item": "minecraft:oak_leaves"
+    }
+
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    "***"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:canada"
+  }
+}

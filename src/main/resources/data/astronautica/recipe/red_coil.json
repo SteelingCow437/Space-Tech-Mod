@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:iron_plate"
+    },
+    "*": {
+      "item": "astronautica:copper_redstide_wiring"
+    }
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    "***"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:red_coil"
+  }
+}

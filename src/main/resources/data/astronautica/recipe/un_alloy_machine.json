@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:steel_ingot"
+    },
+    "*": {
+      "item": "astronautica:tin_ingot"
+    },
+    "$": {
+      "item": "astronautica:copper_redstide_ingot"
+    },
+    "@": {
+      "item": "astronautica:copper_coil"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "@$@",
+    "#*#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:un_alloy_machine"
+  }
+}

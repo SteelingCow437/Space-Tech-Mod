@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:turtle_helmet"
+    },
+    "*": {
+      "item": "astronautica:aquamarine"
+    }
+  },
+  "pattern": [
+    "###",
+    "* *",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:turtle_master_leggings"
+  }
+}

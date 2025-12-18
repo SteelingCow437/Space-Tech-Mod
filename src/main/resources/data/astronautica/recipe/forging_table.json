@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:titanium_ingot"
+    },
+    "$": {
+      "item": "astronautica:tin_ingot"
+    },
+    "*": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "pattern": [
+    "#$#",
+    "$*$",
+    "#$#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:forging_table"
+  }
+}

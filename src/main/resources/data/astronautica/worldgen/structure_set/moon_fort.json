@@ -1,0 +1,20 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:moon_fort",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 112395,
+    "frequency": 0.2,
+    "spacing": 96,
+    "separation": 90,
+    "spread_type": "triangular"
+  },
+  "exclusion_zone": {
+    "chunk_count": 16,
+    "other_set": "astronautica:moon_pyramid"
+  }
+}

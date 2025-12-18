@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:steel_plate"
+    },
+    "*": {
+      "item": "minecraft:end_crystal"
+    },
+    "%": {
+      "item": "astronautica:copper_redstide_ingot"
+    }
+  },
+  "pattern": [
+    "%#%",
+    "#*#",
+    "%#%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:orbital_flame_core"
+  }
+}

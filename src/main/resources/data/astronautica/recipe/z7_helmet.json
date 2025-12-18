@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "*": {
+      "item": "astronautica:bronze_ingot"
+    },
+    "$": {
+      "item": "astronautica:spacesuit_helmet"
+    },
+    "&": {
+      "item": "astronautica:byzanium_ingot"
+    }
+  },
+  "pattern": [
+    "&*&",
+    "#$#",
+    "*&*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:z7_helmet"
+  }
+}

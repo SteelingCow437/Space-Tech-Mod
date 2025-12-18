@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:quartz"
+    },
+    "*": {
+      "item": "astronautica:steel_deco_block"
+    },
+    "%": {
+      "item": "astronautica:red_coil"
+    },
+    "$": {
+      "item": "astronautica:bronze_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "%$%",
+    "%*%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:resource_radar"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "astronautica:titan_steel_ingot"
+    },
+    "*": {
+      "item": "astronautica:bronze_plate"
+    }
+  },
+  "pattern": [
+    "###",
+    "#*#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:spacesuit_helmet"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "astronautica:block/resource_radar" }
+  }
+}

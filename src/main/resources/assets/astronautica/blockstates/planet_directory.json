@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "selected_planet=0": {
+      "model": "astronautica:block/planet_directory_0"
+    },
+    "selected_planet=1": {
+      "model": "astronautica:block/planet_directory_1"
+    }
+  }
+}

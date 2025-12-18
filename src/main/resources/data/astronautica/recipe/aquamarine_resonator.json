@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:aquamarine"
+    },
+    "*": {
+      "item": "astronautica:byzanium_ingot"
+    },
+    "$": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "$*$",
+    "*#*",
+    "$*$"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:aquamarine_resonator"
+  }
+}

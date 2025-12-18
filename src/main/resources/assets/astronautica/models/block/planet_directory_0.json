@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/dark_oak_planks",
+    "side": "astronautica:block/star_map_side",
+    "top": "astronautica:block/star_map_top_earth"
+  }
+}

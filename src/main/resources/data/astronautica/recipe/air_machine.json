@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "astronautica:steel_ingot"
+    },
+    "*": {
+      "item": "astronautica:bronze_plate"
+    },
+    "$": {
+      "tag": "minecraft:leaves"
+    },
+    "%": {
+      "item": "astronautica:copper_redstide_ingot"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "#$#",
+    "#%#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "astronautica:air_machine"
+  }
+}

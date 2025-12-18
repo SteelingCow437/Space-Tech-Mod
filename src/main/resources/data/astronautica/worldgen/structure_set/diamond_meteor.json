@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "astronautica:diamond_meteor",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 171689,
+    "frequency": 0.2,
+    "spacing": 80,
+    "separation": 64,
+    "type": "minecraft:random_spread"
+  }
+}

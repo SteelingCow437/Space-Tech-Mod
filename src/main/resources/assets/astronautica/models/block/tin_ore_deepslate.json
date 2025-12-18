@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "astronautica:block/tin_ore_deepslate"
+  }
+}
